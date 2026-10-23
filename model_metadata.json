@@ -1,0 +1,349 @@
+{
+  "evaluation_metrics": {
+    "class_imbalance": {
+      "test": {
+        "fraud_count": 132,
+        "fraud_prevalence": 0.0176,
+        "rows": 7500
+      },
+      "train": {
+        "fraud_count": 620,
+        "fraud_prevalence": 0.017714285714285714,
+        "rows": 35000
+      },
+      "validation": {
+        "fraud_count": 119,
+        "fraud_prevalence": 0.015866666666666668,
+        "rows": 7500
+      }
+    },
+    "model_version": "1.0.0-exp000",
+    "onnx_parity": {
+      "absolute_tolerance": 1e-05,
+      "maximum_absolute_difference": 8.461006143975491e-08,
+      "passed": true,
+      "relative_tolerance": 0.0001,
+      "samples": 512
+    },
+    "operating_point": {
+      "probability_threshold": 0.06729906797409058,
+      "selection": "validation scores; target 1% rejection rate",
+      "validation_precision": 0.06666666666666667,
+      "validation_recall": 0.04201680672268908,
+      "validation_rejection_rate": 0.01
+    },
+    "prediction_latency": {
+      "measurement": "single-row ONNX Runtime CPU session.run; warmed; excludes transport",
+      "p50_microseconds": 29.2,
+      "p95_microseconds": 45.5,
+      "samples": 2000
+    },
+    "random_seed": 20261023,
+    "split_method": "chronological 70% / 15% / 15% by timestamp; no shuffling",
+    "splits": {
+      "test": {
+        "average_precision": 0.0383108149155212,
+        "fraud_count": 132,
+        "fraud_prevalence": 0.0176,
+        "precision_recall_at_rejection_rates": {
+          "0.5%": {
+            "precision": 0.07894736842105263,
+            "recall": 0.022727272727272728,
+            "rejection_rate": 0.005066666666666666
+          },
+          "1.0%": {
+            "precision": 0.06666666666666667,
+            "recall": 0.03787878787878788,
+            "rejection_rate": 0.01
+          },
+          "2.0%": {
+            "precision": 0.07333333333333333,
+            "recall": 0.08333333333333333,
+            "rejection_rate": 0.02
+          },
+          "5.0%": {
+            "precision": 0.048,
+            "recall": 0.13636363636363635,
+            "rejection_rate": 0.05
+          }
+        },
+        "roc_auc": 0.6958828924423386,
+        "rows": 7500,
+        "score_quantiles": {
+          "max": 0.4156903922557831,
+          "min": 0.0036336183547973633,
+          "p25": 0.010104872286319733,
+          "p50": 0.01466226577758789,
+          "p75": 0.021480515599250793,
+          "p90": 0.03074832856655121,
+          "p95": 0.03923103511333464,
+          "p99": 0.06411462783813482
+        }
+      },
+      "train": {
+        "average_precision": 0.042674101883121755,
+        "fraud_count": 620,
+        "fraud_prevalence": 0.017714285714285714,
+        "precision_recall_at_rejection_rates": {
+          "0.5%": {
+            "precision": 0.09142857142857143,
+            "recall": 0.025806451612903226,
+            "rejection_rate": 0.005
+          },
+          "1.0%": {
+            "precision": 0.10571428571428572,
+            "recall": 0.05967741935483871,
+            "rejection_rate": 0.01
+          },
+          "2.0%": {
+            "precision": 0.08571428571428572,
+            "recall": 0.0967741935483871,
+            "rejection_rate": 0.02
+          },
+          "5.0%": {
+            "precision": 0.060571428571428575,
+            "recall": 0.17096774193548386,
+            "rejection_rate": 0.05
+          }
+        },
+        "roc_auc": 0.6734143772636004,
+        "rows": 35000,
+        "score_quantiles": {
+          "max": 0.5899829864501953,
+          "min": 0.0034446418285369873,
+          "p25": 0.009949944913387299,
+          "p50": 0.014436587691307068,
+          "p75": 0.021317042410373688,
+          "p90": 0.03067494928836823,
+          "p95": 0.03903628885746001,
+          "p99": 0.06616220057010666
+        }
+      },
+      "validation": {
+        "average_precision": 0.031138902841318268,
+        "fraud_count": 119,
+        "fraud_prevalence": 0.015866666666666668,
+        "precision_recall_at_rejection_rates": {
+          "0.5%": {
+            "precision": 0.07894736842105263,
+            "recall": 0.025210084033613446,
+            "rejection_rate": 0.005066666666666666
+          },
+          "1.0%": {
+            "precision": 0.06666666666666667,
+            "recall": 0.04201680672268908,
+            "rejection_rate": 0.01
+          },
+          "2.0%": {
+            "precision": 0.06666666666666667,
+            "recall": 0.08403361344537816,
+            "rejection_rate": 0.02
+          },
+          "5.0%": {
+            "precision": 0.032,
+            "recall": 0.10084033613445378,
+            "rejection_rate": 0.05
+          }
+        },
+        "roc_auc": 0.6593018185461423,
+        "rows": 7500,
+        "score_quantiles": {
+          "max": 0.8999024629592896,
+          "min": 0.003511667251586914,
+          "p25": 0.010128587484359741,
+          "p50": 0.014581754803657532,
+          "p75": 0.02147757261991501,
+          "p90": 0.030674031376838683,
+          "p95": 0.039399693906307216,
+          "p99": 0.06725035190582278
+        }
+      }
+    },
+    "test_at_validation_threshold": {
+      "probability_threshold_selected_on_validation": 0.06729906797409058,
+      "test_precision": 0.058823529411764705,
+      "test_recall": 0.030303030303030304,
+      "test_rejection_rate": 0.009066666666666667
+    }
+  },
+  "feature_order": [
+    "amount",
+    "account_age_days",
+    "transactions_last_24h",
+    "distance_from_home_km",
+    "device_age_days",
+    "country_mismatch",
+    "card_present",
+    "channel_code",
+    "merchant_category_code"
+  ],
+  "input_schema": {
+    "account_age_days": {
+      "description": "Age of the account",
+      "missing_behavior": "imputed with training median before standardization",
+      "nullable": true,
+      "shape": [
+        "batch",
+        1
+      ],
+      "tensor_type": "float32",
+      "unit_or_values": "days; nonnegative value"
+    },
+    "amount": {
+      "description": "Transaction amount",
+      "missing_behavior": "imputed with training median before standardization",
+      "nullable": true,
+      "shape": [
+        "batch",
+        1
+      ],
+      "tensor_type": "float32",
+      "unit_or_values": "USD; finite nonnegative value"
+    },
+    "card_present": {
+      "description": "Whether the physical card was present",
+      "missing_behavior": "imputed with training median before standardization",
+      "nullable": true,
+      "shape": [
+        "batch",
+        1
+      ],
+      "tensor_type": "float32",
+      "unit_or_values": "0 or 1"
+    },
+    "channel_code": {
+      "category_codes": {
+        "0": "ecommerce",
+        "1": "in_store",
+        "2": "mobile"
+      },
+      "description": "Transaction channel code",
+      "missing_behavior": "imputed to -1 and encoded as the reserved missing category",
+      "nullable": true,
+      "shape": [
+        "batch",
+        1
+      ],
+      "tensor_type": "float32",
+      "unit_or_values": "integer category code"
+    },
+    "country_mismatch": {
+      "description": "Whether transaction country differs from account country",
+      "missing_behavior": "imputed with training median before standardization",
+      "nullable": true,
+      "shape": [
+        "batch",
+        1
+      ],
+      "tensor_type": "float32",
+      "unit_or_values": "0 or 1"
+    },
+    "device_age_days": {
+      "description": "Age of the device",
+      "missing_behavior": "imputed with training median before standardization",
+      "nullable": true,
+      "shape": [
+        "batch",
+        1
+      ],
+      "tensor_type": "float32",
+      "unit_or_values": "days; nonnegative value"
+    },
+    "distance_from_home_km": {
+      "description": "Transaction distance from home",
+      "missing_behavior": "imputed with training median before standardization",
+      "nullable": true,
+      "shape": [
+        "batch",
+        1
+      ],
+      "tensor_type": "float32",
+      "unit_or_values": "kilometers; nonnegative value"
+    },
+    "merchant_category_code": {
+      "category_codes": {
+        "0": "grocery",
+        "1": "fuel",
+        "2": "electronics",
+        "3": "travel",
+        "4": "digital_goods"
+      },
+      "description": "Merchant category code",
+      "missing_behavior": "imputed to -1 and encoded as the reserved missing category",
+      "nullable": true,
+      "shape": [
+        "batch",
+        1
+      ],
+      "tensor_type": "float32",
+      "unit_or_values": "integer category code"
+    },
+    "transactions_last_24h": {
+      "description": "Recent transaction count",
+      "missing_behavior": "imputed with training median before standardization",
+      "nullable": true,
+      "shape": [
+        "batch",
+        1
+      ],
+      "tensor_type": "float32",
+      "unit_or_values": "count; nonnegative integer"
+    }
+  },
+  "integration_contract": {
+    "input": "one request or batch of float32 values in feature_order; null becomes NaN",
+    "output": "fraud_probability and model_version; decision is optional and threshold-configurable",
+    "risk_decision_separation": "return the risk score independently; do not hard-code approve/reject into the model",
+    "runtime": "ONNX Runtime CPU; scikit-learn is not required for inference"
+  },
+  "model_type": "scikit-learn LogisticRegression; exported to ONNX",
+  "model_version": "1.0.0-exp000",
+  "output_schema": {
+    "decision": "optional; fraud_probability >= configured threshold",
+    "fraud_probability": {
+      "meaning": "estimated probability of the positive is_fraud class",
+      "range": [
+        0.0,
+        1.0
+      ],
+      "type": "float32"
+    },
+    "model_version": "1.0.0-exp000",
+    "onnx_label_tensor": {
+      "name": "label",
+      "note": "Classifier output only; use the probability and service-configured policy for decisions.",
+      "shape": [
+        "batch"
+      ],
+      "type": "int64"
+    },
+    "onnx_probability_tensor": {
+      "class_order": [
+        0,
+        1
+      ],
+      "fraud_probability_column": 1,
+      "name": "probabilities",
+      "shape": [
+        "batch",
+        2
+      ],
+      "type": "float32"
+    }
+  },
+  "preprocessing": {
+    "categorical": "missing sentinel -1 followed by OneHotEncoder; unknown codes ignored",
+    "class_imbalance_handling": "measured; no resampling or class weighting to preserve probability semantics",
+    "classifier": "C=1.0, lbfgs, max_iter=1000, no class weighting",
+    "numeric": "median imputation followed by StandardScaler",
+    "timestamp": "used only for chronological splitting; excluded from model inputs"
+  },
+  "training_data_provenance": {
+    "file": "data/synthetic_transactions.csv",
+    "label_assumptions": "sampled from a seeded logistic risk function of transaction features",
+    "limitations": "not real-world data; feature distributions and fraud mechanisms are illustrative",
+    "random_seed": 20261023,
+    "rows": 50000,
+    "source": "deterministically generated synthetic dataset"
+  }
+}

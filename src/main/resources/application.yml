@@ -1,0 +1,29 @@
+server:
+  port: ${SERVER_PORT:8080}
+  shutdown: graceful
+
+spring:
+  lifecycle:
+    timeout-per-shutdown-phase: 25s
+
+fraud:
+  model:
+    path: ${FRAUD_MODEL_PATH:./fraud_model.onnx}
+    metadata-path: ${FRAUD_MODEL_METADATA_PATH:./model_metadata.json}
+  decision:
+    review-threshold: ${FRAUD_REVIEW_THRESHOLD:0.06729906797409058}
+
+management:
+  endpoint:
+    health:
+      probes:
+        enabled: true
+      group:
+        liveness:
+          include: livenessState
+        readiness:
+          include: readinessState,model
+  endpoints:
+    web:
+      exposure:
+        include: health,metrics

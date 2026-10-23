@@ -1,0 +1,83 @@
+{
+  "source": "Python ONNX Runtime against the unchanged EXP-000 fraud_model.onnx",
+  "model_version": "1.0.0-exp000",
+  "absolute_tolerance": 1e-05,
+  "relative_tolerance": 0.0001,
+  "cases": [
+    {
+      "name": "typical",
+      "features": {
+        "amount": 250.0,
+        "account_age_days": 120,
+        "transactions_last_24h": 5,
+        "distance_from_home_km": 150.0,
+        "device_age_days": 30,
+        "country_mismatch": 1,
+        "card_present": 0,
+        "channel_code": 0,
+        "merchant_category_code": 2
+      },
+      "fraud_probability": 0.23597344756126404
+    },
+    {
+      "name": "high_risk",
+      "features": {
+        "amount": 1800.0,
+        "account_age_days": 9,
+        "transactions_last_24h": 7,
+        "distance_from_home_km": 250.0,
+        "device_age_days": 2,
+        "country_mismatch": 1,
+        "card_present": 0,
+        "channel_code": 2,
+        "merchant_category_code": 4
+      },
+      "fraud_probability": 0.9930034279823303
+    },
+    {
+      "name": "missing_numerical",
+      "features": {
+        "amount": null,
+        "account_age_days": 60,
+        "transactions_last_24h": 1,
+        "distance_from_home_km": 0.0,
+        "device_age_days": null,
+        "country_mismatch": 0,
+        "card_present": 0,
+        "channel_code": 1,
+        "merchant_category_code": 0
+      },
+      "fraud_probability": 0.009561717510223389
+    },
+    {
+      "name": "unknown_categories",
+      "features": {
+        "amount": 75.0,
+        "account_age_days": 750,
+        "transactions_last_24h": 3,
+        "distance_from_home_km": 12.0,
+        "device_age_days": 400,
+        "country_mismatch": 0,
+        "card_present": 1,
+        "channel_code": 99,
+        "merchant_category_code": 88
+      },
+      "fraud_probability": 0.03944578766822815
+    },
+    {
+      "name": "extreme_valid",
+      "features": {
+        "amount": 1000000.0,
+        "account_age_days": 4000,
+        "transactions_last_24h": 100,
+        "distance_from_home_km": 100000.0,
+        "device_age_days": 10000,
+        "country_mismatch": 1,
+        "card_present": 0,
+        "channel_code": 0,
+        "merchant_category_code": 4
+      },
+      "fraud_probability": 1.0
+    }
+  ]
+}

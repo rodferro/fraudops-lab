@@ -1,0 +1,96 @@
+package com.fraudops;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+class FraudApiIntegrationTest {
+    @Autowired
+    private TestRestTemplate restTemplate;
+
+    @Autowired
+    private ObjectMapper objectMapper;
+
+    @Test
+    void startsWithModelAndReturnsPredictionAndProbeHealth() throws Exception {
+        ResponseEntity<String> prediction = postPrediction(validJson());
+        assertEquals(200, prediction.getStatusCode().value());
+        JsonNode response = objectMapper.readTree(prediction.getBody());
+        assertTrue(response.path("fraud_probability").asDouble() >= 0.0);
+        assertTrue(response.path("fraud_probability").asDouble() <= 1.0);
+        assertEquals("1.0.0-exp000", response.path("model_version").asText());
+        assertTrue(List.of("review", "approve").contains(response.path("decision").asText()));
+
+        assertEquals(200, restTemplate.getForEntity("/actuator/health", String.class).getStatusCode().value());
+        assertEquals(200, restTemplate.getForEntity("/actuator/health/liveness", String.class).getStatusCode().value());
+        assertEquals(200, restTemplate.getForEntity("/actuator/health/readiness", String.class).getStatusCode().value());
+    }
+
+    @Test
+    void returnsStructuredErrorsForInvalidJsonAndFeatures() {
+        ResponseEntity<String> malformed = postPrediction("{oops");
+        assertEquals(400, malformed.getStatusCode().value());
+        assertTrue(malformed.getBody().contains("INVALID_JSON"));
+
+        ResponseEntity<String> wrongType = postPrediction(validJson().replace("\"amount\":250.0", "\"amount\":\"not-a-number\""));
+        assertEquals(400, wrongType.getStatusCode().value());
+        assertTrue(wrongType.getBody().contains("INVALID_JSON"));
+
+        ResponseEntity<String> invalid = postPrediction(validJson().replace("\"amount\":250.0", "\"amount\":-1.0"));
+        assertEquals(400, invalid.getStatusCode().value());
+        assertTrue(invalid.getBody().contains("INVALID_FEATURES"));
+    }
+
+    @Test
+    void rejectsMissingRequestBodyWithStructuredError() {
+        ResponseEntity<String> response = restTemplate.postForEntity("/api/v1/predict", HttpEntity.EMPTY, String.class);
+
+        assertEquals(400, response.getStatusCode().value());
+        assertTrue(response.getBody().contains("MISSING_REQUEST_BODY"));
+    }
+
+    @Test
+    void handlesConcurrentInferenceRequests() throws Exception {
+        try (var executor = Executors.newFixedThreadPool(12)) {
+            List<Future<ResponseEntity<String>>> results = new ArrayList<>();
+            for (int index = 0; index < 96; index++) {
+                results.add(executor.submit(() -> postPrediction(validJson())));
+            }
+            for (Future<ResponseEntity<String>> result : results) {
+                assertEquals(200, result.get().getStatusCode().value());
+            }
+        }
+    }
+
+    private ResponseEntity<String> postPrediction(String json) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        return restTemplate.exchange("/api/v1/predict", HttpMethod.POST,
+                new HttpEntity<>(json, headers), String.class);
+    }
+
+    private String validJson() {
+        return """
+                {"amount":250.0,"account_age_days":120,"transactions_last_24h":5,
+                 "distance_from_home_km":150.0,"device_age_days":30,"country_mismatch":1,
+                 "card_present":0,"channel_code":0,"merchant_category_code":2}
+                """;
+    }
+}
