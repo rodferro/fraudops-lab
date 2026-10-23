@@ -36,6 +36,8 @@ COPY --from=build --chown=0:0 --chmod=0444 \
 COPY --from=build --chown=0:0 --chmod=0444 \
     /healthcheck/HealthCheck.class /opt/healthcheck/HealthCheck.class
 
+RUN chmod 755 /app /app/model /opt /opt/healthcheck
+
 ENV SERVER_PORT=8080 \
     FRAUD_MODEL_PATH=/app/model/fraud_model.onnx \
     FRAUD_MODEL_METADATA_PATH=/app/model/model_metadata.json \

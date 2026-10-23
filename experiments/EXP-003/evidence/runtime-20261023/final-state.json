@@ -1,0 +1,360 @@
+{
+  "at": "2026-10-23T17:28:26.265834+00:00",
+  "pods": [
+    {
+      "name": "fraudops-api-549f98757f-5x7c7",
+      "uid": "3bab58dc-2d68-43f6-b0d3-cc1dd653143a",
+      "created": "2026-10-23T17:27:59Z",
+      "deleting": null,
+      "phase": "Running",
+      "ready": true,
+      "conditions": [
+        {
+          "lastProbeTime": null,
+          "lastTransitionTime": "2026-10-23T17:27:59Z",
+          "observedGeneration": 1,
+          "status": "True",
+          "type": "PodReadyToStartContainers"
+        },
+        {
+          "lastProbeTime": null,
+          "lastTransitionTime": "2026-10-23T17:27:59Z",
+          "observedGeneration": 1,
+          "status": "True",
+          "type": "Initialized"
+        },
+        {
+          "lastProbeTime": null,
+          "lastTransitionTime": "2026-10-23T17:28:03Z",
+          "observedGeneration": 1,
+          "status": "True",
+          "type": "Ready"
+        },
+        {
+          "lastProbeTime": null,
+          "lastTransitionTime": "2026-10-23T17:28:03Z",
+          "observedGeneration": 1,
+          "status": "True",
+          "type": "ContainersReady"
+        },
+        {
+          "lastProbeTime": null,
+          "lastTransitionTime": "2026-10-23T17:27:59Z",
+          "observedGeneration": 1,
+          "status": "True",
+          "type": "PodScheduled"
+        }
+      ],
+      "image": "fraudops-api:exp003-r1",
+      "containers": [
+        {
+          "allocatedResources": {
+            "cpu": "250m",
+            "memory": "256Mi"
+          },
+          "containerID": "containerd://1ffbbc304b9803bc1fece7aba95c9143a47517587bc46e7a1e075826eaa3326b",
+          "image": "docker.io/library/fraudops-api:exp003-r1",
+          "imageID": "sha256:01f6bd0d7f34529ba645c0edb9adec26583a368f0dc27e18a0f6aa0402a6263e",
+          "lastState": {},
+          "name": "api",
+          "ready": true,
+          "resources": {
+            "limits": {
+              "cpu": "1",
+              "memory": "512Mi"
+            },
+            "requests": {
+              "cpu": "250m",
+              "memory": "256Mi"
+            }
+          },
+          "restartCount": 0,
+          "started": true,
+          "state": {
+            "running": {
+              "startedAt": "2026-10-23T17:27:59Z"
+            }
+          },
+          "user": {
+            "linux": {
+              "gid": 10001,
+              "supplementalGroups": [
+                10001
+              ],
+              "uid": 10001
+            }
+          },
+          "volumeMounts": [
+            {
+              "mountPath": "/tmp",
+              "name": "tmp"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fraudops-api-549f98757f-749jd",
+      "uid": "f7a1d91f-65a1-44c2-a832-71e82d44ef6c",
+      "created": "2026-10-23T17:27:49Z",
+      "deleting": null,
+      "phase": "Running",
+      "ready": true,
+      "conditions": [
+        {
+          "lastProbeTime": null,
+          "lastTransitionTime": "2026-10-23T17:27:49Z",
+          "observedGeneration": 1,
+          "status": "True",
+          "type": "PodReadyToStartContainers"
+        },
+        {
+          "lastProbeTime": null,
+          "lastTransitionTime": "2026-10-23T17:27:49Z",
+          "observedGeneration": 1,
+          "status": "True",
+          "type": "Initialized"
+        },
+        {
+          "lastProbeTime": null,
+          "lastTransitionTime": "2026-10-23T17:27:54Z",
+          "observedGeneration": 1,
+          "status": "True",
+          "type": "Ready"
+        },
+        {
+          "lastProbeTime": null,
+          "lastTransitionTime": "2026-10-23T17:27:54Z",
+          "observedGeneration": 1,
+          "status": "True",
+          "type": "ContainersReady"
+        },
+        {
+          "lastProbeTime": null,
+          "lastTransitionTime": "2026-10-23T17:27:49Z",
+          "observedGeneration": 1,
+          "status": "True",
+          "type": "PodScheduled"
+        }
+      ],
+      "image": "fraudops-api:exp003-r1",
+      "containers": [
+        {
+          "allocatedResources": {
+            "cpu": "250m",
+            "memory": "256Mi"
+          },
+          "containerID": "containerd://6ae01144d5714825c75f62a4d97c12a10a0082bbc583fe2bb06d624b8ddc6358",
+          "image": "docker.io/library/fraudops-api:exp003-r1",
+          "imageID": "sha256:01f6bd0d7f34529ba645c0edb9adec26583a368f0dc27e18a0f6aa0402a6263e",
+          "lastState": {},
+          "name": "api",
+          "ready": true,
+          "resources": {
+            "limits": {
+              "cpu": "1",
+              "memory": "512Mi"
+            },
+            "requests": {
+              "cpu": "250m",
+              "memory": "256Mi"
+            }
+          },
+          "restartCount": 0,
+          "started": true,
+          "state": {
+            "running": {
+              "startedAt": "2026-10-23T17:27:50Z"
+            }
+          },
+          "user": {
+            "linux": {
+              "gid": 10001,
+              "supplementalGroups": [
+                10001
+              ],
+              "uid": 10001
+            }
+          },
+          "volumeMounts": [
+            {
+              "mountPath": "/tmp",
+              "name": "tmp"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fraudops-api-549f98757f-dgrfg",
+      "uid": "e454a7b9-4bbe-401d-b241-b3a8e85a32f3",
+      "created": "2026-10-23T17:28:08Z",
+      "deleting": null,
+      "phase": "Running",
+      "ready": true,
+      "conditions": [
+        {
+          "lastProbeTime": null,
+          "lastTransitionTime": "2026-10-23T17:28:08Z",
+          "observedGeneration": 1,
+          "status": "True",
+          "type": "PodReadyToStartContainers"
+        },
+        {
+          "lastProbeTime": null,
+          "lastTransitionTime": "2026-10-23T17:28:08Z",
+          "observedGeneration": 1,
+          "status": "True",
+          "type": "Initialized"
+        },
+        {
+          "lastProbeTime": null,
+          "lastTransitionTime": "2026-10-23T17:28:12Z",
+          "observedGeneration": 1,
+          "status": "True",
+          "type": "Ready"
+        },
+        {
+          "lastProbeTime": null,
+          "lastTransitionTime": "2026-10-23T17:28:12Z",
+          "observedGeneration": 1,
+          "status": "True",
+          "type": "ContainersReady"
+        },
+        {
+          "lastProbeTime": null,
+          "lastTransitionTime": "2026-10-23T17:28:08Z",
+          "observedGeneration": 1,
+          "status": "True",
+          "type": "PodScheduled"
+        }
+      ],
+      "image": "fraudops-api:exp003-r1",
+      "containers": [
+        {
+          "allocatedResources": {
+            "cpu": "250m",
+            "memory": "256Mi"
+          },
+          "containerID": "containerd://d7c68ca0589a7887ce98a64dcff19eb2ce64b4919f99a6813f6e15e3c7595ed9",
+          "image": "docker.io/library/fraudops-api:exp003-r1",
+          "imageID": "sha256:01f6bd0d7f34529ba645c0edb9adec26583a368f0dc27e18a0f6aa0402a6263e",
+          "lastState": {},
+          "name": "api",
+          "ready": true,
+          "resources": {
+            "limits": {
+              "cpu": "1",
+              "memory": "512Mi"
+            },
+            "requests": {
+              "cpu": "250m",
+              "memory": "256Mi"
+            }
+          },
+          "restartCount": 0,
+          "started": true,
+          "state": {
+            "running": {
+              "startedAt": "2026-10-23T17:28:08Z"
+            }
+          },
+          "user": {
+            "linux": {
+              "gid": 10001,
+              "supplementalGroups": [
+                10001
+              ],
+              "uid": 10001
+            }
+          },
+          "volumeMounts": [
+            {
+              "mountPath": "/tmp",
+              "name": "tmp"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "deployment": {
+    "availableReplicas": 3,
+    "conditions": [
+      {
+        "lastTransitionTime": "2026-10-23T17:27:44Z",
+        "lastUpdateTime": "2026-10-23T17:27:44Z",
+        "message": "Deployment has minimum availability.",
+        "reason": "MinimumReplicasAvailable",
+        "status": "True",
+        "type": "Available"
+      },
+      {
+        "lastTransitionTime": "2026-10-23T17:26:32Z",
+        "lastUpdateTime": "2026-10-23T17:28:17Z",
+        "message": "ReplicaSet \"fraudops-api-549f98757f\" has successfully progressed.",
+        "reason": "NewReplicaSetAvailable",
+        "status": "True",
+        "type": "Progressing"
+      }
+    ],
+    "observedGeneration": 3,
+    "readyReplicas": 3,
+    "replicas": 3,
+    "terminatingReplicas": 0,
+    "updatedReplicas": 3
+  },
+  "endpoints": [
+    {
+      "addresses": [
+        "10.244.0.11"
+      ],
+      "conditions": {
+        "ready": true,
+        "serving": true,
+        "terminating": false
+      },
+      "nodeName": "fraudops-exp003-control-plane",
+      "targetRef": {
+        "kind": "Pod",
+        "name": "fraudops-api-549f98757f-749jd",
+        "namespace": "fraudops-exp003",
+        "uid": "f7a1d91f-65a1-44c2-a832-71e82d44ef6c"
+      }
+    },
+    {
+      "addresses": [
+        "10.244.0.12"
+      ],
+      "conditions": {
+        "ready": true,
+        "serving": true,
+        "terminating": false
+      },
+      "nodeName": "fraudops-exp003-control-plane",
+      "targetRef": {
+        "kind": "Pod",
+        "name": "fraudops-api-549f98757f-5x7c7",
+        "namespace": "fraudops-exp003",
+        "uid": "3bab58dc-2d68-43f6-b0d3-cc1dd653143a"
+      }
+    },
+    {
+      "addresses": [
+        "10.244.0.13"
+      ],
+      "conditions": {
+        "ready": true,
+        "serving": true,
+        "terminating": false
+      },
+      "nodeName": "fraudops-exp003-control-plane",
+      "targetRef": {
+        "kind": "Pod",
+        "name": "fraudops-api-549f98757f-dgrfg",
+        "namespace": "fraudops-exp003",
+        "uid": "e454a7b9-4bbe-401d-b241-b3a8e85a32f3"
+      }
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "command": "docker run --rm --mount type=bind,src=/Users/rodrigo/Projects/fraudops-lab/k8s/observability/config/collector.yml,dst=/etc/otel/collector.yml,readonly otel/opentelemetry-collector:0.123.0 validate --config=/etc/otel/collector.yml",
+  "exit_code": 0,
+  "output": ""
+}

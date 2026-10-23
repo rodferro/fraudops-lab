@@ -3,6 +3,8 @@ server:
   shutdown: graceful
 
 spring:
+  application:
+    name: fraudops-api
   lifecycle:
     timeout-per-shutdown-phase: 25s
 
@@ -26,4 +28,24 @@ management:
   endpoints:
     web:
       exposure:
-        include: health,metrics
+        include: health,metrics,prometheus
+  metrics:
+    distribution:
+      percentiles-histogram:
+        http.server.requests: true
+      minimum-expected-value:
+        http.server.requests: 1ms
+      maximum-expected-value:
+        http.server.requests: 2s
+  tracing:
+    sampling:
+      probability: ${FRAUD_TRACE_SAMPLE_PROBABILITY:0.1}
+  otlp:
+    tracing:
+      endpoint: ${FRAUD_OTLP_ENDPOINT:http://localhost:4318/v1/traces}
+      export:
+        enabled: ${FRAUD_TRACE_EXPORT_ENABLED:false}
+
+logging:
+  pattern:
+    console: "image=${FRAUD_IMAGE_REVISION:exp004} %d{yyyy-MM-dd'T'HH:mm:ss.SSSXXX} %5p trace_id=%X{traceId:-} span_id=%X{spanId:-} %logger{36} - %msg%n"

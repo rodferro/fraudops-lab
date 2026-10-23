@@ -1,0 +1,727 @@
+{
+  "meta": {
+    "type": "db",
+    "canSave": false,
+    "canEdit": false,
+    "canAdmin": false,
+    "canStar": false,
+    "canDelete": false,
+    "slug": "fraudops-api-overview",
+    "url": "/d/fraudops-api-overview/fraudops-api-overview",
+    "expires": "0001-01-01T00:00:00Z",
+    "created": "2026-10-23T19:07:33Z",
+    "updated": "2026-10-23T19:07:33Z",
+    "updatedBy": "Anonymous",
+    "createdBy": "Anonymous",
+    "version": 1,
+    "hasAcl": false,
+    "isFolder": false,
+    "folderId": 1,
+    "folderUid": "cg24fa2p2kc1sa",
+    "folderTitle": "FraudOps",
+    "folderUrl": "/dashboards/f/cg24fa2p2kc1sa/fraudops",
+    "provisioned": true,
+    "provisionedExternalId": "fraudops-overview.json",
+    "annotationsPermissions": {
+      "dashboard": {
+        "canAdd": false,
+        "canEdit": false,
+        "canDelete": false
+      },
+      "organization": {
+        "canAdd": false,
+        "canEdit": false,
+        "canDelete": false
+      }
+    }
+  },
+  "dashboard": {
+    "annotations": {
+      "list": []
+    },
+    "editable": false,
+    "id": 2,
+    "panels": [
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "prometheus"
+        },
+        "description": "Completed prediction HTTP requests across all ready API pods. Missing samples remain gaps; a sampled idle counter gives zero.",
+        "fieldConfig": {
+          "defaults": {
+            "custom": {
+              "drawStyle": "line",
+              "fillOpacity": 8,
+              "lineInterpolation": "linear",
+              "spanNulls": false
+            },
+            "noValue": "No data",
+            "unit": "reqps"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 0
+        },
+        "id": 1,
+        "options": {
+          "legend": {
+            "displayMode": "list",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "multi"
+          }
+        },
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "prometheus"
+            },
+            "expr": "sum(rate(http_server_requests_seconds_count{job=\"fraudops-api\",app=\"fraudops-api\",uri=\"/api/v1/predict\"}[1m]))",
+            "legendFormat": "requests/s",
+            "range": true,
+            "refId": "A"
+          }
+        ],
+        "title": "Prediction requests / second",
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "prometheus"
+        },
+        "description": "Errors divided by completed predictions. Zero numerator only when total data exists; no traffic yields NaN/No data rather than a zero success claim.",
+        "fieldConfig": {
+          "defaults": {
+            "custom": {
+              "drawStyle": "line",
+              "fillOpacity": 8,
+              "lineInterpolation": "linear",
+              "spanNulls": false
+            },
+            "noValue": "No data",
+            "unit": "percentunit"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 0
+        },
+        "id": 2,
+        "options": {
+          "legend": {
+            "displayMode": "list",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "multi"
+          }
+        },
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "prometheus"
+            },
+            "expr": "(sum(rate(http_server_requests_seconds_count{job=\"fraudops-api\",app=\"fraudops-api\",uri=\"/api/v1/predict\",status=~\"[45]..\"}[1m])) or (0 * sum(rate(http_server_requests_seconds_count{job=\"fraudops-api\",app=\"fraudops-api\",uri=\"/api/v1/predict\"}[1m])))) / sum(rate(http_server_requests_seconds_count{job=\"fraudops-api\",app=\"fraudops-api\",uri=\"/api/v1/predict\"}[1m]))",
+            "legendFormat": "error ratio",
+            "range": true,
+            "refId": "A"
+          }
+        ],
+        "title": "Prediction HTTP error ratio (4xx + 5xx)",
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "prometheus"
+        },
+        "description": "Server duration for completed HTTP requests, including application work. Aggregate bucket rates across pods BEFORE histogram_quantile. No per-pod percentile averaging.",
+        "fieldConfig": {
+          "defaults": {
+            "custom": {
+              "drawStyle": "line",
+              "fillOpacity": 8,
+              "lineInterpolation": "linear",
+              "spanNulls": false
+            },
+            "noValue": "No data",
+            "unit": "s"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 8
+        },
+        "id": 3,
+        "options": {
+          "legend": {
+            "displayMode": "list",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "multi"
+          }
+        },
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "prometheus"
+            },
+            "expr": "histogram_quantile(0.5, sum by (le) (rate(http_server_requests_seconds_bucket{job=\"fraudops-api\",app=\"fraudops-api\",uri=\"/api/v1/predict\"}[1m])))",
+            "legendFormat": "p50",
+            "range": true,
+            "refId": "A"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "prometheus"
+            },
+            "expr": "histogram_quantile(0.95, sum by (le) (rate(http_server_requests_seconds_bucket{job=\"fraudops-api\",app=\"fraudops-api\",uri=\"/api/v1/predict\"}[1m])))",
+            "legendFormat": "p95",
+            "range": true,
+            "refId": "B"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "prometheus"
+            },
+            "expr": "histogram_quantile(0.99, sum by (le) (rate(http_server_requests_seconds_bucket{job=\"fraudops-api\",app=\"fraudops-api\",uri=\"/api/v1/predict\"}[1m])))",
+            "legendFormat": "p99",
+            "range": true,
+            "refId": "C"
+          }
+        ],
+        "title": "Prediction HTTP latency \u2014 histogram p50 / p95 / p99",
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "prometheus"
+        },
+        "description": "Model-call wrapper includes tensor creation, OrtSession.run, result extraction and cleanup, excludes HTTP validation/serialization. Includes failed model calls. Bucket quantiles are estimates.",
+        "fieldConfig": {
+          "defaults": {
+            "custom": {
+              "drawStyle": "line",
+              "fillOpacity": 8,
+              "lineInterpolation": "linear",
+              "spanNulls": false
+            },
+            "noValue": "No data",
+            "unit": "s"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 8
+        },
+        "id": 4,
+        "options": {
+          "legend": {
+            "displayMode": "list",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "multi"
+          }
+        },
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "prometheus"
+            },
+            "expr": "histogram_quantile(0.5, sum by (le) (rate(fraud_onnx_inference_duration_seconds_bucket{job=\"fraudops-api\",app=\"fraudops-api\"}[1m])))",
+            "legendFormat": "p50",
+            "range": true,
+            "refId": "A"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "prometheus"
+            },
+            "expr": "histogram_quantile(0.95, sum by (le) (rate(fraud_onnx_inference_duration_seconds_bucket{job=\"fraudops-api\",app=\"fraudops-api\"}[1m])))",
+            "legendFormat": "p95",
+            "range": true,
+            "refId": "B"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "prometheus"
+            },
+            "expr": "histogram_quantile(0.99, sum by (le) (rate(fraud_onnx_inference_duration_seconds_bucket{job=\"fraudops-api\",app=\"fraudops-api\"}[1m])))",
+            "legendFormat": "p99",
+            "range": true,
+            "refId": "C"
+          }
+        ],
+        "title": "ONNX call latency \u2014 histogram p50 / p95 / p99",
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "prometheus"
+        },
+        "description": "Bounded approve/review outcomes for successful predictions. No input/probability/account/request labels.",
+        "fieldConfig": {
+          "defaults": {
+            "custom": {
+              "drawStyle": "line",
+              "fillOpacity": 8,
+              "lineInterpolation": "linear",
+              "spanNulls": false
+            },
+            "noValue": "No data",
+            "unit": "ops"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 16
+        },
+        "id": 5,
+        "options": {
+          "legend": {
+            "displayMode": "list",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "multi"
+          }
+        },
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "prometheus"
+            },
+            "expr": "sum by (decision) (rate(fraud_decisions_total{job=\"fraudops-api\",app=\"fraudops-api\"}[1m]))",
+            "legendFormat": "{{decision}}",
+            "range": true,
+            "refId": "A"
+          }
+        ],
+        "title": "Decision distribution / second",
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "prometheus"
+        },
+        "description": "Sum across heap pools within each JVM. This is heap used, not container RSS, process/native memory or the 512Mi limit.",
+        "fieldConfig": {
+          "defaults": {
+            "custom": {
+              "drawStyle": "line",
+              "fillOpacity": 8,
+              "lineInterpolation": "linear",
+              "spanNulls": false
+            },
+            "noValue": "No data",
+            "unit": "bytes"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 16
+        },
+        "id": 6,
+        "options": {
+          "legend": {
+            "displayMode": "list",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "multi"
+          }
+        },
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "prometheus"
+            },
+            "expr": "sum by (pod) (jvm_memory_used_bytes{job=\"fraudops-api\",app=\"fraudops-api\",area=\"heap\"})",
+            "legendFormat": "{{pod}}",
+            "range": true,
+            "refId": "A"
+          }
+        ],
+        "title": "JVM heap used by pod",
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "prometheus"
+        },
+        "description": "Observed GC pause events. A sampled idle counter means zero; absent collector data remains No data.",
+        "fieldConfig": {
+          "defaults": {
+            "custom": {
+              "drawStyle": "line",
+              "fillOpacity": 8,
+              "lineInterpolation": "linear",
+              "spanNulls": false
+            },
+            "noValue": "No data",
+            "unit": "ops"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 24
+        },
+        "id": 7,
+        "options": {
+          "legend": {
+            "displayMode": "list",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "multi"
+          }
+        },
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "prometheus"
+            },
+            "expr": "sum by (pod) (rate(jvm_gc_pause_seconds_count{job=\"fraudops-api\",app=\"fraudops-api\"}[1m]))",
+            "legendFormat": "{{pod}}",
+            "range": true,
+            "refId": "A"
+          }
+        ],
+        "title": "JVM GC pauses / second",
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "prometheus"
+        },
+        "description": "GC pause seconds per wall-clock second; not full process CPU usage.",
+        "fieldConfig": {
+          "defaults": {
+            "custom": {
+              "drawStyle": "line",
+              "fillOpacity": 8,
+              "lineInterpolation": "linear",
+              "spanNulls": false
+            },
+            "noValue": "No data",
+            "unit": "s"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 24
+        },
+        "id": 8,
+        "options": {
+          "legend": {
+            "displayMode": "list",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "multi"
+          }
+        },
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "prometheus"
+            },
+            "expr": "sum by (pod) (rate(jvm_gc_pause_seconds_sum{job=\"fraudops-api\",app=\"fraudops-api\"}[1m]))",
+            "legendFormat": "{{pod}}",
+            "range": true,
+            "refId": "A"
+          }
+        ],
+        "title": "JVM GC pause time / second",
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "prometheus"
+        },
+        "description": "Ready EndpointSlice endpoints only. Prometheus up=1 means scrape succeeded. Not desired Deployment replicas or a direct Kubernetes readiness metric.",
+        "fieldConfig": {
+          "defaults": {
+            "custom": {
+              "drawStyle": "line",
+              "fillOpacity": 8,
+              "lineInterpolation": "linear",
+              "spanNulls": false
+            },
+            "noValue": "No data",
+            "unit": "short"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 32
+        },
+        "id": 9,
+        "options": {
+          "legend": {
+            "displayMode": "list",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "multi"
+          }
+        },
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "prometheus"
+            },
+            "expr": "sum(up{job=\"fraudops-api\",app=\"fraudops-api\"})",
+            "legendFormat": "healthy scraped pods",
+            "range": true,
+            "refId": "A"
+          }
+        ],
+        "title": "Scraped healthy API pods",
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "prometheus"
+        },
+        "description": "Target discovery adds/removes series as pods become ready/terminate. Disappearance is distinct from up=0 (scrape failed).",
+        "fieldConfig": {
+          "defaults": {
+            "custom": {
+              "drawStyle": "line",
+              "fillOpacity": 8,
+              "lineInterpolation": "linear",
+              "spanNulls": false
+            },
+            "noValue": "No data",
+            "unit": "short"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 32
+        },
+        "id": 10,
+        "options": {
+          "legend": {
+            "displayMode": "list",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "multi"
+          }
+        },
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "prometheus"
+            },
+            "expr": "up{job=\"fraudops-api\",app=\"fraudops-api\"}",
+            "legendFormat": "{{pod}}",
+            "range": true,
+            "refId": "A"
+          }
+        ],
+        "title": "API target health by pod",
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "prometheus"
+        },
+        "description": "success/error series pre-registered at zero. Inference error counter survives the HTTP 500 response. Validation-only 400s do not run ONNX.",
+        "fieldConfig": {
+          "defaults": {
+            "custom": {
+              "drawStyle": "line",
+              "fillOpacity": 8,
+              "lineInterpolation": "linear",
+              "spanNulls": false
+            },
+            "noValue": "No data",
+            "unit": "ops"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 40
+        },
+        "id": 11,
+        "options": {
+          "legend": {
+            "displayMode": "list",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "multi"
+          }
+        },
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "prometheus"
+            },
+            "expr": "sum by (outcome) (rate(fraud_inference_total{job=\"fraudops-api\",app=\"fraudops-api\"}[1m]))",
+            "legendFormat": "{{outcome}}",
+            "range": true,
+            "refId": "A"
+          }
+        ],
+        "title": "Inference outcomes / second",
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "prometheus"
+        },
+        "description": "Process CPU is the JVM-reported fraction where available; thread counts use the right axis. Neither is Kubernetes container CPU utilization.",
+        "fieldConfig": {
+          "defaults": {
+            "custom": {
+              "drawStyle": "line",
+              "fillOpacity": 8,
+              "lineInterpolation": "linear",
+              "spanNulls": false
+            },
+            "noValue": "No data",
+            "unit": "short"
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byRegexp",
+                "options": "threads .*"
+              },
+              "properties": [
+                {
+                  "id": "custom.axisPlacement",
+                  "value": "right"
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 40
+        },
+        "id": 12,
+        "options": {
+          "legend": {
+            "displayMode": "list",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "multi"
+          }
+        },
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "prometheus"
+            },
+            "expr": "process_cpu_usage{job=\"fraudops-api\",app=\"fraudops-api\"}",
+            "legendFormat": "CPU fraction {{pod}}",
+            "range": true,
+            "refId": "A"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "prometheus"
+            },
+            "expr": "jvm_threads_live_threads{job=\"fraudops-api\",app=\"fraudops-api\"}",
+            "legendFormat": "threads {{pod}}",
+            "range": true,
+            "refId": "B"
+          }
+        ],
+        "title": "Process CPU and live JVM threads",
+        "type": "timeseries"
+      }
+    ],
+    "refresh": "5s",
+    "schemaVersion": 40,
+    "tags": [
+      "FraudOps",
+      "EXP-004"
+    ],
+    "templating": {
+      "list": []
+    },
+    "time": {
+      "from": "now-15m",
+      "to": "now"
+    },
+    "timezone": "browser",
+    "title": "FraudOps API Overview",
+    "uid": "fraudops-api-overview",
+    "version": 1
+  }
+}

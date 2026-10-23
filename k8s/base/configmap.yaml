@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: fraudops-config
+  namespace: fraudops-exp003
+data:
+  SERVER_PORT: "8080"
+  FRAUD_MODEL_PATH: /app/model/fraud_model.onnx
+  FRAUD_MODEL_METADATA_PATH: /app/model/model_metadata.json
+  FRAUD_REVIEW_THRESHOLD: "0.06729906797409058"
+  # Experiment-only request IDs let us attribute actual Service traffic to pods.
+  SERVER_TOMCAT_ACCESSLOG_ENABLED: "true"
+  SERVER_TOMCAT_ACCESSLOG_DIRECTORY: /tmp/access
+  SERVER_TOMCAT_ACCESSLOG_PREFIX: requests
+  SERVER_TOMCAT_ACCESSLOG_SUFFIX: .log
+  SERVER_TOMCAT_ACCESSLOG_FILE_DATE_FORMAT: ""
+  SERVER_TOMCAT_ACCESSLOG_BUFFERED: "false"
+  SERVER_TOMCAT_ACCESSLOG_PATTERN: '%{X-EXP003-Request}i %s %r'

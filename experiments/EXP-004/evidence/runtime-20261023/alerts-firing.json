@@ -1,0 +1,37 @@
+{
+  "status": "success",
+  "data": {
+    "alerts": [
+      {
+        "labels": {
+          "alertname": "FraudOpsElevated5xxRatio",
+          "app": "fraudops-alert-demo",
+          "experiment": "EXP-004",
+          "severity": "warning"
+        },
+        "annotations": {
+          "description": "Evaluated per app; demo pod is isolated from the inference Service. Not a production SLO.",
+          "summary": "HTTP 5xx ratio above 20% for 10s (local demonstration)"
+        },
+        "state": "firing",
+        "activeAt": "2026-10-23T19:16:59.653427735Z",
+        "value": "4.888888888888889e-01"
+      },
+      {
+        "labels": {
+          "alertname": "FraudOpsHighP95Latency",
+          "app": "fraudops-alert-demo",
+          "experiment": "EXP-004",
+          "severity": "warning"
+        },
+        "annotations": {
+          "description": "Aggregates histogram buckets across pods before computing p95. Not a production SLO.",
+          "summary": "HTTP p95 above 100ms for 10s (local demonstration)"
+        },
+        "state": "firing",
+        "activeAt": "2026-10-23T19:16:59.653427735Z",
+        "value": "3.491606109456522e-01"
+      }
+    ]
+  }
+}

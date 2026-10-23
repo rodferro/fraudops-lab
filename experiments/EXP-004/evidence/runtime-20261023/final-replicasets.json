@@ -1,0 +1,1351 @@
+{
+  "apiVersion": "v1",
+  "items": [
+    {
+      "apiVersion": "apps/v1",
+      "kind": "ReplicaSet",
+      "metadata": {
+        "annotations": {
+          "deployment.kubernetes.io/desired-replicas": "3",
+          "deployment.kubernetes.io/max-replicas": "4",
+          "deployment.kubernetes.io/revision": "2"
+        },
+        "creationTimestamp": "2026-10-23T17:27:49Z",
+        "generation": 6,
+        "labels": {
+          "app": "fraudops-api",
+          "pod-template-hash": "549f98757f"
+        },
+        "name": "fraudops-api-549f98757f",
+        "namespace": "fraudops-exp003",
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "blockOwnerDeletion": true,
+            "controller": true,
+            "kind": "Deployment",
+            "name": "fraudops-api",
+            "uid": "3fa9baa3-b71e-4082-aae9-550402f4de2a"
+          }
+        ],
+        "resourceVersion": "3394",
+        "uid": "d94e7032-4636-428b-a1a6-db2860c843e3"
+      },
+      "spec": {
+        "minReadySeconds": 5,
+        "replicas": 0,
+        "selector": {
+          "matchLabels": {
+            "app": "fraudops-api",
+            "pod-template-hash": "549f98757f"
+          }
+        },
+        "template": {
+          "metadata": {
+            "labels": {
+              "app": "fraudops-api",
+              "pod-template-hash": "549f98757f"
+            }
+          },
+          "spec": {
+            "automountServiceAccountToken": false,
+            "containers": [
+              {
+                "envFrom": [
+                  {
+                    "configMapRef": {
+                      "name": "fraudops-config"
+                    }
+                  }
+                ],
+                "image": "fraudops-api:exp003-r1",
+                "imagePullPolicy": "IfNotPresent",
+                "lifecycle": {
+                  "preStop": {
+                    "exec": {
+                      "command": [
+                        "/bin/sh",
+                        "-c",
+                        "sleep 5"
+                      ]
+                    }
+                  }
+                },
+                "livenessProbe": {
+                  "failureThreshold": 3,
+                  "httpGet": {
+                    "path": "/actuator/health/liveness",
+                    "port": "http",
+                    "scheme": "HTTP"
+                  },
+                  "periodSeconds": 10,
+                  "successThreshold": 1,
+                  "timeoutSeconds": 2
+                },
+                "name": "api",
+                "ports": [
+                  {
+                    "containerPort": 8080,
+                    "name": "http",
+                    "protocol": "TCP"
+                  }
+                ],
+                "readinessProbe": {
+                  "failureThreshold": 2,
+                  "httpGet": {
+                    "path": "/actuator/health/readiness",
+                    "port": "http",
+                    "scheme": "HTTP"
+                  },
+                  "periodSeconds": 2,
+                  "successThreshold": 1,
+                  "timeoutSeconds": 2
+                },
+                "resources": {
+                  "limits": {
+                    "cpu": "1",
+                    "memory": "512Mi"
+                  },
+                  "requests": {
+                    "cpu": "250m",
+                    "memory": "256Mi"
+                  }
+                },
+                "securityContext": {
+                  "allowPrivilegeEscalation": false,
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  },
+                  "readOnlyRootFilesystem": true
+                },
+                "startupProbe": {
+                  "failureThreshold": 60,
+                  "httpGet": {
+                    "path": "/actuator/health/liveness",
+                    "port": "http",
+                    "scheme": "HTTP"
+                  },
+                  "periodSeconds": 2,
+                  "successThreshold": 1,
+                  "timeoutSeconds": 2
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File",
+                "volumeMounts": [
+                  {
+                    "mountPath": "/tmp",
+                    "name": "tmp"
+                  }
+                ]
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "restartPolicy": "Always",
+            "schedulerName": "default-scheduler",
+            "securityContext": {
+              "fsGroup": 10001,
+              "runAsGroup": 10001,
+              "runAsNonRoot": true,
+              "runAsUser": 10001,
+              "seccompProfile": {
+                "type": "RuntimeDefault"
+              }
+            },
+            "terminationGracePeriodSeconds": 35,
+            "volumes": [
+              {
+                "emptyDir": {
+                  "sizeLimit": "128Mi"
+                },
+                "name": "tmp"
+              }
+            ]
+          }
+        }
+      },
+      "status": {
+        "observedGeneration": 6,
+        "replicas": 0,
+        "terminatingReplicas": 0
+      }
+    },
+    {
+      "apiVersion": "apps/v1",
+      "kind": "ReplicaSet",
+      "metadata": {
+        "annotations": {
+          "deployment.kubernetes.io/desired-replicas": "3",
+          "deployment.kubernetes.io/max-replicas": "4",
+          "deployment.kubernetes.io/revision": "6",
+          "deployment.kubernetes.io/revision-history": "4"
+        },
+        "creationTimestamp": "2026-10-23T19:08:26Z",
+        "generation": 12,
+        "labels": {
+          "app": "fraudops-api",
+          "pod-template-hash": "5c59d884db"
+        },
+        "name": "fraudops-api-5c59d884db",
+        "namespace": "fraudops-exp003",
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "blockOwnerDeletion": true,
+            "controller": true,
+            "kind": "Deployment",
+            "name": "fraudops-api",
+            "uid": "3fa9baa3-b71e-4082-aae9-550402f4de2a"
+          }
+        ],
+        "resourceVersion": "4757",
+        "uid": "79b63984-5fbf-43ed-8efa-affd28c0e8db"
+      },
+      "spec": {
+        "minReadySeconds": 5,
+        "replicas": 0,
+        "selector": {
+          "matchLabels": {
+            "app": "fraudops-api",
+            "pod-template-hash": "5c59d884db"
+          }
+        },
+        "template": {
+          "metadata": {
+            "labels": {
+              "app": "fraudops-api",
+              "pod-template-hash": "5c59d884db"
+            }
+          },
+          "spec": {
+            "automountServiceAccountToken": false,
+            "containers": [
+              {
+                "env": [
+                  {
+                    "name": "FRAUD_TRACE_EXPORT_ENABLED",
+                    "value": "true"
+                  },
+                  {
+                    "name": "FRAUD_OTLP_ENDPOINT",
+                    "value": "http://otel-collector:4318/v1/traces"
+                  },
+                  {
+                    "name": "FRAUD_TRACE_SAMPLE_PROBABILITY",
+                    "value": "1.0"
+                  }
+                ],
+                "envFrom": [
+                  {
+                    "configMapRef": {
+                      "name": "fraudops-config"
+                    }
+                  }
+                ],
+                "image": "fraudops-api:exp004",
+                "imagePullPolicy": "IfNotPresent",
+                "lifecycle": {
+                  "preStop": {
+                    "exec": {
+                      "command": [
+                        "/bin/sh",
+                        "-c",
+                        "sleep 5"
+                      ]
+                    }
+                  }
+                },
+                "livenessProbe": {
+                  "failureThreshold": 3,
+                  "httpGet": {
+                    "path": "/actuator/health/liveness",
+                    "port": "http",
+                    "scheme": "HTTP"
+                  },
+                  "periodSeconds": 10,
+                  "successThreshold": 1,
+                  "timeoutSeconds": 2
+                },
+                "name": "api",
+                "ports": [
+                  {
+                    "containerPort": 8080,
+                    "name": "http",
+                    "protocol": "TCP"
+                  }
+                ],
+                "readinessProbe": {
+                  "failureThreshold": 2,
+                  "httpGet": {
+                    "path": "/actuator/health/readiness",
+                    "port": "http",
+                    "scheme": "HTTP"
+                  },
+                  "periodSeconds": 2,
+                  "successThreshold": 1,
+                  "timeoutSeconds": 2
+                },
+                "resources": {
+                  "limits": {
+                    "cpu": "1",
+                    "memory": "512Mi"
+                  },
+                  "requests": {
+                    "cpu": "250m",
+                    "memory": "256Mi"
+                  }
+                },
+                "securityContext": {
+                  "allowPrivilegeEscalation": false,
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  },
+                  "readOnlyRootFilesystem": true
+                },
+                "startupProbe": {
+                  "failureThreshold": 60,
+                  "httpGet": {
+                    "path": "/actuator/health/liveness",
+                    "port": "http",
+                    "scheme": "HTTP"
+                  },
+                  "periodSeconds": 2,
+                  "successThreshold": 1,
+                  "timeoutSeconds": 2
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File",
+                "volumeMounts": [
+                  {
+                    "mountPath": "/tmp",
+                    "name": "tmp"
+                  }
+                ]
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "restartPolicy": "Always",
+            "schedulerName": "default-scheduler",
+            "securityContext": {
+              "fsGroup": 10001,
+              "runAsGroup": 10001,
+              "runAsNonRoot": true,
+              "runAsUser": 10001,
+              "seccompProfile": {
+                "type": "RuntimeDefault"
+              }
+            },
+            "terminationGracePeriodSeconds": 35,
+            "volumes": [
+              {
+                "emptyDir": {
+                  "sizeLimit": "128Mi"
+                },
+                "name": "tmp"
+              }
+            ]
+          }
+        }
+      },
+      "status": {
+        "observedGeneration": 12,
+        "replicas": 0,
+        "terminatingReplicas": 0
+      }
+    },
+    {
+      "apiVersion": "apps/v1",
+      "kind": "ReplicaSet",
+      "metadata": {
+        "annotations": {
+          "deployment.kubernetes.io/desired-replicas": "3",
+          "deployment.kubernetes.io/max-replicas": "4",
+          "deployment.kubernetes.io/revision": "7",
+          "deployment.kubernetes.io/revision-history": "5"
+        },
+        "creationTimestamp": "2026-10-23T19:11:22Z",
+        "generation": 9,
+        "labels": {
+          "app": "fraudops-api",
+          "pod-template-hash": "757c4c856b"
+        },
+        "name": "fraudops-api-757c4c856b",
+        "namespace": "fraudops-exp003",
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "blockOwnerDeletion": true,
+            "controller": true,
+            "kind": "Deployment",
+            "name": "fraudops-api",
+            "uid": "3fa9baa3-b71e-4082-aae9-550402f4de2a"
+          }
+        ],
+        "resourceVersion": "4739",
+        "uid": "c0b4a626-ecf0-44a7-a921-b14774b861d5"
+      },
+      "spec": {
+        "minReadySeconds": 5,
+        "replicas": 3,
+        "selector": {
+          "matchLabels": {
+            "app": "fraudops-api",
+            "pod-template-hash": "757c4c856b"
+          }
+        },
+        "template": {
+          "metadata": {
+            "labels": {
+              "app": "fraudops-api",
+              "pod-template-hash": "757c4c856b"
+            }
+          },
+          "spec": {
+            "automountServiceAccountToken": false,
+            "containers": [
+              {
+                "env": [
+                  {
+                    "name": "FRAUD_TRACE_EXPORT_ENABLED",
+                    "value": "true"
+                  },
+                  {
+                    "name": "FRAUD_OTLP_ENDPOINT",
+                    "value": "http://otel-collector:4318/v1/traces"
+                  },
+                  {
+                    "name": "FRAUD_TRACE_SAMPLE_PROBABILITY",
+                    "value": "1.0"
+                  }
+                ],
+                "envFrom": [
+                  {
+                    "configMapRef": {
+                      "name": "fraudops-config"
+                    }
+                  }
+                ],
+                "image": "fraudops-api:exp004-r1",
+                "imagePullPolicy": "IfNotPresent",
+                "lifecycle": {
+                  "preStop": {
+                    "exec": {
+                      "command": [
+                        "/bin/sh",
+                        "-c",
+                        "sleep 5"
+                      ]
+                    }
+                  }
+                },
+                "livenessProbe": {
+                  "failureThreshold": 3,
+                  "httpGet": {
+                    "path": "/actuator/health/liveness",
+                    "port": "http",
+                    "scheme": "HTTP"
+                  },
+                  "periodSeconds": 10,
+                  "successThreshold": 1,
+                  "timeoutSeconds": 2
+                },
+                "name": "api",
+                "ports": [
+                  {
+                    "containerPort": 8080,
+                    "name": "http",
+                    "protocol": "TCP"
+                  }
+                ],
+                "readinessProbe": {
+                  "failureThreshold": 2,
+                  "httpGet": {
+                    "path": "/actuator/health/readiness",
+                    "port": "http",
+                    "scheme": "HTTP"
+                  },
+                  "periodSeconds": 2,
+                  "successThreshold": 1,
+                  "timeoutSeconds": 2
+                },
+                "resources": {
+                  "limits": {
+                    "cpu": "1",
+                    "memory": "512Mi"
+                  },
+                  "requests": {
+                    "cpu": "250m",
+                    "memory": "256Mi"
+                  }
+                },
+                "securityContext": {
+                  "allowPrivilegeEscalation": false,
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  },
+                  "readOnlyRootFilesystem": true
+                },
+                "startupProbe": {
+                  "failureThreshold": 60,
+                  "httpGet": {
+                    "path": "/actuator/health/liveness",
+                    "port": "http",
+                    "scheme": "HTTP"
+                  },
+                  "periodSeconds": 2,
+                  "successThreshold": 1,
+                  "timeoutSeconds": 2
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File",
+                "volumeMounts": [
+                  {
+                    "mountPath": "/tmp",
+                    "name": "tmp"
+                  }
+                ]
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "restartPolicy": "Always",
+            "schedulerName": "default-scheduler",
+            "securityContext": {
+              "fsGroup": 10001,
+              "runAsGroup": 10001,
+              "runAsNonRoot": true,
+              "runAsUser": 10001,
+              "seccompProfile": {
+                "type": "RuntimeDefault"
+              }
+            },
+            "terminationGracePeriodSeconds": 35,
+            "volumes": [
+              {
+                "emptyDir": {
+                  "sizeLimit": "128Mi"
+                },
+                "name": "tmp"
+              }
+            ]
+          }
+        }
+      },
+      "status": {
+        "availableReplicas": 3,
+        "fullyLabeledReplicas": 3,
+        "observedGeneration": 9,
+        "readyReplicas": 3,
+        "replicas": 3,
+        "terminatingReplicas": 0
+      }
+    },
+    {
+      "apiVersion": "apps/v1",
+      "kind": "ReplicaSet",
+      "metadata": {
+        "annotations": {
+          "deployment.kubernetes.io/desired-replicas": "3",
+          "deployment.kubernetes.io/max-replicas": "4",
+          "deployment.kubernetes.io/revision": "3"
+        },
+        "creationTimestamp": "2026-10-23T19:07:31Z",
+        "generation": 6,
+        "labels": {
+          "app": "fraudops-api",
+          "pod-template-hash": "c9668d596"
+        },
+        "name": "fraudops-api-c9668d596",
+        "namespace": "fraudops-exp003",
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "blockOwnerDeletion": true,
+            "controller": true,
+            "kind": "Deployment",
+            "name": "fraudops-api",
+            "uid": "3fa9baa3-b71e-4082-aae9-550402f4de2a"
+          }
+        ],
+        "resourceVersion": "3608",
+        "uid": "1af3e617-2d4e-4707-a859-4cbfb15187f4"
+      },
+      "spec": {
+        "minReadySeconds": 5,
+        "replicas": 0,
+        "selector": {
+          "matchLabels": {
+            "app": "fraudops-api",
+            "pod-template-hash": "c9668d596"
+          }
+        },
+        "template": {
+          "metadata": {
+            "labels": {
+              "app": "fraudops-api",
+              "pod-template-hash": "c9668d596"
+            }
+          },
+          "spec": {
+            "automountServiceAccountToken": false,
+            "containers": [
+              {
+                "env": [
+                  {
+                    "name": "FRAUD_TRACE_EXPORT_ENABLED",
+                    "value": "true"
+                  },
+                  {
+                    "name": "FRAUD_OTLP_ENDPOINT",
+                    "value": "http://otel-collector:4318/v1/traces"
+                  },
+                  {
+                    "name": "FRAUD_TRACE_SAMPLE_PROBABILITY",
+                    "value": "1.0"
+                  },
+                  {
+                    "name": "FRAUD_IMAGE_REVISION",
+                    "value": "exp004"
+                  }
+                ],
+                "envFrom": [
+                  {
+                    "configMapRef": {
+                      "name": "fraudops-config"
+                    }
+                  }
+                ],
+                "image": "fraudops-api:exp004",
+                "imagePullPolicy": "IfNotPresent",
+                "lifecycle": {
+                  "preStop": {
+                    "exec": {
+                      "command": [
+                        "/bin/sh",
+                        "-c",
+                        "sleep 5"
+                      ]
+                    }
+                  }
+                },
+                "livenessProbe": {
+                  "failureThreshold": 3,
+                  "httpGet": {
+                    "path": "/actuator/health/liveness",
+                    "port": "http",
+                    "scheme": "HTTP"
+                  },
+                  "periodSeconds": 10,
+                  "successThreshold": 1,
+                  "timeoutSeconds": 2
+                },
+                "name": "api",
+                "ports": [
+                  {
+                    "containerPort": 8080,
+                    "name": "http",
+                    "protocol": "TCP"
+                  }
+                ],
+                "readinessProbe": {
+                  "failureThreshold": 2,
+                  "httpGet": {
+                    "path": "/actuator/health/readiness",
+                    "port": "http",
+                    "scheme": "HTTP"
+                  },
+                  "periodSeconds": 2,
+                  "successThreshold": 1,
+                  "timeoutSeconds": 2
+                },
+                "resources": {
+                  "limits": {
+                    "cpu": "1",
+                    "memory": "512Mi"
+                  },
+                  "requests": {
+                    "cpu": "250m",
+                    "memory": "256Mi"
+                  }
+                },
+                "securityContext": {
+                  "allowPrivilegeEscalation": false,
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  },
+                  "readOnlyRootFilesystem": true
+                },
+                "startupProbe": {
+                  "failureThreshold": 60,
+                  "httpGet": {
+                    "path": "/actuator/health/liveness",
+                    "port": "http",
+                    "scheme": "HTTP"
+                  },
+                  "periodSeconds": 2,
+                  "successThreshold": 1,
+                  "timeoutSeconds": 2
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File",
+                "volumeMounts": [
+                  {
+                    "mountPath": "/tmp",
+                    "name": "tmp"
+                  }
+                ]
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "restartPolicy": "Always",
+            "schedulerName": "default-scheduler",
+            "securityContext": {
+              "fsGroup": 10001,
+              "runAsGroup": 10001,
+              "runAsNonRoot": true,
+              "runAsUser": 10001,
+              "seccompProfile": {
+                "type": "RuntimeDefault"
+              }
+            },
+            "terminationGracePeriodSeconds": 35,
+            "volumes": [
+              {
+                "emptyDir": {
+                  "sizeLimit": "128Mi"
+                },
+                "name": "tmp"
+              }
+            ]
+          }
+        }
+      },
+      "status": {
+        "observedGeneration": 6,
+        "replicas": 0,
+        "terminatingReplicas": 0
+      }
+    },
+    {
+      "apiVersion": "apps/v1",
+      "kind": "ReplicaSet",
+      "metadata": {
+        "annotations": {
+          "deployment.kubernetes.io/desired-replicas": "1",
+          "deployment.kubernetes.io/max-replicas": "2",
+          "deployment.kubernetes.io/revision": "1"
+        },
+        "creationTimestamp": "2026-10-23T19:07:30Z",
+        "generation": 1,
+        "labels": {
+          "app": "grafana",
+          "pod-template-hash": "7cf8bfdd5"
+        },
+        "name": "grafana-7cf8bfdd5",
+        "namespace": "fraudops-exp003",
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "blockOwnerDeletion": true,
+            "controller": true,
+            "kind": "Deployment",
+            "name": "grafana",
+            "uid": "53f8758b-6e9a-41ae-ac4e-f46d1691316f"
+          }
+        ],
+        "resourceVersion": "3290",
+        "uid": "15d6f81f-05a2-43e5-aa94-018ed053f59b"
+      },
+      "spec": {
+        "replicas": 1,
+        "selector": {
+          "matchLabels": {
+            "app": "grafana",
+            "pod-template-hash": "7cf8bfdd5"
+          }
+        },
+        "template": {
+          "metadata": {
+            "labels": {
+              "app": "grafana",
+              "pod-template-hash": "7cf8bfdd5"
+            }
+          },
+          "spec": {
+            "automountServiceAccountToken": false,
+            "containers": [
+              {
+                "env": [
+                  {
+                    "name": "GF_AUTH_ANONYMOUS_ENABLED",
+                    "value": "true"
+                  },
+                  {
+                    "name": "GF_AUTH_ANONYMOUS_ORG_ROLE",
+                    "value": "Viewer"
+                  },
+                  {
+                    "name": "GF_AUTH_DISABLE_LOGIN_FORM",
+                    "value": "true"
+                  },
+                  {
+                    "name": "GF_USERS_ALLOW_SIGN_UP",
+                    "value": "false"
+                  },
+                  {
+                    "name": "GF_ANALYTICS_REPORTING_ENABLED",
+                    "value": "false"
+                  },
+                  {
+                    "name": "GF_ANALYTICS_CHECK_FOR_UPDATES",
+                    "value": "false"
+                  },
+                  {
+                    "name": "GF_ANALYTICS_CHECK_FOR_PLUGIN_UPDATES",
+                    "value": "false"
+                  }
+                ],
+                "image": "grafana/grafana:11.6.0",
+                "imagePullPolicy": "IfNotPresent",
+                "name": "grafana",
+                "ports": [
+                  {
+                    "containerPort": 3000,
+                    "name": "http",
+                    "protocol": "TCP"
+                  }
+                ],
+                "readinessProbe": {
+                  "failureThreshold": 3,
+                  "httpGet": {
+                    "path": "/api/health",
+                    "port": "http",
+                    "scheme": "HTTP"
+                  },
+                  "initialDelaySeconds": 5,
+                  "periodSeconds": 10,
+                  "successThreshold": 1,
+                  "timeoutSeconds": 1
+                },
+                "resources": {
+                  "limits": {
+                    "cpu": "1",
+                    "memory": "384Mi"
+                  },
+                  "requests": {
+                    "cpu": "100m",
+                    "memory": "128Mi"
+                  }
+                },
+                "securityContext": {
+                  "allowPrivilegeEscalation": false,
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  },
+                  "readOnlyRootFilesystem": true
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File",
+                "volumeMounts": [
+                  {
+                    "mountPath": "/var/lib/grafana",
+                    "name": "data"
+                  },
+                  {
+                    "mountPath": "/tmp",
+                    "name": "tmp"
+                  },
+                  {
+                    "mountPath": "/etc/grafana/provisioning/datasources/datasources.yml",
+                    "name": "provisioning",
+                    "subPath": "datasources.yml"
+                  },
+                  {
+                    "mountPath": "/etc/grafana/provisioning/dashboards/dashboards.yml",
+                    "name": "provisioning",
+                    "subPath": "dashboards.yml"
+                  },
+                  {
+                    "mountPath": "/var/lib/grafana/dashboards",
+                    "name": "dashboard",
+                    "readOnly": true
+                  }
+                ]
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "restartPolicy": "Always",
+            "schedulerName": "default-scheduler",
+            "securityContext": {
+              "fsGroup": 472,
+              "runAsGroup": 472,
+              "runAsNonRoot": true,
+              "runAsUser": 472
+            },
+            "terminationGracePeriodSeconds": 30,
+            "volumes": [
+              {
+                "emptyDir": {
+                  "sizeLimit": "128Mi"
+                },
+                "name": "data"
+              },
+              {
+                "emptyDir": {
+                  "sizeLimit": "64Mi"
+                },
+                "name": "tmp"
+              },
+              {
+                "configMap": {
+                  "defaultMode": 420,
+                  "name": "grafana-provisioning-5g8cc7ck5m"
+                },
+                "name": "provisioning"
+              },
+              {
+                "configMap": {
+                  "defaultMode": 420,
+                  "name": "fraudops-dashboard-5kkt8gb7cg"
+                },
+                "name": "dashboard"
+              }
+            ]
+          }
+        }
+      },
+      "status": {
+        "availableReplicas": 1,
+        "fullyLabeledReplicas": 1,
+        "observedGeneration": 1,
+        "readyReplicas": 1,
+        "replicas": 1,
+        "terminatingReplicas": 0
+      }
+    },
+    {
+      "apiVersion": "apps/v1",
+      "kind": "ReplicaSet",
+      "metadata": {
+        "annotations": {
+          "deployment.kubernetes.io/desired-replicas": "1",
+          "deployment.kubernetes.io/max-replicas": "2",
+          "deployment.kubernetes.io/revision": "1"
+        },
+        "creationTimestamp": "2026-10-23T19:07:30Z",
+        "generation": 1,
+        "labels": {
+          "app": "jaeger",
+          "pod-template-hash": "5d55bfb8d5"
+        },
+        "name": "jaeger-5d55bfb8d5",
+        "namespace": "fraudops-exp003",
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "blockOwnerDeletion": true,
+            "controller": true,
+            "kind": "Deployment",
+            "name": "jaeger",
+            "uid": "4124c909-7be6-4d11-ae48-bfe14b00654c"
+          }
+        ],
+        "resourceVersion": "3194",
+        "uid": "5f03de1a-a8f5-4af3-a3b1-53b82ffbcea0"
+      },
+      "spec": {
+        "replicas": 1,
+        "selector": {
+          "matchLabels": {
+            "app": "jaeger",
+            "pod-template-hash": "5d55bfb8d5"
+          }
+        },
+        "template": {
+          "metadata": {
+            "labels": {
+              "app": "jaeger",
+              "pod-template-hash": "5d55bfb8d5"
+            }
+          },
+          "spec": {
+            "automountServiceAccountToken": false,
+            "containers": [
+              {
+                "env": [
+                  {
+                    "name": "COLLECTOR_OTLP_ENABLED",
+                    "value": "true"
+                  },
+                  {
+                    "name": "SPAN_STORAGE_TYPE",
+                    "value": "memory"
+                  },
+                  {
+                    "name": "MEMORY_MAX_TRACES",
+                    "value": "10000"
+                  }
+                ],
+                "image": "jaegertracing/all-in-one:1.67.0",
+                "imagePullPolicy": "IfNotPresent",
+                "name": "jaeger",
+                "ports": [
+                  {
+                    "containerPort": 16686,
+                    "name": "query",
+                    "protocol": "TCP"
+                  },
+                  {
+                    "containerPort": 4317,
+                    "name": "otlp-grpc",
+                    "protocol": "TCP"
+                  }
+                ],
+                "readinessProbe": {
+                  "failureThreshold": 3,
+                  "httpGet": {
+                    "path": "/",
+                    "port": "query",
+                    "scheme": "HTTP"
+                  },
+                  "periodSeconds": 10,
+                  "successThreshold": 1,
+                  "timeoutSeconds": 1
+                },
+                "resources": {
+                  "limits": {
+                    "cpu": "500m",
+                    "memory": "384Mi"
+                  },
+                  "requests": {
+                    "cpu": "50m",
+                    "memory": "96Mi"
+                  }
+                },
+                "securityContext": {
+                  "allowPrivilegeEscalation": false,
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  },
+                  "readOnlyRootFilesystem": true
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File"
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "restartPolicy": "Always",
+            "schedulerName": "default-scheduler",
+            "securityContext": {
+              "runAsGroup": 10001,
+              "runAsNonRoot": true,
+              "runAsUser": 10001
+            },
+            "terminationGracePeriodSeconds": 30
+          }
+        }
+      },
+      "status": {
+        "availableReplicas": 1,
+        "fullyLabeledReplicas": 1,
+        "observedGeneration": 1,
+        "readyReplicas": 1,
+        "replicas": 1,
+        "terminatingReplicas": 0
+      }
+    },
+    {
+      "apiVersion": "apps/v1",
+      "kind": "ReplicaSet",
+      "metadata": {
+        "annotations": {
+          "deployment.kubernetes.io/desired-replicas": "1",
+          "deployment.kubernetes.io/max-replicas": "2",
+          "deployment.kubernetes.io/revision": "1"
+        },
+        "creationTimestamp": "2026-10-23T19:07:30Z",
+        "generation": 1,
+        "labels": {
+          "app": "otel-collector",
+          "pod-template-hash": "7bcbbf78c6"
+        },
+        "name": "otel-collector-7bcbbf78c6",
+        "namespace": "fraudops-exp003",
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "blockOwnerDeletion": true,
+            "controller": true,
+            "kind": "Deployment",
+            "name": "otel-collector",
+            "uid": "879c888a-f7d6-4fd8-8367-dc4a80ea1b99"
+          }
+        ],
+        "resourceVersion": "3227",
+        "uid": "3b164131-82c4-47ff-9fc7-46c5caf358be"
+      },
+      "spec": {
+        "replicas": 1,
+        "selector": {
+          "matchLabels": {
+            "app": "otel-collector",
+            "pod-template-hash": "7bcbbf78c6"
+          }
+        },
+        "template": {
+          "metadata": {
+            "labels": {
+              "app": "otel-collector",
+              "pod-template-hash": "7bcbbf78c6"
+            }
+          },
+          "spec": {
+            "automountServiceAccountToken": false,
+            "containers": [
+              {
+                "args": [
+                  "--config=/etc/otel/collector.yml"
+                ],
+                "image": "otel/opentelemetry-collector:0.123.0",
+                "imagePullPolicy": "IfNotPresent",
+                "name": "collector",
+                "ports": [
+                  {
+                    "containerPort": 4318,
+                    "name": "otlp-http",
+                    "protocol": "TCP"
+                  }
+                ],
+                "readinessProbe": {
+                  "failureThreshold": 3,
+                  "periodSeconds": 10,
+                  "successThreshold": 1,
+                  "tcpSocket": {
+                    "port": "otlp-http"
+                  },
+                  "timeoutSeconds": 1
+                },
+                "resources": {
+                  "limits": {
+                    "cpu": "500m",
+                    "memory": "192Mi"
+                  },
+                  "requests": {
+                    "cpu": "50m",
+                    "memory": "64Mi"
+                  }
+                },
+                "securityContext": {
+                  "allowPrivilegeEscalation": false,
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  },
+                  "readOnlyRootFilesystem": true
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File",
+                "volumeMounts": [
+                  {
+                    "mountPath": "/etc/otel",
+                    "name": "config",
+                    "readOnly": true
+                  }
+                ]
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "restartPolicy": "Always",
+            "schedulerName": "default-scheduler",
+            "securityContext": {
+              "runAsGroup": 10001,
+              "runAsNonRoot": true,
+              "runAsUser": 10001
+            },
+            "terminationGracePeriodSeconds": 30,
+            "volumes": [
+              {
+                "configMap": {
+                  "defaultMode": 420,
+                  "name": "otel-config-k5gk266g49"
+                },
+                "name": "config"
+              }
+            ]
+          }
+        }
+      },
+      "status": {
+        "availableReplicas": 1,
+        "fullyLabeledReplicas": 1,
+        "observedGeneration": 1,
+        "readyReplicas": 1,
+        "replicas": 1,
+        "terminatingReplicas": 0
+      }
+    },
+    {
+      "apiVersion": "apps/v1",
+      "kind": "ReplicaSet",
+      "metadata": {
+        "annotations": {
+          "deployment.kubernetes.io/desired-replicas": "1",
+          "deployment.kubernetes.io/max-replicas": "2",
+          "deployment.kubernetes.io/revision": "1"
+        },
+        "creationTimestamp": "2026-10-23T19:07:30Z",
+        "generation": 1,
+        "labels": {
+          "app": "prometheus",
+          "pod-template-hash": "6b5f5bdb6d"
+        },
+        "name": "prometheus-6b5f5bdb6d",
+        "namespace": "fraudops-exp003",
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "blockOwnerDeletion": true,
+            "controller": true,
+            "kind": "Deployment",
+            "name": "prometheus",
+            "uid": "12ac1b90-ee50-4d6d-931a-2475cc3f87dc"
+          }
+        ],
+        "resourceVersion": "3223",
+        "uid": "b41cfd05-1c02-487a-a517-baae90a32788"
+      },
+      "spec": {
+        "replicas": 1,
+        "selector": {
+          "matchLabels": {
+            "app": "prometheus",
+            "pod-template-hash": "6b5f5bdb6d"
+          }
+        },
+        "template": {
+          "metadata": {
+            "labels": {
+              "app": "prometheus",
+              "pod-template-hash": "6b5f5bdb6d"
+            }
+          },
+          "spec": {
+            "containers": [
+              {
+                "args": [
+                  "--config.file=/etc/prometheus/prometheus.yml",
+                  "--storage.tsdb.path=/prometheus",
+                  "--storage.tsdb.retention.time=2h",
+                  "--storage.tsdb.retention.size=512MB"
+                ],
+                "image": "prom/prometheus:v3.2.1",
+                "imagePullPolicy": "IfNotPresent",
+                "name": "prometheus",
+                "ports": [
+                  {
+                    "containerPort": 9090,
+                    "name": "http",
+                    "protocol": "TCP"
+                  }
+                ],
+                "readinessProbe": {
+                  "failureThreshold": 3,
+                  "httpGet": {
+                    "path": "/-/ready",
+                    "port": "http",
+                    "scheme": "HTTP"
+                  },
+                  "periodSeconds": 10,
+                  "successThreshold": 1,
+                  "timeoutSeconds": 1
+                },
+                "resources": {
+                  "limits": {
+                    "cpu": "1",
+                    "memory": "512Mi"
+                  },
+                  "requests": {
+                    "cpu": "100m",
+                    "memory": "128Mi"
+                  }
+                },
+                "securityContext": {
+                  "allowPrivilegeEscalation": false,
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  },
+                  "readOnlyRootFilesystem": true
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File",
+                "volumeMounts": [
+                  {
+                    "mountPath": "/etc/prometheus",
+                    "name": "config",
+                    "readOnly": true
+                  },
+                  {
+                    "mountPath": "/prometheus",
+                    "name": "data"
+                  }
+                ]
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "restartPolicy": "Always",
+            "schedulerName": "default-scheduler",
+            "securityContext": {
+              "fsGroup": 65534,
+              "runAsGroup": 65534,
+              "runAsNonRoot": true,
+              "runAsUser": 65534
+            },
+            "serviceAccount": "prometheus",
+            "serviceAccountName": "prometheus",
+            "terminationGracePeriodSeconds": 30,
+            "volumes": [
+              {
+                "configMap": {
+                  "defaultMode": 420,
+                  "name": "prometheus-config-t5gk75g558"
+                },
+                "name": "config"
+              },
+              {
+                "emptyDir": {
+                  "sizeLimit": "768Mi"
+                },
+                "name": "data"
+              }
+            ]
+          }
+        }
+      },
+      "status": {
+        "availableReplicas": 1,
+        "fullyLabeledReplicas": 1,
+        "observedGeneration": 1,
+        "readyReplicas": 1,
+        "replicas": 1,
+        "terminatingReplicas": 0
+      }
+    }
+  ],
+  "kind": "List",
+  "metadata": {
+    "resourceVersion": ""
+  }
+}

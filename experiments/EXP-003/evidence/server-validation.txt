@@ -1,0 +1,4 @@
+namespace/fraudops-exp003 unchanged (server dry run)
+configmap/fraudops-config unchanged (server dry run)
+service/fraudops-api unchanged (server dry run)
+deployment.apps/fraudops-api configured (server dry run)

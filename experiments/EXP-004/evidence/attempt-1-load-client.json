@@ -1,0 +1,14 @@
+{
+  "requests": 2000,
+  "concurrency": 16,
+  "warmup_requests": 200,
+  "duration_seconds": 5.518,
+  "throughput_requests_per_second": 362.45,
+  "p50_latency_ms": 45.674,
+  "p95_latency_ms": 93.918,
+  "p99_latency_ms": 100.515,
+  "error_count": 0,
+  "error_rate": 0.0,
+  "jvm_heap_used_bytes": 40806152,
+  "error_samples": []
+}

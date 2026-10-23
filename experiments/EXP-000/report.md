@@ -55,12 +55,14 @@ The training run compares 512 held-out test rows from scikit-learn and ONNX Runt
 
 ```powershell
 python -m pip install -r requirements.txt
-python train.py
-python verify_onnx.py
-python verify_onnx.py --input-csv data/synthetic_transactions.csv
+python train.py --output-dir artifacts/EXP-000/reproduction
+python verify_onnx.py --model artifacts/EXP-000/reproduction/fraud_model.onnx --metadata artifacts/EXP-000/reproduction/model_metadata.json
+python verify_onnx.py --model artifacts/EXP-000/reproduction/fraud_model.onnx --metadata artifacts/EXP-000/reproduction/model_metadata.json --input-csv artifacts/EXP-000/reproduction/data/synthetic_transactions.csv
 ```
 
 `train.py` regenerates the CSV, model, metadata, metrics, and parity result. `verify_onnx.py` is a standalone ONNX Runtime inference smoke test and does not import scikit-learn. Exact dependency versions are pinned in `requirements.txt`.
+
+After repository organization, generated training outputs default to ignored `artifacts/EXP-000/`; the commands above use a separate reproduction directory. The original metrics snapshot is retained in [evidence/metrics.json](evidence/metrics.json). The accepted root-level model/metadata and `data/synthetic_transactions.csv` remain in place; the metadata references that CSV. Running `python verify_onnx.py` without path overrides still checks the accepted root-level model.
 
 ## Limitations and Readiness
 

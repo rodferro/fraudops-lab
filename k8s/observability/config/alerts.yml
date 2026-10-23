@@ -1,0 +1,25 @@
+groups:
+  - name: fraudops-local-demonstration
+    rules:
+      - alert: FraudOpsElevated5xxRatio
+        expr: |
+          (sum by (app) (rate(http_server_requests_seconds_count{job="fraudops-api",uri=~"/api/v1/predict|/internal/observability/demo/.*",status=~"5.."}[30s]))
+          / sum by (app) (rate(http_server_requests_seconds_count{job="fraudops-api",uri=~"/api/v1/predict|/internal/observability/demo/.*"}[30s]))) > 0.20
+        for: 10s
+        labels:
+          severity: warning
+          experiment: EXP-004
+        annotations:
+          summary: HTTP 5xx ratio above 20% for 10s (local demonstration)
+          description: Evaluated per app; demo pod is isolated from the inference Service. Not a production SLO.
+      - alert: FraudOpsHighP95Latency
+        expr: |
+          histogram_quantile(0.95,
+            sum by (app, le) (rate(http_server_requests_seconds_bucket{job="fraudops-api",uri=~"/api/v1/predict|/internal/observability/demo/.*"}[30s]))) > 0.10
+        for: 10s
+        labels:
+          severity: warning
+          experiment: EXP-004
+        annotations:
+          summary: HTTP p95 above 100ms for 10s (local demonstration)
+          description: Aggregates histogram buckets across pods before computing p95. Not a production SLO.

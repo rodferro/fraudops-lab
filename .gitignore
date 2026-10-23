@@ -2,3 +2,10 @@ target/
 __pycache__/
 *.py[cod]
 .venv/
+/artifacts/
+# Captured experiment evidence is curated; keep credentials and transport logs out.
+**/kubeconfig
+**/kubeconfig.*
+**/.kube/
+**/forward-*.log
+.DS_Store

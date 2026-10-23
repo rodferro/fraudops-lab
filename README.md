@@ -2,6 +2,26 @@
 
 EXP-001 exposes the existing EXP-000 ONNX fraud model as a Java REST service. The model and preprocessing are not modified or duplicated in Java.
 
+## Experiment Index and Repository Layout
+
+Run documented commands from the repository root. Reports retain the results and limitations recorded for their original experiment; later experiments do not retroactively change those results.
+
+| Experiment | Report | Retained evidence |
+| --- | --- | --- |
+| EXP-000 — Python model and ONNX export | [Report](experiments/EXP-000/report.md) | [Original metrics](experiments/EXP-000/evidence/metrics.json) |
+| EXP-001 — Java inference API | [Report](experiments/EXP-001/report.md) | Results recorded in report; parity fixtures stay under `src/test/resources/` |
+| EXP-002 — Docker image | [Report](experiments/EXP-002/report.md) | Results and original runtime limitations recorded in report |
+| EXP-003 — Kubernetes deployment/scaling | [Report](experiments/EXP-003/report.md) | [Evidence](experiments/EXP-003/evidence/) |
+| EXP-004 — Observability | [Report](experiments/EXP-004/report.md) | [Evidence](experiments/EXP-004/evidence/) |
+
+No separate EXP-002B report exists in this checkout; no report or evidence was invented for it. Repository organization does not start another experiment.
+
+Curated reports and reproducibility evidence belong in `experiments/EXP-XXX/`. New runs, image archives, build logs, temporary transport logs, and isolated kubeconfigs belong in ignored root `artifacts/EXP-XXX/`. The Kubernetes kubeconfig is now `artifacts/EXP-003/kubeconfig`; the helpers still pass it and context `kind-fraudops-exp003` explicitly, without changing the default context. Raw captures retain historical command strings verbatim, including the paths used when they were recorded.
+
+The accepted ONNX model, metadata, Dockerfile, Maven project, application source, test fixtures, and Kubernetes manifests retain their existing locations. The accepted CSV stays at `data/synthetic_transactions.csv` because the metadata references it. New training outputs default to `artifacts/EXP-000/`, and `--output-dir` can select a separate reproduction directory. Promote only reviewed, non-sensitive evidence from a completed run; leave credentials, transport logs, and large temporary archives in `artifacts/`.
+
+See the [migration summary](experiments/MIGRATION.md) for path mappings and validation results.
+
 ## Requirements and Versions
 
 - Java 21
@@ -32,6 +52,10 @@ For development, `mvn spring-boot:run` starts the application on port 8080. A su
 | `FRAUD_MODEL_PATH` | `./fraud_model.onnx` | ONNX model path |
 | `FRAUD_MODEL_METADATA_PATH` | `./model_metadata.json` | Model metadata path |
 | `FRAUD_REVIEW_THRESHOLD` | `0.06729906797409058` | Review when probability is greater than or equal to this value; must be finite and between 0 and 1 |
+| `FRAUD_TRACE_EXPORT_ENABLED` | `false` | Enable OTLP trace export; enabled by the EXP-004 Kubernetes overlay |
+| `FRAUD_OTLP_ENDPOINT` | `http://localhost:4318/v1/traces` | OTLP HTTP endpoint; EXP-004 uses the local Collector Service |
+| `FRAUD_TRACE_SAMPLE_PROBABILITY` | `0.1` | Trace sampling probability; EXP-004 sets 1.0 for its short local demonstration |
+| `FRAUD_IMAGE_REVISION` | `exp004` | Runtime log revision marker; separate from the unchanged model version |
 
 ## Prediction API
 
@@ -76,7 +100,8 @@ The response contains `fraud_probability`, `model_version`, and a separate polic
 - `/actuator/health` reports application and model health.
 - `/actuator/health/liveness` reports process liveness without running inference.
 - `/actuator/health/readiness` includes model initialization status.
-- `/actuator/metrics` exposes local Spring/Micrometer metrics, including JVM heap usage, for the experiment's load baseline. No Prometheus exporter is configured.
+- `/actuator/metrics` exposes local Spring/Micrometer metrics, including JVM heap usage, for the experiment's load baseline.
+- `/actuator/prometheus` exposes histogram-based HTTP/ONNX timing, inference/decision counters, and JVM/process metrics for EXP-004.
 
 ## Tests and Parity
 
@@ -127,6 +152,105 @@ Spring uses graceful server shutdown with a 25-second shutdown phase. The Docker
 
 Image tagging convention: `fraudops-api:<experiment-or-release-tag>`, with app/model versions retained separately as OCI labels. No credentials are embedded in the image.
 
+## Kubernetes (EXP-003)
+
+EXP-003 deploys the existing image to a single-node local kind cluster, scales to three replicas, deletes a pod, and rolls out a new image with baked-in Spring logging/application-name configuration. Java inference code, the jar, model, metadata, and prediction contract remain unchanged. See [the experiment report](experiments/EXP-003/report.md) for actual results, timing methodology, failures, and limitations.
+
+Prerequisites: Docker Engine running with enough memory for kind and up to four API containers during rollout, kind, kubectl, Bash, and Python 3.9+. The measured host gave Docker approximately 8 GiB. Host Java/Maven are optional: image builds run Java 21 tests in Docker. Initial node/compiler/base-image downloads need internet; application images are loaded locally without a registry.
+
+Run from the repository root:
+
+```bash
+# Dedicated fraudops-exp003 cluster; kubeconfig stays in ignored artifacts/.
+bash scripts/exp003.sh create
+# Uses fraudops-api:exp002 locally, or builds it if absent. Builds the new
+# runtime-visible revision and a small Java test client; loads all into kind.
+bash scripts/exp003.sh images
+bash scripts/exp003.sh deploy
+bash scripts/exp003.sh status
+
+# Runs fixture parity, scales 1 -> 3, measures deletion/replacement, and
+# rolls exp002 -> exp003-r1 while sending requests without retries.
+# Creates a new timestamped evidence directory and stops its port-forwards.
+bash scripts/exp003.sh verify
+```
+
+For interactive local access in another terminal:
+
+```bash
+export KUBECONFIG="$PWD/artifacts/EXP-003/kubeconfig"
+kubectl --context kind-fraudops-exp003 -n fraudops-exp003 \
+  port-forward service/fraudops-api 8080:8080
+# Use the prediction request above against http://localhost:8080.
+```
+
+The ClusterIP Service exposes port 8080. Port-forwarding a Service chooses one pod and bypasses ClusterIP traffic selection; it does not demonstrate balancing and can stop when that pod is deleted. The verifier instead also forwards to a separate test-client pod on local port 18081. That client sends fresh connections to `fraudops-api:8080` inside Kubernetes. Unique request IDs in per-pod Tomcat access logs demonstrate actual routing across ready endpoints. Local port 18080 verifies direct Service-selected-pod access. These ports must be free; invoke `python3 scripts/exp003_verify.py --help` for overrides.
+
+Manifests live in [k8s/](k8s/). `kubectl apply -k k8s/` includes only the namespace, ConfigMap, Deployment, and Service. Each API pod requests 250m CPU / 256Mi memory and is limited to 1 CPU / 512Mi. The container runs as UID/GID 10001 with a read-only root filesystem and a bounded ephemeral `/tmp` mount for native-library extraction, Tomcat, and access logs. Probes use the existing liveness/readiness endpoints. Rolling updates allow one additional pod and zero unavailable pods; termination reserves 5 seconds for endpoint propagation, 25 seconds for Spring shutdown, and 5 seconds of margin.
+
+To repeat the experiment, restore the one-replica base deployment with `bash scripts/exp003.sh deploy` before `verify`; keep image tags fixed during each run. Evidence includes per-request results, pod/EndpointSlice timelines, rollout status, final resources/restart state, and revision-marker application logs. Metrics Server is optional and is not installed by this experiment.
+
+Cleanup after stopping any manual port-forward with Ctrl-C:
+
+```bash
+bash scripts/exp003.sh cleanup
+```
+
+This deletes only the named experiment cluster. Local images and generated evidence are retained. The helper passes an explicit kubeconfig and context, leaving the default user kubeconfig untouched.
+
+## Observability (EXP-004)
+
+EXP-004 adds Micrometer's Prometheus registry, Spring Boot's Micrometer/OpenTelemetry bridge, an explicit `onnx.inference` child span, and logs with `trace_id`/`span_id`. The ONNX implementation, exported model, parity fixtures, and decision threshold are unchanged. See [the experiment report](experiments/EXP-004/report.md) for measurements, trace evidence, alert firing states, and limitations.
+
+```mermaid
+flowchart LR
+  Client --> API[FraudOps API pods]
+  Prometheus -->|scrapes each ready endpoint| API
+  API -->|OTLP HTTP traces| Collector[OpenTelemetry Collector]
+  Collector -->|OTLP gRPC| Jaeger
+  Grafana -->|PromQL| Prometheus
+  Grafana -->|trace queries| Jaeger
+```
+
+Use the existing EXP-003 cluster and client pod. For a new environment, first run `bash scripts/exp003.sh create`, `images`, and `deploy` as described above. Then:
+
+```bash
+bash scripts/exp004.sh build    # Existing tests plus observability integration test
+bash scripts/exp004.sh images   # Explicit versions; load host-platform archives into kind
+bash scripts/exp004.sh deploy   # Stack, then three instrumented API replicas
+bash scripts/exp004.sh verify  # Workloads, trace checks, deletion, real rollout, two alerts
+bash scripts/exp004.sh status
+```
+
+The verifier requires free local ports 18080, 18081, 18082, 19090, 13000, and 16686. It stops its port-forwards when finished and writes timestamped machine-readable evidence under ignored `artifacts/EXP-004/`. It leaves three ready `exp004-r1` API pods and the stack running. Run `deploy` before repeating `verify` to restore the base EXP-004 image.
+
+Open the interfaces through separate terminal sessions (port-forwards bind loopback only):
+
+```bash
+export KUBECONFIG="$PWD/artifacts/EXP-003/kubeconfig"
+kubectl --context kind-fraudops-exp003 -n fraudops-exp003 port-forward --address=127.0.0.1 service/grafana 13000:3000
+kubectl --context kind-fraudops-exp003 -n fraudops-exp003 port-forward --address=127.0.0.1 service/prometheus 19090:9090
+kubectl --context kind-fraudops-exp003 -n fraudops-exp003 port-forward --address=127.0.0.1 service/jaeger 16686:16686
+```
+
+- Grafana: `http://127.0.0.1:13000/d/fraudops-api-overview` — **FraudOps API Overview**, anonymous local Viewer access. Data sources and 12 panels are provisioned from files.
+- Prometheus: `http://127.0.0.1:19090` — inspect targets, query metrics, and view alerts.
+- Jaeger: `http://127.0.0.1:16686` — query service `fraudops-api`; successful prediction traces contain an HTTP server span and its ONNX child.
+
+Configuration is under [k8s/observability/](k8s/observability/). EndpointSlice discovery scrapes every ready API endpoint and tracks new pods after replacement/rollout. Dashboard percentiles aggregate histogram bucket rates across pods before `histogram_quantile`; they do not average pod percentiles. Empty series remain missing data. The availability panels show successful scrapes of ready endpoints, not the Deployment's desired replica count. Shared EXP-003 resources now live in `k8s/base/`; the `kubectl apply -k k8s/` entry point is preserved.
+
+Alert thresholds are deliberately short demonstration settings: 5xx ratio above 20%, and HTTP p95 above 100ms, each sustained for 10s over a 30s query window. Verification temporarily creates a separate opt-in demo Job, with a 180s deadline and a 160-request endpoint budget, then deletes it. Its controlled 500s and 300ms delays exercise the same HTTP metrics and inference-error counter. It is excluded from the prediction Service and main dashboard panels. Both alert rules apply per application label; the verifier checks firing and resolution through the Prometheus API. No Alertmanager or external notifications are configured.
+
+All components use local ClusterIP Services, with no public ingress or external credentials. Prometheus keeps at most two hours / approximately 512MB of local time series; Jaeger keeps at most 10,000 traces in memory. Data is ephemeral and disappears when those pods are replaced. No Metrics Server is installed; the verifier records available JVM/process metrics and container cgroup snapshots instead.
+
+Stop manual port-forwards before cleanup:
+
+```bash
+bash scripts/exp004.sh cleanup  # Restore one EXP-003 API pod and remove the stack
+# Or delete the entire dedicated learning cluster:
+bash scripts/exp003.sh cleanup
+```
+
 ## Known Limitations
 
-The EXP-000 classifier was trained on synthetic data and has modest held-out fraud recall. The API is an integration experiment, not a production fraud-control recommendation. Input ranges are basic semantic checks, not a business-approved schema; unknown category codes are intentionally accepted per the exported pipeline behavior. Local performance measurements are not deployment capacity guarantees. Docker build/runtime and resource-constrained behavior require validation on a host with Docker Engine. No Kubernetes, authentication, database, or Prometheus export is included.
+The EXP-000 classifier was trained on synthetic data and has modest held-out fraud recall. The API is an integration experiment, not a production fraud-control recommendation. Input ranges are basic semantic checks, not a business-approved schema; unknown category codes are intentionally accepted per the exported pipeline behavior. Local performance measurements are not deployment capacity guarantees. Historical runtime gaps and subsequent Kubernetes/observability measurements are distinguished in the experiment reports. The single-node kind experiment does not establish production availability or capacity. The inference API has no authentication or database; observability interfaces are for local development only.

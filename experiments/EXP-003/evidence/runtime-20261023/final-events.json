@@ -1,0 +1,2199 @@
+{
+  "apiVersion": "v1",
+  "items": [
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:27:59Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "name": "fraudops-api-549f98757f-5x7c7",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "933",
+        "uid": "3bab58dc-2d68-43f6-b0d3-cc1dd653143a"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:27:59Z",
+      "message": "Successfully assigned fraudops-exp003/fraudops-api-549f98757f-5x7c7 to fraudops-exp003-control-plane",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:27:59Z",
+        "name": "fraudops-api-549f98757f-5x7c7.18e138b58a3c502a",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "939",
+        "uid": "2433bd6f-3511-4e5b-98a3-4b96f70a4b71"
+      },
+      "reason": "Scheduled",
+      "reportingComponent": "default-scheduler",
+      "reportingInstance": "",
+      "source": {
+        "component": "default-scheduler"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:27:59Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{api}",
+        "kind": "Pod",
+        "name": "fraudops-api-549f98757f-5x7c7",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "937",
+        "uid": "3bab58dc-2d68-43f6-b0d3-cc1dd653143a"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:27:59Z",
+      "message": "Container image \"fraudops-api:exp003-r1\" already present on machine and can be accessed by the pod",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:27:59Z",
+        "name": "fraudops-api-549f98757f-5x7c7.18e138b5a072e670",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "943",
+        "uid": "ac2d2437-4a17-414f-97a8-c9b6a31d14dc"
+      },
+      "reason": "Pulled",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "fraudops-exp003-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "fraudops-exp003-control-plane"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:27:59Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{api}",
+        "kind": "Pod",
+        "name": "fraudops-api-549f98757f-5x7c7",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "937",
+        "uid": "3bab58dc-2d68-43f6-b0d3-cc1dd653143a"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:27:59Z",
+      "message": "Container created",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:27:59Z",
+        "name": "fraudops-api-549f98757f-5x7c7.18e138b5a0df13f6",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "945",
+        "uid": "001cb11d-4ba6-4cfc-b465-9be6e4649270"
+      },
+      "reason": "Created",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "fraudops-exp003-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "fraudops-exp003-control-plane"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:27:59Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{api}",
+        "kind": "Pod",
+        "name": "fraudops-api-549f98757f-5x7c7",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "937",
+        "uid": "3bab58dc-2d68-43f6-b0d3-cc1dd653143a"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:27:59Z",
+      "message": "Container started",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:27:59Z",
+        "name": "fraudops-api-549f98757f-5x7c7.18e138b5a29ca9f3",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "946",
+        "uid": "5f247dd3-85e7-4151-be63-b0d539c296ea"
+      },
+      "reason": "Started",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "fraudops-exp003-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "fraudops-exp003-control-plane"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:28:01Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{api}",
+        "kind": "Pod",
+        "name": "fraudops-api-549f98757f-5x7c7",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "937",
+        "uid": "3bab58dc-2d68-43f6-b0d3-cc1dd653143a"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:28:01Z",
+      "message": "Startup probe failed: Get \"http://10.244.0.12:8080/actuator/health/liveness\": dial tcp 10.244.0.12:8080: connect: connection refused",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:28:01Z",
+        "name": "fraudops-api-549f98757f-5x7c7.18e138b614029ad4",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "952",
+        "uid": "92d16c47-bc4c-4881-a81d-893225a32b97"
+      },
+      "reason": "Unhealthy",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "fraudops-exp003-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "fraudops-exp003-control-plane"
+      },
+      "type": "Warning"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:27:49Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "name": "fraudops-api-549f98757f-749jd",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "882",
+        "uid": "f7a1d91f-65a1-44c2-a832-71e82d44ef6c"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:27:49Z",
+      "message": "Successfully assigned fraudops-exp003/fraudops-api-549f98757f-749jd to fraudops-exp003-control-plane",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:27:49Z",
+        "name": "fraudops-api-549f98757f-749jd.18e138b357b9848b",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "889",
+        "uid": "772d77e4-7ed9-4e68-a4a6-212692d40fde"
+      },
+      "reason": "Scheduled",
+      "reportingComponent": "default-scheduler",
+      "reportingInstance": "",
+      "source": {
+        "component": "default-scheduler"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:27:49Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{api}",
+        "kind": "Pod",
+        "name": "fraudops-api-549f98757f-749jd",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "886",
+        "uid": "f7a1d91f-65a1-44c2-a832-71e82d44ef6c"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:27:49Z",
+      "message": "Container image \"fraudops-api:exp003-r1\" already present on machine and can be accessed by the pod",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:27:49Z",
+        "name": "fraudops-api-549f98757f-749jd.18e138b36e70189c",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "892",
+        "uid": "566c9d56-b44d-440e-8eff-2897ea96b786"
+      },
+      "reason": "Pulled",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "fraudops-exp003-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "fraudops-exp003-control-plane"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:27:49Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{api}",
+        "kind": "Pod",
+        "name": "fraudops-api-549f98757f-749jd",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "886",
+        "uid": "f7a1d91f-65a1-44c2-a832-71e82d44ef6c"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:27:49Z",
+      "message": "Container created",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:27:49Z",
+        "name": "fraudops-api-549f98757f-749jd.18e138b36ef32476",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "894",
+        "uid": "ee6088ae-0a1a-4008-af4a-367e73597bce"
+      },
+      "reason": "Created",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "fraudops-exp003-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "fraudops-exp003-control-plane"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:27:50Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{api}",
+        "kind": "Pod",
+        "name": "fraudops-api-549f98757f-749jd",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "886",
+        "uid": "f7a1d91f-65a1-44c2-a832-71e82d44ef6c"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:27:50Z",
+      "message": "Container started",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:27:50Z",
+        "name": "fraudops-api-549f98757f-749jd.18e138b370e2aa4d",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "895",
+        "uid": "2e40886e-c59a-437e-ac2d-df301c4d4568"
+      },
+      "reason": "Started",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "fraudops-exp003-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "fraudops-exp003-control-plane"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:27:51Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{api}",
+        "kind": "Pod",
+        "name": "fraudops-api-549f98757f-749jd",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "886",
+        "uid": "f7a1d91f-65a1-44c2-a832-71e82d44ef6c"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:27:51Z",
+      "message": "Startup probe failed: Get \"http://10.244.0.11:8080/actuator/health/liveness\": dial tcp 10.244.0.11:8080: connect: connection refused",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:27:51Z",
+        "name": "fraudops-api-549f98757f-749jd.18e138b3e1a23d80",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "901",
+        "uid": "e180dee1-7cd7-4db3-af18-3b395954ec5e"
+      },
+      "reason": "Unhealthy",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "fraudops-exp003-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "fraudops-exp003-control-plane"
+      },
+      "type": "Warning"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:28:08Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "name": "fraudops-api-549f98757f-dgrfg",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "991",
+        "uid": "e454a7b9-4bbe-401d-b241-b3a8e85a32f3"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:28:08Z",
+      "message": "Successfully assigned fraudops-exp003/fraudops-api-549f98757f-dgrfg to fraudops-exp003-control-plane",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:28:08Z",
+        "name": "fraudops-api-549f98757f-dgrfg.18e138b7a293beba",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "996",
+        "uid": "cb0f578a-1bf0-461d-bdcf-4fa089346249"
+      },
+      "reason": "Scheduled",
+      "reportingComponent": "default-scheduler",
+      "reportingInstance": "",
+      "source": {
+        "component": "default-scheduler"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:28:08Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{api}",
+        "kind": "Pod",
+        "name": "fraudops-api-549f98757f-dgrfg",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "992",
+        "uid": "e454a7b9-4bbe-401d-b241-b3a8e85a32f3"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:28:08Z",
+      "message": "Container image \"fraudops-api:exp003-r1\" already present on machine and can be accessed by the pod",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:28:08Z",
+        "name": "fraudops-api-549f98757f-dgrfg.18e138b7b8f61680",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "1000",
+        "uid": "68b71c2f-b25b-46e6-830c-5e117a94d0b4"
+      },
+      "reason": "Pulled",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "fraudops-exp003-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "fraudops-exp003-control-plane"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:28:08Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{api}",
+        "kind": "Pod",
+        "name": "fraudops-api-549f98757f-dgrfg",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "992",
+        "uid": "e454a7b9-4bbe-401d-b241-b3a8e85a32f3"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:28:08Z",
+      "message": "Container created",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:28:08Z",
+        "name": "fraudops-api-549f98757f-dgrfg.18e138b7b960633b",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "1002",
+        "uid": "0da260c8-46f0-4347-bacd-a322db1defd7"
+      },
+      "reason": "Created",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "fraudops-exp003-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "fraudops-exp003-control-plane"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:28:08Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{api}",
+        "kind": "Pod",
+        "name": "fraudops-api-549f98757f-dgrfg",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "992",
+        "uid": "e454a7b9-4bbe-401d-b241-b3a8e85a32f3"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:28:08Z",
+      "message": "Container started",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:28:08Z",
+        "name": "fraudops-api-549f98757f-dgrfg.18e138b7baf4cf75",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "1003",
+        "uid": "902e5b41-68b3-4581-bee7-25f40c4bf181"
+      },
+      "reason": "Started",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "fraudops-exp003-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "fraudops-exp003-control-plane"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:28:10Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{api}",
+        "kind": "Pod",
+        "name": "fraudops-api-549f98757f-dgrfg",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "992",
+        "uid": "e454a7b9-4bbe-401d-b241-b3a8e85a32f3"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:28:10Z",
+      "message": "Startup probe failed: Get \"http://10.244.0.13:8080/actuator/health/liveness\": dial tcp 10.244.0.13:8080: connect: connection refused",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:28:10Z",
+        "name": "fraudops-api-549f98757f-dgrfg.18e138b82c63ee1c",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "1009",
+        "uid": "45699705-bbd7-4d1e-9106-635a5a5b5012"
+      },
+      "reason": "Unhealthy",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "fraudops-exp003-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "fraudops-exp003-control-plane"
+      },
+      "type": "Warning"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:27:49Z",
+      "involvedObject": {
+        "apiVersion": "apps/v1",
+        "kind": "ReplicaSet",
+        "name": "fraudops-api-549f98757f",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "879",
+        "uid": "d94e7032-4636-428b-a1a6-db2860c843e3"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:27:49Z",
+      "message": "Created pod: fraudops-api-549f98757f-749jd",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:27:49Z",
+        "name": "fraudops-api-549f98757f.18e138b3577ae933",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "884",
+        "uid": "ab2234b5-6586-42ae-863f-538a2101b161"
+      },
+      "reason": "SuccessfulCreate",
+      "reportingComponent": "replicaset-controller",
+      "reportingInstance": "",
+      "source": {
+        "component": "replicaset-controller"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:27:59Z",
+      "involvedObject": {
+        "apiVersion": "apps/v1",
+        "kind": "ReplicaSet",
+        "name": "fraudops-api-549f98757f",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "929",
+        "uid": "d94e7032-4636-428b-a1a6-db2860c843e3"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:27:59Z",
+      "message": "Created pod: fraudops-api-549f98757f-5x7c7",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:27:59Z",
+        "name": "fraudops-api-549f98757f.18e138b58a0147dc",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "934",
+        "uid": "bfaa060d-483a-4c28-a830-209bfa88b546"
+      },
+      "reason": "SuccessfulCreate",
+      "reportingComponent": "replicaset-controller",
+      "reportingInstance": "",
+      "source": {
+        "component": "replicaset-controller"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:28:08Z",
+      "involvedObject": {
+        "apiVersion": "apps/v1",
+        "kind": "ReplicaSet",
+        "name": "fraudops-api-549f98757f",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "987",
+        "uid": "d94e7032-4636-428b-a1a6-db2860c843e3"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:28:08Z",
+      "message": "Created pod: fraudops-api-549f98757f-dgrfg",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:28:08Z",
+        "name": "fraudops-api-549f98757f.18e138b7a2303afb",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "995",
+        "uid": "269556f8-a1d9-4025-aee2-cc5aacd0bd69"
+      },
+      "reason": "SuccessfulCreate",
+      "reportingComponent": "replicaset-controller",
+      "reportingInstance": "",
+      "source": {
+        "component": "replicaset-controller"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:27:23Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "name": "fraudops-api-6748bc646b-fbzxz",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "757",
+        "uid": "d92c81f7-239e-4b52-8942-d80ce39ac9e2"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:27:23Z",
+      "message": "Successfully assigned fraudops-exp003/fraudops-api-6748bc646b-fbzxz to fraudops-exp003-control-plane",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:27:23Z",
+        "name": "fraudops-api-6748bc646b-fbzxz.18e138ad365b508f",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "765",
+        "uid": "16eaeb20-54cf-4a49-9650-925600553537"
+      },
+      "reason": "Scheduled",
+      "reportingComponent": "default-scheduler",
+      "reportingInstance": "",
+      "source": {
+        "component": "default-scheduler"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:27:23Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{api}",
+        "kind": "Pod",
+        "name": "fraudops-api-6748bc646b-fbzxz",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "760",
+        "uid": "d92c81f7-239e-4b52-8942-d80ce39ac9e2"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:27:23Z",
+      "message": "Container image \"fraudops-api:exp002\" already present on machine and can be accessed by the pod",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:27:23Z",
+        "name": "fraudops-api-6748bc646b-fbzxz.18e138ad4d05438d",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "771",
+        "uid": "51107f2e-72c6-4abb-a9c9-9af7d4ffd790"
+      },
+      "reason": "Pulled",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "fraudops-exp003-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "fraudops-exp003-control-plane"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:27:23Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{api}",
+        "kind": "Pod",
+        "name": "fraudops-api-6748bc646b-fbzxz",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "760",
+        "uid": "d92c81f7-239e-4b52-8942-d80ce39ac9e2"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:27:23Z",
+      "message": "Container created",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:27:23Z",
+        "name": "fraudops-api-6748bc646b-fbzxz.18e138ad4df90568",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "776",
+        "uid": "7d5bd2bc-a608-417f-9757-a4e44e780530"
+      },
+      "reason": "Created",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "fraudops-exp003-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "fraudops-exp003-control-plane"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:27:23Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{api}",
+        "kind": "Pod",
+        "name": "fraudops-api-6748bc646b-fbzxz",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "760",
+        "uid": "d92c81f7-239e-4b52-8942-d80ce39ac9e2"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:27:23Z",
+      "message": "Container started",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:27:23Z",
+        "name": "fraudops-api-6748bc646b-fbzxz.18e138ad51096395",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "777",
+        "uid": "a5425085-4e3c-420f-8176-dc742f9ba1e8"
+      },
+      "reason": "Started",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "fraudops-exp003-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "fraudops-exp003-control-plane"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:27:25Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{api}",
+        "kind": "Pod",
+        "name": "fraudops-api-6748bc646b-fbzxz",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "760",
+        "uid": "d92c81f7-239e-4b52-8942-d80ce39ac9e2"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:27:25Z",
+      "message": "Startup probe failed: Get \"http://10.244.0.8:8080/actuator/health/liveness\": dial tcp 10.244.0.8:8080: connect: connection refused",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:27:25Z",
+        "name": "fraudops-api-6748bc646b-fbzxz.18e138adc04f256e",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "791",
+        "uid": "a52f80af-9434-4780-8b59-e37f72b44ef3"
+      },
+      "reason": "Unhealthy",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "fraudops-exp003-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "fraudops-exp003-control-plane"
+      },
+      "type": "Warning"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:28:17Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{api}",
+        "kind": "Pod",
+        "name": "fraudops-api-6748bc646b-fbzxz",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "760",
+        "uid": "d92c81f7-239e-4b52-8942-d80ce39ac9e2"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:28:17Z",
+      "message": "Stopping container api",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:28:17Z",
+        "name": "fraudops-api-6748bc646b-fbzxz.18e138b9ba5a9f45",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "1041",
+        "uid": "fe48672b-b903-4643-ac18-86ce1a5148bc"
+      },
+      "reason": "Killing",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "fraudops-exp003-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "fraudops-exp003-control-plane"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:27:35Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "name": "fraudops-api-6748bc646b-p9kwp",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "822",
+        "uid": "88a67ed5-751a-41bf-8c82-027864aa6b11"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:27:35Z",
+      "message": "Successfully assigned fraudops-exp003/fraudops-api-6748bc646b-p9kwp to fraudops-exp003-control-plane",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:27:35Z",
+        "name": "fraudops-api-6748bc646b-p9kwp.18e138aff6ab1059",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "829",
+        "uid": "68f1b9bf-2772-4c63-8880-9bdcba8ae3a2"
+      },
+      "reason": "Scheduled",
+      "reportingComponent": "default-scheduler",
+      "reportingInstance": "",
+      "source": {
+        "component": "default-scheduler"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:27:35Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{api}",
+        "kind": "Pod",
+        "name": "fraudops-api-6748bc646b-p9kwp",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "828",
+        "uid": "88a67ed5-751a-41bf-8c82-027864aa6b11"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:27:35Z",
+      "message": "Container image \"fraudops-api:exp002\" already present on machine and can be accessed by the pod",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:27:35Z",
+        "name": "fraudops-api-6748bc646b-p9kwp.18e138b00c129d7c",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "835",
+        "uid": "6824c3a1-2497-4189-84d2-01de533ea172"
+      },
+      "reason": "Pulled",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "fraudops-exp003-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "fraudops-exp003-control-plane"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:27:35Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{api}",
+        "kind": "Pod",
+        "name": "fraudops-api-6748bc646b-p9kwp",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "828",
+        "uid": "88a67ed5-751a-41bf-8c82-027864aa6b11"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:27:35Z",
+      "message": "Container created",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:27:35Z",
+        "name": "fraudops-api-6748bc646b-p9kwp.18e138b00c7982a1",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "837",
+        "uid": "435bb5a0-34da-428a-b992-faede387dd2d"
+      },
+      "reason": "Created",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "fraudops-exp003-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "fraudops-exp003-control-plane"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:27:35Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{api}",
+        "kind": "Pod",
+        "name": "fraudops-api-6748bc646b-p9kwp",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "828",
+        "uid": "88a67ed5-751a-41bf-8c82-027864aa6b11"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:27:35Z",
+      "message": "Container started",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:27:35Z",
+        "name": "fraudops-api-6748bc646b-p9kwp.18e138b00e12bbdc",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "838",
+        "uid": "4f61a3dc-67fd-451a-bebc-c087247f1096"
+      },
+      "reason": "Started",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "fraudops-exp003-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "fraudops-exp003-control-plane"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:27:37Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{api}",
+        "kind": "Pod",
+        "name": "fraudops-api-6748bc646b-p9kwp",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "828",
+        "uid": "88a67ed5-751a-41bf-8c82-027864aa6b11"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:27:37Z",
+      "message": "Startup probe failed: Get \"http://10.244.0.10:8080/actuator/health/liveness\": dial tcp 10.244.0.10:8080: connect: connection refused",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:27:37Z",
+        "name": "fraudops-api-6748bc646b-p9kwp.18e138b0806c14c1",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "846",
+        "uid": "fb32108a-7f20-4eae-81d0-86a71fdcccca"
+      },
+      "reason": "Unhealthy",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "fraudops-exp003-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "fraudops-exp003-control-plane"
+      },
+      "type": "Warning"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:28:08Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{api}",
+        "kind": "Pod",
+        "name": "fraudops-api-6748bc646b-p9kwp",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "828",
+        "uid": "88a67ed5-751a-41bf-8c82-027864aa6b11"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:28:08Z",
+      "message": "Stopping container api",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:28:08Z",
+        "name": "fraudops-api-6748bc646b-p9kwp.18e138b7a1b13ce3",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "985",
+        "uid": "74d7c6b0-8912-4878-b2f4-94351622775e"
+      },
+      "reason": "Killing",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "fraudops-exp003-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "fraudops-exp003-control-plane"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:27:23Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "name": "fraudops-api-6748bc646b-prdt6",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "755",
+        "uid": "30145248-d81c-4f39-94a3-4db18e01d57c"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:27:23Z",
+      "message": "Successfully assigned fraudops-exp003/fraudops-api-6748bc646b-prdt6 to fraudops-exp003-control-plane",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:27:23Z",
+        "name": "fraudops-api-6748bc646b-prdt6.18e138ad3633e928",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "763",
+        "uid": "2059ea80-1f30-44c5-971f-02c76ad64b1f"
+      },
+      "reason": "Scheduled",
+      "reportingComponent": "default-scheduler",
+      "reportingInstance": "",
+      "source": {
+        "component": "default-scheduler"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:27:23Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{api}",
+        "kind": "Pod",
+        "name": "fraudops-api-6748bc646b-prdt6",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "758",
+        "uid": "30145248-d81c-4f39-94a3-4db18e01d57c"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:27:23Z",
+      "message": "Container image \"fraudops-api:exp002\" already present on machine and can be accessed by the pod",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:27:23Z",
+        "name": "fraudops-api-6748bc646b-prdt6.18e138ad4d19655c",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "772",
+        "uid": "9951bdbb-9b7e-49f7-b10e-3d0d3f61bf7e"
+      },
+      "reason": "Pulled",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "fraudops-exp003-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "fraudops-exp003-control-plane"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:27:23Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{api}",
+        "kind": "Pod",
+        "name": "fraudops-api-6748bc646b-prdt6",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "758",
+        "uid": "30145248-d81c-4f39-94a3-4db18e01d57c"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:27:23Z",
+      "message": "Container created",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:27:23Z",
+        "name": "fraudops-api-6748bc646b-prdt6.18e138ad4def7895",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "775",
+        "uid": "8bf34d95-be25-4bd8-907c-71bcfffbaf9d"
+      },
+      "reason": "Created",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "fraudops-exp003-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "fraudops-exp003-control-plane"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:27:23Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{api}",
+        "kind": "Pod",
+        "name": "fraudops-api-6748bc646b-prdt6",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "758",
+        "uid": "30145248-d81c-4f39-94a3-4db18e01d57c"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:27:23Z",
+      "message": "Container started",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:27:23Z",
+        "name": "fraudops-api-6748bc646b-prdt6.18e138ad5128d3ec",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "778",
+        "uid": "2f5c9331-37bc-465b-ba00-8cd37ab0d531"
+      },
+      "reason": "Started",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "fraudops-exp003-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "fraudops-exp003-control-plane"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:27:25Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{api}",
+        "kind": "Pod",
+        "name": "fraudops-api-6748bc646b-prdt6",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "758",
+        "uid": "30145248-d81c-4f39-94a3-4db18e01d57c"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:27:25Z",
+      "message": "Startup probe failed: Get \"http://10.244.0.9:8080/actuator/health/liveness\": dial tcp 10.244.0.9:8080: connect: connection refused",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:27:25Z",
+        "name": "fraudops-api-6748bc646b-prdt6.18e138adc030f855",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "790",
+        "uid": "6d3cb016-ff88-42ac-b1c3-6d5edafd1a6d"
+      },
+      "reason": "Unhealthy",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "fraudops-exp003-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "fraudops-exp003-control-plane"
+      },
+      "type": "Warning"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:27:59Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{api}",
+        "kind": "Pod",
+        "name": "fraudops-api-6748bc646b-prdt6",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "758",
+        "uid": "30145248-d81c-4f39-94a3-4db18e01d57c"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:27:59Z",
+      "message": "Stopping container api",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:27:59Z",
+        "name": "fraudops-api-6748bc646b-prdt6.18e138b589689369",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "927",
+        "uid": "94a56521-7b30-4e7d-94c3-f8bde7ba1cf3"
+      },
+      "reason": "Killing",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "fraudops-exp003-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "fraudops-exp003-control-plane"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:26:32Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "name": "fraudops-api-6748bc646b-vqc65",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "607",
+        "uid": "218b4325-9870-4a9a-9e31-a7b132c733f9"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:26:32Z",
+      "message": "Successfully assigned fraudops-exp003/fraudops-api-6748bc646b-vqc65 to fraudops-exp003-control-plane",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:26:32Z",
+        "name": "fraudops-api-6748bc646b-vqc65.18e138a16ef8458f",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "613",
+        "uid": "724035c0-8c2c-4008-a436-f9528fec9ee3"
+      },
+      "reason": "Scheduled",
+      "reportingComponent": "default-scheduler",
+      "reportingInstance": "",
+      "source": {
+        "component": "default-scheduler"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:26:33Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{api}",
+        "kind": "Pod",
+        "name": "fraudops-api-6748bc646b-vqc65",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "611",
+        "uid": "218b4325-9870-4a9a-9e31-a7b132c733f9"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:26:33Z",
+      "message": "Container image \"fraudops-api:exp002\" already present on machine and can be accessed by the pod",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:26:33Z",
+        "name": "fraudops-api-6748bc646b-vqc65.18e138a185bf57f4",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "617",
+        "uid": "c03fe49c-0315-4929-a25b-528328427590"
+      },
+      "reason": "Pulled",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "fraudops-exp003-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "fraudops-exp003-control-plane"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:26:33Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{api}",
+        "kind": "Pod",
+        "name": "fraudops-api-6748bc646b-vqc65",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "611",
+        "uid": "218b4325-9870-4a9a-9e31-a7b132c733f9"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:26:33Z",
+      "message": "Container created",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:26:33Z",
+        "name": "fraudops-api-6748bc646b-vqc65.18e138a1862f795b",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "619",
+        "uid": "be95a5ff-653b-4993-a11d-87913c46bc29"
+      },
+      "reason": "Created",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "fraudops-exp003-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "fraudops-exp003-control-plane"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:26:33Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{api}",
+        "kind": "Pod",
+        "name": "fraudops-api-6748bc646b-vqc65",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "611",
+        "uid": "218b4325-9870-4a9a-9e31-a7b132c733f9"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:26:33Z",
+      "message": "Container started",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:26:33Z",
+        "name": "fraudops-api-6748bc646b-vqc65.18e138a187ebd1f6",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "620",
+        "uid": "1688c3aa-6147-45dc-a2e5-574a847b3ece"
+      },
+      "reason": "Started",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "fraudops-exp003-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "fraudops-exp003-control-plane"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:26:34Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{api}",
+        "kind": "Pod",
+        "name": "fraudops-api-6748bc646b-vqc65",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "611",
+        "uid": "218b4325-9870-4a9a-9e31-a7b132c733f9"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:26:34Z",
+      "message": "Startup probe failed: Get \"http://10.244.0.5:8080/actuator/health/liveness\": dial tcp 10.244.0.5:8080: connect: connection refused",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:26:34Z",
+        "name": "fraudops-api-6748bc646b-vqc65.18e138a1f8ca4a57",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "629",
+        "uid": "cb25b4d2-3b25-4f7f-97be-891277bd7100"
+      },
+      "reason": "Unhealthy",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "fraudops-exp003-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "fraudops-exp003-control-plane"
+      },
+      "type": "Warning"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:27:35Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{api}",
+        "kind": "Pod",
+        "name": "fraudops-api-6748bc646b-vqc65",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "611",
+        "uid": "218b4325-9870-4a9a-9e31-a7b132c733f9"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:27:35Z",
+      "message": "Stopping container api",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:27:35Z",
+        "name": "fraudops-api-6748bc646b-vqc65.18e138aff5ff2ba1",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "824",
+        "uid": "3e00d543-2ec5-4578-ad13-e6d6afd0cf8b"
+      },
+      "reason": "Killing",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "fraudops-exp003-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "fraudops-exp003-control-plane"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:26:32Z",
+      "involvedObject": {
+        "apiVersion": "apps/v1",
+        "kind": "ReplicaSet",
+        "name": "fraudops-api-6748bc646b",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "604",
+        "uid": "b3f736b0-e9a4-4823-8ac2-120b0a608659"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:26:32Z",
+      "message": "Created pod: fraudops-api-6748bc646b-vqc65",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:26:32Z",
+        "name": "fraudops-api-6748bc646b.18e138a16ea6f1bc",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "608",
+        "uid": "c421b020-edd7-4bae-b5cb-650d54248460"
+      },
+      "reason": "SuccessfulCreate",
+      "reportingComponent": "replicaset-controller",
+      "reportingInstance": "",
+      "source": {
+        "component": "replicaset-controller"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:27:23Z",
+      "involvedObject": {
+        "apiVersion": "apps/v1",
+        "kind": "ReplicaSet",
+        "name": "fraudops-api-6748bc646b",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "753",
+        "uid": "b3f736b0-e9a4-4823-8ac2-120b0a608659"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:27:23Z",
+      "message": "Created pod: fraudops-api-6748bc646b-prdt6",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:27:23Z",
+        "name": "fraudops-api-6748bc646b.18e138ad35fd0731",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "759",
+        "uid": "7178a198-f23b-4a18-9435-6ef92d8892af"
+      },
+      "reason": "SuccessfulCreate",
+      "reportingComponent": "replicaset-controller",
+      "reportingInstance": "",
+      "source": {
+        "component": "replicaset-controller"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:27:23Z",
+      "involvedObject": {
+        "apiVersion": "apps/v1",
+        "kind": "ReplicaSet",
+        "name": "fraudops-api-6748bc646b",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "753",
+        "uid": "b3f736b0-e9a4-4823-8ac2-120b0a608659"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:27:23Z",
+      "message": "Created pod: fraudops-api-6748bc646b-fbzxz",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:27:23Z",
+        "name": "fraudops-api-6748bc646b.18e138ad3621a466",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "762",
+        "uid": "c0eaf21a-a37d-4a5b-bc73-2ad9e777b7fc"
+      },
+      "reason": "SuccessfulCreate",
+      "reportingComponent": "replicaset-controller",
+      "reportingInstance": "",
+      "source": {
+        "component": "replicaset-controller"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:27:35Z",
+      "involvedObject": {
+        "apiVersion": "apps/v1",
+        "kind": "ReplicaSet",
+        "name": "fraudops-api-6748bc646b",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "814",
+        "uid": "b3f736b0-e9a4-4823-8ac2-120b0a608659"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:27:35Z",
+      "message": "Created pod: fraudops-api-6748bc646b-p9kwp",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:27:35Z",
+        "name": "fraudops-api-6748bc646b.18e138aff65b219f",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "826",
+        "uid": "d01c78c3-6d33-4bb1-9b1d-6b38dad6c0aa"
+      },
+      "reason": "SuccessfulCreate",
+      "reportingComponent": "replicaset-controller",
+      "reportingInstance": "",
+      "source": {
+        "component": "replicaset-controller"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:27:59Z",
+      "involvedObject": {
+        "apiVersion": "apps/v1",
+        "kind": "ReplicaSet",
+        "name": "fraudops-api-6748bc646b",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "920",
+        "uid": "b3f736b0-e9a4-4823-8ac2-120b0a608659"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:27:59Z",
+      "message": "Deleted pod: fraudops-api-6748bc646b-prdt6",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:27:59Z",
+        "name": "fraudops-api-6748bc646b.18e138b58958916e",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "925",
+        "uid": "5a36ce30-0ef6-4456-b7bf-09c224dde8a2"
+      },
+      "reason": "SuccessfulDelete",
+      "reportingComponent": "replicaset-controller",
+      "reportingInstance": "",
+      "source": {
+        "component": "replicaset-controller"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:28:08Z",
+      "involvedObject": {
+        "apiVersion": "apps/v1",
+        "kind": "ReplicaSet",
+        "name": "fraudops-api-6748bc646b",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "978",
+        "uid": "b3f736b0-e9a4-4823-8ac2-120b0a608659"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:28:08Z",
+      "message": "Deleted pod: fraudops-api-6748bc646b-p9kwp",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:28:08Z",
+        "name": "fraudops-api-6748bc646b.18e138b7a1a1d122",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "982",
+        "uid": "451391e2-b9c7-46ba-9376-ef9fdee3953d"
+      },
+      "reason": "SuccessfulDelete",
+      "reportingComponent": "replicaset-controller",
+      "reportingInstance": "",
+      "source": {
+        "component": "replicaset-controller"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:28:17Z",
+      "involvedObject": {
+        "apiVersion": "apps/v1",
+        "kind": "ReplicaSet",
+        "name": "fraudops-api-6748bc646b",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "1033",
+        "uid": "b3f736b0-e9a4-4823-8ac2-120b0a608659"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:28:17Z",
+      "message": "Deleted pod: fraudops-api-6748bc646b-fbzxz",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:28:17Z",
+        "name": "fraudops-api-6748bc646b.18e138b9ba3d13f5",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "1037",
+        "uid": "5d372ef2-89a3-4ffd-a8cb-241d97b3d87d"
+      },
+      "reason": "SuccessfulDelete",
+      "reportingComponent": "replicaset-controller",
+      "reportingInstance": "",
+      "source": {
+        "component": "replicaset-controller"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:26:32Z",
+      "involvedObject": {
+        "apiVersion": "apps/v1",
+        "kind": "Deployment",
+        "name": "fraudops-api",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "603",
+        "uid": "3fa9baa3-b71e-4082-aae9-550402f4de2a"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:26:32Z",
+      "message": "Scaled up replica set fraudops-api-6748bc646b from 0 to 1",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:26:32Z",
+        "name": "fraudops-api.18e138a16e6a6374",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "606",
+        "uid": "4baaa668-208f-44dd-831f-0b5908e4b71d"
+      },
+      "reason": "ScalingReplicaSet",
+      "reportingComponent": "deployment-controller",
+      "reportingInstance": "",
+      "source": {
+        "component": "deployment-controller"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:27:23Z",
+      "involvedObject": {
+        "apiVersion": "apps/v1",
+        "kind": "Deployment",
+        "name": "fraudops-api",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "752",
+        "uid": "3fa9baa3-b71e-4082-aae9-550402f4de2a"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:27:23Z",
+      "message": "Scaled up replica set fraudops-api-6748bc646b from 1 to 3",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:27:23Z",
+        "name": "fraudops-api.18e138ad35e08f98",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "754",
+        "uid": "7a5e7961-cb61-434d-9040-abe7e6c84036"
+      },
+      "reason": "ScalingReplicaSet",
+      "reportingComponent": "deployment-controller",
+      "reportingInstance": "",
+      "source": {
+        "component": "deployment-controller"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:27:49Z",
+      "involvedObject": {
+        "apiVersion": "apps/v1",
+        "kind": "Deployment",
+        "name": "fraudops-api",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "878",
+        "uid": "3fa9baa3-b71e-4082-aae9-550402f4de2a"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:27:49Z",
+      "message": "Scaled up replica set fraudops-api-549f98757f from 0 to 1",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:27:49Z",
+        "name": "fraudops-api.18e138b357223f1f",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "880",
+        "uid": "9126e2a5-5bf9-4635-ade7-8d005f00790a"
+      },
+      "reason": "ScalingReplicaSet",
+      "reportingComponent": "deployment-controller",
+      "reportingInstance": "",
+      "source": {
+        "component": "deployment-controller"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:27:59Z",
+      "involvedObject": {
+        "apiVersion": "apps/v1",
+        "kind": "Deployment",
+        "name": "fraudops-api",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "910",
+        "uid": "3fa9baa3-b71e-4082-aae9-550402f4de2a"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:27:59Z",
+      "message": "Scaled down replica set fraudops-api-6748bc646b from 3 to 2",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:27:59Z",
+        "name": "fraudops-api.18e138b5892bb467",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "921",
+        "uid": "9a856029-e8ab-4c6f-8574-2c72b4fbd080"
+      },
+      "reason": "ScalingReplicaSet",
+      "reportingComponent": "deployment-controller",
+      "reportingInstance": "",
+      "source": {
+        "component": "deployment-controller"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:27:59Z",
+      "involvedObject": {
+        "apiVersion": "apps/v1",
+        "kind": "Deployment",
+        "name": "fraudops-api",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "910",
+        "uid": "3fa9baa3-b71e-4082-aae9-550402f4de2a"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:27:59Z",
+      "message": "Scaled up replica set fraudops-api-549f98757f from 1 to 2",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:27:59Z",
+        "name": "fraudops-api.18e138b589ccee01",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "932",
+        "uid": "a8fe5345-904d-4521-834b-3b37670c76f5"
+      },
+      "reason": "ScalingReplicaSet",
+      "reportingComponent": "deployment-controller",
+      "reportingInstance": "",
+      "source": {
+        "component": "deployment-controller"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:28:08Z",
+      "involvedObject": {
+        "apiVersion": "apps/v1",
+        "kind": "Deployment",
+        "name": "fraudops-api",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "968",
+        "uid": "3fa9baa3-b71e-4082-aae9-550402f4de2a"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:28:08Z",
+      "message": "Scaled down replica set fraudops-api-6748bc646b from 2 to 1",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:28:08Z",
+        "name": "fraudops-api.18e138b7a1754406",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "979",
+        "uid": "29a15129-6f0b-4a12-936a-de50c5f6d110"
+      },
+      "reason": "ScalingReplicaSet",
+      "reportingComponent": "deployment-controller",
+      "reportingInstance": "",
+      "source": {
+        "component": "deployment-controller"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:28:08Z",
+      "involvedObject": {
+        "apiVersion": "apps/v1",
+        "kind": "Deployment",
+        "name": "fraudops-api",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "968",
+        "uid": "3fa9baa3-b71e-4082-aae9-550402f4de2a"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:28:08Z",
+      "message": "Scaled up replica set fraudops-api-549f98757f from 2 to 3",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:28:08Z",
+        "name": "fraudops-api.18e138b7a1f0b00d",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "989",
+        "uid": "d6a17886-29d3-4ff1-8a9a-3e37785deb83"
+      },
+      "reason": "ScalingReplicaSet",
+      "reportingComponent": "deployment-controller",
+      "reportingInstance": "",
+      "source": {
+        "component": "deployment-controller"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:28:17Z",
+      "involvedObject": {
+        "apiVersion": "apps/v1",
+        "kind": "Deployment",
+        "name": "fraudops-api",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "1023",
+        "uid": "3fa9baa3-b71e-4082-aae9-550402f4de2a"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:28:17Z",
+      "message": "Scaled down replica set fraudops-api-6748bc646b from 1 to 0",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:28:17Z",
+        "name": "fraudops-api.18e138b9ba0626c2",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "1034",
+        "uid": "42fe5417-a017-40f9-81a2-9914e638e65f"
+      },
+      "reason": "ScalingReplicaSet",
+      "reportingComponent": "deployment-controller",
+      "reportingInstance": "",
+      "source": {
+        "component": "deployment-controller"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:26:42Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "name": "fraudops-client",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "647",
+        "uid": "e8a8adf9-a915-4fa9-8711-087eacaad039"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:26:42Z",
+      "message": "Successfully assigned fraudops-exp003/fraudops-client to fraudops-exp003-control-plane",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:26:42Z",
+        "name": "fraudops-client.18e138a3a2417458",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "649",
+        "uid": "ce994080-e66f-4186-a370-c2e0186b0681"
+      },
+      "reason": "Scheduled",
+      "reportingComponent": "default-scheduler",
+      "reportingInstance": "",
+      "source": {
+        "component": "default-scheduler"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 3,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:26:42Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{client}",
+        "kind": "Pod",
+        "name": "fraudops-client",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "648",
+        "uid": "e8a8adf9-a915-4fa9-8711-087eacaad039"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:26:56Z",
+      "message": "Container image \"fraudops-exp003-client:exp003\" already present on machine and can be accessed by the pod",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:26:42Z",
+        "name": "fraudops-client.18e138a3b97bcab6",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "689",
+        "uid": "64f472d9-81bc-4cc0-9ca0-156a46126c36"
+      },
+      "reason": "Pulled",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "fraudops-exp003-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "fraudops-exp003-control-plane"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 3,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:26:42Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{client}",
+        "kind": "Pod",
+        "name": "fraudops-client",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "648",
+        "uid": "e8a8adf9-a915-4fa9-8711-087eacaad039"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:26:56Z",
+      "message": "Container created",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:26:42Z",
+        "name": "fraudops-client.18e138a3b9eef3ab",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "690",
+        "uid": "a57b447a-548d-484f-b80b-ee76eb8776ce"
+      },
+      "reason": "Created",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "fraudops-exp003-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "fraudops-exp003-control-plane"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 3,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:26:42Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{client}",
+        "kind": "Pod",
+        "name": "fraudops-client",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "648",
+        "uid": "e8a8adf9-a915-4fa9-8711-087eacaad039"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:26:56Z",
+      "message": "Container started",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:26:42Z",
+        "name": "fraudops-client.18e138a3bbaa61bc",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "691",
+        "uid": "3671d429-67cf-4ec0-8885-0a415ce2ec03"
+      },
+      "reason": "Started",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "fraudops-exp003-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "fraudops-exp003-control-plane"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 3,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:26:42Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{client}",
+        "kind": "Pod",
+        "name": "fraudops-client",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "648",
+        "uid": "e8a8adf9-a915-4fa9-8711-087eacaad039"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:26:56Z",
+      "message": "Readiness probe failed: dial tcp 10.244.0.6:8081: connect: connection refused",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:26:42Z",
+        "name": "fraudops-client.18e138a3bbbf7beb",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "692",
+        "uid": "01a5a90e-f140-4d94-b092-d1b592f4abf7"
+      },
+      "reason": "Unhealthy",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "fraudops-exp003-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "fraudops-exp003-control-plane"
+      },
+      "type": "Warning"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 4,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:26:44Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{client}",
+        "kind": "Pod",
+        "name": "fraudops-client",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "648",
+        "uid": "e8a8adf9-a915-4fa9-8711-087eacaad039"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:26:57Z",
+      "message": "Back-off restarting failed container client in pod fraudops-client_fraudops-exp003(e8a8adf9-a915-4fa9-8711-087eacaad039)",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:26:44Z",
+        "name": "fraudops-client.18e138a4226b6ed7",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "699",
+        "uid": "ce079571-6991-45b6-bb20-a8188a9d9f60"
+      },
+      "reason": "BackOff",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "fraudops-exp003-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "fraudops-exp003-control-plane"
+      },
+      "type": "Warning"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:27:13Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "name": "fraudops-client",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "726",
+        "uid": "60d7df53-22d9-42a0-8fa1-3e6bc6e3120e"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:27:13Z",
+      "message": "Successfully assigned fraudops-exp003/fraudops-client to fraudops-exp003-control-plane",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:27:13Z",
+        "name": "fraudops-client.18e138aaed5843c7",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "728",
+        "uid": "b20a46f7-1bb0-4074-a9fe-71f892e39662"
+      },
+      "reason": "Scheduled",
+      "reportingComponent": "default-scheduler",
+      "reportingInstance": "",
+      "source": {
+        "component": "default-scheduler"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:27:13Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{client}",
+        "kind": "Pod",
+        "name": "fraudops-client",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "727",
+        "uid": "60d7df53-22d9-42a0-8fa1-3e6bc6e3120e"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:27:13Z",
+      "message": "Container image \"fraudops-exp003-client:exp003\" already present on machine and can be accessed by the pod",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:27:13Z",
+        "name": "fraudops-client.18e138ab0339cfdf",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "731",
+        "uid": "7506367e-3ed0-47a5-9f03-3d5c3d811bc3"
+      },
+      "reason": "Pulled",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "fraudops-exp003-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "fraudops-exp003-control-plane"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:27:13Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{client}",
+        "kind": "Pod",
+        "name": "fraudops-client",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "727",
+        "uid": "60d7df53-22d9-42a0-8fa1-3e6bc6e3120e"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:27:13Z",
+      "message": "Container created",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:27:13Z",
+        "name": "fraudops-client.18e138ab03a1aac9",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "733",
+        "uid": "1a90f991-604d-41d3-8895-ec9d6d002f67"
+      },
+      "reason": "Created",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "fraudops-exp003-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "fraudops-exp003-control-plane"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:27:13Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{client}",
+        "kind": "Pod",
+        "name": "fraudops-client",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "727",
+        "uid": "60d7df53-22d9-42a0-8fa1-3e6bc6e3120e"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:27:13Z",
+      "message": "Container started",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:27:13Z",
+        "name": "fraudops-client.18e138ab052266cf",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "734",
+        "uid": "64a8a798-7601-4bb5-aa35-8d35141d790c"
+      },
+      "reason": "Started",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "fraudops-exp003-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "fraudops-exp003-control-plane"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-10-23T17:27:13Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{client}",
+        "kind": "Pod",
+        "name": "fraudops-client",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "727",
+        "uid": "60d7df53-22d9-42a0-8fa1-3e6bc6e3120e"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-23T17:27:13Z",
+      "message": "Readiness probe failed: dial tcp 10.244.0.7:8081: connect: connection refused",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:27:13Z",
+        "name": "fraudops-client.18e138ab0535f64c",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "735",
+        "uid": "44491f11-3f08-485e-b33f-595fc18e4f78"
+      },
+      "reason": "Unhealthy",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "fraudops-exp003-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "fraudops-exp003-control-plane"
+      },
+      "type": "Warning"
+    }
+  ],
+  "kind": "List",
+  "metadata": {
+    "resourceVersion": ""
+  }
+}

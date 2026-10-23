@@ -1,0 +1,130 @@
+{
+  "traceID": "b6c6a17b0f47ddd358ef6baa8a1054c6",
+  "spans": [
+    {
+      "traceID": "b6c6a17b0f47ddd358ef6baa8a1054c6",
+      "spanID": "a33cd2a56df33422",
+      "operationName": "onnx.inference",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "b6c6a17b0f47ddd358ef6baa8a1054c6",
+          "spanID": "a8dc3c10ad1089d6"
+        }
+      ],
+      "startTime": 1792782952149185,
+      "duration": 182,
+      "tags": [
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "org.springframework.boot"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "3.5.8"
+        },
+        {
+          "key": "otel.status_code",
+          "type": "string",
+          "value": "OK"
+        },
+        {
+          "key": "outcome",
+          "type": "string",
+          "value": "success"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    },
+    {
+      "traceID": "b6c6a17b0f47ddd358ef6baa8a1054c6",
+      "spanID": "a8dc3c10ad1089d6",
+      "operationName": "http post /api/v1/predict",
+      "references": [],
+      "startTime": 1792782952148748,
+      "duration": 1047,
+      "tags": [
+        {
+          "key": "exception",
+          "type": "string",
+          "value": "none"
+        },
+        {
+          "key": "http.url",
+          "type": "string",
+          "value": "/api/v1/predict"
+        },
+        {
+          "key": "method",
+          "type": "string",
+          "value": "POST"
+        },
+        {
+          "key": "otel.scope.name",
+          "type": "string",
+          "value": "org.springframework.boot"
+        },
+        {
+          "key": "otel.scope.version",
+          "type": "string",
+          "value": "3.5.8"
+        },
+        {
+          "key": "outcome",
+          "type": "string",
+          "value": "SUCCESS"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "server"
+        },
+        {
+          "key": "status",
+          "type": "string",
+          "value": "200"
+        },
+        {
+          "key": "uri",
+          "type": "string",
+          "value": "/api/v1/predict"
+        }
+      ],
+      "logs": [],
+      "processID": "p1",
+      "warnings": null
+    }
+  ],
+  "processes": {
+    "p1": {
+      "serviceName": "fraudops-api",
+      "tags": [
+        {
+          "key": "telemetry.sdk.language",
+          "type": "string",
+          "value": "java"
+        },
+        {
+          "key": "telemetry.sdk.name",
+          "type": "string",
+          "value": "opentelemetry"
+        },
+        {
+          "key": "telemetry.sdk.version",
+          "type": "string",
+          "value": "1.49.0"
+        }
+      ]
+    }
+  },
+  "warnings": null
+}

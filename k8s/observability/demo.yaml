@@ -1,0 +1,61 @@
+# Explicitly opt-in. Not included in the stack's kustomization.
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: fraudops-alert-demo
+  namespace: fraudops-exp003
+spec:
+  activeDeadlineSeconds: 180
+  ttlSecondsAfterFinished: 30
+  backoffLimit: 0
+  template:
+    metadata:
+      labels: {app: fraudops-alert-demo}
+    spec:
+      restartPolicy: Never
+      automountServiceAccountToken: false
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+        runAsGroup: 10001
+        fsGroup: 10001
+        seccompProfile: {type: RuntimeDefault}
+      containers:
+        - name: api
+          image: fraudops-api:exp004
+          imagePullPolicy: IfNotPresent
+          ports:
+            - {name: http, containerPort: 8080}
+          envFrom:
+            - configMapRef: {name: fraudops-config}
+          env:
+            - {name: FRAUD_OBSERVABILITY_DEMO_ENABLED, value: "true"}
+            - {name: FRAUD_TRACE_EXPORT_ENABLED, value: "true"}
+            - {name: FRAUD_TRACE_SAMPLE_PROBABILITY, value: "1.0"}
+            - {name: FRAUD_OTLP_ENDPOINT, value: "http://otel-collector:4318/v1/traces"}
+            - {name: FRAUD_IMAGE_REVISION, value: exp004-alert-demo}
+          readinessProbe:
+            httpGet: {path: /actuator/health/readiness, port: http}
+            periodSeconds: 2
+          resources:
+            requests: {cpu: 250m, memory: 256Mi}
+            limits: {cpu: "1", memory: 512Mi}
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities: {drop: [ALL]}
+          volumeMounts:
+            - {name: tmp, mountPath: /tmp}
+      volumes:
+        - {name: tmp, emptyDir: {sizeLimit: 128Mi}}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fraudops-alert-demo
+  namespace: fraudops-exp003
+spec:
+  type: ClusterIP
+  selector: {app: fraudops-alert-demo}
+  ports:
+    - {name: http, port: 8080, targetPort: http}

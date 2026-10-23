@@ -1,0 +1,6 @@
+[
+  {
+    "pod": "fraudops-api-757c4c856b-pfq2s",
+    "log": "image=exp004-r1 2026-10-23T19:17:41.508Z  INFO trace_id=0aab2e24b7aba9d20d74f30bb392b788 span_id=244d6e6318b22b90 c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000"
+  }
+]

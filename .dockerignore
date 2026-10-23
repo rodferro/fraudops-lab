@@ -4,6 +4,8 @@
 .vscode
 *.iml
 target
+artifacts
+experiments
 data
 __pycache__
 *.py[cod]

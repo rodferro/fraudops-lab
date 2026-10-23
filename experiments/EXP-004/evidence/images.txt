@@ -1,0 +1,6 @@
+["fraudops-api:exp004"] sha256:86f0d038a12588b53259c016cd2028cff65099899caa1f423bbf752c6923fbf7 arm64
+["fraudops-api:exp004-r1"] sha256:b6bcdf9ff7a7566e4e9fbd3717af0dd83fbd2ac56a5358f1e52c882a6fb03333 arm64
+["prom/prometheus:v3.2.1"] sha256:6927e0919a144aa7616fd0137d4816816d42f6b816de3af269ab065250859a62 arm64
+["grafana/grafana:11.6.0"] sha256:62d2b9d20a19714ebfe48d1bb405086081bc602aa053e28cf6d73c7537640dfb arm64
+["otel/opentelemetry-collector:0.123.0"] sha256:e5e4a13f0ea98e7ca1d1d809be040180540146888d0d764abd4e1277cba87350 arm64
+["jaegertracing/all-in-one:1.67.0"] sha256:34e3d18e0f2eeb9abd9bb53d0dc7abaf2a5b1c884fdca575093af3126811a9d3 arm64

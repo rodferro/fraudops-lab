@@ -1,0 +1,349 @@
+{
+  "started_at": "2026-10-23T19:10:35.942874+00:00",
+  "complete": false,
+  "scenarios": {
+    "normal": {
+      "before": {
+        "http": 5.0,
+        "inference_success": 5.0,
+        "inference_error": 0.0,
+        "onnx_observations": 5.0,
+        "approve": 2.0,
+        "review": 3.0
+      },
+      "after": {
+        "http": 105.0,
+        "inference_success": 105.0,
+        "inference_error": 0.0,
+        "onnx_observations": 105.0,
+        "approve": 52.0,
+        "review": 53.0
+      },
+      "delta": {
+        "http": 100.0,
+        "inference_success": 100.0,
+        "inference_error": 0.0,
+        "onnx_observations": 100.0,
+        "approve": 50.0,
+        "review": 50.0
+      },
+      "response_decisions": {
+        "review": 50,
+        "approve": 50
+      }
+    },
+    "load": {
+      "client": {
+        "requests": 2000,
+        "concurrency": 16,
+        "warmup_requests": 200,
+        "duration_seconds": 5.518,
+        "throughput_requests_per_second": 362.45,
+        "p50_latency_ms": 45.674,
+        "p95_latency_ms": 93.918,
+        "p99_latency_ms": 100.515,
+        "error_count": 0,
+        "error_rate": 0.0,
+        "jvm_heap_used_bytes": 40806152,
+        "error_samples": []
+      },
+      "server_window_seconds": 14,
+      "server": {
+        "http": {
+          "0.5": [
+            {
+              "metric": {},
+              "value": [
+                1792782665.474,
+                "0.0012106972590852105"
+              ]
+            }
+          ],
+          "0.95": [
+            {
+              "metric": {},
+              "value": [
+                1792782665.475,
+                "0.003326494148506844"
+              ]
+            }
+          ],
+          "0.99": [
+            {
+              "metric": {},
+              "value": [
+                1792782665.477,
+                "0.005875459780671435"
+              ]
+            }
+          ],
+          "count_increase_estimate": [
+            {
+              "metric": {},
+              "value": [
+                1792782665.479,
+                "2416.058102447735"
+              ]
+            }
+          ]
+        },
+        "onnx": {
+          "0.5": [
+            {
+              "metric": {},
+              "value": [
+                1792782665.481,
+                "0.0001389804829088235"
+              ]
+            }
+          ],
+          "0.95": [
+            {
+              "metric": {},
+              "value": [
+                1792782665.483,
+                "0.0005077821787323713"
+              ]
+            }
+          ],
+          "0.99": [
+            {
+              "metric": {},
+              "value": [
+                1792782665.485,
+                "0.0013340805650447437"
+              ]
+            }
+          ],
+          "count_increase_estimate": [
+            {
+              "metric": {},
+              "value": [
+                1792782665.487,
+                "2417.04223081316"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "recovery": {
+      "action_at_elapsed_seconds": 2.001,
+      "requests": 135,
+      "errors": 0,
+      "error_samples": [],
+      "observer_errors": [],
+      "restored_observed_seconds": 10.122,
+      "minimum_observed_ready_pods": 2,
+      "sample_interval_seconds": "0.5 plus three kubectl API calls; see timestamps",
+      "replacement_first_observed_seconds": 0.621
+    },
+    "rollout": {
+      "action_at_elapsed_seconds": 2.002,
+      "requests": 326,
+      "errors": 0,
+      "error_samples": [],
+      "observer_errors": [],
+      "restored_observed_seconds": 33.514,
+      "minimum_observed_ready_pods": 3,
+      "sample_interval_seconds": "0.5 plus three kubectl API calls; see timestamps"
+    },
+    "alerts": {
+      "outcomes": {
+        "failure:500": 29,
+        "latency:200": 29
+      },
+      "firing_alerts": [
+        "FraudOpsElevated5xxRatio",
+        "FraudOpsHighP95Latency"
+      ],
+      "lifetime_seconds": 180,
+      "request_budget": 160
+    }
+  },
+  "parity": [
+    {
+      "at": "2026-10-23T19:10:37.347061+00:00",
+      "id": "parity-1",
+      "phase": "parity",
+      "case": "typical",
+      "status": 200,
+      "response": {
+        "fraud_probability": 0.23597344756126404,
+        "model_version": "1.0.0-exp000",
+        "decision": "review"
+      },
+      "ok": true,
+      "duration_ms": 34.46
+    },
+    {
+      "at": "2026-10-23T19:10:37.381779+00:00",
+      "id": "parity-2",
+      "phase": "parity",
+      "case": "high_risk",
+      "status": 200,
+      "response": {
+        "fraud_probability": 0.9930033683776855,
+        "model_version": "1.0.0-exp000",
+        "decision": "review"
+      },
+      "ok": true,
+      "duration_ms": 39.899
+    },
+    {
+      "at": "2026-10-23T19:10:37.421867+00:00",
+      "id": "parity-3",
+      "phase": "parity",
+      "case": "missing_numerical",
+      "status": 200,
+      "response": {
+        "fraud_probability": 0.009561717510223389,
+        "model_version": "1.0.0-exp000",
+        "decision": "approve"
+      },
+      "ok": true,
+      "duration_ms": 40.361
+    },
+    {
+      "at": "2026-10-23T19:10:37.462432+00:00",
+      "id": "parity-4",
+      "phase": "parity",
+      "case": "unknown_categories",
+      "status": 200,
+      "response": {
+        "fraud_probability": 0.03944578766822815,
+        "model_version": "1.0.0-exp000",
+        "decision": "approve"
+      },
+      "ok": true,
+      "duration_ms": 6.543
+    },
+    {
+      "at": "2026-10-23T19:10:37.469157+00:00",
+      "id": "parity-5",
+      "phase": "parity",
+      "case": "extreme_valid",
+      "status": 200,
+      "response": {
+        "fraud_probability": 1.0,
+        "model_version": "1.0.0-exp000",
+        "decision": "review"
+      },
+      "ok": true,
+      "duration_ms": 5.728
+    }
+  ],
+  "normal_trace": {
+    "trace_id": "a77842eb27e9b8e01b4ac9220f254a15",
+    "http_span_id": "8c56cf4fbd1a22d2",
+    "onnx_span_id": "1e274b314c5e3bfd",
+    "span_count": 2
+  },
+  "normal_grafana": {
+    "dashboard_uid": "fraudops-api-overview",
+    "panels_queried": 12
+  },
+  "recovery_trace": {
+    "trace_id": "7ad7c080366d5319eb0a6e62e78a76b5",
+    "http_span_id": "5d8dd94c4854d116",
+    "onnx_span_id": "0778a96537bec746",
+    "span_count": 2
+  },
+  "recovery_grafana": {
+    "dashboard_uid": "fraudops-api-overview",
+    "panels_queried": 12
+  },
+  "final_parity": [
+    {
+      "at": "2026-10-23T19:12:06.893557+00:00",
+      "id": "revision-parity-567",
+      "phase": "revision-parity",
+      "case": "typical",
+      "status": 200,
+      "response": {
+        "fraud_probability": 0.23597344756126404,
+        "model_version": "1.0.0-exp000",
+        "decision": "review"
+      },
+      "ok": true,
+      "duration_ms": 7.163
+    },
+    {
+      "at": "2026-10-23T19:12:06.900839+00:00",
+      "id": "revision-parity-568",
+      "phase": "revision-parity",
+      "case": "high_risk",
+      "status": 200,
+      "response": {
+        "fraud_probability": 0.9930033683776855,
+        "model_version": "1.0.0-exp000",
+        "decision": "review"
+      },
+      "ok": true,
+      "duration_ms": 4.403
+    },
+    {
+      "at": "2026-10-23T19:12:06.905385+00:00",
+      "id": "revision-parity-569",
+      "phase": "revision-parity",
+      "case": "missing_numerical",
+      "status": 200,
+      "response": {
+        "fraud_probability": 0.009561717510223389,
+        "model_version": "1.0.0-exp000",
+        "decision": "approve"
+      },
+      "ok": true,
+      "duration_ms": 4.498
+    },
+    {
+      "at": "2026-10-23T19:12:06.910006+00:00",
+      "id": "revision-parity-570",
+      "phase": "revision-parity",
+      "case": "unknown_categories",
+      "status": 200,
+      "response": {
+        "fraud_probability": 0.03944578766822815,
+        "model_version": "1.0.0-exp000",
+        "decision": "approve"
+      },
+      "ok": true,
+      "duration_ms": 5.121
+    },
+    {
+      "at": "2026-10-23T19:12:06.915314+00:00",
+      "id": "revision-parity-571",
+      "phase": "revision-parity",
+      "case": "extreme_valid",
+      "status": 200,
+      "response": {
+        "fraud_probability": 1.0,
+        "model_version": "1.0.0-exp000",
+        "decision": "review"
+      },
+      "ok": true,
+      "duration_ms": 4.644
+    }
+  ],
+  "rollout_trace": {
+    "trace_id": "edd5e8c6677282beeb9f39a10733e076",
+    "http_span_id": "631ce6f133d492ee",
+    "onnx_span_id": "933b0718b3faf4ff",
+    "span_count": 2
+  },
+  "rollout_grafana": {
+    "dashboard_uid": "fraudops-api-overview",
+    "panels_queried": 12
+  },
+  "image_ids": {
+    "base": [
+      "sha256:0e6d0be365705d43ad1df1c4d1bc2df9ccd6018b32157a1ed05fab6cb0b8d7f4"
+    ],
+    "revision": [
+      "docker.io/library/import-2026-10-23@sha256:d26643b9bcd47bdad49c5ce936a3aed742f2292dbbbb62a1aff1d7c37ace1ccc"
+    ]
+  },
+  "alerts_resolved": true,
+  "failure": "No retrievable HTTP -> ONNX trace",
+  "finished_at": "2026-10-23T19:13:30.297581+00:00"
+}

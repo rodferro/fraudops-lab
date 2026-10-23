@@ -1,0 +1,1 @@
+pod "fraudops-api-6748bc646b-vqc65" deleted from fraudops-exp003 namespace

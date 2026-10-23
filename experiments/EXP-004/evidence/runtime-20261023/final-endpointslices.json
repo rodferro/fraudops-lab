@@ -1,0 +1,333 @@
+{
+  "apiVersion": "v1",
+  "items": [
+    {
+      "addressType": "IPv4",
+      "apiVersion": "discovery.k8s.io/v1",
+      "endpoints": [
+        {
+          "addresses": [
+            "10.244.0.33"
+          ],
+          "conditions": {
+            "ready": true,
+            "serving": true,
+            "terminating": false
+          },
+          "nodeName": "fraudops-exp003-control-plane",
+          "targetRef": {
+            "kind": "Pod",
+            "name": "fraudops-api-757c4c856b-qrc2r",
+            "namespace": "fraudops-exp003",
+            "uid": "f461f454-8a35-48a4-828e-069246abf5d0"
+          }
+        },
+        {
+          "addresses": [
+            "10.244.0.34"
+          ],
+          "conditions": {
+            "ready": true,
+            "serving": true,
+            "terminating": false
+          },
+          "nodeName": "fraudops-exp003-control-plane",
+          "targetRef": {
+            "kind": "Pod",
+            "name": "fraudops-api-757c4c856b-pfq2s",
+            "namespace": "fraudops-exp003",
+            "uid": "3bd9555d-97b5-4001-b270-d4cc5d3379fa"
+          }
+        },
+        {
+          "addresses": [
+            "10.244.0.35"
+          ],
+          "conditions": {
+            "ready": true,
+            "serving": true,
+            "terminating": false
+          },
+          "nodeName": "fraudops-exp003-control-plane",
+          "targetRef": {
+            "kind": "Pod",
+            "name": "fraudops-api-757c4c856b-dlcjc",
+            "namespace": "fraudops-exp003",
+            "uid": "cda8abbf-1a0f-43f8-838f-d81bdeefb3c6"
+          }
+        }
+      ],
+      "kind": "EndpointSlice",
+      "metadata": {
+        "annotations": {
+          "endpoints.kubernetes.io/last-change-trigger-time": "2026-10-23T19:16:40Z"
+        },
+        "creationTimestamp": "2026-10-23T17:26:32Z",
+        "generateName": "fraudops-api-",
+        "generation": 91,
+        "labels": {
+          "endpointslice.kubernetes.io/managed-by": "endpointslice-controller.k8s.io",
+          "kubernetes.io/service-name": "fraudops-api"
+        },
+        "name": "fraudops-api-7kfzz",
+        "namespace": "fraudops-exp003",
+        "ownerReferences": [
+          {
+            "apiVersion": "v1",
+            "blockOwnerDeletion": true,
+            "controller": true,
+            "kind": "Service",
+            "name": "fraudops-api",
+            "uid": "e478d698-b856-46d9-a89f-2de48dc0e4f0"
+          }
+        ],
+        "resourceVersion": "4756",
+        "uid": "a9d618dd-c633-42b5-a98b-e7f1980d1854"
+      },
+      "ports": [
+        {
+          "name": "http",
+          "port": 8080,
+          "protocol": "TCP"
+        }
+      ]
+    },
+    {
+      "addressType": "IPv4",
+      "apiVersion": "discovery.k8s.io/v1",
+      "endpoints": [
+        {
+          "addresses": [
+            "10.244.0.17"
+          ],
+          "conditions": {
+            "ready": true,
+            "serving": true,
+            "terminating": false
+          },
+          "nodeName": "fraudops-exp003-control-plane",
+          "targetRef": {
+            "kind": "Pod",
+            "name": "grafana-7cf8bfdd5-rrj9z",
+            "namespace": "fraudops-exp003",
+            "uid": "a7a779b6-fcac-4c23-96d3-0ec366702e58"
+          }
+        }
+      ],
+      "kind": "EndpointSlice",
+      "metadata": {
+        "annotations": {
+          "endpoints.kubernetes.io/last-change-trigger-time": "2026-10-23T19:07:43Z"
+        },
+        "creationTimestamp": "2026-10-23T19:07:30Z",
+        "generateName": "grafana-",
+        "generation": 3,
+        "labels": {
+          "endpointslice.kubernetes.io/managed-by": "endpointslice-controller.k8s.io",
+          "kubernetes.io/service-name": "grafana"
+        },
+        "name": "grafana-n4jwj",
+        "namespace": "fraudops-exp003",
+        "ownerReferences": [
+          {
+            "apiVersion": "v1",
+            "blockOwnerDeletion": true,
+            "controller": true,
+            "kind": "Service",
+            "name": "grafana",
+            "uid": "758d786d-d797-4d47-8e9e-6839f9ebaa0e"
+          }
+        ],
+        "resourceVersion": "3288",
+        "uid": "87c982a6-687b-4625-927c-c61466ee53d1"
+      },
+      "ports": [
+        {
+          "name": "http",
+          "port": 3000,
+          "protocol": "TCP"
+        }
+      ]
+    },
+    {
+      "addressType": "IPv4",
+      "apiVersion": "discovery.k8s.io/v1",
+      "endpoints": [
+        {
+          "addresses": [
+            "10.244.0.14"
+          ],
+          "conditions": {
+            "ready": true,
+            "serving": true,
+            "terminating": false
+          },
+          "nodeName": "fraudops-exp003-control-plane",
+          "targetRef": {
+            "kind": "Pod",
+            "name": "jaeger-5d55bfb8d5-hxxn4",
+            "namespace": "fraudops-exp003",
+            "uid": "afeae01c-eee6-4073-a1f3-e489c9bf0c43"
+          }
+        }
+      ],
+      "kind": "EndpointSlice",
+      "metadata": {
+        "annotations": {
+          "endpoints.kubernetes.io/last-change-trigger-time": "2026-10-23T19:07:31Z"
+        },
+        "creationTimestamp": "2026-10-23T19:07:30Z",
+        "generateName": "jaeger-",
+        "generation": 3,
+        "labels": {
+          "endpointslice.kubernetes.io/managed-by": "endpointslice-controller.k8s.io",
+          "kubernetes.io/service-name": "jaeger"
+        },
+        "name": "jaeger-gnncl",
+        "namespace": "fraudops-exp003",
+        "ownerReferences": [
+          {
+            "apiVersion": "v1",
+            "blockOwnerDeletion": true,
+            "controller": true,
+            "kind": "Service",
+            "name": "jaeger",
+            "uid": "41609815-2b6d-484c-8f9a-4aa9812c94de"
+          }
+        ],
+        "resourceVersion": "3193",
+        "uid": "16e65093-de03-4f68-93b3-5dbad5047758"
+      },
+      "ports": [
+        {
+          "name": "query",
+          "port": 16686,
+          "protocol": "TCP"
+        },
+        {
+          "name": "otlp-grpc",
+          "port": 4317,
+          "protocol": "TCP"
+        }
+      ]
+    },
+    {
+      "addressType": "IPv4",
+      "apiVersion": "discovery.k8s.io/v1",
+      "endpoints": [
+        {
+          "addresses": [
+            "10.244.0.15"
+          ],
+          "conditions": {
+            "ready": true,
+            "serving": true,
+            "terminating": false
+          },
+          "nodeName": "fraudops-exp003-control-plane",
+          "targetRef": {
+            "kind": "Pod",
+            "name": "otel-collector-7bcbbf78c6-r75kp",
+            "namespace": "fraudops-exp003",
+            "uid": "a234d945-2588-45e3-972a-b9d4b7c2995e"
+          }
+        }
+      ],
+      "kind": "EndpointSlice",
+      "metadata": {
+        "annotations": {
+          "endpoints.kubernetes.io/last-change-trigger-time": "2026-10-23T19:07:32Z"
+        },
+        "creationTimestamp": "2026-10-23T19:07:30Z",
+        "generateName": "otel-collector-",
+        "generation": 3,
+        "labels": {
+          "endpointslice.kubernetes.io/managed-by": "endpointslice-controller.k8s.io",
+          "kubernetes.io/service-name": "otel-collector"
+        },
+        "name": "otel-collector-5688f",
+        "namespace": "fraudops-exp003",
+        "ownerReferences": [
+          {
+            "apiVersion": "v1",
+            "blockOwnerDeletion": true,
+            "controller": true,
+            "kind": "Service",
+            "name": "otel-collector",
+            "uid": "d1a52ac3-5ed9-4176-b8e1-2577e8dc3c7f"
+          }
+        ],
+        "resourceVersion": "3226",
+        "uid": "ebc08ffa-8e6a-4899-ad53-034424feec60"
+      },
+      "ports": [
+        {
+          "name": "otlp-http",
+          "port": 4318,
+          "protocol": "TCP"
+        }
+      ]
+    },
+    {
+      "addressType": "IPv4",
+      "apiVersion": "discovery.k8s.io/v1",
+      "endpoints": [
+        {
+          "addresses": [
+            "10.244.0.16"
+          ],
+          "conditions": {
+            "ready": true,
+            "serving": true,
+            "terminating": false
+          },
+          "nodeName": "fraudops-exp003-control-plane",
+          "targetRef": {
+            "kind": "Pod",
+            "name": "prometheus-6b5f5bdb6d-k748c",
+            "namespace": "fraudops-exp003",
+            "uid": "838ab878-665c-4203-bc1f-c8588f78308a"
+          }
+        }
+      ],
+      "kind": "EndpointSlice",
+      "metadata": {
+        "annotations": {
+          "endpoints.kubernetes.io/last-change-trigger-time": "2026-10-23T19:07:32Z"
+        },
+        "creationTimestamp": "2026-10-23T19:07:30Z",
+        "generateName": "prometheus-",
+        "generation": 3,
+        "labels": {
+          "endpointslice.kubernetes.io/managed-by": "endpointslice-controller.k8s.io",
+          "kubernetes.io/service-name": "prometheus"
+        },
+        "name": "prometheus-nwxzk",
+        "namespace": "fraudops-exp003",
+        "ownerReferences": [
+          {
+            "apiVersion": "v1",
+            "blockOwnerDeletion": true,
+            "controller": true,
+            "kind": "Service",
+            "name": "prometheus",
+            "uid": "f464b028-8eb2-4b3a-96c1-bb29fa05fe66"
+          }
+        ],
+        "resourceVersion": "3222",
+        "uid": "52d6f118-31ae-4823-8e9b-d188a9135ecf"
+      },
+      "ports": [
+        {
+          "name": "http",
+          "port": 9090,
+          "protocol": "TCP"
+        }
+      ]
+    }
+  ],
+  "kind": "List",
+  "metadata": {
+    "resourceVersion": ""
+  }
+}

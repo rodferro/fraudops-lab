@@ -1,0 +1,250 @@
+{
+  "complete": true,
+  "sampled_predictions": 591,
+  "sampled_prediction_errors": 0,
+  "request_counts": {
+    "parity": 5,
+    "normal": 100,
+    "recovery": 137,
+    "rollout": 343,
+    "revision-parity": 5,
+    "post-alerts": 1
+  },
+  "load_client": {
+    "requests": 2000,
+    "concurrency": 16,
+    "warmup_requests": 200,
+    "duration_seconds": 4.476,
+    "throughput_requests_per_second": 446.84,
+    "p50_latency_ms": 19.667,
+    "p95_latency_ms": 90.387,
+    "p99_latency_ms": 102.058,
+    "error_count": 0,
+    "error_rate": 0.0,
+    "jvm_heap_used_bytes": 41435224,
+    "error_samples": []
+  },
+  "load_server_histogram_ms": {
+    "http": {
+      "0.5": 1.330426,
+      "0.95": 4.27516,
+      "0.99": 10.300543
+    },
+    "onnx": {
+      "0.5": 0.148597,
+      "0.95": 0.501892,
+      "0.99": 1.92633
+    }
+  },
+  "recovery": {
+    "pods": {
+      "fraudops-api-5c59d884db-7stdm": {
+        "image": "fraudops-api:exp004",
+        "original": false,
+        "first_observed_seconds": 0.591,
+        "max_restarts": 0,
+        "termination_states": [],
+        "first_ready_seconds": 4.859,
+        "first_healthy_target_seconds": 6.714
+      },
+      "fraudops-api-5c59d884db-cvxlh": {
+        "image": "fraudops-api:exp004",
+        "original": true,
+        "first_observed_seconds": 0.591,
+        "max_restarts": 0,
+        "termination_states": [
+          {
+            "containerID": "containerd://9251e143bb3e2dcc1b14ddc561e173b628e72a15e4f1b48be8e4023e83d5f082",
+            "exitCode": 143,
+            "finishedAt": "2026-10-23T19:15:57Z",
+            "reason": "Error",
+            "startedAt": "2026-10-23T19:14:20Z"
+          }
+        ],
+        "first_deleting_seconds": 0.591,
+        "first_healthy_target_seconds": 0.591
+      },
+      "fraudops-api-5c59d884db-hmwpr": {
+        "image": "fraudops-api:exp004",
+        "original": true,
+        "first_observed_seconds": 0.591,
+        "max_restarts": 0,
+        "termination_states": [],
+        "first_ready_seconds": 0.591,
+        "first_healthy_target_seconds": 0.591
+      },
+      "fraudops-api-5c59d884db-ptxfb": {
+        "image": "fraudops-api:exp004",
+        "original": true,
+        "first_observed_seconds": 0.591,
+        "max_restarts": 0,
+        "termination_states": [],
+        "first_ready_seconds": 0.591,
+        "first_healthy_target_seconds": 0.591
+      }
+    },
+    "minimum_ready_pods": 2,
+    "maximum_total_pods": 4,
+    "scraped_healthy_count_range": [
+      2.0,
+      3.0
+    ],
+    "max_status_sample_gap_seconds": 0.644,
+    "max_request_start_gap_seconds": 0.139,
+    "converged_observed_seconds": 9.809,
+    "three_ready_restored_seconds": 4.859
+  },
+  "rollout": {
+    "pods": {
+      "fraudops-api-5c59d884db-7stdm": {
+        "image": "fraudops-api:exp004",
+        "original": true,
+        "first_observed_seconds": 0.008,
+        "max_restarts": 0,
+        "termination_states": [],
+        "first_ready_seconds": 0.008,
+        "first_healthy_target_seconds": 0.008,
+        "first_deleting_seconds": 9.255
+      },
+      "fraudops-api-5c59d884db-hmwpr": {
+        "image": "fraudops-api:exp004",
+        "original": true,
+        "first_observed_seconds": 0.008,
+        "max_restarts": 0,
+        "termination_states": [],
+        "first_ready_seconds": 0.008,
+        "first_healthy_target_seconds": 0.008,
+        "first_deleting_seconds": 18.468
+      },
+      "fraudops-api-5c59d884db-ptxfb": {
+        "image": "fraudops-api:exp004",
+        "original": true,
+        "first_observed_seconds": 0.008,
+        "max_restarts": 0,
+        "termination_states": [],
+        "first_ready_seconds": 0.008,
+        "first_healthy_target_seconds": 0.008,
+        "first_deleting_seconds": 27.662
+      },
+      "fraudops-api-757c4c856b-qrc2r": {
+        "image": "fraudops-api:exp004-r1",
+        "original": false,
+        "first_observed_seconds": 0.619,
+        "max_restarts": 0,
+        "termination_states": [],
+        "first_ready_seconds": 4.915,
+        "first_healthy_target_seconds": 7.991
+      },
+      "fraudops-api-757c4c856b-pfq2s": {
+        "image": "fraudops-api:exp004-r1",
+        "original": false,
+        "first_observed_seconds": 9.255,
+        "max_restarts": 0,
+        "termination_states": [],
+        "first_ready_seconds": 14.107,
+        "first_healthy_target_seconds": 17.843
+      },
+      "fraudops-api-757c4c856b-dlcjc": {
+        "image": "fraudops-api:exp004-r1",
+        "original": false,
+        "first_observed_seconds": 18.468,
+        "max_restarts": 0,
+        "termination_states": [],
+        "first_ready_seconds": 22.755,
+        "first_healthy_target_seconds": 27.059
+      }
+    },
+    "minimum_ready_pods": 3,
+    "maximum_total_pods": 5,
+    "scraped_healthy_count_range": [
+      3.0,
+      4.0
+    ],
+    "max_status_sample_gap_seconds": 0.643,
+    "max_request_start_gap_seconds": 0.153,
+    "converged_observed_seconds": 32.652
+  },
+  "resources": {
+    "fraudops-api-5c59d884db-cvxlh": {
+      "sampled_cgroup_memory_current_bytes": [
+        229179392,
+        241569792
+      ],
+      "cgroup_memory_peak_bytes": 242180096,
+      "sampled_jvm_heap_bytes": [
+        29594936.0,
+        40847040.0
+      ],
+      "sampled_process_cpu_fraction": [
+        0.01818181818181818,
+        0.5722222222222222
+      ],
+      "gc_pause_count_delta_between_samples": 2.0
+    },
+    "fraudops-api-5c59d884db-hmwpr": {
+      "sampled_cgroup_memory_current_bytes": [
+        229552128,
+        252633088
+      ],
+      "cgroup_memory_peak_bytes": 253693952,
+      "sampled_jvm_heap_bytes": [
+        39604488.0,
+        50894112.0
+      ],
+      "sampled_process_cpu_fraction": [
+        0.05,
+        0.6684210526315789
+      ],
+      "gc_pause_count_delta_between_samples": 2.0
+    },
+    "fraudops-api-5c59d884db-ptxfb": {
+      "sampled_cgroup_memory_current_bytes": [
+        225206272,
+        242900992
+      ],
+      "cgroup_memory_peak_bytes": 242941952,
+      "sampled_jvm_heap_bytes": [
+        32233664.0,
+        44354152.0
+      ],
+      "sampled_process_cpu_fraction": [
+        0.03333333333333333,
+        0.635
+      ],
+      "gc_pause_count_delta_between_samples": 2.0
+    }
+  },
+  "alerts": [
+    {
+      "labels": {
+        "alertname": "FraudOpsElevated5xxRatio",
+        "app": "fraudops-alert-demo",
+        "experiment": "EXP-004",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "Evaluated per app; demo pod is isolated from the inference Service. Not a production SLO.",
+        "summary": "HTTP 5xx ratio above 20% for 10s (local demonstration)"
+      },
+      "state": "firing",
+      "activeAt": "2026-10-23T19:16:59.653427735Z",
+      "value": "4.888888888888889e-01"
+    },
+    {
+      "labels": {
+        "alertname": "FraudOpsHighP95Latency",
+        "app": "fraudops-alert-demo",
+        "experiment": "EXP-004",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "Aggregates histogram buckets across pods before computing p95. Not a production SLO.",
+        "summary": "HTTP p95 above 100ms for 10s (local demonstration)"
+      },
+      "state": "firing",
+      "activeAt": "2026-10-23T19:16:59.653427735Z",
+      "value": "3.491606109456522e-01"
+    }
+  ],
+  "alerts_resolved": true
+}

@@ -1,0 +1,1 @@
+deployment "fraudops-api" successfully rolled out

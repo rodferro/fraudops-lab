@@ -1,0 +1,184 @@
+{
+  "recovery": {
+    "pods": {
+      "fraudops-api-6748bc646b-fbzxz": {
+        "image": "fraudops-api:exp002",
+        "initial": true,
+        "first_observed": 0.522,
+        "created": "2026-10-23T17:27:23Z",
+        "max_restarts": 0,
+        "ready_first_observed": 0.522,
+        "observed_termination_reasons": []
+      },
+      "fraudops-api-6748bc646b-p9kwp": {
+        "image": "fraudops-api:exp002",
+        "initial": false,
+        "first_observed": 0.522,
+        "created": "2026-10-23T17:27:35Z",
+        "max_restarts": 0,
+        "observed_termination_reasons": [],
+        "ready_first_observed": 4.829
+      },
+      "fraudops-api-6748bc646b-prdt6": {
+        "image": "fraudops-api:exp002",
+        "initial": true,
+        "first_observed": 0.522,
+        "created": "2026-10-23T17:27:23Z",
+        "max_restarts": 0,
+        "ready_first_observed": 0.522,
+        "observed_termination_reasons": []
+      },
+      "fraudops-api-6748bc646b-vqc65": {
+        "image": "fraudops-api:exp002",
+        "initial": true,
+        "first_observed": 0.522,
+        "created": "2026-10-23T17:26:32Z",
+        "max_restarts": 0,
+        "deleting_first_observed": 0.522,
+        "observed_termination_reasons": [
+          "Error"
+        ]
+      }
+    },
+    "max_observed_pods": 4,
+    "minimum_ready": 2,
+    "max_sample_gap_seconds": 0.653,
+    "three_ready_restored_seconds": 4.829,
+    "max_request_start_gap_seconds": 0.133,
+    "request_window_seconds": 14.361
+  },
+  "rollout": {
+    "pods": {
+      "fraudops-api-549f98757f-749jd": {
+        "image": "fraudops-api:exp003-r1",
+        "initial": false,
+        "first_observed": 0.571,
+        "created": "2026-10-23T17:27:49Z",
+        "max_restarts": 0,
+        "observed_termination_reasons": [],
+        "ready_first_observed": 4.847
+      },
+      "fraudops-api-6748bc646b-fbzxz": {
+        "image": "fraudops-api:exp002",
+        "initial": true,
+        "first_observed": 0.571,
+        "created": "2026-10-23T17:27:23Z",
+        "max_restarts": 0,
+        "ready_first_observed": 0.571,
+        "observed_termination_reasons": [
+          "Error"
+        ],
+        "deleting_first_observed": 27.758
+      },
+      "fraudops-api-6748bc646b-p9kwp": {
+        "image": "fraudops-api:exp002",
+        "initial": true,
+        "first_observed": 0.571,
+        "created": "2026-10-23T17:27:35Z",
+        "max_restarts": 0,
+        "ready_first_observed": 0.571,
+        "observed_termination_reasons": [],
+        "deleting_first_observed": 19.125
+      },
+      "fraudops-api-6748bc646b-prdt6": {
+        "image": "fraudops-api:exp002",
+        "initial": true,
+        "first_observed": 0.571,
+        "created": "2026-10-23T17:27:23Z",
+        "max_restarts": 0,
+        "ready_first_observed": 0.571,
+        "observed_termination_reasons": [
+          "Error"
+        ],
+        "deleting_first_observed": 9.884
+      },
+      "fraudops-api-549f98757f-5x7c7": {
+        "image": "fraudops-api:exp003-r1",
+        "initial": false,
+        "first_observed": 9.884,
+        "created": "2026-10-23T17:27:59Z",
+        "max_restarts": 0,
+        "observed_termination_reasons": [],
+        "ready_first_observed": 14.178
+      },
+      "fraudops-api-549f98757f-dgrfg": {
+        "image": "fraudops-api:exp003-r1",
+        "initial": false,
+        "first_observed": 19.125,
+        "created": "2026-10-23T17:28:08Z",
+        "max_restarts": 0,
+        "observed_termination_reasons": [],
+        "ready_first_observed": 23.395
+      }
+    },
+    "max_observed_pods": 5,
+    "minimum_ready": 3,
+    "max_sample_gap_seconds": 0.645,
+    "max_request_start_gap_seconds": 0.136,
+    "request_window_seconds": 38.481
+  },
+  "request_total": 619,
+  "request_errors": 0,
+  "request_counts": {
+    "initial-local": 5,
+    "initial-service": 5,
+    "scaled-parity": 5,
+    "scale": 120,
+    "recovery": 129,
+    "recovered-parity": 5,
+    "rollout": 345,
+    "revision-parity": 5
+  },
+  "warning_events": [
+    {
+      "reason": "Unhealthy",
+      "message": "Startup probe failed: Get \"http://10.244.0.12:8080/actuator/health/liveness\": dial tcp 10.244.0.12:8080: connect: connection refused",
+      "object": "fraudops-api-549f98757f-5x7c7"
+    },
+    {
+      "reason": "Unhealthy",
+      "message": "Startup probe failed: Get \"http://10.244.0.11:8080/actuator/health/liveness\": dial tcp 10.244.0.11:8080: connect: connection refused",
+      "object": "fraudops-api-549f98757f-749jd"
+    },
+    {
+      "reason": "Unhealthy",
+      "message": "Startup probe failed: Get \"http://10.244.0.13:8080/actuator/health/liveness\": dial tcp 10.244.0.13:8080: connect: connection refused",
+      "object": "fraudops-api-549f98757f-dgrfg"
+    },
+    {
+      "reason": "Unhealthy",
+      "message": "Startup probe failed: Get \"http://10.244.0.8:8080/actuator/health/liveness\": dial tcp 10.244.0.8:8080: connect: connection refused",
+      "object": "fraudops-api-6748bc646b-fbzxz"
+    },
+    {
+      "reason": "Unhealthy",
+      "message": "Startup probe failed: Get \"http://10.244.0.10:8080/actuator/health/liveness\": dial tcp 10.244.0.10:8080: connect: connection refused",
+      "object": "fraudops-api-6748bc646b-p9kwp"
+    },
+    {
+      "reason": "Unhealthy",
+      "message": "Startup probe failed: Get \"http://10.244.0.9:8080/actuator/health/liveness\": dial tcp 10.244.0.9:8080: connect: connection refused",
+      "object": "fraudops-api-6748bc646b-prdt6"
+    },
+    {
+      "reason": "Unhealthy",
+      "message": "Startup probe failed: Get \"http://10.244.0.5:8080/actuator/health/liveness\": dial tcp 10.244.0.5:8080: connect: connection refused",
+      "object": "fraudops-api-6748bc646b-vqc65"
+    },
+    {
+      "reason": "Unhealthy",
+      "message": "Readiness probe failed: dial tcp 10.244.0.6:8081: connect: connection refused",
+      "object": "fraudops-client"
+    },
+    {
+      "reason": "BackOff",
+      "message": "Back-off restarting failed container client in pod fraudops-client_fraudops-exp003(e8a8adf9-a915-4fa9-8711-087eacaad039)",
+      "object": "fraudops-client"
+    },
+    {
+      "reason": "Unhealthy",
+      "message": "Readiness probe failed: dial tcp 10.244.0.7:8081: connect: connection refused",
+      "object": "fraudops-client"
+    }
+  ]
+}

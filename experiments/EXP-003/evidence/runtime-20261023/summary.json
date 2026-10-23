@@ -1,0 +1,412 @@
+{
+  "started_at": "2026-10-23T17:27:21.948620+00:00",
+  "complete": true,
+  "scenarios": {
+    "scaling": {
+      "ready_replicas": 3,
+      "requests": 120,
+      "errors": 0,
+      "successful_requests_by_pod": {
+        "fraudops-api-6748bc646b-fbzxz": 39,
+        "fraudops-api-6748bc646b-prdt6": 32,
+        "fraudops-api-6748bc646b-vqc65": 49
+      },
+      "ready_endpoints": [
+        "fraudops-api-6748bc646b-fbzxz",
+        "fraudops-api-6748bc646b-prdt6",
+        "fraudops-api-6748bc646b-vqc65"
+      ]
+    },
+    "recovery": {
+      "action_at_elapsed_seconds": 2.005,
+      "requests": 129,
+      "errors": 0,
+      "error_samples": [],
+      "observer_errors": [],
+      "restored_observed_seconds": 9.21,
+      "minimum_observed_ready_pods": 2,
+      "sample_interval_seconds": "0.5 plus three kubectl API calls; see timestamps",
+      "replacement_first_observed_seconds": 0.522
+    },
+    "rollout": {
+      "action_at_elapsed_seconds": 2.007,
+      "requests": 345,
+      "errors": 0,
+      "error_samples": [],
+      "observer_errors": [],
+      "restored_observed_seconds": 33.369,
+      "minimum_observed_ready_pods": 3,
+      "sample_interval_seconds": "0.5 plus three kubectl API calls; see timestamps"
+    }
+  },
+  "initial_parity": [
+    {
+      "at": "2026-10-23T17:27:22.989443+00:00",
+      "id": "initial-local-1",
+      "phase": "initial-local",
+      "case": "typical",
+      "status": 200,
+      "response": {
+        "fraud_probability": 0.23597344756126404,
+        "model_version": "1.0.0-exp000",
+        "decision": "review"
+      },
+      "ok": true,
+      "duration_ms": 42.607
+    },
+    {
+      "at": "2026-10-23T17:27:23.032452+00:00",
+      "id": "initial-local-2",
+      "phase": "initial-local",
+      "case": "high_risk",
+      "status": 200,
+      "response": {
+        "fraud_probability": 0.9930033683776855,
+        "model_version": "1.0.0-exp000",
+        "decision": "review"
+      },
+      "ok": true,
+      "duration_ms": 3.943
+    },
+    {
+      "at": "2026-10-23T17:27:23.036572+00:00",
+      "id": "initial-local-3",
+      "phase": "initial-local",
+      "case": "missing_numerical",
+      "status": 200,
+      "response": {
+        "fraud_probability": 0.009561717510223389,
+        "model_version": "1.0.0-exp000",
+        "decision": "approve"
+      },
+      "ok": true,
+      "duration_ms": 3.139
+    },
+    {
+      "at": "2026-10-23T17:27:23.039856+00:00",
+      "id": "initial-local-4",
+      "phase": "initial-local",
+      "case": "unknown_categories",
+      "status": 200,
+      "response": {
+        "fraud_probability": 0.03944578766822815,
+        "model_version": "1.0.0-exp000",
+        "decision": "approve"
+      },
+      "ok": true,
+      "duration_ms": 3.834
+    },
+    {
+      "at": "2026-10-23T17:27:23.043857+00:00",
+      "id": "initial-local-5",
+      "phase": "initial-local",
+      "case": "extreme_valid",
+      "status": 200,
+      "response": {
+        "fraud_probability": 1.0,
+        "model_version": "1.0.0-exp000",
+        "decision": "review"
+      },
+      "ok": true,
+      "duration_ms": 49.036
+    }
+  ],
+  "initial_clusterip_parity": [
+    {
+      "at": "2026-10-23T17:27:23.093119+00:00",
+      "id": "initial-service-6",
+      "phase": "initial-service",
+      "case": "typical",
+      "status": 200,
+      "response": {
+        "fraud_probability": 0.23597344756126404,
+        "model_version": "1.0.0-exp000",
+        "decision": "review"
+      },
+      "ok": true,
+      "duration_ms": 5.416
+    },
+    {
+      "at": "2026-10-23T17:27:23.098695+00:00",
+      "id": "initial-service-7",
+      "phase": "initial-service",
+      "case": "high_risk",
+      "status": 200,
+      "response": {
+        "fraud_probability": 0.9930033683776855,
+        "model_version": "1.0.0-exp000",
+        "decision": "review"
+      },
+      "ok": true,
+      "duration_ms": 4.813
+    },
+    {
+      "at": "2026-10-23T17:27:23.103655+00:00",
+      "id": "initial-service-8",
+      "phase": "initial-service",
+      "case": "missing_numerical",
+      "status": 200,
+      "response": {
+        "fraud_probability": 0.009561717510223389,
+        "model_version": "1.0.0-exp000",
+        "decision": "approve"
+      },
+      "ok": true,
+      "duration_ms": 4.012
+    },
+    {
+      "at": "2026-10-23T17:27:23.107818+00:00",
+      "id": "initial-service-9",
+      "phase": "initial-service",
+      "case": "unknown_categories",
+      "status": 200,
+      "response": {
+        "fraud_probability": 0.03944578766822815,
+        "model_version": "1.0.0-exp000",
+        "decision": "approve"
+      },
+      "ok": true,
+      "duration_ms": 5.312
+    },
+    {
+      "at": "2026-10-23T17:27:23.113259+00:00",
+      "id": "initial-service-10",
+      "phase": "initial-service",
+      "case": "extreme_valid",
+      "status": 200,
+      "response": {
+        "fraud_probability": 1.0,
+        "model_version": "1.0.0-exp000",
+        "decision": "review"
+      },
+      "ok": true,
+      "duration_ms": 7.169
+    }
+  ],
+  "scaled_parity": [
+    {
+      "at": "2026-10-23T17:27:32.151845+00:00",
+      "id": "scaled-parity-11",
+      "phase": "scaled-parity",
+      "case": "typical",
+      "status": 200,
+      "response": {
+        "fraud_probability": 0.23597344756126404,
+        "model_version": "1.0.0-exp000",
+        "decision": "review"
+      },
+      "ok": true,
+      "duration_ms": 41.102
+    },
+    {
+      "at": "2026-10-23T17:27:32.193132+00:00",
+      "id": "scaled-parity-12",
+      "phase": "scaled-parity",
+      "case": "high_risk",
+      "status": 200,
+      "response": {
+        "fraud_probability": 0.9930033683776855,
+        "model_version": "1.0.0-exp000",
+        "decision": "review"
+      },
+      "ok": true,
+      "duration_ms": 4.974
+    },
+    {
+      "at": "2026-10-23T17:27:32.198233+00:00",
+      "id": "scaled-parity-13",
+      "phase": "scaled-parity",
+      "case": "missing_numerical",
+      "status": 200,
+      "response": {
+        "fraud_probability": 0.009561717510223389,
+        "model_version": "1.0.0-exp000",
+        "decision": "approve"
+      },
+      "ok": true,
+      "duration_ms": 28.193
+    },
+    {
+      "at": "2026-10-23T17:27:32.226605+00:00",
+      "id": "scaled-parity-14",
+      "phase": "scaled-parity",
+      "case": "unknown_categories",
+      "status": 200,
+      "response": {
+        "fraud_probability": 0.03944578766822815,
+        "model_version": "1.0.0-exp000",
+        "decision": "approve"
+      },
+      "ok": true,
+      "duration_ms": 4.374
+    },
+    {
+      "at": "2026-10-23T17:27:32.231099+00:00",
+      "id": "scaled-parity-15",
+      "phase": "scaled-parity",
+      "case": "extreme_valid",
+      "status": 200,
+      "response": {
+        "fraud_probability": 1.0,
+        "model_version": "1.0.0-exp000",
+        "decision": "review"
+      },
+      "ok": true,
+      "duration_ms": 3.801
+    }
+  ],
+  "deleted_pod": "fraudops-api-6748bc646b-vqc65",
+  "post_recovery_parity": [
+    {
+      "at": "2026-10-23T17:27:47.401249+00:00",
+      "id": "recovered-parity-265",
+      "phase": "recovered-parity",
+      "case": "typical",
+      "status": 200,
+      "response": {
+        "fraud_probability": 0.23597344756126404,
+        "model_version": "1.0.0-exp000",
+        "decision": "review"
+      },
+      "ok": true,
+      "duration_ms": 5.637
+    },
+    {
+      "at": "2026-10-23T17:27:47.407000+00:00",
+      "id": "recovered-parity-266",
+      "phase": "recovered-parity",
+      "case": "high_risk",
+      "status": 200,
+      "response": {
+        "fraud_probability": 0.9930033683776855,
+        "model_version": "1.0.0-exp000",
+        "decision": "review"
+      },
+      "ok": true,
+      "duration_ms": 4.273
+    },
+    {
+      "at": "2026-10-23T17:27:47.411389+00:00",
+      "id": "recovered-parity-267",
+      "phase": "recovered-parity",
+      "case": "missing_numerical",
+      "status": 200,
+      "response": {
+        "fraud_probability": 0.009561717510223389,
+        "model_version": "1.0.0-exp000",
+        "decision": "approve"
+      },
+      "ok": true,
+      "duration_ms": 3.833
+    },
+    {
+      "at": "2026-10-23T17:27:47.415332+00:00",
+      "id": "recovered-parity-268",
+      "phase": "recovered-parity",
+      "case": "unknown_categories",
+      "status": 200,
+      "response": {
+        "fraud_probability": 0.03944578766822815,
+        "model_version": "1.0.0-exp000",
+        "decision": "approve"
+      },
+      "ok": true,
+      "duration_ms": 3.691
+    },
+    {
+      "at": "2026-10-23T17:27:47.419120+00:00",
+      "id": "recovered-parity-269",
+      "phase": "recovered-parity",
+      "case": "extreme_valid",
+      "status": 200,
+      "response": {
+        "fraud_probability": 1.0,
+        "model_version": "1.0.0-exp000",
+        "decision": "review"
+      },
+      "ok": true,
+      "duration_ms": 3.502
+    }
+  ],
+  "final_parity": [
+    {
+      "at": "2026-10-23T17:28:26.161005+00:00",
+      "id": "revision-parity-615",
+      "phase": "revision-parity",
+      "case": "typical",
+      "status": 200,
+      "response": {
+        "fraud_probability": 0.23597344756126404,
+        "model_version": "1.0.0-exp000",
+        "decision": "review"
+      },
+      "ok": true,
+      "duration_ms": 5.557
+    },
+    {
+      "at": "2026-10-23T17:28:26.166658+00:00",
+      "id": "revision-parity-616",
+      "phase": "revision-parity",
+      "case": "high_risk",
+      "status": 200,
+      "response": {
+        "fraud_probability": 0.9930033683776855,
+        "model_version": "1.0.0-exp000",
+        "decision": "review"
+      },
+      "ok": true,
+      "duration_ms": 4.689
+    },
+    {
+      "at": "2026-10-23T17:28:26.171437+00:00",
+      "id": "revision-parity-617",
+      "phase": "revision-parity",
+      "case": "missing_numerical",
+      "status": 200,
+      "response": {
+        "fraud_probability": 0.009561717510223389,
+        "model_version": "1.0.0-exp000",
+        "decision": "approve"
+      },
+      "ok": true,
+      "duration_ms": 5.047
+    },
+    {
+      "at": "2026-10-23T17:28:26.176562+00:00",
+      "id": "revision-parity-618",
+      "phase": "revision-parity",
+      "case": "unknown_categories",
+      "status": 200,
+      "response": {
+        "fraud_probability": 0.03944578766822815,
+        "model_version": "1.0.0-exp000",
+        "decision": "approve"
+      },
+      "ok": true,
+      "duration_ms": 3.978
+    },
+    {
+      "at": "2026-10-23T17:28:26.180641+00:00",
+      "id": "revision-parity-619",
+      "phase": "revision-parity",
+      "case": "extreme_valid",
+      "status": 200,
+      "response": {
+        "fraud_probability": 1.0,
+        "model_version": "1.0.0-exp000",
+        "decision": "review"
+      },
+      "ok": true,
+      "duration_ms": 3.712
+    }
+  ],
+  "image_ids": {
+    "base": [
+      "docker.io/library/import-2026-10-23@sha256:5c7492ee4e79c25089127ab0e0c0c947ef94c992098b7a78f24858c7f94a7410"
+    ],
+    "revision": [
+      "sha256:01f6bd0d7f34529ba645c0edb9adec26583a368f0dc27e18a0f6aa0402a6263e"
+    ]
+  },
+  "finished_at": "2026-10-23T17:28:26.375775+00:00"
+}

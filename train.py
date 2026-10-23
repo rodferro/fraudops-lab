@@ -439,8 +439,8 @@ def main() -> None:
     parser.add_argument(
         "--output-dir",
         type=Path,
-        default=Path(__file__).resolve().parent,
-        help="Directory for the dataset and model artifacts (default: script directory)",
+        default=Path(__file__).resolve().parent / "artifacts" / "EXP-000",
+        help="Directory for generated dataset/model artifacts (default: artifacts/EXP-000)",
     )
     args = parser.parse_args()
     train(args.output_dir.resolve())

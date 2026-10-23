@@ -1,0 +1,1069 @@
+{
+  "apiVersion": "v1",
+  "items": [
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:27:59Z",
+        "generateName": "fraudops-api-549f98757f-",
+        "generation": 1,
+        "labels": {
+          "app": "fraudops-api",
+          "pod-template-hash": "549f98757f"
+        },
+        "name": "fraudops-api-549f98757f-5x7c7",
+        "namespace": "fraudops-exp003",
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "blockOwnerDeletion": true,
+            "controller": true,
+            "kind": "ReplicaSet",
+            "name": "fraudops-api-549f98757f",
+            "uid": "d94e7032-4636-428b-a1a6-db2860c843e3"
+          }
+        ],
+        "resourceVersion": "957",
+        "uid": "3bab58dc-2d68-43f6-b0d3-cc1dd653143a"
+      },
+      "spec": {
+        "automountServiceAccountToken": false,
+        "containers": [
+          {
+            "envFrom": [
+              {
+                "configMapRef": {
+                  "name": "fraudops-config"
+                }
+              }
+            ],
+            "image": "fraudops-api:exp003-r1",
+            "imagePullPolicy": "IfNotPresent",
+            "lifecycle": {
+              "preStop": {
+                "exec": {
+                  "command": [
+                    "/bin/sh",
+                    "-c",
+                    "sleep 5"
+                  ]
+                }
+              }
+            },
+            "livenessProbe": {
+              "failureThreshold": 3,
+              "httpGet": {
+                "path": "/actuator/health/liveness",
+                "port": "http",
+                "scheme": "HTTP"
+              },
+              "periodSeconds": 10,
+              "successThreshold": 1,
+              "timeoutSeconds": 2
+            },
+            "name": "api",
+            "ports": [
+              {
+                "containerPort": 8080,
+                "name": "http",
+                "protocol": "TCP"
+              }
+            ],
+            "readinessProbe": {
+              "failureThreshold": 2,
+              "httpGet": {
+                "path": "/actuator/health/readiness",
+                "port": "http",
+                "scheme": "HTTP"
+              },
+              "periodSeconds": 2,
+              "successThreshold": 1,
+              "timeoutSeconds": 2
+            },
+            "resources": {
+              "limits": {
+                "cpu": "1",
+                "memory": "512Mi"
+              },
+              "requests": {
+                "cpu": "250m",
+                "memory": "256Mi"
+              }
+            },
+            "securityContext": {
+              "allowPrivilegeEscalation": false,
+              "capabilities": {
+                "drop": [
+                  "ALL"
+                ]
+              },
+              "readOnlyRootFilesystem": true
+            },
+            "startupProbe": {
+              "failureThreshold": 60,
+              "httpGet": {
+                "path": "/actuator/health/liveness",
+                "port": "http",
+                "scheme": "HTTP"
+              },
+              "periodSeconds": 2,
+              "successThreshold": 1,
+              "timeoutSeconds": 2
+            },
+            "terminationMessagePath": "/dev/termination-log",
+            "terminationMessagePolicy": "File",
+            "volumeMounts": [
+              {
+                "mountPath": "/tmp",
+                "name": "tmp"
+              }
+            ]
+          }
+        ],
+        "dnsPolicy": "ClusterFirst",
+        "enableServiceLinks": true,
+        "nodeName": "fraudops-exp003-control-plane",
+        "preemptionPolicy": "PreemptLowerPriority",
+        "priority": 0,
+        "restartPolicy": "Always",
+        "schedulerName": "default-scheduler",
+        "securityContext": {
+          "fsGroup": 10001,
+          "runAsGroup": 10001,
+          "runAsNonRoot": true,
+          "runAsUser": 10001,
+          "seccompProfile": {
+            "type": "RuntimeDefault"
+          }
+        },
+        "serviceAccount": "default",
+        "serviceAccountName": "default",
+        "terminationGracePeriodSeconds": 35,
+        "tolerations": [
+          {
+            "effect": "NoExecute",
+            "key": "node.kubernetes.io/not-ready",
+            "operator": "Exists",
+            "tolerationSeconds": 300
+          },
+          {
+            "effect": "NoExecute",
+            "key": "node.kubernetes.io/unreachable",
+            "operator": "Exists",
+            "tolerationSeconds": 300
+          }
+        ],
+        "volumes": [
+          {
+            "emptyDir": {
+              "sizeLimit": "128Mi"
+            },
+            "name": "tmp"
+          }
+        ]
+      },
+      "status": {
+        "allocatedResources": {
+          "cpu": "250m",
+          "memory": "256Mi"
+        },
+        "conditions": [
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-23T17:27:59Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "PodReadyToStartContainers"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-23T17:27:59Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "Initialized"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-23T17:28:03Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-23T17:28:03Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "ContainersReady"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-23T17:27:59Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "PodScheduled"
+          }
+        ],
+        "containerStatuses": [
+          {
+            "allocatedResources": {
+              "cpu": "250m",
+              "memory": "256Mi"
+            },
+            "containerID": "containerd://1ffbbc304b9803bc1fece7aba95c9143a47517587bc46e7a1e075826eaa3326b",
+            "image": "docker.io/library/fraudops-api:exp003-r1",
+            "imageID": "sha256:01f6bd0d7f34529ba645c0edb9adec26583a368f0dc27e18a0f6aa0402a6263e",
+            "lastState": {},
+            "name": "api",
+            "ready": true,
+            "resources": {
+              "limits": {
+                "cpu": "1",
+                "memory": "512Mi"
+              },
+              "requests": {
+                "cpu": "250m",
+                "memory": "256Mi"
+              }
+            },
+            "restartCount": 0,
+            "started": true,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-23T17:27:59Z"
+              }
+            },
+            "user": {
+              "linux": {
+                "gid": 10001,
+                "supplementalGroups": [
+                  10001
+                ],
+                "uid": 10001
+              }
+            },
+            "volumeMounts": [
+              {
+                "mountPath": "/tmp",
+                "name": "tmp"
+              }
+            ]
+          }
+        ],
+        "hostIP": "172.18.0.2",
+        "hostIPs": [
+          {
+            "ip": "172.18.0.2"
+          }
+        ],
+        "observedGeneration": 1,
+        "phase": "Running",
+        "podIP": "10.244.0.12",
+        "podIPs": [
+          {
+            "ip": "10.244.0.12"
+          }
+        ],
+        "qosClass": "Burstable",
+        "resources": {
+          "limits": {
+            "cpu": "1",
+            "memory": "512Mi"
+          },
+          "requests": {
+            "cpu": "232m",
+            "memory": "256Mi"
+          }
+        },
+        "startTime": "2026-10-23T17:27:59Z"
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:27:49Z",
+        "generateName": "fraudops-api-549f98757f-",
+        "generation": 1,
+        "labels": {
+          "app": "fraudops-api",
+          "pod-template-hash": "549f98757f"
+        },
+        "name": "fraudops-api-549f98757f-749jd",
+        "namespace": "fraudops-exp003",
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "blockOwnerDeletion": true,
+            "controller": true,
+            "kind": "ReplicaSet",
+            "name": "fraudops-api-549f98757f",
+            "uid": "d94e7032-4636-428b-a1a6-db2860c843e3"
+          }
+        ],
+        "resourceVersion": "906",
+        "uid": "f7a1d91f-65a1-44c2-a832-71e82d44ef6c"
+      },
+      "spec": {
+        "automountServiceAccountToken": false,
+        "containers": [
+          {
+            "envFrom": [
+              {
+                "configMapRef": {
+                  "name": "fraudops-config"
+                }
+              }
+            ],
+            "image": "fraudops-api:exp003-r1",
+            "imagePullPolicy": "IfNotPresent",
+            "lifecycle": {
+              "preStop": {
+                "exec": {
+                  "command": [
+                    "/bin/sh",
+                    "-c",
+                    "sleep 5"
+                  ]
+                }
+              }
+            },
+            "livenessProbe": {
+              "failureThreshold": 3,
+              "httpGet": {
+                "path": "/actuator/health/liveness",
+                "port": "http",
+                "scheme": "HTTP"
+              },
+              "periodSeconds": 10,
+              "successThreshold": 1,
+              "timeoutSeconds": 2
+            },
+            "name": "api",
+            "ports": [
+              {
+                "containerPort": 8080,
+                "name": "http",
+                "protocol": "TCP"
+              }
+            ],
+            "readinessProbe": {
+              "failureThreshold": 2,
+              "httpGet": {
+                "path": "/actuator/health/readiness",
+                "port": "http",
+                "scheme": "HTTP"
+              },
+              "periodSeconds": 2,
+              "successThreshold": 1,
+              "timeoutSeconds": 2
+            },
+            "resources": {
+              "limits": {
+                "cpu": "1",
+                "memory": "512Mi"
+              },
+              "requests": {
+                "cpu": "250m",
+                "memory": "256Mi"
+              }
+            },
+            "securityContext": {
+              "allowPrivilegeEscalation": false,
+              "capabilities": {
+                "drop": [
+                  "ALL"
+                ]
+              },
+              "readOnlyRootFilesystem": true
+            },
+            "startupProbe": {
+              "failureThreshold": 60,
+              "httpGet": {
+                "path": "/actuator/health/liveness",
+                "port": "http",
+                "scheme": "HTTP"
+              },
+              "periodSeconds": 2,
+              "successThreshold": 1,
+              "timeoutSeconds": 2
+            },
+            "terminationMessagePath": "/dev/termination-log",
+            "terminationMessagePolicy": "File",
+            "volumeMounts": [
+              {
+                "mountPath": "/tmp",
+                "name": "tmp"
+              }
+            ]
+          }
+        ],
+        "dnsPolicy": "ClusterFirst",
+        "enableServiceLinks": true,
+        "nodeName": "fraudops-exp003-control-plane",
+        "preemptionPolicy": "PreemptLowerPriority",
+        "priority": 0,
+        "restartPolicy": "Always",
+        "schedulerName": "default-scheduler",
+        "securityContext": {
+          "fsGroup": 10001,
+          "runAsGroup": 10001,
+          "runAsNonRoot": true,
+          "runAsUser": 10001,
+          "seccompProfile": {
+            "type": "RuntimeDefault"
+          }
+        },
+        "serviceAccount": "default",
+        "serviceAccountName": "default",
+        "terminationGracePeriodSeconds": 35,
+        "tolerations": [
+          {
+            "effect": "NoExecute",
+            "key": "node.kubernetes.io/not-ready",
+            "operator": "Exists",
+            "tolerationSeconds": 300
+          },
+          {
+            "effect": "NoExecute",
+            "key": "node.kubernetes.io/unreachable",
+            "operator": "Exists",
+            "tolerationSeconds": 300
+          }
+        ],
+        "volumes": [
+          {
+            "emptyDir": {
+              "sizeLimit": "128Mi"
+            },
+            "name": "tmp"
+          }
+        ]
+      },
+      "status": {
+        "allocatedResources": {
+          "cpu": "250m",
+          "memory": "256Mi"
+        },
+        "conditions": [
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-23T17:27:49Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "PodReadyToStartContainers"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-23T17:27:49Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "Initialized"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-23T17:27:54Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-23T17:27:54Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "ContainersReady"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-23T17:27:49Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "PodScheduled"
+          }
+        ],
+        "containerStatuses": [
+          {
+            "allocatedResources": {
+              "cpu": "250m",
+              "memory": "256Mi"
+            },
+            "containerID": "containerd://6ae01144d5714825c75f62a4d97c12a10a0082bbc583fe2bb06d624b8ddc6358",
+            "image": "docker.io/library/fraudops-api:exp003-r1",
+            "imageID": "sha256:01f6bd0d7f34529ba645c0edb9adec26583a368f0dc27e18a0f6aa0402a6263e",
+            "lastState": {},
+            "name": "api",
+            "ready": true,
+            "resources": {
+              "limits": {
+                "cpu": "1",
+                "memory": "512Mi"
+              },
+              "requests": {
+                "cpu": "250m",
+                "memory": "256Mi"
+              }
+            },
+            "restartCount": 0,
+            "started": true,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-23T17:27:50Z"
+              }
+            },
+            "user": {
+              "linux": {
+                "gid": 10001,
+                "supplementalGroups": [
+                  10001
+                ],
+                "uid": 10001
+              }
+            },
+            "volumeMounts": [
+              {
+                "mountPath": "/tmp",
+                "name": "tmp"
+              }
+            ]
+          }
+        ],
+        "hostIP": "172.18.0.2",
+        "hostIPs": [
+          {
+            "ip": "172.18.0.2"
+          }
+        ],
+        "observedGeneration": 1,
+        "phase": "Running",
+        "podIP": "10.244.0.11",
+        "podIPs": [
+          {
+            "ip": "10.244.0.11"
+          }
+        ],
+        "qosClass": "Burstable",
+        "resources": {
+          "limits": {
+            "cpu": "1",
+            "memory": "512Mi"
+          },
+          "requests": {
+            "cpu": "232m",
+            "memory": "256Mi"
+          }
+        },
+        "startTime": "2026-10-23T17:27:49Z"
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "creationTimestamp": "2026-10-23T17:28:08Z",
+        "generateName": "fraudops-api-549f98757f-",
+        "generation": 1,
+        "labels": {
+          "app": "fraudops-api",
+          "pod-template-hash": "549f98757f"
+        },
+        "name": "fraudops-api-549f98757f-dgrfg",
+        "namespace": "fraudops-exp003",
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "blockOwnerDeletion": true,
+            "controller": true,
+            "kind": "ReplicaSet",
+            "name": "fraudops-api-549f98757f",
+            "uid": "d94e7032-4636-428b-a1a6-db2860c843e3"
+          }
+        ],
+        "resourceVersion": "1014",
+        "uid": "e454a7b9-4bbe-401d-b241-b3a8e85a32f3"
+      },
+      "spec": {
+        "automountServiceAccountToken": false,
+        "containers": [
+          {
+            "envFrom": [
+              {
+                "configMapRef": {
+                  "name": "fraudops-config"
+                }
+              }
+            ],
+            "image": "fraudops-api:exp003-r1",
+            "imagePullPolicy": "IfNotPresent",
+            "lifecycle": {
+              "preStop": {
+                "exec": {
+                  "command": [
+                    "/bin/sh",
+                    "-c",
+                    "sleep 5"
+                  ]
+                }
+              }
+            },
+            "livenessProbe": {
+              "failureThreshold": 3,
+              "httpGet": {
+                "path": "/actuator/health/liveness",
+                "port": "http",
+                "scheme": "HTTP"
+              },
+              "periodSeconds": 10,
+              "successThreshold": 1,
+              "timeoutSeconds": 2
+            },
+            "name": "api",
+            "ports": [
+              {
+                "containerPort": 8080,
+                "name": "http",
+                "protocol": "TCP"
+              }
+            ],
+            "readinessProbe": {
+              "failureThreshold": 2,
+              "httpGet": {
+                "path": "/actuator/health/readiness",
+                "port": "http",
+                "scheme": "HTTP"
+              },
+              "periodSeconds": 2,
+              "successThreshold": 1,
+              "timeoutSeconds": 2
+            },
+            "resources": {
+              "limits": {
+                "cpu": "1",
+                "memory": "512Mi"
+              },
+              "requests": {
+                "cpu": "250m",
+                "memory": "256Mi"
+              }
+            },
+            "securityContext": {
+              "allowPrivilegeEscalation": false,
+              "capabilities": {
+                "drop": [
+                  "ALL"
+                ]
+              },
+              "readOnlyRootFilesystem": true
+            },
+            "startupProbe": {
+              "failureThreshold": 60,
+              "httpGet": {
+                "path": "/actuator/health/liveness",
+                "port": "http",
+                "scheme": "HTTP"
+              },
+              "periodSeconds": 2,
+              "successThreshold": 1,
+              "timeoutSeconds": 2
+            },
+            "terminationMessagePath": "/dev/termination-log",
+            "terminationMessagePolicy": "File",
+            "volumeMounts": [
+              {
+                "mountPath": "/tmp",
+                "name": "tmp"
+              }
+            ]
+          }
+        ],
+        "dnsPolicy": "ClusterFirst",
+        "enableServiceLinks": true,
+        "nodeName": "fraudops-exp003-control-plane",
+        "preemptionPolicy": "PreemptLowerPriority",
+        "priority": 0,
+        "restartPolicy": "Always",
+        "schedulerName": "default-scheduler",
+        "securityContext": {
+          "fsGroup": 10001,
+          "runAsGroup": 10001,
+          "runAsNonRoot": true,
+          "runAsUser": 10001,
+          "seccompProfile": {
+            "type": "RuntimeDefault"
+          }
+        },
+        "serviceAccount": "default",
+        "serviceAccountName": "default",
+        "terminationGracePeriodSeconds": 35,
+        "tolerations": [
+          {
+            "effect": "NoExecute",
+            "key": "node.kubernetes.io/not-ready",
+            "operator": "Exists",
+            "tolerationSeconds": 300
+          },
+          {
+            "effect": "NoExecute",
+            "key": "node.kubernetes.io/unreachable",
+            "operator": "Exists",
+            "tolerationSeconds": 300
+          }
+        ],
+        "volumes": [
+          {
+            "emptyDir": {
+              "sizeLimit": "128Mi"
+            },
+            "name": "tmp"
+          }
+        ]
+      },
+      "status": {
+        "allocatedResources": {
+          "cpu": "250m",
+          "memory": "256Mi"
+        },
+        "conditions": [
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-23T17:28:08Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "PodReadyToStartContainers"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-23T17:28:08Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "Initialized"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-23T17:28:12Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-23T17:28:12Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "ContainersReady"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-23T17:28:08Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "PodScheduled"
+          }
+        ],
+        "containerStatuses": [
+          {
+            "allocatedResources": {
+              "cpu": "250m",
+              "memory": "256Mi"
+            },
+            "containerID": "containerd://d7c68ca0589a7887ce98a64dcff19eb2ce64b4919f99a6813f6e15e3c7595ed9",
+            "image": "docker.io/library/fraudops-api:exp003-r1",
+            "imageID": "sha256:01f6bd0d7f34529ba645c0edb9adec26583a368f0dc27e18a0f6aa0402a6263e",
+            "lastState": {},
+            "name": "api",
+            "ready": true,
+            "resources": {
+              "limits": {
+                "cpu": "1",
+                "memory": "512Mi"
+              },
+              "requests": {
+                "cpu": "250m",
+                "memory": "256Mi"
+              }
+            },
+            "restartCount": 0,
+            "started": true,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-23T17:28:08Z"
+              }
+            },
+            "user": {
+              "linux": {
+                "gid": 10001,
+                "supplementalGroups": [
+                  10001
+                ],
+                "uid": 10001
+              }
+            },
+            "volumeMounts": [
+              {
+                "mountPath": "/tmp",
+                "name": "tmp"
+              }
+            ]
+          }
+        ],
+        "hostIP": "172.18.0.2",
+        "hostIPs": [
+          {
+            "ip": "172.18.0.2"
+          }
+        ],
+        "observedGeneration": 1,
+        "phase": "Running",
+        "podIP": "10.244.0.13",
+        "podIPs": [
+          {
+            "ip": "10.244.0.13"
+          }
+        ],
+        "qosClass": "Burstable",
+        "resources": {
+          "limits": {
+            "cpu": "1",
+            "memory": "512Mi"
+          },
+          "requests": {
+            "cpu": "232m",
+            "memory": "256Mi"
+          }
+        },
+        "startTime": "2026-10-23T17:28:08Z"
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "annotations": {
+          "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Pod\",\"metadata\":{\"annotations\":{},\"labels\":{\"app\":\"fraudops-client\"},\"name\":\"fraudops-client\",\"namespace\":\"fraudops-exp003\"},\"spec\":{\"automountServiceAccountToken\":false,\"containers\":[{\"image\":\"fraudops-exp003-client:exp003\",\"imagePullPolicy\":\"IfNotPresent\",\"name\":\"client\",\"ports\":[{\"containerPort\":8081}],\"readinessProbe\":{\"periodSeconds\":2,\"tcpSocket\":{\"port\":8081}},\"resources\":{\"limits\":{\"cpu\":\"250m\",\"memory\":\"192Mi\"},\"requests\":{\"cpu\":\"50m\",\"memory\":\"96Mi\"}},\"securityContext\":{\"allowPrivilegeEscalation\":false,\"capabilities\":{\"drop\":[\"ALL\"]},\"readOnlyRootFilesystem\":true},\"volumeMounts\":[{\"mountPath\":\"/tmp\",\"name\":\"tmp\"}]}],\"securityContext\":{\"fsGroup\":10001,\"runAsGroup\":10001,\"runAsNonRoot\":true,\"runAsUser\":10001,\"seccompProfile\":{\"type\":\"RuntimeDefault\"}},\"volumes\":[{\"emptyDir\":{\"sizeLimit\":\"32Mi\"},\"name\":\"tmp\"}]}}\n"
+        },
+        "creationTimestamp": "2026-10-23T17:27:13Z",
+        "generation": 1,
+        "labels": {
+          "app": "fraudops-client"
+        },
+        "name": "fraudops-client",
+        "namespace": "fraudops-exp003",
+        "resourceVersion": "741",
+        "uid": "60d7df53-22d9-42a0-8fa1-3e6bc6e3120e"
+      },
+      "spec": {
+        "automountServiceAccountToken": false,
+        "containers": [
+          {
+            "image": "fraudops-exp003-client:exp003",
+            "imagePullPolicy": "IfNotPresent",
+            "name": "client",
+            "ports": [
+              {
+                "containerPort": 8081,
+                "protocol": "TCP"
+              }
+            ],
+            "readinessProbe": {
+              "failureThreshold": 3,
+              "periodSeconds": 2,
+              "successThreshold": 1,
+              "tcpSocket": {
+                "port": 8081
+              },
+              "timeoutSeconds": 1
+            },
+            "resources": {
+              "limits": {
+                "cpu": "250m",
+                "memory": "192Mi"
+              },
+              "requests": {
+                "cpu": "50m",
+                "memory": "96Mi"
+              }
+            },
+            "securityContext": {
+              "allowPrivilegeEscalation": false,
+              "capabilities": {
+                "drop": [
+                  "ALL"
+                ]
+              },
+              "readOnlyRootFilesystem": true
+            },
+            "terminationMessagePath": "/dev/termination-log",
+            "terminationMessagePolicy": "File",
+            "volumeMounts": [
+              {
+                "mountPath": "/tmp",
+                "name": "tmp"
+              }
+            ]
+          }
+        ],
+        "dnsPolicy": "ClusterFirst",
+        "enableServiceLinks": true,
+        "nodeName": "fraudops-exp003-control-plane",
+        "preemptionPolicy": "PreemptLowerPriority",
+        "priority": 0,
+        "restartPolicy": "Always",
+        "schedulerName": "default-scheduler",
+        "securityContext": {
+          "fsGroup": 10001,
+          "runAsGroup": 10001,
+          "runAsNonRoot": true,
+          "runAsUser": 10001,
+          "seccompProfile": {
+            "type": "RuntimeDefault"
+          }
+        },
+        "serviceAccount": "default",
+        "serviceAccountName": "default",
+        "terminationGracePeriodSeconds": 30,
+        "tolerations": [
+          {
+            "effect": "NoExecute",
+            "key": "node.kubernetes.io/not-ready",
+            "operator": "Exists",
+            "tolerationSeconds": 300
+          },
+          {
+            "effect": "NoExecute",
+            "key": "node.kubernetes.io/unreachable",
+            "operator": "Exists",
+            "tolerationSeconds": 300
+          }
+        ],
+        "volumes": [
+          {
+            "emptyDir": {
+              "sizeLimit": "32Mi"
+            },
+            "name": "tmp"
+          }
+        ]
+      },
+      "status": {
+        "allocatedResources": {
+          "cpu": "50m",
+          "memory": "96Mi"
+        },
+        "conditions": [
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-23T17:27:13Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "PodReadyToStartContainers"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-23T17:27:13Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "Initialized"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-23T17:27:14Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-23T17:27:14Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "ContainersReady"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-23T17:27:13Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "PodScheduled"
+          }
+        ],
+        "containerStatuses": [
+          {
+            "allocatedResources": {
+              "cpu": "50m",
+              "memory": "96Mi"
+            },
+            "containerID": "containerd://7512f0ea4e3b5c429cf202832d632a1cd21c85f869433068866f8c7406047a06",
+            "image": "docker.io/library/fraudops-exp003-client:exp003",
+            "imageID": "docker.io/library/import-2026-10-23@sha256:9069dee143037549cd24249c80063c0edcba43e09cc227f35bdab0ad15a38aed",
+            "lastState": {},
+            "name": "client",
+            "ready": true,
+            "resources": {
+              "limits": {
+                "cpu": "250m",
+                "memory": "192Mi"
+              },
+              "requests": {
+                "cpu": "50m",
+                "memory": "96Mi"
+              }
+            },
+            "restartCount": 0,
+            "started": true,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-23T17:27:13Z"
+              }
+            },
+            "user": {
+              "linux": {
+                "gid": 10001,
+                "supplementalGroups": [
+                  10001
+                ],
+                "uid": 10001
+              }
+            },
+            "volumeMounts": [
+              {
+                "mountPath": "/tmp",
+                "name": "tmp"
+              }
+            ]
+          }
+        ],
+        "hostIP": "172.18.0.2",
+        "hostIPs": [
+          {
+            "ip": "172.18.0.2"
+          }
+        ],
+        "observedGeneration": 1,
+        "phase": "Running",
+        "podIP": "10.244.0.7",
+        "podIPs": [
+          {
+            "ip": "10.244.0.7"
+          }
+        ],
+        "qosClass": "Burstable",
+        "resources": {
+          "limits": {
+            "cpu": "250m",
+            "memory": "192Mi"
+          },
+          "requests": {
+            "cpu": "28m",
+            "memory": "96Mi"
+          }
+        },
+        "startTime": "2026-10-23T17:27:13Z"
+      }
+    }
+  ],
+  "kind": "List",
+  "metadata": {
+    "resourceVersion": ""
+  }
+}

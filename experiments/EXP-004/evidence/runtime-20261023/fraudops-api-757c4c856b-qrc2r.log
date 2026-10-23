@@ -1,0 +1,110 @@
+Picked up JAVA_TOOL_OPTIONS: -XX:+UseContainerSupport -XX:InitialRAMPercentage=20.0 -XX:MaxRAMPercentage=60.0
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.8)
+
+image=exp004-r1 2026-10-23T19:16:09.062Z  INFO trace_id= span_id= com.fraudops.FraudOpsApplication - Starting FraudOpsApplication v1.0.0-exp001 using Java 21.0.8 with PID 1 (/app/app.jar started by ? in /app)
+image=exp004-r1 2026-10-23T19:16:09.062Z  INFO trace_id= span_id= com.fraudops.FraudOpsApplication - No active profile set, falling back to 1 default profile: "default"
+image=exp004-r1 2026-10-23T19:16:10.237Z  INFO trace_id= span_id= o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+image=exp004-r1 2026-10-23T19:16:10.242Z  INFO trace_id= span_id= o.a.catalina.core.StandardService - Starting service [Tomcat]
+image=exp004-r1 2026-10-23T19:16:10.243Z  INFO trace_id= span_id= o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.49]
+image=exp004-r1 2026-10-23T19:16:10.267Z  INFO trace_id= span_id= o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+image=exp004-r1 2026-10-23T19:16:10.267Z  INFO trace_id= span_id= o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1132 ms
+onnxruntime cpuid_info warning: Unknown CPU vendor. cpuinfo_vendor value: 0
+image=exp004-r1 2026-10-23T19:16:11.353Z  INFO trace_id= span_id= o.s.b.a.e.web.EndpointLinksResolver - Exposing 3 endpoints beneath base path '/actuator'
+image=exp004-r1 2026-10-23T19:16:11.445Z  INFO trace_id= span_id= o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+image=exp004-r1 2026-10-23T19:16:11.452Z  INFO trace_id= span_id= com.fraudops.FraudOpsApplication - Started FraudOpsApplication in 2.719 seconds (process running for 3.103)
+image=exp004-r1 2026-10-23T19:16:12.285Z  INFO trace_id= span_id= o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+image=exp004-r1 2026-10-23T19:16:12.285Z  INFO trace_id= span_id= o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+image=exp004-r1 2026-10-23T19:16:12.286Z  INFO trace_id= span_id= o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+image=exp004-r1 2026-10-23T19:16:12.829Z  INFO trace_id=42092c7d905b82dda57938c7dfe0cd55 span_id=66312e872bae32a5 c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:13.383Z  INFO trace_id=4b1e42070b4cffd7f3937c1bf62c763b span_id=176fea58cc63c481 c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:13.713Z  INFO trace_id=c9f9845a0d34b8b3419c361d04f33685 span_id=7703bd119e793114 c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:15.377Z  INFO trace_id=529c5674d236221a5a3ad4dd58347d8b span_id=f31d20841a89955f c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:15.592Z  INFO trace_id=7923f15374eac181796203b8944b073a span_id=f14e65cb01f08527 c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:16.040Z  INFO trace_id=b628e8b1f3fd304074b39c00bf81e556 span_id=9803ea11177c0161 c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:16.607Z  INFO trace_id=cfd95d78a87f805b721a4902bcf0aa3c span_id=2b64ff92a8988606 c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:16.721Z  INFO trace_id=af919fbe6685b883f69ca44afd519851 span_id=c6805ae6a72ee519 c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:16.836Z  INFO trace_id=d9f01e6c7441dbefad753e3452770d5f span_id=295c41d764ece27e c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:17.051Z  INFO trace_id=b07656e124a555897c59125c4d31ee08 span_id=a3b5a4ca326362bc c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:17.473Z  INFO trace_id=dec0e5ade6714053a67b3bd49c5b9438 span_id=31c7d9cfc6840e80 c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:17.584Z  INFO trace_id=55aa202f22134f2a7cafdee968745483 span_id=d82f90346123656c c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:17.694Z  INFO trace_id=4462d24b9289fc6857253dac4ed582cc span_id=a80b1b01b7f7a677 c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:17.802Z  INFO trace_id=da9f64719711242dbace441ff7034ae1 span_id=6e2fbfadee183793 c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:18.442Z  INFO trace_id=ff7040d55d6c5af49253fa0c5a174752 span_id=99d19796119502ec c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:19.616Z  INFO trace_id=eaebaf61e66bc0fd88e6c683fe425037 span_id=5ff2ec48edb4316d c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:19.940Z  INFO trace_id=b8c4947235cc1bc6b2461b35b54a0950 span_id=7be53d27a19f9e72 c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:20.698Z  INFO trace_id=d5ebd22e8d0bb2b6ee53b55044ef93b7 span_id=f1298ca92a5338dd c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:20.806Z  INFO trace_id=f310f8f4d5f554af2259eae80be753c1 span_id=f184d8b3be6fdbb3 c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:20.914Z  INFO trace_id=26f0430420f81853f9a4c49ce20addb9 span_id=0a9ff1640c39e9fa c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:21.134Z  INFO trace_id=afcab0d3c4f5ae9bd36117b1aa628f96 span_id=2a08fcbe16dbcc82 c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:21.821Z  INFO trace_id=7c3e0ef4ffc8663429a6ec1e75e74d6f span_id=1ac09b3b4d6faaaf c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:21.929Z  INFO trace_id=8c9e20a06bbc656ddc651161b4675eee span_id=52eadbda711843f5 c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:22.142Z  INFO trace_id=876df89796e2a00b9293f046dedde41f span_id=796c487b7618dfb3 c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:22.686Z  INFO trace_id=123ed8ec311d278ba99bc98425a2874b span_id=113a2b4e8ff68641 c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:23.018Z  INFO trace_id=18572d224e37d495184d037ac17d5261 span_id=6a7d41b18972a5a6 c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:23.236Z  INFO trace_id=07b9bb555d38b6254c1b0da1cfc7d562 span_id=a954bdb77172fcac c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:23.560Z  INFO trace_id=13e9704c0f37f53d0bf3a648427c63dc span_id=abfd1d69fb0dc093 c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:24.011Z  INFO trace_id=c1c619a4fe9314db0dcf30d18466e185 span_id=cee10605c84db88d c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:24.459Z  INFO trace_id=9261fd0c292fa694ada181c86dfe79bf span_id=e9be911dcb82dfd7 c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:24.675Z  INFO trace_id=d4e81b1c65950d8eb51a364a01dfc90c span_id=1e320aed6b2733af c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:24.782Z  INFO trace_id=5d692adc5b62cd5478661b6dc3b7d375 span_id=81b49c263dbb8829 c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:24.895Z  INFO trace_id=43102fe7d676f65a466a6eb8cf0a6a71 span_id=279b8de547221e7b c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:25.993Z  INFO trace_id=524cf5b40e54f6264cda6536232db8d7 span_id=f0b230da0df3f853 c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:26.100Z  INFO trace_id=0dbef8d9c2159f3b7328661363d7ad40 span_id=e8aa07ff5ceffa15 c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:27.074Z  INFO trace_id=d92567cb372ebc7eb61f30af77ae8236 span_id=b79b554f4acc7090 c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:27.181Z  INFO trace_id=f73f741aaff81c0ddc0387f378e33b74 span_id=d640aadc13de219d c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:27.396Z  INFO trace_id=1e4196f00b801bfce8546474fe367fa9 span_id=d5bf19eb0b5f3c69 c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:28.047Z  INFO trace_id=1122363a28433a9ceb73f6a3bf54d7b9 span_id=d7df89511bdc400d c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:28.482Z  INFO trace_id=13f8fc86a93d4e717132406d0fe621bd span_id=140329610b764971 c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:28.808Z  INFO trace_id=a3976859b5bd7715a1fc3de3420b2e68 span_id=4b952ff2df1af10c c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:29.152Z  INFO trace_id=05b32a2e22ae1fbe5892e3eea7166845 span_id=960658263b2ac334 c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:29.259Z  INFO trace_id=aa14e6af9de3a71c7b5b0bf808510a8c span_id=6ef0fcd6489be3f0 c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:29.575Z  INFO trace_id=b690e0305d9152cb71482aff557bf393 span_id=6b56aaaaeb6cb78d c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:29.685Z  INFO trace_id=6a218a14af23f4acc04519194e7d571d span_id=3eafd26adccafddc c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:29.903Z  INFO trace_id=2d586569a5c9fe59a4d1ce1842b7070d span_id=7a24ce5252766950 c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:30.118Z  INFO trace_id=73f267864b39c861d68ec6225343bfa8 span_id=3fa5dafc0b6cfc7e c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:30.664Z  INFO trace_id=8df9565573bf6c8b2fe289d74244ccf0 span_id=8550f01a6ab6cb58 c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:31.587Z  INFO trace_id=d6ca1c3dfaaa9c9d39eecb0a9f9fb639 span_id=b90a8d60a1e08cc0 c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:31.919Z  INFO trace_id=7861cc51e6483c7c16b39361b061ce6b span_id=0e301b2483093bf0 c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:33.149Z  INFO trace_id=b6cc2deb942af707aa1e56083dce0257 span_id=d61e4b4fcdf18a1c c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:33.375Z  INFO trace_id=0d17a02f9168e9405c0803c02cbef31b span_id=2b2a1443c4e8704e c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:33.495Z  INFO trace_id=927c0ff9c2d2e9a98cd21dab72a261ee span_id=485c829eda92296c c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:33.620Z  INFO trace_id=a37586416a58fd60ac2f3954d1a309f4 span_id=a1534c6b7f9c98f7 c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:34.404Z  INFO trace_id=2cb616eca825cfdf0cc752e991588c5d span_id=543b6edfb127a56a c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:34.744Z  INFO trace_id=fcdf93299a0a37b514dde6e082f9c865 span_id=bff2be44df423043 c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:34.961Z  INFO trace_id=5c76ec07854c13d5579a88f73854b1c9 span_id=931468331f748dad c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:35.081Z  INFO trace_id=9e3813e006749a82edf44394017d0d70 span_id=54f8755a38b30ee0 c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:35.300Z  INFO trace_id=d17a2a00447a5a412a2ef1299de31cc6 span_id=6af8fbcf77a3b9f6 c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:35.737Z  INFO trace_id=d65a7559eea917df676dbf0a4042d965 span_id=5e4e7743a6fe198b c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:36.081Z  INFO trace_id=805e1583cedcd2e3fb2f418166b76e7f span_id=a534e7ed483cf51b c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:36.412Z  INFO trace_id=ea357d2bdc7e28103b3fc5649cf1065f span_id=4fe5d6b1af90cc3d c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:36.762Z  INFO trace_id=f7dc1aef42fb8c0eead0bac951ea2629 span_id=d440aa4a56b9669d c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:36.869Z  INFO trace_id=7643992cbaebfab191805a27ce2857d2 span_id=378e656aa63ef721 c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:37.090Z  INFO trace_id=4b0d5017560e4976df11db1c82e020f2 span_id=84349308351865d2 c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:37.203Z  INFO trace_id=dc46ceb47c08b10e62d320558c042f96 span_id=3f075f12dc5f7f64 c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:37.539Z  INFO trace_id=b80d8c0880f09f945519d51eb59a4dc2 span_id=f1b6e9a4e31507bf c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:38.678Z  INFO trace_id=e0737b581c98c74baa6463dbff5d66eb span_id=6bb6201b3c5081ec c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:38.792Z  INFO trace_id=72593976cf4ecbfb3fd6509c9aac196f span_id=b4e86a69bf8f8119 c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:39.367Z  INFO trace_id=6dc7f34d3e787edee99021f42d18dc64 span_id=a066c8ae8b98a915 c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:39.478Z  INFO trace_id=3ce65540e4a782bd083204fc8412255a span_id=e090ad81b49fa4b4 c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:39.815Z  INFO trace_id=35b5db49e4880f2c7c55b1faa3c3580b span_id=68e0eb5964b9eebe c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:40.039Z  INFO trace_id=633461baced9f5dc58620bb2e36180bf span_id=671de53e66e728bb c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:40.257Z  INFO trace_id=54accff83dd8a8eedfab05b81b704cb6 span_id=03a7268c63f028d5 c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:40.365Z  INFO trace_id=1ba569566ebdd985a81d0d7e6641d97c span_id=5c034bdfebc867a0 c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:40.587Z  INFO trace_id=297e300092d874d05e05753c920b1938 span_id=c2bb0a9cc1a89a3a c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:41.158Z  INFO trace_id=b6805d0352142eab54a0f5e5a22d1676 span_id=5ae9227ac3c3b097 c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:42.387Z  INFO trace_id=c276103e68f92fdae60e0c1f933b8615 span_id=93b4afc49a28b61d c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:43.168Z  INFO trace_id=e6910aae83ead1deb9e9b6486d4c8220 span_id=2f4470271e039df6 c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:43.278Z  INFO trace_id=fae919a91247de8899fe5bc32cdd2b67 span_id=db36194593d8dfc0 c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:43.388Z  INFO trace_id=d7002e47e07471624eae828662bcf80c span_id=89441bd26229e559 c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:43.716Z  INFO trace_id=dc3f1a0824c5b5d8c795b5b31cd6bd33 span_id=607a663597d918d1 c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:43.781Z  INFO trace_id=73343b6d30562bccf26402b3d0fd8793 span_id=62e33a8392004367 c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:43.796Z  INFO trace_id=f8d6861f68b0d77c591c3d4da7fe3cb9 span_id=3a794d6227bd4809 c.fraudops.api.PredictionController - event=prediction_completed decision=approve model_version=1.0.0-exp000
+image=exp004-r1 2026-10-23T19:16:43.800Z  INFO trace_id=13a4c7cc75f51907b448dce05a005d43 span_id=133f6e8d07b2a591 c.fraudops.api.PredictionController - event=prediction_completed decision=review model_version=1.0.0-exp000

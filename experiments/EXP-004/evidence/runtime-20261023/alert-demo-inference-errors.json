@@ -1,0 +1,17 @@
+[
+  {
+    "metric": {
+      "__name__": "fraud_inference_total",
+      "app": "fraudops-alert-demo",
+      "instance": "10.244.0.36:8080",
+      "job": "fraudops-api",
+      "namespace": "fraudops-exp003",
+      "outcome": "error",
+      "pod": "fraudops-alert-demo-qc4qd"
+    },
+    "value": [
+      1792783031.086,
+      "29"
+    ]
+  }
+]
