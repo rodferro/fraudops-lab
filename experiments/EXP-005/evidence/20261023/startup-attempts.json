@@ -1,0 +1,414 @@
+{
+  "first_attempt": {
+    "pods": [
+      {
+        "name": "fraudops-exp005-cpu-65dcfb8bc5-hjh45",
+        "created": "2026-10-23T20:05:54Z",
+        "conditions": [
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-23T20:05:55Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "PodReadyToStartContainers"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-23T20:05:54Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "Initialized"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-23T20:05:54Z",
+            "message": "containers with unready status: [api]",
+            "observedGeneration": 1,
+            "reason": "ContainersNotReady",
+            "status": "False",
+            "type": "Ready"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-23T20:05:54Z",
+            "message": "containers with unready status: [api]",
+            "observedGeneration": 1,
+            "reason": "ContainersNotReady",
+            "status": "False",
+            "type": "ContainersReady"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-23T20:05:54Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "PodScheduled"
+          }
+        ],
+        "containers": [
+          {
+            "allocatedResources": {
+              "cpu": "50m",
+              "memory": "256Mi"
+            },
+            "containerID": "containerd://d236e7d54aced15cac62219986217ddfb4b014dfd059971377ba8f7d7b86f2a3",
+            "image": "docker.io/library/fraudops-api:exp004-r1",
+            "imageID": "docker.io/library/import-2026-10-23@sha256:d26643b9bcd47bdad49c5ce936a3aed742f2292dbbbb62a1aff1d7c37ace1ccc",
+            "lastState": {
+              "terminated": {
+                "containerID": "containerd://311453808f65b0efc3df957eef08a8d4a818414832180eb4dbb6746063471e34",
+                "exitCode": 143,
+                "finishedAt": "2026-10-23T20:08:17Z",
+                "reason": "Error",
+                "startedAt": "2026-10-23T20:05:55Z"
+              }
+            },
+            "name": "api",
+            "ready": false,
+            "resources": {
+              "limits": {
+                "cpu": "100m",
+                "memory": "512Mi"
+              },
+              "requests": {
+                "cpu": "50m",
+                "memory": "256Mi"
+              }
+            },
+            "restartCount": 1,
+            "started": false,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-23T20:08:17Z"
+              }
+            },
+            "user": {
+              "linux": {
+                "gid": 10001,
+                "supplementalGroups": [
+                  10001
+                ],
+                "uid": 10001
+              }
+            },
+            "volumeMounts": [
+              {
+                "mountPath": "/tmp",
+                "name": "tmp"
+              }
+            ]
+          }
+        ],
+        "resources": {
+          "limits": {
+            "cpu": "100m",
+            "memory": "512Mi"
+          },
+          "requests": {
+            "cpu": "50m",
+            "memory": "256Mi"
+          }
+        },
+        "startupProbe": {
+          "failureThreshold": 60,
+          "httpGet": {
+            "path": "/actuator/health/liveness",
+            "port": "http",
+            "scheme": "HTTP"
+          },
+          "periodSeconds": 2,
+          "successThreshold": 1,
+          "timeoutSeconds": 2
+        }
+      },
+      {
+        "name": "fraudops-exp005-cpu-f96fccdfb-rkj6p",
+        "created": "2026-10-23T20:05:35Z",
+        "conditions": [
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-23T20:05:35Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "PodReadyToStartContainers"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-23T20:05:35Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "Initialized"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-23T20:05:39Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-23T20:05:39Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "ContainersReady"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-23T20:05:35Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "PodScheduled"
+          }
+        ],
+        "containers": [
+          {
+            "allocatedResources": {
+              "cpu": "50m",
+              "memory": "256Mi"
+            },
+            "containerID": "containerd://546e3d0d15f5879f6e37fdbaaee8788d3d7cccf0b2b798ad06df59d13443d83f",
+            "image": "docker.io/library/fraudops-api:exp004-r1",
+            "imageID": "docker.io/library/import-2026-10-23@sha256:d26643b9bcd47bdad49c5ce936a3aed742f2292dbbbb62a1aff1d7c37ace1ccc",
+            "lastState": {},
+            "name": "api",
+            "ready": true,
+            "resources": {
+              "limits": {
+                "cpu": "1",
+                "memory": "512Mi"
+              },
+              "requests": {
+                "cpu": "50m",
+                "memory": "256Mi"
+              }
+            },
+            "restartCount": 0,
+            "started": true,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-23T20:05:35Z"
+              }
+            },
+            "user": {
+              "linux": {
+                "gid": 10001,
+                "supplementalGroups": [
+                  10001
+                ],
+                "uid": 10001
+              }
+            },
+            "volumeMounts": [
+              {
+                "mountPath": "/tmp",
+                "name": "tmp"
+              }
+            ]
+          }
+        ],
+        "resources": {
+          "limits": {
+            "cpu": "1",
+            "memory": "512Mi"
+          },
+          "requests": {
+            "cpu": "50m",
+            "memory": "256Mi"
+          }
+        },
+        "startupProbe": {
+          "failureThreshold": 60,
+          "httpGet": {
+            "path": "/actuator/health/liveness",
+            "port": "http",
+            "scheme": "HTTP"
+          },
+          "periodSeconds": 2,
+          "successThreshold": 1,
+          "timeoutSeconds": 2
+        }
+      }
+    ],
+    "events": [
+      {
+        "reason": "Scheduled",
+        "message": "Successfully assigned fraudops-exp003/fraudops-exp005-cpu-65dcfb8bc5-hjh45 to fraudops-exp003-control-plane",
+        "firstTimestamp": "2026-10-23T20:05:54Z",
+        "lastTimestamp": "2026-10-23T20:05:54Z",
+        "count": 1,
+        "type": "Normal"
+      },
+      {
+        "reason": "Pulled",
+        "message": "Container image \"fraudops-api:exp004-r1\" already present on machine and can be accessed by the pod",
+        "firstTimestamp": "2026-10-23T20:05:55Z",
+        "lastTimestamp": "2026-10-23T20:08:17Z",
+        "count": 2,
+        "type": "Normal"
+      },
+      {
+        "reason": "Created",
+        "message": "Container created",
+        "firstTimestamp": "2026-10-23T20:05:55Z",
+        "lastTimestamp": "2026-10-23T20:08:17Z",
+        "count": 2,
+        "type": "Normal"
+      },
+      {
+        "reason": "Started",
+        "message": "Container started",
+        "firstTimestamp": "2026-10-23T20:05:55Z",
+        "lastTimestamp": "2026-10-23T20:08:17Z",
+        "count": 2,
+        "type": "Normal"
+      },
+      {
+        "reason": "Unhealthy",
+        "message": "Startup probe failed: Get \"http://10.244.0.40:8080/actuator/health/liveness\": dial tcp 10.244.0.40:8080: connect: connection refused",
+        "firstTimestamp": "2026-10-23T20:05:57Z",
+        "lastTimestamp": "2026-10-23T20:06:45Z",
+        "count": 25,
+        "type": "Warning"
+      },
+      {
+        "reason": "Killing",
+        "message": "Container api failed startup probe, will be restarted",
+        "firstTimestamp": "2026-10-23T20:07:55Z",
+        "lastTimestamp": "2026-10-23T20:07:55Z",
+        "count": 1,
+        "type": "Normal"
+      }
+    ],
+    "runner_failure": {
+      "run_directory": "run-20261023T2008Z",
+      "failure": "TimeoutError: Condition not observed within timeout",
+      "finished_at": "2026-10-23T20:08:25.880617+00:00"
+    }
+  },
+  "resumed": {
+    "pods": [
+      {
+        "name": "fraudops-exp005-cpu-9f56697cd-njzjq",
+        "created": "2026-10-23T20:08:59Z",
+        "conditions": [
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-23T20:09:00Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "PodReadyToStartContainers"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-23T20:08:59Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "Initialized"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-23T20:11:39Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-23T20:11:39Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "ContainersReady"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-23T20:08:59Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "PodScheduled"
+          }
+        ],
+        "containers": [
+          {
+            "allocatedResources": {
+              "cpu": "50m",
+              "memory": "256Mi"
+            },
+            "containerID": "containerd://d021df7eeb7507b0cfc4885c283a0e552ee1fe3d428a0c704d2471acaf2a4760",
+            "image": "docker.io/library/fraudops-api:exp004-r1",
+            "imageID": "docker.io/library/import-2026-10-23@sha256:d26643b9bcd47bdad49c5ce936a3aed742f2292dbbbb62a1aff1d7c37ace1ccc",
+            "lastState": {},
+            "name": "api",
+            "ready": true,
+            "resources": {
+              "limits": {
+                "cpu": "100m",
+                "memory": "512Mi"
+              },
+              "requests": {
+                "cpu": "50m",
+                "memory": "256Mi"
+              }
+            },
+            "restartCount": 0,
+            "started": true,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-23T20:09:00Z"
+              }
+            },
+            "user": {
+              "linux": {
+                "gid": 10001,
+                "supplementalGroups": [
+                  10001
+                ],
+                "uid": 10001
+              }
+            },
+            "volumeMounts": [
+              {
+                "mountPath": "/tmp",
+                "name": "tmp"
+              }
+            ]
+          }
+        ],
+        "resources": {
+          "limits": {
+            "cpu": "100m",
+            "memory": "512Mi"
+          },
+          "requests": {
+            "cpu": "50m",
+            "memory": "256Mi"
+          }
+        },
+        "startupProbe": {
+          "failureThreshold": 180,
+          "httpGet": {
+            "path": "/actuator/health/liveness",
+            "port": "http",
+            "scheme": "HTTP"
+          },
+          "periodSeconds": 2,
+          "successThreshold": 1,
+          "timeoutSeconds": 2
+        }
+      }
+    ],
+    "startup_log": [
+      "image=exp004-r1 2026-10-23T20:11:25.281Z  INFO trace_id= span_id= com.fraudops.FraudOpsApplication - Started FraudOpsApplication in 129.408 seconds (process running for 144.799)"
+    ]
+  },
+  "restored_cpu_template": {
+    "limits": {
+      "cpu": "1",
+      "memory": "512Mi"
+    },
+    "requests": {
+      "cpu": "50m",
+      "memory": "256Mi"
+    }
+  }
+}

@@ -1,0 +1,4662 @@
+{
+  "baseline": {
+    "generated_n": 5000,
+    "scored_n": 5000,
+    "api_failures_excluded": 0,
+    "true_prevalence_all_generated": 0.0186,
+    "feedback_policy": "random_missing",
+    "evaluations": {
+      "oracle": {
+        "all": {
+          "scored_cohort_n": 5000,
+          "group_n": 5000,
+          "labeled_n": 5000,
+          "positive_labels": 93,
+          "label_coverage": 1.0,
+          "prevalence": 0.0186,
+          "roc_auc": 0.6620945281154199,
+          "pr_auc_average_precision": 0.03380770799013867,
+          "auc_undefined_reason": null,
+          "review_count": 50,
+          "review_rate": 0.01,
+          "reviewed_labeled_n": 50,
+          "true_positives": 2,
+          "precision": 0.04,
+          "recall": 0.021505376344086023,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 50,
+              "selected_labeled_n": 50,
+              "captured_positive_labels": 2,
+              "capture_rate": 0.021505376344086023,
+              "precision_on_known_selected": 0.04
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 100,
+              "selected_labeled_n": 100,
+              "captured_positive_labels": 4,
+              "capture_rate": 0.043010752688172046,
+              "precision_on_known_selected": 0.04
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 250,
+              "selected_labeled_n": 250,
+              "captured_positive_labels": 12,
+              "capture_rate": 0.12903225806451613,
+              "precision_on_known_selected": 0.048
+            }
+          },
+          "ci95": {
+            "roc_auc": {
+              "low": 0.6139513894726275,
+              "high": 0.7062430397729285,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "pr_auc_average_precision": {
+              "low": 0.025361956807312014,
+              "high": 0.06515405769898333,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "precision": {
+              "low": 0.0,
+              "high": 0.10005102040816329,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "recall": {
+              "low": 0.0,
+              "high": 0.05496031746031746,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "label_coverage": {
+              "low": 1.0,
+              "high": 1.0,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "prevalence": {
+              "low": 0.014995,
+              "high": 0.022605,
+              "valid_resamples": 200,
+              "resamples": 200
+            }
+          },
+          "capture_ci95": {
+            "0.01": {
+              "low": 0.0,
+              "high": 0.056444728979940274,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "0.02": {
+              "low": 0.0,
+              "high": 0.08798701298701302,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "0.05": {
+              "low": 0.06739700374531835,
+              "high": 0.19738172625496572,
+              "valid_resamples": 200,
+              "resamples": 200
+            }
+          }
+        },
+        "reviewed": {
+          "scored_cohort_n": 5000,
+          "group_n": 50,
+          "labeled_n": 50,
+          "positive_labels": 2,
+          "label_coverage": 1.0,
+          "prevalence": 0.04,
+          "roc_auc": 0.65625,
+          "pr_auc_average_precision": 0.15625,
+          "auc_undefined_reason": null,
+          "review_count": 50,
+          "review_rate": 1.0,
+          "reviewed_labeled_n": 50,
+          "true_positives": 2,
+          "precision": 0.04,
+          "recall": 1.0,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 50,
+              "selected_labeled_n": 50,
+              "captured_positive_labels": 2,
+              "capture_rate": 1.0,
+              "precision_on_known_selected": 0.04
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 50,
+              "selected_labeled_n": 50,
+              "captured_positive_labels": 2,
+              "capture_rate": 1.0,
+              "precision_on_known_selected": 0.04
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 50,
+              "selected_labeled_n": 50,
+              "captured_positive_labels": 2,
+              "capture_rate": 1.0,
+              "precision_on_known_selected": 0.04
+            }
+          }
+        },
+        "approved": {
+          "scored_cohort_n": 5000,
+          "group_n": 4950,
+          "labeled_n": 4950,
+          "positive_labels": 91,
+          "label_coverage": 1.0,
+          "prevalence": 0.018383838383838384,
+          "roc_auc": 0.6612098541507886,
+          "pr_auc_average_precision": 0.03188620438954018,
+          "auc_undefined_reason": null,
+          "review_count": 0,
+          "review_rate": 0.0,
+          "reviewed_labeled_n": 0,
+          "true_positives": 0,
+          "precision": null,
+          "recall": 0.0,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 0,
+              "selected_labeled_n": 0,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": null
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 50,
+              "selected_labeled_n": 50,
+              "captured_positive_labels": 2,
+              "capture_rate": 0.02197802197802198,
+              "precision_on_known_selected": 0.04
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 200,
+              "selected_labeled_n": 200,
+              "captured_positive_labels": 10,
+              "capture_rate": 0.10989010989010989,
+              "precision_on_known_selected": 0.05
+            }
+          }
+        }
+      },
+      "eventual": {
+        "all": {
+          "scored_cohort_n": 5000,
+          "group_n": 5000,
+          "labeled_n": 4457,
+          "positive_labels": 119,
+          "label_coverage": 0.8914,
+          "prevalence": 0.026699573704285395,
+          "roc_auc": 0.5753977939723608,
+          "pr_auc_average_precision": 0.03627756127945998,
+          "auc_undefined_reason": null,
+          "review_count": 50,
+          "review_rate": 0.01,
+          "reviewed_labeled_n": 48,
+          "true_positives": 1,
+          "precision": 0.020833333333333332,
+          "recall": 0.008403361344537815,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 50,
+              "selected_labeled_n": 48,
+              "captured_positive_labels": 1,
+              "capture_rate": 0.008403361344537815,
+              "precision_on_known_selected": 0.020833333333333332
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 100,
+              "selected_labeled_n": 95,
+              "captured_positive_labels": 4,
+              "capture_rate": 0.03361344537815126,
+              "precision_on_known_selected": 0.042105263157894736
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 250,
+              "selected_labeled_n": 231,
+              "captured_positive_labels": 10,
+              "capture_rate": 0.08403361344537816,
+              "precision_on_known_selected": 0.04329004329004329
+            }
+          },
+          "ci95": {
+            "roc_auc": {
+              "low": 0.5277136238517018,
+              "high": 0.6222455182712097,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "pr_auc_average_precision": {
+              "low": 0.02831863258500853,
+              "high": 0.058413549932805724,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "precision": {
+              "low": 0.0,
+              "high": 0.07414529914529916,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "recall": {
+              "low": 0.0,
+              "high": 0.02441608102521704,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "label_coverage": {
+              "low": 0.88239,
+              "high": 0.89981,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "prevalence": {
+              "low": 0.022092018164297456,
+              "high": 0.032284564176468786,
+              "valid_resamples": 200,
+              "resamples": 200
+            }
+          },
+          "capture_ci95": {
+            "0.01": {
+              "low": 0.0,
+              "high": 0.02809239940387484,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "0.02": {
+              "low": 0.008130081300813009,
+              "high": 0.07155125408942205,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "0.05": {
+              "low": 0.03873054729847875,
+              "high": 0.14288419913419914,
+              "valid_resamples": 200,
+              "resamples": 200
+            }
+          }
+        },
+        "reviewed": {
+          "scored_cohort_n": 5000,
+          "group_n": 50,
+          "labeled_n": 48,
+          "positive_labels": 1,
+          "label_coverage": 0.96,
+          "prevalence": 0.020833333333333332,
+          "roc_auc": 0.9361702127659575,
+          "pr_auc_average_precision": 0.25,
+          "auc_undefined_reason": null,
+          "review_count": 50,
+          "review_rate": 1.0,
+          "reviewed_labeled_n": 48,
+          "true_positives": 1,
+          "precision": 0.020833333333333332,
+          "recall": 1.0,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 50,
+              "selected_labeled_n": 48,
+              "captured_positive_labels": 1,
+              "capture_rate": 1.0,
+              "precision_on_known_selected": 0.020833333333333332
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 50,
+              "selected_labeled_n": 48,
+              "captured_positive_labels": 1,
+              "capture_rate": 1.0,
+              "precision_on_known_selected": 0.020833333333333332
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 50,
+              "selected_labeled_n": 48,
+              "captured_positive_labels": 1,
+              "capture_rate": 1.0,
+              "precision_on_known_selected": 0.020833333333333332
+            }
+          }
+        },
+        "approved": {
+          "scored_cohort_n": 5000,
+          "group_n": 4950,
+          "labeled_n": 4409,
+          "positive_labels": 118,
+          "label_coverage": 0.8907070707070707,
+          "prevalence": 0.02676343842141075,
+          "roc_auc": 0.578068404899494,
+          "pr_auc_average_precision": 0.037099437604961275,
+          "auc_undefined_reason": null,
+          "review_count": 0,
+          "review_rate": 0.0,
+          "reviewed_labeled_n": 0,
+          "true_positives": 0,
+          "precision": null,
+          "recall": 0.0,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 0,
+              "selected_labeled_n": 0,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": null
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 50,
+              "selected_labeled_n": 47,
+              "captured_positive_labels": 3,
+              "capture_rate": 0.025423728813559324,
+              "precision_on_known_selected": 0.06382978723404255
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 200,
+              "selected_labeled_n": 183,
+              "captured_positive_labels": 9,
+              "capture_rate": 0.07627118644067797,
+              "precision_on_known_selected": 0.04918032786885246
+            }
+          }
+        }
+      },
+      "1h": {
+        "all": {
+          "scored_cohort_n": 5000,
+          "group_n": 5000,
+          "labeled_n": 181,
+          "positive_labels": 1,
+          "label_coverage": 0.0362,
+          "prevalence": 0.0055248618784530384,
+          "roc_auc": 0.6555555555555556,
+          "pr_auc_average_precision": 0.015873015873015872,
+          "auc_undefined_reason": null,
+          "review_count": 50,
+          "review_rate": 0.01,
+          "reviewed_labeled_n": 1,
+          "true_positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 50,
+              "selected_labeled_n": 1,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": 0.0
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 100,
+              "selected_labeled_n": 2,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": 0.0
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 250,
+              "selected_labeled_n": 8,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": 0.0
+            }
+          },
+          "ci95": {
+            "roc_auc": {
+              "low": 0.5822836909481585,
+              "high": 0.7200257643910494,
+              "valid_resamples": 138,
+              "resamples": 200
+            },
+            "pr_auc_average_precision": {
+              "low": 0.013038461538461539,
+              "high": 0.05722968069666182,
+              "valid_resamples": 138,
+              "resamples": 200
+            },
+            "precision": {
+              "low": 0.0,
+              "high": 0.0,
+              "valid_resamples": 137,
+              "resamples": 200
+            },
+            "recall": {
+              "low": 0.0,
+              "high": 0.0,
+              "valid_resamples": 138,
+              "resamples": 200
+            },
+            "label_coverage": {
+              "low": 0.0308,
+              "high": 0.0422,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "prevalence": {
+              "low": 0.0,
+              "high": 0.017246391339214115,
+              "valid_resamples": 200,
+              "resamples": 200
+            }
+          },
+          "capture_ci95": {
+            "0.01": {
+              "low": 0.0,
+              "high": 0.0,
+              "valid_resamples": 138,
+              "resamples": 200
+            },
+            "0.02": {
+              "low": 0.0,
+              "high": 0.0,
+              "valid_resamples": 138,
+              "resamples": 200
+            },
+            "0.05": {
+              "low": 0.0,
+              "high": 0.0,
+              "valid_resamples": 138,
+              "resamples": 200
+            }
+          }
+        },
+        "reviewed": {
+          "scored_cohort_n": 5000,
+          "group_n": 50,
+          "labeled_n": 1,
+          "positive_labels": 0,
+          "label_coverage": 0.02,
+          "prevalence": 0.0,
+          "roc_auc": null,
+          "pr_auc_average_precision": null,
+          "auc_undefined_reason": "fewer than two label classes",
+          "review_count": 50,
+          "review_rate": 1.0,
+          "reviewed_labeled_n": 1,
+          "true_positives": 0,
+          "precision": 0.0,
+          "recall": null,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 50,
+              "selected_labeled_n": 1,
+              "captured_positive_labels": 0,
+              "capture_rate": null,
+              "precision_on_known_selected": 0.0
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 50,
+              "selected_labeled_n": 1,
+              "captured_positive_labels": 0,
+              "capture_rate": null,
+              "precision_on_known_selected": 0.0
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 50,
+              "selected_labeled_n": 1,
+              "captured_positive_labels": 0,
+              "capture_rate": null,
+              "precision_on_known_selected": 0.0
+            }
+          }
+        },
+        "approved": {
+          "scored_cohort_n": 5000,
+          "group_n": 4950,
+          "labeled_n": 180,
+          "positive_labels": 1,
+          "label_coverage": 0.03636363636363636,
+          "prevalence": 0.005555555555555556,
+          "roc_auc": 0.6592178770949721,
+          "pr_auc_average_precision": 0.016129032258064516,
+          "auc_undefined_reason": null,
+          "review_count": 0,
+          "review_rate": 0.0,
+          "reviewed_labeled_n": 0,
+          "true_positives": 0,
+          "precision": null,
+          "recall": 0.0,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 0,
+              "selected_labeled_n": 0,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": null
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 50,
+              "selected_labeled_n": 1,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": 0.0
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 200,
+              "selected_labeled_n": 7,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": 0.0
+            }
+          }
+        }
+      },
+      "12h": {
+        "all": {
+          "scored_cohort_n": 5000,
+          "group_n": 5000,
+          "labeled_n": 3563,
+          "positive_labels": 46,
+          "label_coverage": 0.7126,
+          "prevalence": 0.012910468706146505,
+          "roc_auc": 0.4929503900310294,
+          "pr_auc_average_precision": 0.013523964613972823,
+          "auc_undefined_reason": null,
+          "review_count": 50,
+          "review_rate": 0.01,
+          "reviewed_labeled_n": 37,
+          "true_positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 50,
+              "selected_labeled_n": 37,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": 0.0
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 100,
+              "selected_labeled_n": 75,
+              "captured_positive_labels": 1,
+              "capture_rate": 0.021739130434782608,
+              "precision_on_known_selected": 0.013333333333333334
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 250,
+              "selected_labeled_n": 173,
+              "captured_positive_labels": 2,
+              "capture_rate": 0.043478260869565216,
+              "precision_on_known_selected": 0.011560693641618497
+            }
+          },
+          "ci95": {
+            "roc_auc": {
+              "low": 0.39713121974786647,
+              "high": 0.5781653902585081,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "pr_auc_average_precision": {
+              "low": 0.008748362248854214,
+              "high": 0.023405831640053533,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "precision": {
+              "low": 0.0,
+              "high": 0.0,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "recall": {
+              "low": 0.0,
+              "high": 0.0,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "label_coverage": {
+              "low": 0.70038,
+              "high": 0.7252099999999999,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "prevalence": {
+              "low": 0.008821975191022811,
+              "high": 0.016274183303049413,
+              "valid_resamples": 200,
+              "resamples": 200
+            }
+          },
+          "capture_ci95": {
+            "0.01": {
+              "low": 0.0,
+              "high": 0.0,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "0.02": {
+              "low": 0.0,
+              "high": 0.06406331084587447,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "0.05": {
+              "low": 0.0,
+              "high": 0.11368006993006993,
+              "valid_resamples": 200,
+              "resamples": 200
+            }
+          }
+        },
+        "reviewed": {
+          "scored_cohort_n": 5000,
+          "group_n": 50,
+          "labeled_n": 37,
+          "positive_labels": 0,
+          "label_coverage": 0.74,
+          "prevalence": 0.0,
+          "roc_auc": null,
+          "pr_auc_average_precision": null,
+          "auc_undefined_reason": "fewer than two label classes",
+          "review_count": 50,
+          "review_rate": 1.0,
+          "reviewed_labeled_n": 37,
+          "true_positives": 0,
+          "precision": 0.0,
+          "recall": null,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 50,
+              "selected_labeled_n": 37,
+              "captured_positive_labels": 0,
+              "capture_rate": null,
+              "precision_on_known_selected": 0.0
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 50,
+              "selected_labeled_n": 37,
+              "captured_positive_labels": 0,
+              "capture_rate": null,
+              "precision_on_known_selected": 0.0
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 50,
+              "selected_labeled_n": 37,
+              "captured_positive_labels": 0,
+              "capture_rate": null,
+              "precision_on_known_selected": 0.0
+            }
+          }
+        },
+        "approved": {
+          "scored_cohort_n": 5000,
+          "group_n": 4950,
+          "labeled_n": 3526,
+          "positive_labels": 46,
+          "label_coverage": 0.7123232323232324,
+          "prevalence": 0.013045944412932501,
+          "roc_auc": 0.4981915292353823,
+          "pr_auc_average_precision": 0.015346063420797744,
+          "auc_undefined_reason": null,
+          "review_count": 0,
+          "review_rate": 0.0,
+          "reviewed_labeled_n": 0,
+          "true_positives": 0,
+          "precision": null,
+          "recall": 0.0,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 0,
+              "selected_labeled_n": 0,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": null
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 50,
+              "selected_labeled_n": 38,
+              "captured_positive_labels": 1,
+              "capture_rate": 0.021739130434782608,
+              "precision_on_known_selected": 0.02631578947368421
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 200,
+              "selected_labeled_n": 136,
+              "captured_positive_labels": 2,
+              "capture_rate": 0.043478260869565216,
+              "precision_on_known_selected": 0.014705882352941176
+            }
+          }
+        }
+      },
+      "48h": {
+        "all": {
+          "scored_cohort_n": 5000,
+          "group_n": 5000,
+          "labeled_n": 4394,
+          "positive_labels": 81,
+          "label_coverage": 0.8788,
+          "prevalence": 0.018434228493400092,
+          "roc_auc": 0.5289034300549873,
+          "pr_auc_average_precision": 0.02065964158161067,
+          "auc_undefined_reason": null,
+          "review_count": 50,
+          "review_rate": 0.01,
+          "reviewed_labeled_n": 47,
+          "true_positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 50,
+              "selected_labeled_n": 47,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": 0.0
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 100,
+              "selected_labeled_n": 94,
+              "captured_positive_labels": 3,
+              "capture_rate": 0.037037037037037035,
+              "precision_on_known_selected": 0.031914893617021274
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 250,
+              "selected_labeled_n": 225,
+              "captured_positive_labels": 4,
+              "capture_rate": 0.04938271604938271,
+              "precision_on_known_selected": 0.017777777777777778
+            }
+          },
+          "ci95": {
+            "roc_auc": {
+              "low": 0.4704848238040693,
+              "high": 0.5860149155375612,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "pr_auc_average_precision": {
+              "low": 0.015134324639944685,
+              "high": 0.029143496684919647,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "precision": {
+              "low": 0.0,
+              "high": 0.0,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "recall": {
+              "low": 0.0,
+              "high": 0.0,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "label_coverage": {
+              "low": 0.8694,
+              "high": 0.886425,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "prevalence": {
+              "low": 0.014613248246512901,
+              "high": 0.02273438368540959,
+              "valid_resamples": 200,
+              "resamples": 200
+            }
+          },
+          "capture_ci95": {
+            "0.01": {
+              "low": 0.0,
+              "high": 0.025007911392405067,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "0.02": {
+              "low": 0.0,
+              "high": 0.07409722222222222,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "0.05": {
+              "low": 0.011232833957553059,
+              "high": 0.10138569236670505,
+              "valid_resamples": 200,
+              "resamples": 200
+            }
+          }
+        },
+        "reviewed": {
+          "scored_cohort_n": 5000,
+          "group_n": 50,
+          "labeled_n": 47,
+          "positive_labels": 0,
+          "label_coverage": 0.94,
+          "prevalence": 0.0,
+          "roc_auc": null,
+          "pr_auc_average_precision": null,
+          "auc_undefined_reason": "fewer than two label classes",
+          "review_count": 50,
+          "review_rate": 1.0,
+          "reviewed_labeled_n": 47,
+          "true_positives": 0,
+          "precision": 0.0,
+          "recall": null,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 50,
+              "selected_labeled_n": 47,
+              "captured_positive_labels": 0,
+              "capture_rate": null,
+              "precision_on_known_selected": 0.0
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 50,
+              "selected_labeled_n": 47,
+              "captured_positive_labels": 0,
+              "capture_rate": null,
+              "precision_on_known_selected": 0.0
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 50,
+              "selected_labeled_n": 47,
+              "captured_positive_labels": 0,
+              "capture_rate": null,
+              "precision_on_known_selected": 0.0
+            }
+          }
+        },
+        "approved": {
+          "scored_cohort_n": 5000,
+          "group_n": 4950,
+          "labeled_n": 4347,
+          "positive_labels": 81,
+          "label_coverage": 0.8781818181818182,
+          "prevalence": 0.018633540372670808,
+          "roc_auc": 0.5347305423879889,
+          "pr_auc_average_precision": 0.02438825993017678,
+          "auc_undefined_reason": null,
+          "review_count": 0,
+          "review_rate": 0.0,
+          "reviewed_labeled_n": 0,
+          "true_positives": 0,
+          "precision": null,
+          "recall": 0.0,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 0,
+              "selected_labeled_n": 0,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": null
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 50,
+              "selected_labeled_n": 47,
+              "captured_positive_labels": 3,
+              "capture_rate": 0.037037037037037035,
+              "precision_on_known_selected": 0.06382978723404255
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 200,
+              "selected_labeled_n": 178,
+              "captured_positive_labels": 4,
+              "capture_rate": 0.04938271604938271,
+              "precision_on_known_selected": 0.02247191011235955
+            }
+          }
+        }
+      },
+      "168h": {
+        "all": {
+          "scored_cohort_n": 5000,
+          "group_n": 5000,
+          "labeled_n": 4447,
+          "positive_labels": 110,
+          "label_coverage": 0.8894,
+          "prevalence": 0.024735776928266246,
+          "roc_auc": 0.5599115433793783,
+          "pr_auc_average_precision": 0.029930968786930336,
+          "auc_undefined_reason": null,
+          "review_count": 50,
+          "review_rate": 0.01,
+          "reviewed_labeled_n": 47,
+          "true_positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 50,
+              "selected_labeled_n": 47,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": 0.0
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 100,
+              "selected_labeled_n": 94,
+              "captured_positive_labels": 3,
+              "capture_rate": 0.02727272727272727,
+              "precision_on_known_selected": 0.031914893617021274
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 250,
+              "selected_labeled_n": 229,
+              "captured_positive_labels": 8,
+              "capture_rate": 0.07272727272727272,
+              "precision_on_known_selected": 0.034934497816593885
+            }
+          },
+          "ci95": {
+            "roc_auc": {
+              "low": 0.5100959185194557,
+              "high": 0.6077020509924267,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "pr_auc_average_precision": {
+              "low": 0.023248840456529488,
+              "high": 0.03961526177762631,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "precision": {
+              "low": 0.0,
+              "high": 0.0,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "recall": {
+              "low": 0.0,
+              "high": 0.0,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "label_coverage": {
+              "low": 0.88019,
+              "high": 0.898205,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "prevalence": {
+              "low": 0.02054375046652811,
+              "high": 0.02970545848667834,
+              "valid_resamples": 200,
+              "resamples": 200
+            }
+          },
+          "capture_ci95": {
+            "0.01": {
+              "low": 0.0,
+              "high": 0.01771535276447187,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "0.02": {
+              "low": 0.0,
+              "high": 0.05407884949169354,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "0.05": {
+              "low": 0.026537129665255867,
+              "high": 0.12154783156568309,
+              "valid_resamples": 200,
+              "resamples": 200
+            }
+          }
+        },
+        "reviewed": {
+          "scored_cohort_n": 5000,
+          "group_n": 50,
+          "labeled_n": 47,
+          "positive_labels": 0,
+          "label_coverage": 0.94,
+          "prevalence": 0.0,
+          "roc_auc": null,
+          "pr_auc_average_precision": null,
+          "auc_undefined_reason": "fewer than two label classes",
+          "review_count": 50,
+          "review_rate": 1.0,
+          "reviewed_labeled_n": 47,
+          "true_positives": 0,
+          "precision": 0.0,
+          "recall": null,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 50,
+              "selected_labeled_n": 47,
+              "captured_positive_labels": 0,
+              "capture_rate": null,
+              "precision_on_known_selected": 0.0
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 50,
+              "selected_labeled_n": 47,
+              "captured_positive_labels": 0,
+              "capture_rate": null,
+              "precision_on_known_selected": 0.0
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 50,
+              "selected_labeled_n": 47,
+              "captured_positive_labels": 0,
+              "capture_rate": null,
+              "precision_on_known_selected": 0.0
+            }
+          }
+        },
+        "approved": {
+          "scored_cohort_n": 5000,
+          "group_n": 4950,
+          "labeled_n": 4400,
+          "positive_labels": 110,
+          "label_coverage": 0.8888888888888888,
+          "prevalence": 0.025,
+          "roc_auc": 0.5660457724094088,
+          "pr_auc_average_precision": 0.03378292801955614,
+          "auc_undefined_reason": null,
+          "review_count": 0,
+          "review_rate": 0.0,
+          "reviewed_labeled_n": 0,
+          "true_positives": 0,
+          "precision": null,
+          "recall": 0.0,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 0,
+              "selected_labeled_n": 0,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": null
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 50,
+              "selected_labeled_n": 47,
+              "captured_positive_labels": 3,
+              "capture_rate": 0.02727272727272727,
+              "precision_on_known_selected": 0.06382978723404255
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 200,
+              "selected_labeled_n": 182,
+              "captured_positive_labels": 8,
+              "capture_rate": 0.07272727272727272,
+              "precision_on_known_selected": 0.04395604395604396
+            }
+          }
+        }
+      }
+    },
+    "oracle_feedback_audit": {
+      "fraud": {
+        "n": 93,
+        "eventual_coverage": 0.8494623655913979
+      },
+      "nonfraud": {
+        "n": 4907,
+        "eventual_coverage": 0.8921948237212146
+      },
+      "reviewed": {
+        "n": 50,
+        "eventual_coverage": 0.96
+      },
+      "approved": {
+        "n": 4950,
+        "eventual_coverage": 0.8907070707070707
+      },
+      "observed_false_positives": 54,
+      "observed_false_negatives": 14,
+      "false_positive_rate": 0.012334399269072635,
+      "false_negative_rate": 0.17721518987341772
+    }
+  },
+  "burst": {
+    "generated_n": 5000,
+    "scored_n": 5000,
+    "api_failures_excluded": 0,
+    "true_prevalence_all_generated": 0.021,
+    "feedback_policy": "random_missing",
+    "evaluations": {
+      "oracle": {
+        "all": {
+          "scored_cohort_n": 5000,
+          "group_n": 5000,
+          "labeled_n": 5000,
+          "positive_labels": 105,
+          "label_coverage": 1.0,
+          "prevalence": 0.021,
+          "roc_auc": 0.6484741475752711,
+          "pr_auc_average_precision": 0.0459016867034145,
+          "auc_undefined_reason": null,
+          "review_count": 39,
+          "review_rate": 0.0078,
+          "reviewed_labeled_n": 39,
+          "true_positives": 4,
+          "precision": 0.10256410256410256,
+          "recall": 0.0380952380952381,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 50,
+              "selected_labeled_n": 50,
+              "captured_positive_labels": 5,
+              "capture_rate": 0.047619047619047616,
+              "precision_on_known_selected": 0.1
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 100,
+              "selected_labeled_n": 100,
+              "captured_positive_labels": 8,
+              "capture_rate": 0.0761904761904762,
+              "precision_on_known_selected": 0.08
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 250,
+              "selected_labeled_n": 250,
+              "captured_positive_labels": 15,
+              "capture_rate": 0.14285714285714285,
+              "precision_on_known_selected": 0.06
+            }
+          },
+          "ci95": {
+            "roc_auc": {
+              "low": 0.5978291466555766,
+              "high": 0.6921265699733993,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "pr_auc_average_precision": {
+              "low": 0.030802334984580425,
+              "high": 0.0746014147693647,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "precision": {
+              "low": 0.0,
+              "high": 0.1893507638072856,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "recall": {
+              "low": 0.0,
+              "high": 0.0744931754315536,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "label_coverage": {
+              "low": 1.0,
+              "high": 1.0,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "prevalence": {
+              "low": 0.0168,
+              "high": 0.0254,
+              "valid_resamples": 200,
+              "resamples": 200
+            }
+          },
+          "capture_ci95": {
+            "0.01": {
+              "low": 0.00892659608091024,
+              "high": 0.08257583267248218,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "0.02": {
+              "low": 0.03125,
+              "high": 0.1354293082524272,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "0.05": {
+              "low": 0.07957794417971409,
+              "high": 0.2095887445887446,
+              "valid_resamples": 200,
+              "resamples": 200
+            }
+          }
+        },
+        "reviewed": {
+          "scored_cohort_n": 5000,
+          "group_n": 39,
+          "labeled_n": 39,
+          "positive_labels": 4,
+          "label_coverage": 1.0,
+          "prevalence": 0.10256410256410256,
+          "roc_auc": 0.5428571428571429,
+          "pr_auc_average_precision": 0.16249999999999998,
+          "auc_undefined_reason": null,
+          "review_count": 39,
+          "review_rate": 1.0,
+          "reviewed_labeled_n": 39,
+          "true_positives": 4,
+          "precision": 0.10256410256410256,
+          "recall": 1.0,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 39,
+              "selected_labeled_n": 39,
+              "captured_positive_labels": 4,
+              "capture_rate": 1.0,
+              "precision_on_known_selected": 0.10256410256410256
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 39,
+              "selected_labeled_n": 39,
+              "captured_positive_labels": 4,
+              "capture_rate": 1.0,
+              "precision_on_known_selected": 0.10256410256410256
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 39,
+              "selected_labeled_n": 39,
+              "captured_positive_labels": 4,
+              "capture_rate": 1.0,
+              "precision_on_known_selected": 0.10256410256410256
+            }
+          }
+        },
+        "approved": {
+          "scored_cohort_n": 5000,
+          "group_n": 4961,
+          "labeled_n": 4961,
+          "positive_labels": 101,
+          "label_coverage": 1.0,
+          "prevalence": 0.020358798629308606,
+          "roc_auc": 0.6392525363647475,
+          "pr_auc_average_precision": 0.03905062863095938,
+          "auc_undefined_reason": null,
+          "review_count": 0,
+          "review_rate": 0.0,
+          "reviewed_labeled_n": 0,
+          "true_positives": 0,
+          "precision": null,
+          "recall": 0.0,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 11,
+              "selected_labeled_n": 11,
+              "captured_positive_labels": 1,
+              "capture_rate": 0.009900990099009901,
+              "precision_on_known_selected": 0.09090909090909091
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 61,
+              "selected_labeled_n": 61,
+              "captured_positive_labels": 4,
+              "capture_rate": 0.039603960396039604,
+              "precision_on_known_selected": 0.06557377049180328
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 211,
+              "selected_labeled_n": 211,
+              "captured_positive_labels": 11,
+              "capture_rate": 0.10891089108910891,
+              "precision_on_known_selected": 0.052132701421800945
+            }
+          }
+        }
+      },
+      "eventual": {
+        "all": {
+          "scored_cohort_n": 5000,
+          "group_n": 5000,
+          "labeled_n": 4488,
+          "positive_labels": 126,
+          "label_coverage": 0.8976,
+          "prevalence": 0.02807486631016043,
+          "roc_auc": 0.6054134553102917,
+          "pr_auc_average_precision": 0.045673226890396657,
+          "auc_undefined_reason": null,
+          "review_count": 39,
+          "review_rate": 0.0078,
+          "reviewed_labeled_n": 38,
+          "true_positives": 3,
+          "precision": 0.07894736842105263,
+          "recall": 0.023809523809523808,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 50,
+              "selected_labeled_n": 47,
+              "captured_positive_labels": 3,
+              "capture_rate": 0.023809523809523808,
+              "precision_on_known_selected": 0.06382978723404255
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 100,
+              "selected_labeled_n": 93,
+              "captured_positive_labels": 5,
+              "capture_rate": 0.03968253968253968,
+              "precision_on_known_selected": 0.053763440860215055
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 250,
+              "selected_labeled_n": 226,
+              "captured_positive_labels": 12,
+              "capture_rate": 0.09523809523809523,
+              "precision_on_known_selected": 0.05309734513274336
+            }
+          },
+          "ci95": {
+            "roc_auc": {
+              "low": 0.5493026242463902,
+              "high": 0.6581941190656713,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "pr_auc_average_precision": {
+              "low": 0.03220571632598314,
+              "high": 0.06704626189697346,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "precision": {
+              "low": 0.0,
+              "high": 0.16666666666666666,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "recall": {
+              "low": 0.0,
+              "high": 0.050853643449214406,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "label_coverage": {
+              "low": 0.889385,
+              "high": 0.90781,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "prevalence": {
+              "low": 0.02289718704446948,
+              "high": 0.03281149426135327,
+              "valid_resamples": 200,
+              "resamples": 200
+            }
+          },
+          "capture_ci95": {
+            "0.01": {
+              "low": 0.0,
+              "high": 0.051181154611811566,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "0.02": {
+              "low": 0.00853658536585366,
+              "high": 0.08340517241379311,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "0.05": {
+              "low": 0.03871662360034453,
+              "high": 0.14619718309859156,
+              "valid_resamples": 200,
+              "resamples": 200
+            }
+          }
+        },
+        "reviewed": {
+          "scored_cohort_n": 5000,
+          "group_n": 39,
+          "labeled_n": 38,
+          "positive_labels": 3,
+          "label_coverage": 0.9743589743589743,
+          "prevalence": 0.07894736842105263,
+          "roc_auc": 0.5714285714285714,
+          "pr_auc_average_precision": 0.16402714932126697,
+          "auc_undefined_reason": null,
+          "review_count": 39,
+          "review_rate": 1.0,
+          "reviewed_labeled_n": 38,
+          "true_positives": 3,
+          "precision": 0.07894736842105263,
+          "recall": 1.0,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 39,
+              "selected_labeled_n": 38,
+              "captured_positive_labels": 3,
+              "capture_rate": 1.0,
+              "precision_on_known_selected": 0.07894736842105263
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 39,
+              "selected_labeled_n": 38,
+              "captured_positive_labels": 3,
+              "capture_rate": 1.0,
+              "precision_on_known_selected": 0.07894736842105263
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 39,
+              "selected_labeled_n": 38,
+              "captured_positive_labels": 3,
+              "capture_rate": 1.0,
+              "precision_on_known_selected": 0.07894736842105263
+            }
+          }
+        },
+        "approved": {
+          "scored_cohort_n": 5000,
+          "group_n": 4961,
+          "labeled_n": 4450,
+          "positive_labels": 123,
+          "label_coverage": 0.8969965732715178,
+          "prevalence": 0.027640449438202246,
+          "roc_auc": 0.6006931331157546,
+          "pr_auc_average_precision": 0.04121420202283307,
+          "auc_undefined_reason": null,
+          "review_count": 0,
+          "review_rate": 0.0,
+          "reviewed_labeled_n": 0,
+          "true_positives": 0,
+          "precision": null,
+          "recall": 0.0,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 11,
+              "selected_labeled_n": 9,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": 0.0
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 61,
+              "selected_labeled_n": 55,
+              "captured_positive_labels": 2,
+              "capture_rate": 0.016260162601626018,
+              "precision_on_known_selected": 0.03636363636363636
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 211,
+              "selected_labeled_n": 188,
+              "captured_positive_labels": 9,
+              "capture_rate": 0.07317073170731707,
+              "precision_on_known_selected": 0.047872340425531915
+            }
+          }
+        }
+      },
+      "1h": {
+        "all": {
+          "scored_cohort_n": 5000,
+          "group_n": 5000,
+          "labeled_n": 189,
+          "positive_labels": 1,
+          "label_coverage": 0.0378,
+          "prevalence": 0.005291005291005291,
+          "roc_auc": 0.7127659574468085,
+          "pr_auc_average_precision": 0.01818181818181818,
+          "auc_undefined_reason": null,
+          "review_count": 39,
+          "review_rate": 0.0078,
+          "reviewed_labeled_n": 0,
+          "true_positives": 0,
+          "precision": null,
+          "recall": 0.0,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 50,
+              "selected_labeled_n": 1,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": 0.0
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 100,
+              "selected_labeled_n": 2,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": 0.0
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 250,
+              "selected_labeled_n": 9,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": 0.0
+            }
+          },
+          "ci95": {
+            "roc_auc": {
+              "low": 0.6484340659340659,
+              "high": 0.7853388351524833,
+              "valid_resamples": 123,
+              "resamples": 200
+            },
+            "pr_auc_average_precision": {
+              "low": 0.015151515151515152,
+              "high": 0.07011494252873564,
+              "valid_resamples": 123,
+              "resamples": 200
+            },
+            "precision": {
+              "low": null,
+              "high": null,
+              "valid_resamples": 0,
+              "resamples": 200
+            },
+            "recall": {
+              "low": 0.0,
+              "high": 0.0,
+              "valid_resamples": 123,
+              "resamples": 200
+            },
+            "label_coverage": {
+              "low": 0.03319,
+              "high": 0.0424,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "prevalence": {
+              "low": 0.0,
+              "high": 0.019908035579677373,
+              "valid_resamples": 200,
+              "resamples": 200
+            }
+          },
+          "capture_ci95": {
+            "0.01": {
+              "low": 0.0,
+              "high": 0.0,
+              "valid_resamples": 123,
+              "resamples": 200
+            },
+            "0.02": {
+              "low": 0.0,
+              "high": 0.0,
+              "valid_resamples": 123,
+              "resamples": 200
+            },
+            "0.05": {
+              "low": 0.0,
+              "high": 0.0,
+              "valid_resamples": 123,
+              "resamples": 200
+            }
+          }
+        },
+        "reviewed": {
+          "scored_cohort_n": 5000,
+          "group_n": 39,
+          "labeled_n": 0,
+          "positive_labels": 0,
+          "label_coverage": 0.0,
+          "prevalence": null,
+          "roc_auc": null,
+          "pr_auc_average_precision": null,
+          "auc_undefined_reason": "fewer than two label classes",
+          "review_count": 39,
+          "review_rate": 1.0,
+          "reviewed_labeled_n": 0,
+          "true_positives": 0,
+          "precision": null,
+          "recall": null,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 39,
+              "selected_labeled_n": 0,
+              "captured_positive_labels": 0,
+              "capture_rate": null,
+              "precision_on_known_selected": null
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 39,
+              "selected_labeled_n": 0,
+              "captured_positive_labels": 0,
+              "capture_rate": null,
+              "precision_on_known_selected": null
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 39,
+              "selected_labeled_n": 0,
+              "captured_positive_labels": 0,
+              "capture_rate": null,
+              "precision_on_known_selected": null
+            }
+          }
+        },
+        "approved": {
+          "scored_cohort_n": 5000,
+          "group_n": 4961,
+          "labeled_n": 189,
+          "positive_labels": 1,
+          "label_coverage": 0.038097157831082445,
+          "prevalence": 0.005291005291005291,
+          "roc_auc": 0.7127659574468085,
+          "pr_auc_average_precision": 0.01818181818181818,
+          "auc_undefined_reason": null,
+          "review_count": 0,
+          "review_rate": 0.0,
+          "reviewed_labeled_n": 0,
+          "true_positives": 0,
+          "precision": null,
+          "recall": 0.0,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 11,
+              "selected_labeled_n": 1,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": 0.0
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 61,
+              "selected_labeled_n": 2,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": 0.0
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 211,
+              "selected_labeled_n": 9,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": 0.0
+            }
+          }
+        }
+      },
+      "12h": {
+        "all": {
+          "scored_cohort_n": 5000,
+          "group_n": 5000,
+          "labeled_n": 3628,
+          "positive_labels": 38,
+          "label_coverage": 0.7256,
+          "prevalence": 0.010474090407938258,
+          "roc_auc": 0.5294384987538484,
+          "pr_auc_average_precision": 0.01229439156799509,
+          "auc_undefined_reason": null,
+          "review_count": 39,
+          "review_rate": 0.0078,
+          "reviewed_labeled_n": 27,
+          "true_positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 50,
+              "selected_labeled_n": 33,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": 0.0
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 100,
+              "selected_labeled_n": 65,
+              "captured_positive_labels": 1,
+              "capture_rate": 0.02631578947368421,
+              "precision_on_known_selected": 0.015384615384615385
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 250,
+              "selected_labeled_n": 177,
+              "captured_positive_labels": 1,
+              "capture_rate": 0.02631578947368421,
+              "precision_on_known_selected": 0.005649717514124294
+            }
+          },
+          "ci95": {
+            "roc_auc": {
+              "low": 0.4353026747104181,
+              "high": 0.6126361628427679,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "pr_auc_average_precision": {
+              "low": 0.00858715893576649,
+              "high": 0.020573339421476374,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "precision": {
+              "low": 0.0,
+              "high": 0.0,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "recall": {
+              "low": 0.0,
+              "high": 0.0,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "label_coverage": {
+              "low": 0.714585,
+              "high": 0.7374050000000001,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "prevalence": {
+              "low": 0.007535112682569943,
+              "high": 0.013871055280797425,
+              "valid_resamples": 200,
+              "resamples": 200
+            }
+          },
+          "capture_ci95": {
+            "0.01": {
+              "low": 0.0,
+              "high": 0.0,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "0.02": {
+              "low": 0.0,
+              "high": 0.08333333333333333,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "0.05": {
+              "low": 0.0,
+              "high": 0.08823529411764706,
+              "valid_resamples": 200,
+              "resamples": 200
+            }
+          }
+        },
+        "reviewed": {
+          "scored_cohort_n": 5000,
+          "group_n": 39,
+          "labeled_n": 27,
+          "positive_labels": 0,
+          "label_coverage": 0.6923076923076923,
+          "prevalence": 0.0,
+          "roc_auc": null,
+          "pr_auc_average_precision": null,
+          "auc_undefined_reason": "fewer than two label classes",
+          "review_count": 39,
+          "review_rate": 1.0,
+          "reviewed_labeled_n": 27,
+          "true_positives": 0,
+          "precision": 0.0,
+          "recall": null,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 39,
+              "selected_labeled_n": 27,
+              "captured_positive_labels": 0,
+              "capture_rate": null,
+              "precision_on_known_selected": 0.0
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 39,
+              "selected_labeled_n": 27,
+              "captured_positive_labels": 0,
+              "capture_rate": null,
+              "precision_on_known_selected": 0.0
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 39,
+              "selected_labeled_n": 27,
+              "captured_positive_labels": 0,
+              "capture_rate": null,
+              "precision_on_known_selected": 0.0
+            }
+          }
+        },
+        "approved": {
+          "scored_cohort_n": 5000,
+          "group_n": 4961,
+          "labeled_n": 3601,
+          "positive_labels": 38,
+          "label_coverage": 0.7258617214271317,
+          "prevalence": 0.010552624271035824,
+          "roc_auc": 0.5334505221797126,
+          "pr_auc_average_precision": 0.013038850169768712,
+          "auc_undefined_reason": null,
+          "review_count": 0,
+          "review_rate": 0.0,
+          "reviewed_labeled_n": 0,
+          "true_positives": 0,
+          "precision": null,
+          "recall": 0.0,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 11,
+              "selected_labeled_n": 6,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": 0.0
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 61,
+              "selected_labeled_n": 38,
+              "captured_positive_labels": 1,
+              "capture_rate": 0.02631578947368421,
+              "precision_on_known_selected": 0.02631578947368421
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 211,
+              "selected_labeled_n": 150,
+              "captured_positive_labels": 1,
+              "capture_rate": 0.02631578947368421,
+              "precision_on_known_selected": 0.006666666666666667
+            }
+          }
+        }
+      },
+      "48h": {
+        "all": {
+          "scored_cohort_n": 5000,
+          "group_n": 5000,
+          "labeled_n": 4417,
+          "positive_labels": 80,
+          "label_coverage": 0.8834,
+          "prevalence": 0.01811184061580258,
+          "roc_auc": 0.6185223080470372,
+          "pr_auc_average_precision": 0.032714193285988576,
+          "auc_undefined_reason": null,
+          "review_count": 39,
+          "review_rate": 0.0078,
+          "reviewed_labeled_n": 36,
+          "true_positives": 2,
+          "precision": 0.05555555555555555,
+          "recall": 0.025,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 50,
+              "selected_labeled_n": 44,
+              "captured_positive_labels": 2,
+              "capture_rate": 0.025,
+              "precision_on_known_selected": 0.045454545454545456
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 100,
+              "selected_labeled_n": 88,
+              "captured_positive_labels": 3,
+              "capture_rate": 0.0375,
+              "precision_on_known_selected": 0.03409090909090909
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 250,
+              "selected_labeled_n": 218,
+              "captured_positive_labels": 7,
+              "capture_rate": 0.0875,
+              "precision_on_known_selected": 0.03211009174311927
+            }
+          },
+          "ci95": {
+            "roc_auc": {
+              "low": 0.5436068760370684,
+              "high": 0.6843777338416285,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "pr_auc_average_precision": {
+              "low": 0.021264498052317046,
+              "high": 0.06251704177703131,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "precision": {
+              "low": 0.0,
+              "high": 0.12913978494623657,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "recall": {
+              "low": 0.0,
+              "high": 0.06176746366619785,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "label_coverage": {
+              "low": 0.8742,
+              "high": 0.8938250000000001,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "prevalence": {
+              "low": 0.015525456234148005,
+              "high": 0.022122395979432025,
+              "valid_resamples": 200,
+              "resamples": 200
+            }
+          },
+          "capture_ci95": {
+            "0.01": {
+              "low": 0.0,
+              "high": 0.06176746366619785,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "0.02": {
+              "low": 0.0,
+              "high": 0.08,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "0.05": {
+              "low": 0.025574712643678162,
+              "high": 0.159447128287708,
+              "valid_resamples": 200,
+              "resamples": 200
+            }
+          }
+        },
+        "reviewed": {
+          "scored_cohort_n": 5000,
+          "group_n": 39,
+          "labeled_n": 36,
+          "positive_labels": 2,
+          "label_coverage": 0.9230769230769231,
+          "prevalence": 0.05555555555555555,
+          "roc_auc": 0.7941176470588236,
+          "pr_auc_average_precision": 0.20192307692307693,
+          "auc_undefined_reason": null,
+          "review_count": 39,
+          "review_rate": 1.0,
+          "reviewed_labeled_n": 36,
+          "true_positives": 2,
+          "precision": 0.05555555555555555,
+          "recall": 1.0,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 39,
+              "selected_labeled_n": 36,
+              "captured_positive_labels": 2,
+              "capture_rate": 1.0,
+              "precision_on_known_selected": 0.05555555555555555
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 39,
+              "selected_labeled_n": 36,
+              "captured_positive_labels": 2,
+              "capture_rate": 1.0,
+              "precision_on_known_selected": 0.05555555555555555
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 39,
+              "selected_labeled_n": 36,
+              "captured_positive_labels": 2,
+              "capture_rate": 1.0,
+              "precision_on_known_selected": 0.05555555555555555
+            }
+          }
+        },
+        "approved": {
+          "scored_cohort_n": 5000,
+          "group_n": 4961,
+          "labeled_n": 4381,
+          "positive_labels": 78,
+          "label_coverage": 0.8830880870792179,
+          "prevalence": 0.017804154302670624,
+          "roc_auc": 0.6135924846708021,
+          "pr_auc_average_precision": 0.027039155154415573,
+          "auc_undefined_reason": null,
+          "review_count": 0,
+          "review_rate": 0.0,
+          "reviewed_labeled_n": 0,
+          "true_positives": 0,
+          "precision": null,
+          "recall": 0.0,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 11,
+              "selected_labeled_n": 8,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": 0.0
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 61,
+              "selected_labeled_n": 52,
+              "captured_positive_labels": 1,
+              "capture_rate": 0.01282051282051282,
+              "precision_on_known_selected": 0.019230769230769232
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 211,
+              "selected_labeled_n": 182,
+              "captured_positive_labels": 5,
+              "capture_rate": 0.0641025641025641,
+              "precision_on_known_selected": 0.027472527472527472
+            }
+          }
+        }
+      },
+      "168h": {
+        "all": {
+          "scored_cohort_n": 5000,
+          "group_n": 5000,
+          "labeled_n": 4485,
+          "positive_labels": 123,
+          "label_coverage": 0.897,
+          "prevalence": 0.0274247491638796,
+          "roc_auc": 0.6073936771004574,
+          "pr_auc_average_precision": 0.045466123677162705,
+          "auc_undefined_reason": null,
+          "review_count": 39,
+          "review_rate": 0.0078,
+          "reviewed_labeled_n": 38,
+          "true_positives": 3,
+          "precision": 0.07894736842105263,
+          "recall": 0.024390243902439025,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 50,
+              "selected_labeled_n": 47,
+              "captured_positive_labels": 3,
+              "capture_rate": 0.024390243902439025,
+              "precision_on_known_selected": 0.06382978723404255
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 100,
+              "selected_labeled_n": 93,
+              "captured_positive_labels": 5,
+              "capture_rate": 0.04065040650406504,
+              "precision_on_known_selected": 0.053763440860215055
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 250,
+              "selected_labeled_n": 226,
+              "captured_positive_labels": 12,
+              "capture_rate": 0.0975609756097561,
+              "precision_on_known_selected": 0.05309734513274336
+            }
+          },
+          "ci95": {
+            "roc_auc": {
+              "low": 0.5449728904383584,
+              "high": 0.6585221967985545,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "pr_auc_average_precision": {
+              "low": 0.031562957322042146,
+              "high": 0.066920020475326,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "precision": {
+              "low": 0.0,
+              "high": 0.16666666666666666,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "recall": {
+              "low": 0.0,
+              "high": 0.05263157894736842,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "label_coverage": {
+              "low": 0.8882,
+              "high": 0.9070050000000001,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "prevalence": {
+              "low": 0.022273946604013974,
+              "high": 0.03249789549285735,
+              "valid_resamples": 200,
+              "resamples": 200
+            }
+          },
+          "capture_ci95": {
+            "0.01": {
+              "low": 0.0,
+              "high": 0.052758097165991925,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "0.02": {
+              "low": 0.008613505747126438,
+              "high": 0.08763360271115747,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "0.05": {
+              "low": 0.03935481901971556,
+              "high": 0.1511157175954152,
+              "valid_resamples": 200,
+              "resamples": 200
+            }
+          }
+        },
+        "reviewed": {
+          "scored_cohort_n": 5000,
+          "group_n": 39,
+          "labeled_n": 38,
+          "positive_labels": 3,
+          "label_coverage": 0.9743589743589743,
+          "prevalence": 0.07894736842105263,
+          "roc_auc": 0.5714285714285714,
+          "pr_auc_average_precision": 0.16402714932126697,
+          "auc_undefined_reason": null,
+          "review_count": 39,
+          "review_rate": 1.0,
+          "reviewed_labeled_n": 38,
+          "true_positives": 3,
+          "precision": 0.07894736842105263,
+          "recall": 1.0,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 39,
+              "selected_labeled_n": 38,
+              "captured_positive_labels": 3,
+              "capture_rate": 1.0,
+              "precision_on_known_selected": 0.07894736842105263
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 39,
+              "selected_labeled_n": 38,
+              "captured_positive_labels": 3,
+              "capture_rate": 1.0,
+              "precision_on_known_selected": 0.07894736842105263
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 39,
+              "selected_labeled_n": 38,
+              "captured_positive_labels": 3,
+              "capture_rate": 1.0,
+              "precision_on_known_selected": 0.07894736842105263
+            }
+          }
+        },
+        "approved": {
+          "scored_cohort_n": 5000,
+          "group_n": 4961,
+          "labeled_n": 4447,
+          "positive_labels": 120,
+          "label_coverage": 0.8963918564805483,
+          "prevalence": 0.026984483921744996,
+          "roc_auc": 0.6024988444649872,
+          "pr_auc_average_precision": 0.04090425390178797,
+          "auc_undefined_reason": null,
+          "review_count": 0,
+          "review_rate": 0.0,
+          "reviewed_labeled_n": 0,
+          "true_positives": 0,
+          "precision": null,
+          "recall": 0.0,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 11,
+              "selected_labeled_n": 9,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": 0.0
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 61,
+              "selected_labeled_n": 55,
+              "captured_positive_labels": 2,
+              "capture_rate": 0.016666666666666666,
+              "precision_on_known_selected": 0.03636363636363636
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 211,
+              "selected_labeled_n": 188,
+              "captured_positive_labels": 9,
+              "capture_rate": 0.075,
+              "precision_on_known_selected": 0.047872340425531915
+            }
+          }
+        }
+      }
+    },
+    "oracle_feedback_audit": {
+      "fraud": {
+        "n": 105,
+        "eventual_coverage": 0.9047619047619048
+      },
+      "nonfraud": {
+        "n": 4895,
+        "eventual_coverage": 0.8974463738508682
+      },
+      "reviewed": {
+        "n": 39,
+        "eventual_coverage": 0.9743589743589743
+      },
+      "approved": {
+        "n": 4961,
+        "eventual_coverage": 0.8969965732715178
+      },
+      "observed_false_positives": 44,
+      "observed_false_negatives": 13,
+      "false_positive_rate": 0.010015934441156385,
+      "false_negative_rate": 0.1368421052631579
+    }
+  },
+  "covariate": {
+    "generated_n": 5000,
+    "scored_n": 5000,
+    "api_failures_excluded": 0,
+    "true_prevalence_all_generated": 0.0422,
+    "feedback_policy": "random_missing",
+    "evaluations": {
+      "oracle": {
+        "all": {
+          "scored_cohort_n": 5000,
+          "group_n": 5000,
+          "labeled_n": 5000,
+          "positive_labels": 211,
+          "label_coverage": 1.0,
+          "prevalence": 0.0422,
+          "roc_auc": 0.6341472707498127,
+          "pr_auc_average_precision": 0.0766674571881773,
+          "auc_undefined_reason": null,
+          "review_count": 1022,
+          "review_rate": 0.2044,
+          "reviewed_labeled_n": 1022,
+          "true_positives": 72,
+          "precision": 0.07045009784735812,
+          "recall": 0.3412322274881517,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 50,
+              "selected_labeled_n": 50,
+              "captured_positive_labels": 6,
+              "capture_rate": 0.02843601895734597,
+              "precision_on_known_selected": 0.12
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 100,
+              "selected_labeled_n": 100,
+              "captured_positive_labels": 12,
+              "capture_rate": 0.05687203791469194,
+              "precision_on_known_selected": 0.12
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 250,
+              "selected_labeled_n": 250,
+              "captured_positive_labels": 30,
+              "capture_rate": 0.14218009478672985,
+              "precision_on_known_selected": 0.12
+            }
+          },
+          "ci95": {
+            "roc_auc": {
+              "low": 0.59123091220612,
+              "high": 0.6744776083139927,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "pr_auc_average_precision": {
+              "low": 0.06061395385084816,
+              "high": 0.10126101747798741,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "precision": {
+              "low": 0.053449388107777676,
+              "high": 0.08642272079772079,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "recall": {
+              "low": 0.27608294930875577,
+              "high": 0.3991255605381166,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "label_coverage": {
+              "low": 1.0,
+              "high": 1.0,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "prevalence": {
+              "low": 0.036789999999999996,
+              "high": 0.0476,
+              "valid_resamples": 200,
+              "resamples": 200
+            }
+          },
+          "capture_ci95": {
+            "0.01": {
+              "low": 0.00908487530168946,
+              "high": 0.05223511143587871,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "0.02": {
+              "low": 0.02977070853129519,
+              "high": 0.08449242424242426,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "0.05": {
+              "low": 0.09733497381253386,
+              "high": 0.1875154702970297,
+              "valid_resamples": 200,
+              "resamples": 200
+            }
+          }
+        },
+        "reviewed": {
+          "scored_cohort_n": 5000,
+          "group_n": 1022,
+          "labeled_n": 1022,
+          "positive_labels": 72,
+          "label_coverage": 1.0,
+          "prevalence": 0.07045009784735812,
+          "roc_auc": 0.6130116959064327,
+          "pr_auc_average_precision": 0.11462022699337449,
+          "auc_undefined_reason": null,
+          "review_count": 1022,
+          "review_rate": 1.0,
+          "reviewed_labeled_n": 1022,
+          "true_positives": 72,
+          "precision": 0.07045009784735812,
+          "recall": 1.0,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 50,
+              "selected_labeled_n": 50,
+              "captured_positive_labels": 6,
+              "capture_rate": 0.08333333333333333,
+              "precision_on_known_selected": 0.12
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 100,
+              "selected_labeled_n": 100,
+              "captured_positive_labels": 12,
+              "capture_rate": 0.16666666666666666,
+              "precision_on_known_selected": 0.12
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 250,
+              "selected_labeled_n": 250,
+              "captured_positive_labels": 30,
+              "capture_rate": 0.4166666666666667,
+              "precision_on_known_selected": 0.12
+            }
+          }
+        },
+        "approved": {
+          "scored_cohort_n": 5000,
+          "group_n": 3978,
+          "labeled_n": 3978,
+          "positive_labels": 139,
+          "label_coverage": 1.0,
+          "prevalence": 0.03494218200100553,
+          "roc_auc": 0.604276255994423,
+          "pr_auc_average_precision": 0.04801834258037019,
+          "auc_undefined_reason": null,
+          "review_count": 0,
+          "review_rate": 0.0,
+          "reviewed_labeled_n": 0,
+          "true_positives": 0,
+          "precision": null,
+          "recall": 0.0,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 0,
+              "selected_labeled_n": 0,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": null
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 0,
+              "selected_labeled_n": 0,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": null
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 0,
+              "selected_labeled_n": 0,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": null
+            }
+          }
+        }
+      },
+      "eventual": {
+        "all": {
+          "scored_cohort_n": 5000,
+          "group_n": 5000,
+          "labeled_n": 4504,
+          "positive_labels": 200,
+          "label_coverage": 0.9008,
+          "prevalence": 0.04440497335701599,
+          "roc_auc": 0.5847630111524164,
+          "pr_auc_average_precision": 0.06841865693477354,
+          "auc_undefined_reason": null,
+          "review_count": 1022,
+          "review_rate": 0.2044,
+          "reviewed_labeled_n": 921,
+          "true_positives": 58,
+          "precision": 0.06297502714440825,
+          "recall": 0.29,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 50,
+              "selected_labeled_n": 45,
+              "captured_positive_labels": 5,
+              "capture_rate": 0.025,
+              "precision_on_known_selected": 0.1111111111111111
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 100,
+              "selected_labeled_n": 91,
+              "captured_positive_labels": 10,
+              "capture_rate": 0.05,
+              "precision_on_known_selected": 0.10989010989010989
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 250,
+              "selected_labeled_n": 217,
+              "captured_positive_labels": 22,
+              "capture_rate": 0.11,
+              "precision_on_known_selected": 0.10138248847926268
+            }
+          },
+          "ci95": {
+            "roc_auc": {
+              "low": 0.5426240542475185,
+              "high": 0.6257103220796375,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "pr_auc_average_precision": {
+              "low": 0.05162425476521688,
+              "high": 0.0936482569695462,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "precision": {
+              "low": 0.04767174747310956,
+              "high": 0.07795409882924621,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "recall": {
+              "low": 0.22802879841112214,
+              "high": 0.34452380952380957,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "label_coverage": {
+              "low": 0.892985,
+              "high": 0.9086,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "prevalence": {
+              "low": 0.03774380853158883,
+              "high": 0.0504857381654034,
+              "valid_resamples": 200,
+              "resamples": 200
+            }
+          },
+          "capture_ci95": {
+            "0.01": {
+              "low": 0.0049993781094527364,
+              "high": 0.04225538415679261,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "0.02": {
+              "low": 0.019512383900928795,
+              "high": 0.07371126414166257,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "0.05": {
+              "low": 0.07179425837320573,
+              "high": 0.15294743429286609,
+              "valid_resamples": 200,
+              "resamples": 200
+            }
+          }
+        },
+        "reviewed": {
+          "scored_cohort_n": 5000,
+          "group_n": 1022,
+          "labeled_n": 921,
+          "positive_labels": 58,
+          "label_coverage": 0.901174168297456,
+          "prevalence": 0.06297502714440825,
+          "roc_auc": 0.622347864306549,
+          "pr_auc_average_precision": 0.10608900584590292,
+          "auc_undefined_reason": null,
+          "review_count": 1022,
+          "review_rate": 1.0,
+          "reviewed_labeled_n": 921,
+          "true_positives": 58,
+          "precision": 0.06297502714440825,
+          "recall": 1.0,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 50,
+              "selected_labeled_n": 45,
+              "captured_positive_labels": 5,
+              "capture_rate": 0.08620689655172414,
+              "precision_on_known_selected": 0.1111111111111111
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 100,
+              "selected_labeled_n": 91,
+              "captured_positive_labels": 10,
+              "capture_rate": 0.1724137931034483,
+              "precision_on_known_selected": 0.10989010989010989
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 250,
+              "selected_labeled_n": 217,
+              "captured_positive_labels": 22,
+              "capture_rate": 0.3793103448275862,
+              "precision_on_known_selected": 0.10138248847926268
+            }
+          }
+        },
+        "approved": {
+          "scored_cohort_n": 5000,
+          "group_n": 3978,
+          "labeled_n": 3583,
+          "positive_labels": 142,
+          "label_coverage": 0.9007038712921066,
+          "prevalence": 0.03963159363661736,
+          "roc_auc": 0.5579670993119425,
+          "pr_auc_average_precision": 0.04771454603713757,
+          "auc_undefined_reason": null,
+          "review_count": 0,
+          "review_rate": 0.0,
+          "reviewed_labeled_n": 0,
+          "true_positives": 0,
+          "precision": null,
+          "recall": 0.0,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 0,
+              "selected_labeled_n": 0,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": null
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 0,
+              "selected_labeled_n": 0,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": null
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 0,
+              "selected_labeled_n": 0,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": null
+            }
+          }
+        }
+      },
+      "1h": {
+        "all": {
+          "scored_cohort_n": 5000,
+          "group_n": 5000,
+          "labeled_n": 196,
+          "positive_labels": 1,
+          "label_coverage": 0.0392,
+          "prevalence": 0.00510204081632653,
+          "roc_auc": 0.3025641025641026,
+          "pr_auc_average_precision": 0.0072992700729927005,
+          "auc_undefined_reason": null,
+          "review_count": 1022,
+          "review_rate": 0.2044,
+          "reviewed_labeled_n": 29,
+          "true_positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 50,
+              "selected_labeled_n": 2,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": 0.0
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 100,
+              "selected_labeled_n": 2,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": 0.0
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 250,
+              "selected_labeled_n": 5,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": 0.0
+            }
+          },
+          "ci95": {
+            "roc_auc": {
+              "low": 0.23492103494623656,
+              "high": 0.35945202201483606,
+              "valid_resamples": 131,
+              "resamples": 200
+            },
+            "pr_auc_average_precision": {
+              "low": 0.00641025641025641,
+              "high": 0.02376923076923077,
+              "valid_resamples": 131,
+              "resamples": 200
+            },
+            "precision": {
+              "low": 0.0,
+              "high": 0.0,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "recall": {
+              "low": 0.0,
+              "high": 0.0,
+              "valid_resamples": 131,
+              "resamples": 200
+            },
+            "label_coverage": {
+              "low": 0.033585,
+              "high": 0.0442,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "prevalence": {
+              "low": 0.0,
+              "high": 0.015708872967759715,
+              "valid_resamples": 200,
+              "resamples": 200
+            }
+          },
+          "capture_ci95": {
+            "0.01": {
+              "low": 0.0,
+              "high": 0.0,
+              "valid_resamples": 131,
+              "resamples": 200
+            },
+            "0.02": {
+              "low": 0.0,
+              "high": 0.0,
+              "valid_resamples": 131,
+              "resamples": 200
+            },
+            "0.05": {
+              "low": 0.0,
+              "high": 0.0,
+              "valid_resamples": 131,
+              "resamples": 200
+            }
+          }
+        },
+        "reviewed": {
+          "scored_cohort_n": 5000,
+          "group_n": 1022,
+          "labeled_n": 29,
+          "positive_labels": 0,
+          "label_coverage": 0.02837573385518591,
+          "prevalence": 0.0,
+          "roc_auc": null,
+          "pr_auc_average_precision": null,
+          "auc_undefined_reason": "fewer than two label classes",
+          "review_count": 1022,
+          "review_rate": 1.0,
+          "reviewed_labeled_n": 29,
+          "true_positives": 0,
+          "precision": 0.0,
+          "recall": null,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 50,
+              "selected_labeled_n": 2,
+              "captured_positive_labels": 0,
+              "capture_rate": null,
+              "precision_on_known_selected": 0.0
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 100,
+              "selected_labeled_n": 2,
+              "captured_positive_labels": 0,
+              "capture_rate": null,
+              "precision_on_known_selected": 0.0
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 250,
+              "selected_labeled_n": 5,
+              "captured_positive_labels": 0,
+              "capture_rate": null,
+              "precision_on_known_selected": 0.0
+            }
+          }
+        },
+        "approved": {
+          "scored_cohort_n": 5000,
+          "group_n": 3978,
+          "labeled_n": 167,
+          "positive_labels": 1,
+          "label_coverage": 0.04198089492207139,
+          "prevalence": 0.005988023952095809,
+          "roc_auc": 0.35542168674698793,
+          "pr_auc_average_precision": 0.009259259259259259,
+          "auc_undefined_reason": null,
+          "review_count": 0,
+          "review_rate": 0.0,
+          "reviewed_labeled_n": 0,
+          "true_positives": 0,
+          "precision": null,
+          "recall": 0.0,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 0,
+              "selected_labeled_n": 0,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": null
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 0,
+              "selected_labeled_n": 0,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": null
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 0,
+              "selected_labeled_n": 0,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": null
+            }
+          }
+        }
+      },
+      "12h": {
+        "all": {
+          "scored_cohort_n": 5000,
+          "group_n": 5000,
+          "labeled_n": 3543,
+          "positive_labels": 40,
+          "label_coverage": 0.7086,
+          "prevalence": 0.011289867344058707,
+          "roc_auc": 0.5356194690265487,
+          "pr_auc_average_precision": 0.014379837183928438,
+          "auc_undefined_reason": null,
+          "review_count": 1022,
+          "review_rate": 0.2044,
+          "reviewed_labeled_n": 699,
+          "true_positives": 10,
+          "precision": 0.01430615164520744,
+          "recall": 0.25,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 50,
+              "selected_labeled_n": 31,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": 0.0
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 100,
+              "selected_labeled_n": 61,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": 0.0
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 250,
+              "selected_labeled_n": 150,
+              "captured_positive_labels": 3,
+              "capture_rate": 0.075,
+              "precision_on_known_selected": 0.02
+            }
+          },
+          "ci95": {
+            "roc_auc": {
+              "low": 0.43995705404834434,
+              "high": 0.6286644357622733,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "pr_auc_average_precision": {
+              "low": 0.009360249634265582,
+              "high": 0.02541124666917258,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "precision": {
+              "low": 0.006886815510361841,
+              "high": 0.024292221971237107,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "recall": {
+              "low": 0.13322580645161292,
+              "high": 0.39165687426557,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "label_coverage": {
+              "low": 0.69437,
+              "high": 0.71967,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "prevalence": {
+              "low": 0.008192412022462736,
+              "high": 0.015213530545699815,
+              "valid_resamples": 200,
+              "resamples": 200
+            }
+          },
+          "capture_ci95": {
+            "0.01": {
+              "low": 0.0,
+              "high": 0.0,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "0.02": {
+              "low": 0.0,
+              "high": 0.0,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "0.05": {
+              "low": 0.0,
+              "high": 0.1515734265734266,
+              "valid_resamples": 200,
+              "resamples": 200
+            }
+          }
+        },
+        "reviewed": {
+          "scored_cohort_n": 5000,
+          "group_n": 1022,
+          "labeled_n": 699,
+          "positive_labels": 10,
+          "label_coverage": 0.6839530332681018,
+          "prevalence": 0.01430615164520744,
+          "roc_auc": 0.5732946298984035,
+          "pr_auc_average_precision": 0.01982911161832838,
+          "auc_undefined_reason": null,
+          "review_count": 1022,
+          "review_rate": 1.0,
+          "reviewed_labeled_n": 699,
+          "true_positives": 10,
+          "precision": 0.01430615164520744,
+          "recall": 1.0,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 50,
+              "selected_labeled_n": 31,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": 0.0
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 100,
+              "selected_labeled_n": 61,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": 0.0
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 250,
+              "selected_labeled_n": 150,
+              "captured_positive_labels": 3,
+              "capture_rate": 0.3,
+              "precision_on_known_selected": 0.02
+            }
+          }
+        },
+        "approved": {
+          "scored_cohort_n": 5000,
+          "group_n": 3978,
+          "labeled_n": 2844,
+          "positive_labels": 30,
+          "label_coverage": 0.7149321266968326,
+          "prevalence": 0.010548523206751054,
+          "roc_auc": 0.508895996209429,
+          "pr_auc_average_precision": 0.011815062110756454,
+          "auc_undefined_reason": null,
+          "review_count": 0,
+          "review_rate": 0.0,
+          "reviewed_labeled_n": 0,
+          "true_positives": 0,
+          "precision": null,
+          "recall": 0.0,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 0,
+              "selected_labeled_n": 0,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": null
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 0,
+              "selected_labeled_n": 0,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": null
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 0,
+              "selected_labeled_n": 0,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": null
+            }
+          }
+        }
+      },
+      "48h": {
+        "all": {
+          "scored_cohort_n": 5000,
+          "group_n": 5000,
+          "labeled_n": 4390,
+          "positive_labels": 122,
+          "label_coverage": 0.878,
+          "prevalence": 0.027790432801822324,
+          "roc_auc": 0.5456062654600765,
+          "pr_auc_average_precision": 0.035607435451473886,
+          "auc_undefined_reason": null,
+          "review_count": 1022,
+          "review_rate": 0.2044,
+          "reviewed_labeled_n": 880,
+          "true_positives": 31,
+          "precision": 0.035227272727272725,
+          "recall": 0.2540983606557377,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 50,
+              "selected_labeled_n": 42,
+              "captured_positive_labels": 2,
+              "capture_rate": 0.01639344262295082,
+              "precision_on_known_selected": 0.047619047619047616
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 100,
+              "selected_labeled_n": 84,
+              "captured_positive_labels": 4,
+              "capture_rate": 0.03278688524590164,
+              "precision_on_known_selected": 0.047619047619047616
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 250,
+              "selected_labeled_n": 202,
+              "captured_positive_labels": 11,
+              "capture_rate": 0.09016393442622951,
+              "precision_on_known_selected": 0.054455445544554455
+            }
+          },
+          "ci95": {
+            "roc_auc": {
+              "low": 0.48636903994109904,
+              "high": 0.5951698828022088,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "pr_auc_average_precision": {
+              "low": 0.026231728603106266,
+              "high": 0.04956488801789519,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "precision": {
+              "low": 0.022869945114900408,
+              "high": 0.047844340009657385,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "recall": {
+              "low": 0.17227011494252875,
+              "high": 0.34098636363636364,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "label_coverage": {
+              "low": 0.8684,
+              "high": 0.8866050000000001,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "prevalence": {
+              "low": 0.022282615675949146,
+              "high": 0.03270532848195205,
+              "valid_resamples": 200,
+              "resamples": 200
+            }
+          },
+          "capture_ci95": {
+            "0.01": {
+              "low": 0.0,
+              "high": 0.039078000992063495,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "0.02": {
+              "low": 0.0,
+              "high": 0.060703812316715566,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "0.05": {
+              "low": 0.04423808414842416,
+              "high": 0.1402536715620828,
+              "valid_resamples": 200,
+              "resamples": 200
+            }
+          }
+        },
+        "reviewed": {
+          "scored_cohort_n": 5000,
+          "group_n": 1022,
+          "labeled_n": 880,
+          "positive_labels": 31,
+          "label_coverage": 0.8610567514677103,
+          "prevalence": 0.035227272727272725,
+          "roc_auc": 0.5725141532733006,
+          "pr_auc_average_precision": 0.04957340284929421,
+          "auc_undefined_reason": null,
+          "review_count": 1022,
+          "review_rate": 1.0,
+          "reviewed_labeled_n": 880,
+          "true_positives": 31,
+          "precision": 0.035227272727272725,
+          "recall": 1.0,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 50,
+              "selected_labeled_n": 42,
+              "captured_positive_labels": 2,
+              "capture_rate": 0.06451612903225806,
+              "precision_on_known_selected": 0.047619047619047616
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 100,
+              "selected_labeled_n": 84,
+              "captured_positive_labels": 4,
+              "capture_rate": 0.12903225806451613,
+              "precision_on_known_selected": 0.047619047619047616
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 250,
+              "selected_labeled_n": 202,
+              "captured_positive_labels": 11,
+              "capture_rate": 0.3548387096774194,
+              "precision_on_known_selected": 0.054455445544554455
+            }
+          }
+        },
+        "approved": {
+          "scored_cohort_n": 5000,
+          "group_n": 3978,
+          "labeled_n": 3510,
+          "positive_labels": 91,
+          "label_coverage": 0.8823529411764706,
+          "prevalence": 0.025925925925925925,
+          "roc_auc": 0.5240205831021859,
+          "pr_auc_average_precision": 0.02837790438431229,
+          "auc_undefined_reason": null,
+          "review_count": 0,
+          "review_rate": 0.0,
+          "reviewed_labeled_n": 0,
+          "true_positives": 0,
+          "precision": null,
+          "recall": 0.0,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 0,
+              "selected_labeled_n": 0,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": null
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 0,
+              "selected_labeled_n": 0,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": null
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 0,
+              "selected_labeled_n": 0,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": null
+            }
+          }
+        }
+      },
+      "168h": {
+        "all": {
+          "scored_cohort_n": 5000,
+          "group_n": 5000,
+          "labeled_n": 4483,
+          "positive_labels": 183,
+          "label_coverage": 0.8966,
+          "prevalence": 0.04082087887575284,
+          "roc_auc": 0.5661685093404499,
+          "pr_auc_average_precision": 0.05505781598627072,
+          "auc_undefined_reason": null,
+          "review_count": 1022,
+          "review_rate": 0.2044,
+          "reviewed_labeled_n": 908,
+          "true_positives": 48,
+          "precision": 0.05286343612334802,
+          "recall": 0.26229508196721313,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 50,
+              "selected_labeled_n": 43,
+              "captured_positive_labels": 3,
+              "capture_rate": 0.01639344262295082,
+              "precision_on_known_selected": 0.06976744186046512
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 100,
+              "selected_labeled_n": 87,
+              "captured_positive_labels": 6,
+              "capture_rate": 0.03278688524590164,
+              "precision_on_known_selected": 0.06896551724137931
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 250,
+              "selected_labeled_n": 210,
+              "captured_positive_labels": 16,
+              "capture_rate": 0.08743169398907104,
+              "precision_on_known_selected": 0.0761904761904762
+            }
+          },
+          "ci95": {
+            "roc_auc": {
+              "low": 0.5180827942123841,
+              "high": 0.6035397719491422,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "pr_auc_average_precision": {
+              "low": 0.04349517953344102,
+              "high": 0.07430576866362908,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "precision": {
+              "low": 0.038586635127143706,
+              "high": 0.06915647002848864,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "recall": {
+              "low": 0.19269288488700567,
+              "high": 0.32106203007518797,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "label_coverage": {
+              "low": 0.8887900000000001,
+              "high": 0.905215,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "prevalence": {
+              "low": 0.03469582292109378,
+              "high": 0.046284348169181984,
+              "valid_resamples": 200,
+              "resamples": 200
+            }
+          },
+          "capture_ci95": {
+            "0.01": {
+              "low": 0.0,
+              "high": 0.032640935887988214,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "0.02": {
+              "low": 0.005611936692038178,
+              "high": 0.05587376812503923,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "0.05": {
+              "low": 0.052059659090909094,
+              "high": 0.13069153237451628,
+              "valid_resamples": 200,
+              "resamples": 200
+            }
+          }
+        },
+        "reviewed": {
+          "scored_cohort_n": 5000,
+          "group_n": 1022,
+          "labeled_n": 908,
+          "positive_labels": 48,
+          "label_coverage": 0.8884540117416829,
+          "prevalence": 0.05286343612334802,
+          "roc_auc": 0.5907461240310077,
+          "pr_auc_average_precision": 0.07786822182669903,
+          "auc_undefined_reason": null,
+          "review_count": 1022,
+          "review_rate": 1.0,
+          "reviewed_labeled_n": 908,
+          "true_positives": 48,
+          "precision": 0.05286343612334802,
+          "recall": 1.0,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 50,
+              "selected_labeled_n": 43,
+              "captured_positive_labels": 3,
+              "capture_rate": 0.0625,
+              "precision_on_known_selected": 0.06976744186046512
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 100,
+              "selected_labeled_n": 87,
+              "captured_positive_labels": 6,
+              "capture_rate": 0.125,
+              "precision_on_known_selected": 0.06896551724137931
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 250,
+              "selected_labeled_n": 210,
+              "captured_positive_labels": 16,
+              "capture_rate": 0.3333333333333333,
+              "precision_on_known_selected": 0.0761904761904762
+            }
+          }
+        },
+        "approved": {
+          "scored_cohort_n": 5000,
+          "group_n": 3978,
+          "labeled_n": 3575,
+          "positive_labels": 135,
+          "label_coverage": 0.8986928104575164,
+          "prevalence": 0.03776223776223776,
+          "roc_auc": 0.5512747631352283,
+          "pr_auc_average_precision": 0.04228595356192989,
+          "auc_undefined_reason": null,
+          "review_count": 0,
+          "review_rate": 0.0,
+          "reviewed_labeled_n": 0,
+          "true_positives": 0,
+          "precision": null,
+          "recall": 0.0,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 0,
+              "selected_labeled_n": 0,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": null
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 0,
+              "selected_labeled_n": 0,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": null
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 0,
+              "selected_labeled_n": 0,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": null
+            }
+          }
+        }
+      }
+    },
+    "oracle_feedback_audit": {
+      "fraud": {
+        "n": 211,
+        "eventual_coverage": 0.8957345971563981
+      },
+      "nonfraud": {
+        "n": 4789,
+        "eventual_coverage": 0.901023178116517
+      },
+      "reviewed": {
+        "n": 1022,
+        "eventual_coverage": 0.901174168297456
+      },
+      "approved": {
+        "n": 3978,
+        "eventual_coverage": 0.9007038712921066
+      },
+      "observed_false_positives": 44,
+      "observed_false_negatives": 33,
+      "false_positive_rate": 0.010196987253765933,
+      "false_negative_rate": 0.1746031746031746
+    }
+  },
+  "concept": {
+    "generated_n": 5000,
+    "scored_n": 5000,
+    "api_failures_excluded": 0,
+    "true_prevalence_all_generated": 0.02,
+    "feedback_policy": "review_selected",
+    "evaluations": {
+      "oracle": {
+        "all": {
+          "scored_cohort_n": 5000,
+          "group_n": 5000,
+          "labeled_n": 5000,
+          "positive_labels": 100,
+          "label_coverage": 1.0,
+          "prevalence": 0.02,
+          "roc_auc": 0.49713163265306115,
+          "pr_auc_average_precision": 0.01952097715291012,
+          "auc_undefined_reason": null,
+          "review_count": 59,
+          "review_rate": 0.0118,
+          "reviewed_labeled_n": 59,
+          "true_positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 50,
+              "selected_labeled_n": 50,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": 0.0
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 100,
+              "selected_labeled_n": 100,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": 0.0
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 250,
+              "selected_labeled_n": 250,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": 0.0
+            }
+          },
+          "ci95": {
+            "roc_auc": {
+              "low": 0.4430235949593588,
+              "high": 0.5555108684598207,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "pr_auc_average_precision": {
+              "low": 0.014650230632628113,
+              "high": 0.024355394550487595,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "precision": {
+              "low": 0.0,
+              "high": 0.0,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "recall": {
+              "low": 0.0,
+              "high": 0.0,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "label_coverage": {
+              "low": 1.0,
+              "high": 1.0,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "prevalence": {
+              "low": 0.0158,
+              "high": 0.023805000000000003,
+              "valid_resamples": 200,
+              "resamples": 200
+            }
+          },
+          "capture_ci95": {
+            "0.01": {
+              "low": 0.0,
+              "high": 0.0,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "0.02": {
+              "low": 0.0,
+              "high": 0.0,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "0.05": {
+              "low": 0.0,
+              "high": 0.00025252525252531,
+              "valid_resamples": 200,
+              "resamples": 200
+            }
+          }
+        },
+        "reviewed": {
+          "scored_cohort_n": 5000,
+          "group_n": 59,
+          "labeled_n": 59,
+          "positive_labels": 0,
+          "label_coverage": 1.0,
+          "prevalence": 0.0,
+          "roc_auc": null,
+          "pr_auc_average_precision": null,
+          "auc_undefined_reason": "fewer than two label classes",
+          "review_count": 59,
+          "review_rate": 1.0,
+          "reviewed_labeled_n": 59,
+          "true_positives": 0,
+          "precision": 0.0,
+          "recall": null,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 50,
+              "selected_labeled_n": 50,
+              "captured_positive_labels": 0,
+              "capture_rate": null,
+              "precision_on_known_selected": 0.0
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 59,
+              "selected_labeled_n": 59,
+              "captured_positive_labels": 0,
+              "capture_rate": null,
+              "precision_on_known_selected": 0.0
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 59,
+              "selected_labeled_n": 59,
+              "captured_positive_labels": 0,
+              "capture_rate": null,
+              "precision_on_known_selected": 0.0
+            }
+          }
+        },
+        "approved": {
+          "scored_cohort_n": 5000,
+          "group_n": 4941,
+          "labeled_n": 4941,
+          "positive_labels": 100,
+          "label_coverage": 1.0,
+          "prevalence": 0.020238818053025704,
+          "roc_auc": 0.5031904565172485,
+          "pr_auc_average_precision": 0.020265115723208764,
+          "auc_undefined_reason": null,
+          "review_count": 0,
+          "review_rate": 0.0,
+          "reviewed_labeled_n": 0,
+          "true_positives": 0,
+          "precision": null,
+          "recall": 0.0,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 0,
+              "selected_labeled_n": 0,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": null
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 41,
+              "selected_labeled_n": 41,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": 0.0
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 191,
+              "selected_labeled_n": 191,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": 0.0
+            }
+          }
+        }
+      },
+      "eventual": {
+        "all": {
+          "scored_cohort_n": 5000,
+          "group_n": 5000,
+          "labeled_n": 819,
+          "positive_labels": 26,
+          "label_coverage": 0.1638,
+          "prevalence": 0.031746031746031744,
+          "roc_auc": 0.5103307789310312,
+          "pr_auc_average_precision": 0.03173959504880607,
+          "auc_undefined_reason": null,
+          "review_count": 59,
+          "review_rate": 0.0118,
+          "reviewed_labeled_n": 53,
+          "true_positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 50,
+              "selected_labeled_n": 45,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": 0.0
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 100,
+              "selected_labeled_n": 60,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": 0.0
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 250,
+              "selected_labeled_n": 86,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": 0.0
+            }
+          },
+          "ci95": {
+            "roc_auc": {
+              "low": 0.3991342253684691,
+              "high": 0.6194486488909884,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "pr_auc_average_precision": {
+              "low": 0.020751722131838676,
+              "high": 0.048909353760963545,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "precision": {
+              "low": 0.0,
+              "high": 0.0,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "recall": {
+              "low": 0.0,
+              "high": 0.0,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "label_coverage": {
+              "low": 0.15338500000000002,
+              "high": 0.17361000000000001,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "prevalence": {
+              "low": 0.018443475343844346,
+              "high": 0.043816096376451424,
+              "valid_resamples": 200,
+              "resamples": 200
+            }
+          },
+          "capture_ci95": {
+            "0.01": {
+              "low": 0.0,
+              "high": 0.0,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "0.02": {
+              "low": 0.0,
+              "high": 0.0,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "0.05": {
+              "low": 0.0,
+              "high": 0.0,
+              "valid_resamples": 200,
+              "resamples": 200
+            }
+          }
+        },
+        "reviewed": {
+          "scored_cohort_n": 5000,
+          "group_n": 59,
+          "labeled_n": 53,
+          "positive_labels": 0,
+          "label_coverage": 0.8983050847457628,
+          "prevalence": 0.0,
+          "roc_auc": null,
+          "pr_auc_average_precision": null,
+          "auc_undefined_reason": "fewer than two label classes",
+          "review_count": 59,
+          "review_rate": 1.0,
+          "reviewed_labeled_n": 53,
+          "true_positives": 0,
+          "precision": 0.0,
+          "recall": null,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 50,
+              "selected_labeled_n": 45,
+              "captured_positive_labels": 0,
+              "capture_rate": null,
+              "precision_on_known_selected": 0.0
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 59,
+              "selected_labeled_n": 53,
+              "captured_positive_labels": 0,
+              "capture_rate": null,
+              "precision_on_known_selected": 0.0
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 59,
+              "selected_labeled_n": 53,
+              "captured_positive_labels": 0,
+              "capture_rate": null,
+              "precision_on_known_selected": 0.0
+            }
+          }
+        },
+        "approved": {
+          "scored_cohort_n": 5000,
+          "group_n": 4941,
+          "labeled_n": 766,
+          "positive_labels": 26,
+          "label_coverage": 0.1550293462861769,
+          "prevalence": 0.033942558746736295,
+          "roc_auc": 0.5468814968814969,
+          "pr_auc_average_precision": 0.03906278147851201,
+          "auc_undefined_reason": null,
+          "review_count": 0,
+          "review_rate": 0.0,
+          "reviewed_labeled_n": 0,
+          "true_positives": 0,
+          "precision": null,
+          "recall": 0.0,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 0,
+              "selected_labeled_n": 0,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": null
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 41,
+              "selected_labeled_n": 7,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": 0.0
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 191,
+              "selected_labeled_n": 33,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": 0.0
+            }
+          }
+        }
+      },
+      "1h": {
+        "all": {
+          "scored_cohort_n": 5000,
+          "group_n": 5000,
+          "labeled_n": 26,
+          "positive_labels": 0,
+          "label_coverage": 0.0052,
+          "prevalence": 0.0,
+          "roc_auc": null,
+          "pr_auc_average_precision": null,
+          "auc_undefined_reason": "fewer than two label classes",
+          "review_count": 59,
+          "review_rate": 0.0118,
+          "reviewed_labeled_n": 25,
+          "true_positives": 0,
+          "precision": 0.0,
+          "recall": null,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 50,
+              "selected_labeled_n": 21,
+              "captured_positive_labels": 0,
+              "capture_rate": null,
+              "precision_on_known_selected": 0.0
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 100,
+              "selected_labeled_n": 25,
+              "captured_positive_labels": 0,
+              "capture_rate": null,
+              "precision_on_known_selected": 0.0
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 250,
+              "selected_labeled_n": 25,
+              "captured_positive_labels": 0,
+              "capture_rate": null,
+              "precision_on_known_selected": 0.0
+            }
+          },
+          "ci95": {
+            "roc_auc": {
+              "low": null,
+              "high": null,
+              "valid_resamples": 0,
+              "resamples": 200
+            },
+            "pr_auc_average_precision": {
+              "low": null,
+              "high": null,
+              "valid_resamples": 0,
+              "resamples": 200
+            },
+            "precision": {
+              "low": 0.0,
+              "high": 0.0,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "recall": {
+              "low": null,
+              "high": null,
+              "valid_resamples": 0,
+              "resamples": 200
+            },
+            "label_coverage": {
+              "low": 0.0036,
+              "high": 0.0068,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "prevalence": {
+              "low": 0.0,
+              "high": 0.0,
+              "valid_resamples": 200,
+              "resamples": 200
+            }
+          },
+          "capture_ci95": {
+            "0.01": {
+              "low": null,
+              "high": null,
+              "valid_resamples": 0,
+              "resamples": 200
+            },
+            "0.02": {
+              "low": null,
+              "high": null,
+              "valid_resamples": 0,
+              "resamples": 200
+            },
+            "0.05": {
+              "low": null,
+              "high": null,
+              "valid_resamples": 0,
+              "resamples": 200
+            }
+          }
+        },
+        "reviewed": {
+          "scored_cohort_n": 5000,
+          "group_n": 59,
+          "labeled_n": 25,
+          "positive_labels": 0,
+          "label_coverage": 0.423728813559322,
+          "prevalence": 0.0,
+          "roc_auc": null,
+          "pr_auc_average_precision": null,
+          "auc_undefined_reason": "fewer than two label classes",
+          "review_count": 59,
+          "review_rate": 1.0,
+          "reviewed_labeled_n": 25,
+          "true_positives": 0,
+          "precision": 0.0,
+          "recall": null,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 50,
+              "selected_labeled_n": 21,
+              "captured_positive_labels": 0,
+              "capture_rate": null,
+              "precision_on_known_selected": 0.0
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 59,
+              "selected_labeled_n": 25,
+              "captured_positive_labels": 0,
+              "capture_rate": null,
+              "precision_on_known_selected": 0.0
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 59,
+              "selected_labeled_n": 25,
+              "captured_positive_labels": 0,
+              "capture_rate": null,
+              "precision_on_known_selected": 0.0
+            }
+          }
+        },
+        "approved": {
+          "scored_cohort_n": 5000,
+          "group_n": 4941,
+          "labeled_n": 1,
+          "positive_labels": 0,
+          "label_coverage": 0.00020238818053025704,
+          "prevalence": 0.0,
+          "roc_auc": null,
+          "pr_auc_average_precision": null,
+          "auc_undefined_reason": "fewer than two label classes",
+          "review_count": 0,
+          "review_rate": 0.0,
+          "reviewed_labeled_n": 0,
+          "true_positives": 0,
+          "precision": null,
+          "recall": null,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 0,
+              "selected_labeled_n": 0,
+              "captured_positive_labels": 0,
+              "capture_rate": null,
+              "precision_on_known_selected": null
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 41,
+              "selected_labeled_n": 0,
+              "captured_positive_labels": 0,
+              "capture_rate": null,
+              "precision_on_known_selected": null
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 191,
+              "selected_labeled_n": 0,
+              "captured_positive_labels": 0,
+              "capture_rate": null,
+              "precision_on_known_selected": null
+            }
+          }
+        }
+      },
+      "12h": {
+        "all": {
+          "scored_cohort_n": 5000,
+          "group_n": 5000,
+          "labeled_n": 289,
+          "positive_labels": 2,
+          "label_coverage": 0.0578,
+          "prevalence": 0.006920415224913495,
+          "roc_auc": 0.5644599303135889,
+          "pr_auc_average_precision": 0.012607338017174083,
+          "auc_undefined_reason": null,
+          "review_count": 59,
+          "review_rate": 0.0118,
+          "reviewed_labeled_n": 53,
+          "true_positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 50,
+              "selected_labeled_n": 45,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": 0.0
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 100,
+              "selected_labeled_n": 57,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": 0.0
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 250,
+              "selected_labeled_n": 67,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": 0.0
+            }
+          },
+          "ci95": {
+            "roc_auc": {
+              "low": 0.3344961240310078,
+              "high": 0.7869728007283486,
+              "valid_resamples": 173,
+              "resamples": 200
+            },
+            "pr_auc_average_precision": {
+              "low": 0.005356218733827842,
+              "high": 0.04165610030994646,
+              "valid_resamples": 173,
+              "resamples": 200
+            },
+            "precision": {
+              "low": 0.0,
+              "high": 0.0,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "recall": {
+              "low": 0.0,
+              "high": 0.0,
+              "valid_resamples": 173,
+              "resamples": 200
+            },
+            "label_coverage": {
+              "low": 0.0514,
+              "high": 0.064,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "prevalence": {
+              "low": 0.0,
+              "high": 0.014714175143741709,
+              "valid_resamples": 200,
+              "resamples": 200
+            }
+          },
+          "capture_ci95": {
+            "0.01": {
+              "low": 0.0,
+              "high": 0.0,
+              "valid_resamples": 173,
+              "resamples": 200
+            },
+            "0.02": {
+              "low": 0.0,
+              "high": 0.0,
+              "valid_resamples": 173,
+              "resamples": 200
+            },
+            "0.05": {
+              "low": 0.0,
+              "high": 0.0,
+              "valid_resamples": 173,
+              "resamples": 200
+            }
+          }
+        },
+        "reviewed": {
+          "scored_cohort_n": 5000,
+          "group_n": 59,
+          "labeled_n": 53,
+          "positive_labels": 0,
+          "label_coverage": 0.8983050847457628,
+          "prevalence": 0.0,
+          "roc_auc": null,
+          "pr_auc_average_precision": null,
+          "auc_undefined_reason": "fewer than two label classes",
+          "review_count": 59,
+          "review_rate": 1.0,
+          "reviewed_labeled_n": 53,
+          "true_positives": 0,
+          "precision": 0.0,
+          "recall": null,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 50,
+              "selected_labeled_n": 45,
+              "captured_positive_labels": 0,
+              "capture_rate": null,
+              "precision_on_known_selected": 0.0
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 59,
+              "selected_labeled_n": 53,
+              "captured_positive_labels": 0,
+              "capture_rate": null,
+              "precision_on_known_selected": 0.0
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 59,
+              "selected_labeled_n": 53,
+              "captured_positive_labels": 0,
+              "capture_rate": null,
+              "precision_on_known_selected": 0.0
+            }
+          }
+        },
+        "approved": {
+          "scored_cohort_n": 5000,
+          "group_n": 4941,
+          "labeled_n": 236,
+          "positive_labels": 2,
+          "label_coverage": 0.04776361060514066,
+          "prevalence": 0.00847457627118644,
+          "roc_auc": 0.6923076923076923,
+          "pr_auc_average_precision": 0.037104072398190045,
+          "auc_undefined_reason": null,
+          "review_count": 0,
+          "review_rate": 0.0,
+          "reviewed_labeled_n": 0,
+          "true_positives": 0,
+          "precision": null,
+          "recall": 0.0,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 0,
+              "selected_labeled_n": 0,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": null
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 41,
+              "selected_labeled_n": 4,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": 0.0
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 191,
+              "selected_labeled_n": 14,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": 0.0
+            }
+          }
+        }
+      },
+      "48h": {
+        "all": {
+          "scored_cohort_n": 5000,
+          "group_n": 5000,
+          "labeled_n": 733,
+          "positive_labels": 7,
+          "label_coverage": 0.1466,
+          "prevalence": 0.009549795361527967,
+          "roc_auc": 0.5696576151121605,
+          "pr_auc_average_precision": 0.012077057719801207,
+          "auc_undefined_reason": null,
+          "review_count": 59,
+          "review_rate": 0.0118,
+          "reviewed_labeled_n": 53,
+          "true_positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 50,
+              "selected_labeled_n": 45,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": 0.0
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 100,
+              "selected_labeled_n": 59,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": 0.0
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 250,
+              "selected_labeled_n": 84,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": 0.0
+            }
+          },
+          "ci95": {
+            "roc_auc": {
+              "low": 0.4329600669636037,
+              "high": 0.709806578743596,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "pr_auc_average_precision": {
+              "low": 0.004609936336349919,
+              "high": 0.025289515711045946,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "precision": {
+              "low": 0.0,
+              "high": 0.0,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "recall": {
+              "low": 0.0,
+              "high": 0.0,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "label_coverage": {
+              "low": 0.137395,
+              "high": 0.155615,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "prevalence": {
+              "low": 0.0027468774395003905,
+              "high": 0.016577958783678223,
+              "valid_resamples": 200,
+              "resamples": 200
+            }
+          },
+          "capture_ci95": {
+            "0.01": {
+              "low": 0.0,
+              "high": 0.0,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "0.02": {
+              "low": 0.0,
+              "high": 0.0,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "0.05": {
+              "low": 0.0,
+              "high": 0.0,
+              "valid_resamples": 200,
+              "resamples": 200
+            }
+          }
+        },
+        "reviewed": {
+          "scored_cohort_n": 5000,
+          "group_n": 59,
+          "labeled_n": 53,
+          "positive_labels": 0,
+          "label_coverage": 0.8983050847457628,
+          "prevalence": 0.0,
+          "roc_auc": null,
+          "pr_auc_average_precision": null,
+          "auc_undefined_reason": "fewer than two label classes",
+          "review_count": 59,
+          "review_rate": 1.0,
+          "reviewed_labeled_n": 53,
+          "true_positives": 0,
+          "precision": 0.0,
+          "recall": null,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 50,
+              "selected_labeled_n": 45,
+              "captured_positive_labels": 0,
+              "capture_rate": null,
+              "precision_on_known_selected": 0.0
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 59,
+              "selected_labeled_n": 53,
+              "captured_positive_labels": 0,
+              "capture_rate": null,
+              "precision_on_known_selected": 0.0
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 59,
+              "selected_labeled_n": 53,
+              "captured_positive_labels": 0,
+              "capture_rate": null,
+              "precision_on_known_selected": 0.0
+            }
+          }
+        },
+        "approved": {
+          "scored_cohort_n": 5000,
+          "group_n": 4941,
+          "labeled_n": 680,
+          "positive_labels": 7,
+          "label_coverage": 0.1376239627605748,
+          "prevalence": 0.010294117647058823,
+          "roc_auc": 0.6145192103587349,
+          "pr_auc_average_precision": 0.015836266623336537,
+          "auc_undefined_reason": null,
+          "review_count": 0,
+          "review_rate": 0.0,
+          "reviewed_labeled_n": 0,
+          "true_positives": 0,
+          "precision": null,
+          "recall": 0.0,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 0,
+              "selected_labeled_n": 0,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": null
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 41,
+              "selected_labeled_n": 6,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": 0.0
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 191,
+              "selected_labeled_n": 31,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": 0.0
+            }
+          }
+        }
+      },
+      "168h": {
+        "all": {
+          "scored_cohort_n": 5000,
+          "group_n": 5000,
+          "labeled_n": 811,
+          "positive_labels": 19,
+          "label_coverage": 0.1622,
+          "prevalence": 0.02342786683107275,
+          "roc_auc": 0.5303030303030303,
+          "pr_auc_average_precision": 0.02520071013787812,
+          "auc_undefined_reason": null,
+          "review_count": 59,
+          "review_rate": 0.0118,
+          "reviewed_labeled_n": 53,
+          "true_positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 50,
+              "selected_labeled_n": 45,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": 0.0
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 100,
+              "selected_labeled_n": 60,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": 0.0
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 250,
+              "selected_labeled_n": 86,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": 0.0
+            }
+          },
+          "ci95": {
+            "roc_auc": {
+              "low": 0.40631070752164505,
+              "high": 0.6594534241694205,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "pr_auc_average_precision": {
+              "low": 0.014702585826396828,
+              "high": 0.04302877113074618,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "precision": {
+              "low": 0.0,
+              "high": 0.0,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "recall": {
+              "low": 0.0,
+              "high": 0.0,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "label_coverage": {
+              "low": 0.151595,
+              "high": 0.17221999999999998,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "prevalence": {
+              "low": 0.013373682221008864,
+              "high": 0.03285888077858881,
+              "valid_resamples": 200,
+              "resamples": 200
+            }
+          },
+          "capture_ci95": {
+            "0.01": {
+              "low": 0.0,
+              "high": 0.0,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "0.02": {
+              "low": 0.0,
+              "high": 0.0,
+              "valid_resamples": 200,
+              "resamples": 200
+            },
+            "0.05": {
+              "low": 0.0,
+              "high": 0.0,
+              "valid_resamples": 200,
+              "resamples": 200
+            }
+          }
+        },
+        "reviewed": {
+          "scored_cohort_n": 5000,
+          "group_n": 59,
+          "labeled_n": 53,
+          "positive_labels": 0,
+          "label_coverage": 0.8983050847457628,
+          "prevalence": 0.0,
+          "roc_auc": null,
+          "pr_auc_average_precision": null,
+          "auc_undefined_reason": "fewer than two label classes",
+          "review_count": 59,
+          "review_rate": 1.0,
+          "reviewed_labeled_n": 53,
+          "true_positives": 0,
+          "precision": 0.0,
+          "recall": null,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 50,
+              "selected_labeled_n": 45,
+              "captured_positive_labels": 0,
+              "capture_rate": null,
+              "precision_on_known_selected": 0.0
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 59,
+              "selected_labeled_n": 53,
+              "captured_positive_labels": 0,
+              "capture_rate": null,
+              "precision_on_known_selected": 0.0
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 59,
+              "selected_labeled_n": 53,
+              "captured_positive_labels": 0,
+              "capture_rate": null,
+              "precision_on_known_selected": 0.0
+            }
+          }
+        },
+        "approved": {
+          "scored_cohort_n": 5000,
+          "group_n": 4941,
+          "labeled_n": 758,
+          "positive_labels": 19,
+          "label_coverage": 0.15341024084193483,
+          "prevalence": 0.025065963060686015,
+          "roc_auc": 0.5683355886332881,
+          "pr_auc_average_precision": 0.032212419706743746,
+          "auc_undefined_reason": null,
+          "review_count": 0,
+          "review_rate": 0.0,
+          "reviewed_labeled_n": 0,
+          "true_positives": 0,
+          "precision": null,
+          "recall": 0.0,
+          "capture": {
+            "0.01": {
+              "cohort_budget_n": 50,
+              "group_selected_n": 0,
+              "selected_labeled_n": 0,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": null
+            },
+            "0.02": {
+              "cohort_budget_n": 100,
+              "group_selected_n": 41,
+              "selected_labeled_n": 7,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": 0.0
+            },
+            "0.05": {
+              "cohort_budget_n": 250,
+              "group_selected_n": 191,
+              "selected_labeled_n": 33,
+              "captured_positive_labels": 0,
+              "capture_rate": 0.0,
+              "precision_on_known_selected": 0.0
+            }
+          }
+        }
+      }
+    },
+    "oracle_feedback_audit": {
+      "fraud": {
+        "n": 100,
+        "eventual_coverage": 0.25
+      },
+      "nonfraud": {
+        "n": 4900,
+        "eventual_coverage": 0.1620408163265306
+      },
+      "reviewed": {
+        "n": 59,
+        "eventual_coverage": 0.8983050847457628
+      },
+      "approved": {
+        "n": 4941,
+        "eventual_coverage": 0.1550293462861769
+      },
+      "observed_false_positives": 7,
+      "observed_false_negatives": 6,
+      "false_positive_rate": 0.008816120906801008,
+      "false_negative_rate": 0.24
+    }
+  }
+}

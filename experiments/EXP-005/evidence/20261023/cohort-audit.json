@@ -1,0 +1,66 @@
+{
+  "baseline": {
+    "n": 5000,
+    "regenerated_sha256": "1a5019ff5453c0b8fb5d4c8f9043fc7460187111abe58aa0da079a26bf76dfdc",
+    "captured_sha256": "1a5019ff5453c0b8fb5d4c8f9043fc7460187111abe58aa0da079a26bf76dfdc",
+    "matches_regeneration": true,
+    "successful": 5000,
+    "errors": 0
+  },
+  "burst": {
+    "n": 5000,
+    "regenerated_sha256": "2d785723c11d46ca148e342b274b34fa610430d9be22f8591c2697b70fafc90f",
+    "captured_sha256": "2d785723c11d46ca148e342b274b34fa610430d9be22f8591c2697b70fafc90f",
+    "matches_regeneration": true,
+    "successful": 5000,
+    "errors": 0
+  },
+  "recovery": {
+    "n": 2000,
+    "regenerated_sha256": "0eddde8c4457a6a2eb52c457239c78b4becc09d0300ce4e8e726c6b68da00639",
+    "captured_sha256": "0eddde8c4457a6a2eb52c457239c78b4becc09d0300ce4e8e726c6b68da00639",
+    "matches_regeneration": true,
+    "successful": 2000,
+    "errors": 0
+  },
+  "covariate": {
+    "n": 5000,
+    "regenerated_sha256": "4a76940b245617cf2aedf07c70692d876c95920d8b9a50f3b4167664b22cf77b",
+    "captured_sha256": "4a76940b245617cf2aedf07c70692d876c95920d8b9a50f3b4167664b22cf77b",
+    "matches_regeneration": true,
+    "successful": 5000,
+    "errors": 0
+  },
+  "concept": {
+    "n": 5000,
+    "regenerated_sha256": "c735deb452b58e59cfcf7c58c6a4b5401312cc5ce9594bf5ca8016b0b321c746",
+    "captured_sha256": "c735deb452b58e59cfcf7c58c6a4b5401312cc5ce9594bf5ca8016b0b321c746",
+    "matches_regeneration": true,
+    "successful": 5000,
+    "errors": 0
+  },
+  "deletion": {
+    "n": 2000,
+    "regenerated_sha256": "97d1cabdddf5adad064bfb99e0c6f9d506411c8b426c3665ac74e9368e2950d5",
+    "captured_sha256": "97d1cabdddf5adad064bfb99e0c6f9d506411c8b426c3665ac74e9368e2950d5",
+    "matches_regeneration": true,
+    "successful": 2000,
+    "errors": 0
+  },
+  "cpu_normal": {
+    "n": 2000,
+    "regenerated_sha256": "eeec792a0d85d7f88405f79c9ac7eca8f7e5c11a5c952590b347e7ba8971f386",
+    "captured_sha256": "eeec792a0d85d7f88405f79c9ac7eca8f7e5c11a5c952590b347e7ba8971f386",
+    "matches_regeneration": true,
+    "successful": 2000,
+    "errors": 0
+  },
+  "cpu_limited": {
+    "n": 2000,
+    "regenerated_sha256": "253d2e45f4e965bda8c2df1b45d329fe72df3c2d41c41857904ec8bf80e5b0f8",
+    "captured_sha256": "253d2e45f4e965bda8c2df1b45d329fe72df3c2d41c41857904ec8bf80e5b0f8",
+    "matches_regeneration": true,
+    "successful": 2000,
+    "errors": 0
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "bootstrap_resamples": 200,
+  "bootstrap_seed": 5100,
+  "interval": "95% percentile iid row bootstrap; paired feedback masks; fixed baseline bins",
+  "smoothing": "0.5 added to every histogram/category count, then normalized",
+  "categorical_js": "divergence in bits, not square-root distance",
+  "pr_auc": "sklearn average_precision_score; undefined for fewer than two classes",
+  "review_threshold": 0.06729906797409058,
+  "raw_transactions_exported": false
+}

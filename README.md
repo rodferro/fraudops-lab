@@ -13,8 +13,9 @@ Run documented commands from the repository root. Reports retain the results and
 | EXP-002 — Docker image | [Report](experiments/EXP-002/report.md) | Results and original runtime limitations recorded in report |
 | EXP-003 — Kubernetes deployment/scaling | [Report](experiments/EXP-003/report.md) | [Evidence](experiments/EXP-003/evidence/) |
 | EXP-004 — Observability | [Report](experiments/EXP-004/report.md) | [Evidence](experiments/EXP-004/evidence/) |
+| EXP-005 — Traffic, failures, drift and delayed feedback | [Report](experiments/EXP-005/report.md) | [Aggregate evidence and static dashboard](experiments/EXP-005/evidence/20261023/) |
 
-No separate EXP-002B report exists in this checkout; no report or evidence was invented for it. Repository organization does not start another experiment.
+No separate EXP-002B report exists in this checkout; no report or evidence was invented for it.
 
 Curated reports and reproducibility evidence belong in `experiments/EXP-XXX/`. New runs, image archives, build logs, temporary transport logs, and isolated kubeconfigs belong in ignored root `artifacts/EXP-XXX/`. The Kubernetes kubeconfig is now `artifacts/EXP-003/kubeconfig`; the helpers still pass it and context `kind-fraudops-exp003` explicitly, without changing the default context. Raw captures retain historical command strings verbatim, including the paths used when they were recorded.
 
@@ -250,6 +251,26 @@ bash scripts/exp004.sh cleanup  # Restore one EXP-003 API pod and remove the sta
 # Or delete the entire dedicated learning cluster:
 bash scripts/exp003.sh cleanup
 ```
+
+## Traffic, Failure Injection, and Model Drift (EXP-005)
+
+EXP-005 preserves the Java inference API and ONNX model while exercising the running EXP-004 stack with deterministic synthetic cohorts. It compares baseline/burst/recovery traffic through the real ClusterIP Service, deletes one pod under traffic, and measures an isolated replica at 1 CPU versus 100m. Offline analysis separates input/score drift, simulator ground truth, and delayed/noisy feedback—including decision-dependent label selection. See the [report](experiments/EXP-005/report.md) for actual results, the initial CPU cold-start failure and retry, metric denominators, confidence intervals, and limitations.
+
+Start with the EXP-004 stack and three ready API replicas. Python 3.12 is used only for the simulator/analysis; application images remain unchanged. From the repository root:
+
+```bash
+PYTHON_BOOTSTRAP=/opt/homebrew/bin/python3.12 bash scripts/exp005.sh setup
+bash scripts/exp005.sh test
+RUN="artifacts/EXP-005/run-$(date -u +%Y%m%dT%H%M%SZ)"
+bash scripts/exp005.sh run "$RUN"
+bash scripts/exp005.sh analyze "$RUN" "$RUN-aggregates"
+# After an interrupted runner, stop it and its forwards, then:
+bash scripts/exp005.sh cleanup
+```
+
+Use your Python 3.12 path for `PYTHON_BOOTSTRAP`. The helper uses the existing isolated kubeconfig and context explicitly. Ports 18081, 18083 and 19090 must be free. Workloads have fixed counts, bounded concurrency, request timeouts and phase deadlines. The temporary CPU-test Deployment is excluded from the primary Service; its original CPU limit is restored and it is deleted on exit. Primary API limits remain unchanged. No host stress process or full cluster recreation is required.
+
+Raw transaction features, private labels, feedback, transport logs and runtime captures stay in ignored `artifacts/EXP-005/`. Only reviewed aggregate JSON, configuration fingerprints, validation evidence and the [static overview](experiments/EXP-005/evidence/20261023/overview.png) are curated. There are no transaction features or labels in Prometheus metric labels, and no model retraining or new production alert policy.
 
 ## Known Limitations
 

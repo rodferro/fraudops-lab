@@ -1,0 +1,21 @@
+{
+  "delivered_source_sha256": {
+    "scripts/exp005_analyze.py": "a00ac9d504e695da7531e0294c0dbe884878e0eee718b2a589bd2a3420c37701",
+    "scripts/test_exp005.py": "dfc1df1cc601b48268734a36a7a2a1f74080699c52d159b4297d39a074f61b08",
+    "scripts/exp005.sh": "ff299dc291da654ef6df2a789c188874718dbfb46d51a17a21967f55efa55a8c",
+    "scripts/exp005-requirements.txt": "4aeb9103c092772d9d2b397823325aaeec06d1fe148bed39596a11c8204a1d3f",
+    "scripts/exp005_run.py": "ef592181b6179dc43e9ca8aea95208aef860854a5fc3b6ee0bb424841934de2c",
+    "scripts/exp005_data.py": "795048983b54d4290ac5f803ef28f7a424eb1e0a3631fe9a7772632f144727aa",
+    "fraud_model.onnx": "60af5e22073af550a5bfb249d4590afba12d3529221deb3d8e83b46eaa71a757",
+    "model_metadata.json": "747298910af4e0c230821a0406381b48c95b4d8edb1aca41b87a834359fe0068",
+    "Dockerfile": "7ca93825d63de055acd618ea8e8951e394ef20785598ab96dc6adf43cfae9a75",
+    "pom.xml": "85709d4bdd01626038f1847351bb27f7373a801dcf5c903b4e3860ef034d2fe2"
+  },
+  "runtime_lineage": "Initial run retained seven completed phases; initial 100m cold start failed inherited probes. Resumed run retained those phases and measured 100m with expanded probe allowance. Delivered source hashes describe the final implementation, not the pre-adjustment runner.",
+  "raw_initial_run": "artifacts/EXP-005/run-20261023T2008Z",
+  "raw_completed_run": "artifacts/EXP-005/run-resumed-20261023",
+  "python": "3.12",
+  "platform": "macOS ARM64; single-node kind in Docker Desktop; Docker VM approximately 8 GiB / 10 CPUs",
+  "model_training_or_replacement": false,
+  "private_rows_exported": false
+}

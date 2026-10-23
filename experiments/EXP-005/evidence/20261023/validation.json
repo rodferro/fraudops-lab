@@ -1,0 +1,59 @@
+{
+  "java_tests": {
+    "tests": 16,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "stage": "Docker build / mvn clean verify"
+  },
+  "analysis_tests": {
+    "tests": 8,
+    "failures": 0
+  },
+  "runtime_fixture_parity": {
+    "before": 5,
+    "after": 5,
+    "all_passed": true
+  },
+  "cohort_requests": {
+    "service": 24000,
+    "isolated_cpu": 4000,
+    "http_errors": 0,
+    "transport_errors": 0,
+    "validation_errors": 0,
+    "not_dispatched": 0
+  },
+  "model_hashes_unchanged": {
+    "fraud_model.onnx": "60af5e22073af550a5bfb249d4590afba12d3529221deb3d8e83b46eaa71a757",
+    "model_metadata.json": "747298910af4e0c230821a0406381b48c95b4d8edb1aca41b87a834359fe0068"
+  },
+  "kustomize_rendering": [
+    "k8s/",
+    "k8s/observability/",
+    "k8s/observability/api/"
+  ],
+  "script_syntax": "bash -n and Python py_compile passed",
+  "runtime_and_kubeconfig_ignore_checks": "passed",
+  "curated_quality_json_not_ignored": true,
+  "git_diff_check": "passed",
+  "all_new_text_whitespace_check": "passed",
+  "main_deployment_spec_unchanged": true,
+  "temporary_cpu_resources_absent": true,
+  "owned_forward_ports_closed": [
+    18081,
+    18083,
+    19090
+  ],
+  "oom_related_events_in_final_capture": 0,
+  "final_helper_fresh_full_run_repeated": false,
+  "runtime_lineage": "Seven completed phases preserved from initial attempt; only CPU-limited phase resumed with expanded startup allowance. All eight captured cohort digests match regeneration.",
+  "auxiliary_failures": [
+    "Host Python 3.9 py_compile attempted to write an external cache and was denied; Python 3.12 venv compilation passed.",
+    "Initial Matplotlib/fontconfig cache warnings; plot rendered and was visually checked. Helper now uses ignored writable cache paths."
+  ],
+  "markdown_links": {
+    "markdown_files": 9,
+    "local_file_targets_checked": 120,
+    "broken": 0
+  }
+}

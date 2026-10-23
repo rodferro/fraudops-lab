@@ -1,0 +1,14 @@
+Command: bash scripts/exp005.sh test
+test_concept_preserves_features_and_cpu_comparison_is_paired (test_exp005.ExperimentSemanticsTest.test_concept_preserves_features_and_cpu_comparison_is_paired) ... ok
+test_drift_bins_cover_tails_and_smoothing_is_finite (test_exp005.ExperimentSemanticsTest.test_drift_bins_cover_tails_and_smoothing_is_finite) ... ok
+test_evaluation_cannot_see_future_feedback (test_exp005.ExperimentSemanticsTest.test_evaluation_cannot_see_future_feedback) ... ok
+test_feedback_masks_enforce_time_cutoff (test_exp005.ExperimentSemanticsTest.test_feedback_masks_enforce_time_cutoff) ... ok
+test_label_mask_does_not_rerank_review_budget (test_exp005.ExperimentSemanticsTest.test_label_mask_does_not_rerank_review_budget) ... ok
+test_reproducibility_and_private_contract (test_exp005.ExperimentSemanticsTest.test_reproducibility_and_private_contract) ... ok
+test_server_histogram_delta_excludes_prior_requests_and_other_routes (test_exp005.ExperimentSemanticsTest.test_server_histogram_delta_excludes_prior_requests_and_other_routes) ... ok
+test_undefined_auc_and_empty_precision (test_exp005.ExperimentSemanticsTest.test_undefined_auc_and_empty_precision) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.033s
+
+OK

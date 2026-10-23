@@ -1,0 +1,1094 @@
+{
+  "baseline": {
+    "baseline_n": 5000,
+    "scenario_n": 5000,
+    "numeric_psi": {
+      "amount": {
+        "value": 0.0,
+        "baseline_edges": [
+          "-inf",
+          15.242618678210322,
+          22.750936033470232,
+          30.81198607201376,
+          39.324272107038006,
+          49.774742617243355,
+          63.00216180188738,
+          80.93813416566732,
+          106.90327361196475,
+          158.43648639325477,
+          "inf"
+        ],
+        "ci95": null
+      },
+      "account_age_days": {
+        "value": 0.0,
+        "baseline_edges": [
+          "-inf",
+          382.0,
+          798.8000000000001,
+          1216.7000000000003,
+          1615.0,
+          2003.5,
+          2409.0,
+          2823.9000000000005,
+          3219.0,
+          3603.0,
+          "inf"
+        ],
+        "ci95": null
+      },
+      "transactions_last_24h": {
+        "value": 0.0,
+        "baseline_edges": [
+          "-inf",
+          0.0,
+          1.0,
+          2.0,
+          3.0,
+          4.0,
+          "inf"
+        ],
+        "ci95": null
+      },
+      "distance_from_home_km": {
+        "value": 0.0,
+        "baseline_edges": [
+          "-inf",
+          1.557051833344657,
+          3.2960299483528472,
+          5.39264493494491,
+          7.72901861930758,
+          10.507189125342972,
+          13.798167981222207,
+          18.084916135499473,
+          24.12878212067549,
+          34.1320732907834,
+          "inf"
+        ],
+        "ci95": null
+      },
+      "device_age_days": {
+        "value": 0.0,
+        "baseline_edges": [
+          "-inf",
+          24.427959926973653,
+          54.13347007703676,
+          86.50387574271203,
+          123.23178434125607,
+          165.95470254558344,
+          223.87149440424398,
+          287.8050381391631,
+          383.69186145611786,
+          553.7102745563145,
+          "inf"
+        ],
+        "ci95": null
+      }
+    },
+    "categorical_js_bits": {
+      "country_mismatch": {
+        "value": 0.0,
+        "ci95": null
+      },
+      "card_present": {
+        "value": 0.0,
+        "ci95": null
+      },
+      "channel_code": {
+        "value": 0.0,
+        "ci95": null
+      },
+      "merchant_category_code": {
+        "value": 0.0,
+        "ci95": null
+      }
+    },
+    "missing": {
+      "amount": {
+        "baseline_rate": 0.005,
+        "scenario_rate": 0.005,
+        "delta": 0.0,
+        "delta_ci95": null
+      },
+      "account_age_days": {
+        "baseline_rate": 0.002,
+        "scenario_rate": 0.002,
+        "delta": 0.0,
+        "delta_ci95": null
+      },
+      "transactions_last_24h": {
+        "baseline_rate": 0.0098,
+        "scenario_rate": 0.0098,
+        "delta": 0.0,
+        "delta_ci95": null
+      },
+      "distance_from_home_km": {
+        "baseline_rate": 0.019,
+        "scenario_rate": 0.019,
+        "delta": 0.0,
+        "delta_ci95": null
+      },
+      "device_age_days": {
+        "baseline_rate": 0.0212,
+        "scenario_rate": 0.0212,
+        "delta": 0.0,
+        "delta_ci95": null
+      },
+      "country_mismatch": {
+        "baseline_rate": 0.006,
+        "scenario_rate": 0.006,
+        "delta": 0.0,
+        "delta_ci95": null
+      },
+      "card_present": {
+        "baseline_rate": 0.0048,
+        "scenario_rate": 0.0048,
+        "delta": 0.0,
+        "delta_ci95": null
+      },
+      "channel_code": {
+        "baseline_rate": 0.011,
+        "scenario_rate": 0.011,
+        "delta": 0.0,
+        "delta_ci95": null
+      },
+      "merchant_category_code": {
+        "baseline_rate": 0.0116,
+        "scenario_rate": 0.0116,
+        "delta": 0.0,
+        "delta_ci95": null
+      }
+    },
+    "scores": {
+      "baseline_scored_n": 5000,
+      "scored_n": 5000,
+      "psi": 0.0,
+      "baseline_edges": [
+        "-inf",
+        0.007401615381240845,
+        0.009189385175704957,
+        0.010888642072677613,
+        0.012575984001159668,
+        0.014357432723045349,
+        0.016567337512969973,
+        0.019456976652145387,
+        0.023350465297698977,
+        0.03081578910350801,
+        "inf"
+      ],
+      "mean": 0.0179006376683712,
+      "quantiles": {
+        "5": 0.006203575432300568,
+        "50": 0.014357432723045349,
+        "95": 0.04022157192230226,
+        "99": 0.06649904280900987
+      },
+      "review_count": 50,
+      "review_rate": 0.01,
+      "approval_rate": 0.99,
+      "review_rate_ci95": {
+        "low": 0.007595,
+        "high": 0.012605000000000002,
+        "valid_resamples": 200,
+        "resamples": 200
+      },
+      "mean_ci95": {
+        "low": 0.017502811403870583,
+        "high": 0.018323951561897995,
+        "valid_resamples": 200,
+        "resamples": 200
+      }
+    }
+  },
+  "burst": {
+    "baseline_n": 5000,
+    "scenario_n": 5000,
+    "numeric_psi": {
+      "amount": {
+        "value": 0.002410832582205503,
+        "baseline_edges": [
+          "-inf",
+          15.242618678210322,
+          22.750936033470232,
+          30.81198607201376,
+          39.324272107038006,
+          49.774742617243355,
+          63.00216180188738,
+          80.93813416566732,
+          106.90327361196475,
+          158.43648639325477,
+          "inf"
+        ],
+        "ci95": {
+          "low": 0.0023081478240515765,
+          "high": 0.01018718944031592,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      },
+      "account_age_days": {
+        "value": 0.0028018548552171917,
+        "baseline_edges": [
+          "-inf",
+          382.0,
+          798.8000000000001,
+          1216.7000000000003,
+          1615.0,
+          2003.5,
+          2409.0,
+          2823.9000000000005,
+          3219.0,
+          3603.0,
+          "inf"
+        ],
+        "ci95": {
+          "low": 0.0018313217514033238,
+          "high": 0.014782035674090855,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      },
+      "transactions_last_24h": {
+        "value": 0.0030726336776670704,
+        "baseline_edges": [
+          "-inf",
+          0.0,
+          1.0,
+          2.0,
+          3.0,
+          4.0,
+          "inf"
+        ],
+        "ci95": {
+          "low": 0.0010252552564028955,
+          "high": 0.010406216452641254,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      },
+      "distance_from_home_km": {
+        "value": 0.0019652720685479253,
+        "baseline_edges": [
+          "-inf",
+          1.557051833344657,
+          3.2960299483528472,
+          5.39264493494491,
+          7.72901861930758,
+          10.507189125342972,
+          13.798167981222207,
+          18.084916135499473,
+          24.12878212067549,
+          34.1320732907834,
+          "inf"
+        ],
+        "ci95": {
+          "low": 0.001989400084191291,
+          "high": 0.010685045344974846,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      },
+      "device_age_days": {
+        "value": 0.0053244658538431746,
+        "baseline_edges": [
+          "-inf",
+          24.427959926973653,
+          54.13347007703676,
+          86.50387574271203,
+          123.23178434125607,
+          165.95470254558344,
+          223.87149440424398,
+          287.8050381391631,
+          383.69186145611786,
+          553.7102745563145,
+          "inf"
+        ],
+        "ci95": {
+          "low": 0.002824672525641059,
+          "high": 0.016097260017443715,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      }
+    },
+    "categorical_js_bits": {
+      "country_mismatch": {
+        "value": 4.265553539186691e-05,
+        "ci95": {
+          "low": 1.2128260125667522e-05,
+          "high": 0.0006721482854474266,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      },
+      "card_present": {
+        "value": 2.229336256394295e-05,
+        "ci95": {
+          "low": 2.7110130322336475e-06,
+          "high": 0.000590496438914846,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      },
+      "channel_code": {
+        "value": 0.00019493530725432732,
+        "ci95": {
+          "low": 4.0289337493353813e-05,
+          "high": 0.0011804340884796326,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      },
+      "merchant_category_code": {
+        "value": 5.294825572513422e-05,
+        "ci95": {
+          "low": 6.887859129163569e-05,
+          "high": 0.0010578813225848452,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      }
+    },
+    "missing": {
+      "amount": {
+        "baseline_rate": 0.005,
+        "scenario_rate": 0.0056,
+        "delta": 0.0005999999999999998,
+        "delta_ci95": {
+          "low": -0.0018,
+          "high": 0.0036050000000000014,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      },
+      "account_age_days": {
+        "baseline_rate": 0.002,
+        "scenario_rate": 0.003,
+        "delta": 0.001,
+        "delta_ci95": {
+          "low": -0.0012000000000000001,
+          "high": 0.003005000000000001,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      },
+      "transactions_last_24h": {
+        "baseline_rate": 0.0098,
+        "scenario_rate": 0.011,
+        "delta": 0.0011999999999999997,
+        "delta_ci95": {
+          "low": -0.0026049999999999997,
+          "high": 0.005405000000000002,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      },
+      "distance_from_home_km": {
+        "baseline_rate": 0.019,
+        "scenario_rate": 0.0228,
+        "delta": 0.0038000000000000013,
+        "delta_ci95": {
+          "low": -0.002404999999999999,
+          "high": 0.009015000000000004,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      },
+      "device_age_days": {
+        "baseline_rate": 0.0212,
+        "scenario_rate": 0.0202,
+        "delta": -0.0010000000000000009,
+        "delta_ci95": {
+          "low": -0.006404999999999999,
+          "high": 0.004400000000000001,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      },
+      "country_mismatch": {
+        "baseline_rate": 0.006,
+        "scenario_rate": 0.005,
+        "delta": -0.001,
+        "delta_ci95": {
+          "low": -0.004005,
+          "high": 0.0018050000000000015,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      },
+      "card_present": {
+        "baseline_rate": 0.0048,
+        "scenario_rate": 0.0042,
+        "delta": -0.0005999999999999998,
+        "delta_ci95": {
+          "low": -0.003,
+          "high": 0.002205000000000001,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      },
+      "channel_code": {
+        "baseline_rate": 0.011,
+        "scenario_rate": 0.0118,
+        "delta": 0.0008000000000000004,
+        "delta_ci95": {
+          "low": -0.0031999999999999997,
+          "high": 0.0048000000000000004,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      },
+      "merchant_category_code": {
+        "baseline_rate": 0.0116,
+        "scenario_rate": 0.012,
+        "delta": 0.00040000000000000105,
+        "delta_ci95": {
+          "low": -0.004,
+          "high": 0.004,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      }
+    },
+    "scores": {
+      "baseline_scored_n": 5000,
+      "scored_n": 5000,
+      "psi": 0.0036190615672234204,
+      "baseline_edges": [
+        "-inf",
+        0.007401615381240845,
+        0.009189385175704957,
+        0.010888642072677613,
+        0.012575984001159668,
+        0.014357432723045349,
+        0.016567337512969973,
+        0.019456976652145387,
+        0.023350465297698977,
+        0.03081578910350801,
+        "inf"
+      ],
+      "mean": 0.017694002145528794,
+      "quantiles": {
+        "5": 0.0060189545154571535,
+        "50": 0.014270246028900146,
+        "95": 0.0393200621008873,
+        "99": 0.060529784858226805
+      },
+      "review_count": 39,
+      "review_rate": 0.0078,
+      "approval_rate": 0.9922,
+      "review_rate_ci95": {
+        "low": 0.005595,
+        "high": 0.0108,
+        "valid_resamples": 200,
+        "resamples": 200
+      },
+      "mean_ci95": {
+        "low": 0.01720948865145445,
+        "high": 0.018307561434954406,
+        "valid_resamples": 200,
+        "resamples": 200
+      },
+      "psi_ci95": {
+        "low": 0.0026254620235411736,
+        "high": 0.01371412487036647,
+        "valid_resamples": 200,
+        "resamples": 200
+      }
+    }
+  },
+  "covariate": {
+    "baseline_n": 5000,
+    "scenario_n": 5000,
+    "numeric_psi": {
+      "amount": {
+        "value": 1.3143883446810927,
+        "baseline_edges": [
+          "-inf",
+          15.242618678210322,
+          22.750936033470232,
+          30.81198607201376,
+          39.324272107038006,
+          49.774742617243355,
+          63.00216180188738,
+          80.93813416566732,
+          106.90327361196475,
+          158.43648639325477,
+          "inf"
+        ],
+        "ci95": {
+          "low": 1.2297606270420902,
+          "high": 1.4245764019067755,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      },
+      "account_age_days": {
+        "value": 0.000952900681860889,
+        "baseline_edges": [
+          "-inf",
+          382.0,
+          798.8000000000001,
+          1216.7000000000003,
+          1615.0,
+          2003.5,
+          2409.0,
+          2823.9000000000005,
+          3219.0,
+          3603.0,
+          "inf"
+        ],
+        "ci95": {
+          "low": 0.0015055814150829957,
+          "high": 0.008802768190388298,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      },
+      "transactions_last_24h": {
+        "value": 0.001360584608986607,
+        "baseline_edges": [
+          "-inf",
+          0.0,
+          1.0,
+          2.0,
+          3.0,
+          4.0,
+          "inf"
+        ],
+        "ci95": {
+          "low": 0.0004396913632494042,
+          "high": 0.006995123129173348,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      },
+      "distance_from_home_km": {
+        "value": 1.894388106438838,
+        "baseline_edges": [
+          "-inf",
+          1.557051833344657,
+          3.2960299483528472,
+          5.39264493494491,
+          7.72901861930758,
+          10.507189125342972,
+          13.798167981222207,
+          18.084916135499473,
+          24.12878212067549,
+          34.1320732907834,
+          "inf"
+        ],
+        "ci95": {
+          "low": 1.7851785648701297,
+          "high": 2.0217283115082427,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      },
+      "device_age_days": {
+        "value": 3.6393507379335164,
+        "baseline_edges": [
+          "-inf",
+          24.427959926973653,
+          54.13347007703676,
+          86.50387574271203,
+          123.23178434125607,
+          165.95470254558344,
+          223.87149440424398,
+          287.8050381391631,
+          383.69186145611786,
+          553.7102745563145,
+          "inf"
+        ],
+        "ci95": {
+          "low": 3.4770444507454483,
+          "high": 3.8190254455604586,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      }
+    },
+    "categorical_js_bits": {
+      "country_mismatch": {
+        "value": 0.00028848383696040937,
+        "ci95": {
+          "low": 3.879507867207686e-05,
+          "high": 0.0012136732748882545,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      },
+      "card_present": {
+        "value": 0.037215511005775304,
+        "ci95": {
+          "low": 0.03153736546223044,
+          "high": 0.04343345820056777,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      },
+      "channel_code": {
+        "value": 0.17155915831423368,
+        "ci95": {
+          "low": 0.1605608792389543,
+          "high": 0.18535599557130158,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      },
+      "merchant_category_code": {
+        "value": 0.0002560604109050771,
+        "ci95": {
+          "low": 0.00010636465618029294,
+          "high": 0.001431696919534431,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      }
+    },
+    "missing": {
+      "amount": {
+        "baseline_rate": 0.005,
+        "scenario_rate": 0.0182,
+        "delta": 0.0132,
+        "delta_ci95": {
+          "low": 0.008795,
+          "high": 0.0174,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      },
+      "account_age_days": {
+        "baseline_rate": 0.002,
+        "scenario_rate": 0.0034,
+        "delta": 0.0013999999999999998,
+        "delta_ci95": {
+          "low": -0.00039999999999999975,
+          "high": 0.0036,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      },
+      "transactions_last_24h": {
+        "baseline_rate": 0.0098,
+        "scenario_rate": 0.0098,
+        "delta": 0.0,
+        "delta_ci95": {
+          "low": -0.003599999999999999,
+          "high": 0.0036,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      },
+      "distance_from_home_km": {
+        "baseline_rate": 0.019,
+        "scenario_rate": 0.0722,
+        "delta": 0.0532,
+        "delta_ci95": {
+          "low": 0.045790000000000004,
+          "high": 0.061799999999999994,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      },
+      "device_age_days": {
+        "baseline_rate": 0.0212,
+        "scenario_rate": 0.0878,
+        "delta": 0.0666,
+        "delta_ci95": {
+          "low": 0.057995,
+          "high": 0.07600500000000002,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      },
+      "country_mismatch": {
+        "baseline_rate": 0.006,
+        "scenario_rate": 0.0034,
+        "delta": -0.0026000000000000003,
+        "delta_ci95": {
+          "low": -0.0052,
+          "high": 0.0004050000000000009,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      },
+      "card_present": {
+        "baseline_rate": 0.0048,
+        "scenario_rate": 0.0046,
+        "delta": -0.00019999999999999966,
+        "delta_ci95": {
+          "low": -0.0024,
+          "high": 0.0025999999999999994,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      },
+      "channel_code": {
+        "baseline_rate": 0.011,
+        "scenario_rate": 0.012,
+        "delta": 0.0010000000000000009,
+        "delta_ci95": {
+          "low": -0.0033999999999999985,
+          "high": 0.0050050000000000025,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      },
+      "merchant_category_code": {
+        "baseline_rate": 0.0116,
+        "scenario_rate": 0.0086,
+        "delta": -0.002999999999999999,
+        "delta_ci95": {
+          "low": -0.0068,
+          "high": 0.00040500000000000215,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      }
+    },
+    "scores": {
+      "baseline_scored_n": 5000,
+      "scored_n": 5000,
+      "psi": 1.5251936015353618,
+      "baseline_edges": [
+        "-inf",
+        0.007401615381240845,
+        0.009189385175704957,
+        0.010888642072677613,
+        0.012575984001159668,
+        0.014357432723045349,
+        0.016567337512969973,
+        0.019456976652145387,
+        0.023350465297698977,
+        0.03081578910350801,
+        "inf"
+      ],
+      "mean": 0.05887837986350059,
+      "quantiles": {
+        "5": 0.011266005039215089,
+        "50": 0.03413093090057373,
+        "95": 0.18175200670957573,
+        "99": 0.5096874004602435
+      },
+      "review_count": 1022,
+      "review_rate": 0.2044,
+      "approval_rate": 0.7956,
+      "review_rate_ci95": {
+        "low": 0.19558,
+        "high": 0.21441500000000002,
+        "valid_resamples": 200,
+        "resamples": 200
+      },
+      "mean_ci95": {
+        "low": 0.05661515434682369,
+        "high": 0.06116312195852399,
+        "valid_resamples": 200,
+        "resamples": 200
+      },
+      "psi_ci95": {
+        "low": 1.4353047712258056,
+        "high": 1.6446691400043514,
+        "valid_resamples": 200,
+        "resamples": 200
+      }
+    }
+  },
+  "concept": {
+    "baseline_n": 5000,
+    "scenario_n": 5000,
+    "numeric_psi": {
+      "amount": {
+        "value": 0.00483197095873886,
+        "baseline_edges": [
+          "-inf",
+          15.242618678210322,
+          22.750936033470232,
+          30.81198607201376,
+          39.324272107038006,
+          49.774742617243355,
+          63.00216180188738,
+          80.93813416566732,
+          106.90327361196475,
+          158.43648639325477,
+          "inf"
+        ],
+        "ci95": {
+          "low": 0.003278885883752981,
+          "high": 0.014822116151239734,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      },
+      "account_age_days": {
+        "value": 0.0027545665025301984,
+        "baseline_edges": [
+          "-inf",
+          382.0,
+          798.8000000000001,
+          1216.7000000000003,
+          1615.0,
+          2003.5,
+          2409.0,
+          2823.9000000000005,
+          3219.0,
+          3603.0,
+          "inf"
+        ],
+        "ci95": {
+          "low": 0.002020313312394565,
+          "high": 0.011777808873112612,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      },
+      "transactions_last_24h": {
+        "value": 0.002852069378332703,
+        "baseline_edges": [
+          "-inf",
+          0.0,
+          1.0,
+          2.0,
+          3.0,
+          4.0,
+          "inf"
+        ],
+        "ci95": {
+          "low": 0.001449685782489953,
+          "high": 0.010636205572802327,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      },
+      "distance_from_home_km": {
+        "value": 0.0011749372131748962,
+        "baseline_edges": [
+          "-inf",
+          1.557051833344657,
+          3.2960299483528472,
+          5.39264493494491,
+          7.72901861930758,
+          10.507189125342972,
+          13.798167981222207,
+          18.084916135499473,
+          24.12878212067549,
+          34.1320732907834,
+          "inf"
+        ],
+        "ci95": {
+          "low": 0.0016372592638651778,
+          "high": 0.010468971358883897,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      },
+      "device_age_days": {
+        "value": 0.001740481393917633,
+        "baseline_edges": [
+          "-inf",
+          24.427959926973653,
+          54.13347007703676,
+          86.50387574271203,
+          123.23178434125607,
+          165.95470254558344,
+          223.87149440424398,
+          287.8050381391631,
+          383.69186145611786,
+          553.7102745563145,
+          "inf"
+        ],
+        "ci95": {
+          "low": 0.0019089199180548208,
+          "high": 0.010097034033604811,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      }
+    },
+    "categorical_js_bits": {
+      "country_mismatch": {
+        "value": 4.67108667390392e-05,
+        "ci95": {
+          "low": 6.749896447903687e-06,
+          "high": 0.0006513788495420479,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      },
+      "card_present": {
+        "value": 1.784854896947568e-05,
+        "ci95": {
+          "low": 2.5680135943679043e-06,
+          "high": 0.0006127032433811314,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      },
+      "channel_code": {
+        "value": 5.809662946859031e-05,
+        "ci95": {
+          "low": 1.8812053841897953e-05,
+          "high": 0.0009421078503729052,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      },
+      "merchant_category_code": {
+        "value": 0.00042676057683064487,
+        "ci95": {
+          "low": 0.00016378647424014877,
+          "high": 0.0016768246434426591,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      }
+    },
+    "missing": {
+      "amount": {
+        "baseline_rate": 0.005,
+        "scenario_rate": 0.0064,
+        "delta": 0.0014000000000000002,
+        "delta_ci95": {
+          "low": -0.001,
+          "high": 0.0038000000000000004,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      },
+      "account_age_days": {
+        "baseline_rate": 0.002,
+        "scenario_rate": 0.004,
+        "delta": 0.002,
+        "delta_ci95": {
+          "low": -4.999999999999895e-06,
+          "high": 0.004,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      },
+      "transactions_last_24h": {
+        "baseline_rate": 0.0098,
+        "scenario_rate": 0.0104,
+        "delta": 0.0005999999999999998,
+        "delta_ci95": {
+          "low": -0.0037999999999999996,
+          "high": 0.004805000000000002,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      },
+      "distance_from_home_km": {
+        "baseline_rate": 0.019,
+        "scenario_rate": 0.0192,
+        "delta": 0.0001999999999999988,
+        "delta_ci95": {
+          "low": -0.004605,
+          "high": 0.005805000000000001,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      },
+      "device_age_days": {
+        "baseline_rate": 0.0212,
+        "scenario_rate": 0.0176,
+        "delta": -0.003599999999999999,
+        "delta_ci95": {
+          "low": -0.008799999999999999,
+          "high": 0.001005000000000002,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      },
+      "country_mismatch": {
+        "baseline_rate": 0.006,
+        "scenario_rate": 0.0056,
+        "delta": -0.0004000000000000002,
+        "delta_ci95": {
+          "low": -0.0028000000000000004,
+          "high": 0.0028050000000000015,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      },
+      "card_present": {
+        "baseline_rate": 0.0048,
+        "scenario_rate": 0.0046,
+        "delta": -0.00019999999999999966,
+        "delta_ci95": {
+          "low": -0.0030050000000000003,
+          "high": 0.0024050000000000013,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      },
+      "channel_code": {
+        "baseline_rate": 0.011,
+        "scenario_rate": 0.01,
+        "delta": -0.0009999999999999992,
+        "delta_ci95": {
+          "low": -0.005015,
+          "high": 0.0030050000000000003,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      },
+      "merchant_category_code": {
+        "baseline_rate": 0.0116,
+        "scenario_rate": 0.0082,
+        "delta": -0.0033999999999999985,
+        "delta_ci95": {
+          "low": -0.007605000000000001,
+          "high": 0.0006050000000000018,
+          "valid_resamples": 200,
+          "resamples": 200
+        }
+      }
+    },
+    "scores": {
+      "baseline_scored_n": 5000,
+      "scored_n": 5000,
+      "psi": 0.0027073546841616075,
+      "baseline_edges": [
+        "-inf",
+        0.007401615381240845,
+        0.009189385175704957,
+        0.010888642072677613,
+        0.012575984001159668,
+        0.014357432723045349,
+        0.016567337512969973,
+        0.019456976652145387,
+        0.023350465297698977,
+        0.03081578910350801,
+        "inf"
+      ],
+      "mean": 0.01786817579269409,
+      "quantiles": {
+        "5": 0.0059700459241867065,
+        "50": 0.014434278011322021,
+        "95": 0.03950669765472413,
+        "99": 0.07285703629255302
+      },
+      "review_count": 59,
+      "review_rate": 0.0118,
+      "approval_rate": 0.9882,
+      "review_rate_ci95": {
+        "low": 0.0086,
+        "high": 0.0152,
+        "valid_resamples": 200,
+        "resamples": 200
+      },
+      "mean_ci95": {
+        "low": 0.017402622555941345,
+        "high": 0.018273349100500345,
+        "valid_resamples": 200,
+        "resamples": 200
+      },
+      "psi_ci95": {
+        "low": 0.0017346774632470076,
+        "high": 0.011869571397888566,
+        "valid_resamples": 200,
+        "resamples": 200
+      }
+    }
+  }
+}

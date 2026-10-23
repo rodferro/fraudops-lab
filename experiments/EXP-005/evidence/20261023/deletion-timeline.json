@@ -1,0 +1,1669 @@
+[
+  {
+    "at": "2026-10-23T20:04:51.692380+00:00",
+    "elapsed_seconds": 0.08443645801162347,
+    "pods": [
+      {
+        "name": "fraudops-api-757c4c856b-dlcjc",
+        "uid": "cda8abbf-1a0f-43f8-838f-d81bdeefb3c6",
+        "created": "2026-10-23T19:16:26Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-pfq2s",
+        "uid": "3bd9555d-97b5-4001-b270-d4cc5d3379fa",
+        "created": "2026-10-23T19:16:17Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-qrc2r",
+        "uid": "f461f454-8a35-48a4-828e-069246abf5d0",
+        "created": "2026-10-23T19:16:07Z",
+        "deleting": null,
+        "ready": true
+      }
+    ],
+    "prometheus_targets": [
+      {
+        "pod": "fraudops-api-757c4c856b-pfq2s",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-dlcjc",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-qrc2r",
+        "health": "up"
+      }
+    ],
+    "ready_endpoint_pods": [
+      "fraudops-api-757c4c856b-qrc2r",
+      "fraudops-api-757c4c856b-pfq2s",
+      "fraudops-api-757c4c856b-dlcjc"
+    ]
+  },
+  {
+    "at": "2026-10-23T20:04:52.806408+00:00",
+    "elapsed_seconds": 1.1979009169735946,
+    "pods": [
+      {
+        "name": "fraudops-api-757c4c856b-dlcjc",
+        "uid": "cda8abbf-1a0f-43f8-838f-d81bdeefb3c6",
+        "created": "2026-10-23T19:16:26Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-pfq2s",
+        "uid": "3bd9555d-97b5-4001-b270-d4cc5d3379fa",
+        "created": "2026-10-23T19:16:17Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-qrc2r",
+        "uid": "f461f454-8a35-48a4-828e-069246abf5d0",
+        "created": "2026-10-23T19:16:07Z",
+        "deleting": null,
+        "ready": true
+      }
+    ],
+    "prometheus_targets": [
+      {
+        "pod": "fraudops-api-757c4c856b-qrc2r",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-pfq2s",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-dlcjc",
+        "health": "up"
+      }
+    ],
+    "ready_endpoint_pods": [
+      "fraudops-api-757c4c856b-qrc2r",
+      "fraudops-api-757c4c856b-pfq2s",
+      "fraudops-api-757c4c856b-dlcjc"
+    ]
+  },
+  {
+    "at": "2026-10-23T20:04:53.922909+00:00",
+    "elapsed_seconds": 2.314231916971039,
+    "pods": [
+      {
+        "name": "fraudops-api-757c4c856b-dlcjc",
+        "uid": "cda8abbf-1a0f-43f8-838f-d81bdeefb3c6",
+        "created": "2026-10-23T19:16:26Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-pfq2s",
+        "uid": "3bd9555d-97b5-4001-b270-d4cc5d3379fa",
+        "created": "2026-10-23T19:16:17Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-qrc2r",
+        "uid": "f461f454-8a35-48a4-828e-069246abf5d0",
+        "created": "2026-10-23T19:16:07Z",
+        "deleting": null,
+        "ready": true
+      }
+    ],
+    "prometheus_targets": [
+      {
+        "pod": "fraudops-api-757c4c856b-pfq2s",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-dlcjc",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-qrc2r",
+        "health": "up"
+      }
+    ],
+    "ready_endpoint_pods": [
+      "fraudops-api-757c4c856b-qrc2r",
+      "fraudops-api-757c4c856b-pfq2s",
+      "fraudops-api-757c4c856b-dlcjc"
+    ]
+  },
+  {
+    "at": "2026-10-23T20:04:55.057281+00:00",
+    "elapsed_seconds": 3.448622957977932,
+    "pods": [
+      {
+        "name": "fraudops-api-757c4c856b-dlcjc",
+        "uid": "cda8abbf-1a0f-43f8-838f-d81bdeefb3c6",
+        "created": "2026-10-23T19:16:26Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-pfq2s",
+        "uid": "3bd9555d-97b5-4001-b270-d4cc5d3379fa",
+        "created": "2026-10-23T19:16:17Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-qrc2r",
+        "uid": "f461f454-8a35-48a4-828e-069246abf5d0",
+        "created": "2026-10-23T19:16:07Z",
+        "deleting": null,
+        "ready": true
+      }
+    ],
+    "prometheus_targets": [
+      {
+        "pod": "fraudops-api-757c4c856b-qrc2r",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-pfq2s",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-dlcjc",
+        "health": "up"
+      }
+    ],
+    "ready_endpoint_pods": [
+      "fraudops-api-757c4c856b-qrc2r",
+      "fraudops-api-757c4c856b-pfq2s",
+      "fraudops-api-757c4c856b-dlcjc"
+    ]
+  },
+  {
+    "at": "2026-10-23T20:04:56.172722+00:00",
+    "elapsed_seconds": 4.565021166985389,
+    "pods": [
+      {
+        "name": "fraudops-api-757c4c856b-dlcjc",
+        "uid": "cda8abbf-1a0f-43f8-838f-d81bdeefb3c6",
+        "created": "2026-10-23T19:16:26Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-pfq2s",
+        "uid": "3bd9555d-97b5-4001-b270-d4cc5d3379fa",
+        "created": "2026-10-23T19:16:17Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-qrc2r",
+        "uid": "f461f454-8a35-48a4-828e-069246abf5d0",
+        "created": "2026-10-23T19:16:07Z",
+        "deleting": null,
+        "ready": true
+      }
+    ],
+    "prometheus_targets": [
+      {
+        "pod": "fraudops-api-757c4c856b-pfq2s",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-dlcjc",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-qrc2r",
+        "health": "up"
+      }
+    ],
+    "ready_endpoint_pods": [
+      "fraudops-api-757c4c856b-qrc2r",
+      "fraudops-api-757c4c856b-pfq2s",
+      "fraudops-api-757c4c856b-dlcjc"
+    ]
+  },
+  {
+    "at": "2026-10-23T20:04:57.290353+00:00",
+    "elapsed_seconds": 5.6845604999689385,
+    "pods": [
+      {
+        "name": "fraudops-api-757c4c856b-dlcjc",
+        "uid": "cda8abbf-1a0f-43f8-838f-d81bdeefb3c6",
+        "created": "2026-10-23T19:16:26Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-pfq2s",
+        "uid": "3bd9555d-97b5-4001-b270-d4cc5d3379fa",
+        "created": "2026-10-23T19:16:17Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-qrc2r",
+        "uid": "f461f454-8a35-48a4-828e-069246abf5d0",
+        "created": "2026-10-23T19:16:07Z",
+        "deleting": null,
+        "ready": true
+      }
+    ],
+    "prometheus_targets": [
+      {
+        "pod": "fraudops-api-757c4c856b-pfq2s",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-dlcjc",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-qrc2r",
+        "health": "up"
+      }
+    ],
+    "ready_endpoint_pods": [
+      "fraudops-api-757c4c856b-qrc2r",
+      "fraudops-api-757c4c856b-pfq2s",
+      "fraudops-api-757c4c856b-dlcjc"
+    ]
+  },
+  {
+    "at": "2026-10-23T20:04:58.411891+00:00",
+    "elapsed_seconds": 6.803679541975725,
+    "pods": [
+      {
+        "name": "fraudops-api-757c4c856b-dlcjc",
+        "uid": "cda8abbf-1a0f-43f8-838f-d81bdeefb3c6",
+        "created": "2026-10-23T19:16:26Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-pfq2s",
+        "uid": "3bd9555d-97b5-4001-b270-d4cc5d3379fa",
+        "created": "2026-10-23T19:16:17Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-qrc2r",
+        "uid": "f461f454-8a35-48a4-828e-069246abf5d0",
+        "created": "2026-10-23T19:16:07Z",
+        "deleting": null,
+        "ready": true
+      }
+    ],
+    "prometheus_targets": [
+      {
+        "pod": "fraudops-api-757c4c856b-pfq2s",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-dlcjc",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-qrc2r",
+        "health": "up"
+      }
+    ],
+    "ready_endpoint_pods": [
+      "fraudops-api-757c4c856b-qrc2r",
+      "fraudops-api-757c4c856b-pfq2s",
+      "fraudops-api-757c4c856b-dlcjc"
+    ]
+  },
+  {
+    "at": "2026-10-23T20:04:59.521326+00:00",
+    "elapsed_seconds": 7.912753957964014,
+    "pods": [
+      {
+        "name": "fraudops-api-757c4c856b-dlcjc",
+        "uid": "cda8abbf-1a0f-43f8-838f-d81bdeefb3c6",
+        "created": "2026-10-23T19:16:26Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-pfq2s",
+        "uid": "3bd9555d-97b5-4001-b270-d4cc5d3379fa",
+        "created": "2026-10-23T19:16:17Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-qrc2r",
+        "uid": "f461f454-8a35-48a4-828e-069246abf5d0",
+        "created": "2026-10-23T19:16:07Z",
+        "deleting": null,
+        "ready": true
+      }
+    ],
+    "prometheus_targets": [
+      {
+        "pod": "fraudops-api-757c4c856b-pfq2s",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-dlcjc",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-qrc2r",
+        "health": "up"
+      }
+    ],
+    "ready_endpoint_pods": [
+      "fraudops-api-757c4c856b-qrc2r",
+      "fraudops-api-757c4c856b-pfq2s",
+      "fraudops-api-757c4c856b-dlcjc"
+    ]
+  },
+  {
+    "at": "2026-10-23T20:05:00.659828+00:00",
+    "elapsed_seconds": 9.054873749963008,
+    "pods": [
+      {
+        "name": "fraudops-api-757c4c856b-dlcjc",
+        "uid": "cda8abbf-1a0f-43f8-838f-d81bdeefb3c6",
+        "created": "2026-10-23T19:16:26Z",
+        "deleting": "2026-10-23T20:05:34Z",
+        "ready": false
+      },
+      {
+        "name": "fraudops-api-757c4c856b-pfq2s",
+        "uid": "3bd9555d-97b5-4001-b270-d4cc5d3379fa",
+        "created": "2026-10-23T19:16:17Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-qrc2r",
+        "uid": "f461f454-8a35-48a4-828e-069246abf5d0",
+        "created": "2026-10-23T19:16:07Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-w6qmc",
+        "uid": "6b6ae4fc-fe22-4732-81a0-2ce7e8cab33f",
+        "created": "2026-10-23T20:04:59Z",
+        "deleting": null,
+        "ready": false
+      }
+    ],
+    "prometheus_targets": [
+      {
+        "pod": "fraudops-api-757c4c856b-pfq2s",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-dlcjc",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-qrc2r",
+        "health": "up"
+      }
+    ],
+    "ready_endpoint_pods": [
+      "fraudops-api-757c4c856b-qrc2r",
+      "fraudops-api-757c4c856b-pfq2s"
+    ]
+  },
+  {
+    "at": "2026-10-23T20:05:01.771221+00:00",
+    "elapsed_seconds": 10.163234332983848,
+    "pods": [
+      {
+        "name": "fraudops-api-757c4c856b-dlcjc",
+        "uid": "cda8abbf-1a0f-43f8-838f-d81bdeefb3c6",
+        "created": "2026-10-23T19:16:26Z",
+        "deleting": "2026-10-23T20:05:34Z",
+        "ready": false
+      },
+      {
+        "name": "fraudops-api-757c4c856b-pfq2s",
+        "uid": "3bd9555d-97b5-4001-b270-d4cc5d3379fa",
+        "created": "2026-10-23T19:16:17Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-qrc2r",
+        "uid": "f461f454-8a35-48a4-828e-069246abf5d0",
+        "created": "2026-10-23T19:16:07Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-w6qmc",
+        "uid": "6b6ae4fc-fe22-4732-81a0-2ce7e8cab33f",
+        "created": "2026-10-23T20:04:59Z",
+        "deleting": null,
+        "ready": false
+      }
+    ],
+    "prometheus_targets": [
+      {
+        "pod": "fraudops-api-757c4c856b-pfq2s",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-dlcjc",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-qrc2r",
+        "health": "up"
+      }
+    ],
+    "ready_endpoint_pods": [
+      "fraudops-api-757c4c856b-qrc2r",
+      "fraudops-api-757c4c856b-pfq2s"
+    ]
+  },
+  {
+    "at": "2026-10-23T20:05:02.883192+00:00",
+    "elapsed_seconds": 11.274679666967131,
+    "pods": [
+      {
+        "name": "fraudops-api-757c4c856b-dlcjc",
+        "uid": "cda8abbf-1a0f-43f8-838f-d81bdeefb3c6",
+        "created": "2026-10-23T19:16:26Z",
+        "deleting": "2026-10-23T20:05:34Z",
+        "ready": false
+      },
+      {
+        "name": "fraudops-api-757c4c856b-pfq2s",
+        "uid": "3bd9555d-97b5-4001-b270-d4cc5d3379fa",
+        "created": "2026-10-23T19:16:17Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-qrc2r",
+        "uid": "f461f454-8a35-48a4-828e-069246abf5d0",
+        "created": "2026-10-23T19:16:07Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-w6qmc",
+        "uid": "6b6ae4fc-fe22-4732-81a0-2ce7e8cab33f",
+        "created": "2026-10-23T20:04:59Z",
+        "deleting": null,
+        "ready": false
+      }
+    ],
+    "prometheus_targets": [
+      {
+        "pod": "fraudops-api-757c4c856b-pfq2s",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-dlcjc",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-qrc2r",
+        "health": "up"
+      }
+    ],
+    "ready_endpoint_pods": [
+      "fraudops-api-757c4c856b-qrc2r",
+      "fraudops-api-757c4c856b-pfq2s"
+    ]
+  },
+  {
+    "at": "2026-10-23T20:05:03.995742+00:00",
+    "elapsed_seconds": 12.387601624999661,
+    "pods": [
+      {
+        "name": "fraudops-api-757c4c856b-dlcjc",
+        "uid": "cda8abbf-1a0f-43f8-838f-d81bdeefb3c6",
+        "created": "2026-10-23T19:16:26Z",
+        "deleting": "2026-10-23T20:05:34Z",
+        "ready": false
+      },
+      {
+        "name": "fraudops-api-757c4c856b-pfq2s",
+        "uid": "3bd9555d-97b5-4001-b270-d4cc5d3379fa",
+        "created": "2026-10-23T19:16:17Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-qrc2r",
+        "uid": "f461f454-8a35-48a4-828e-069246abf5d0",
+        "created": "2026-10-23T19:16:07Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-w6qmc",
+        "uid": "6b6ae4fc-fe22-4732-81a0-2ce7e8cab33f",
+        "created": "2026-10-23T20:04:59Z",
+        "deleting": null,
+        "ready": false
+      }
+    ],
+    "prometheus_targets": [
+      {
+        "pod": "fraudops-api-757c4c856b-qrc2r",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-pfq2s",
+        "health": "up"
+      }
+    ],
+    "ready_endpoint_pods": [
+      "fraudops-api-757c4c856b-qrc2r",
+      "fraudops-api-757c4c856b-pfq2s"
+    ]
+  },
+  {
+    "at": "2026-10-23T20:05:05.100461+00:00",
+    "elapsed_seconds": 13.492184582981281,
+    "pods": [
+      {
+        "name": "fraudops-api-757c4c856b-dlcjc",
+        "uid": "cda8abbf-1a0f-43f8-838f-d81bdeefb3c6",
+        "created": "2026-10-23T19:16:26Z",
+        "deleting": "2026-10-23T20:05:34Z",
+        "ready": false
+      },
+      {
+        "name": "fraudops-api-757c4c856b-pfq2s",
+        "uid": "3bd9555d-97b5-4001-b270-d4cc5d3379fa",
+        "created": "2026-10-23T19:16:17Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-qrc2r",
+        "uid": "f461f454-8a35-48a4-828e-069246abf5d0",
+        "created": "2026-10-23T19:16:07Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-w6qmc",
+        "uid": "6b6ae4fc-fe22-4732-81a0-2ce7e8cab33f",
+        "created": "2026-10-23T20:04:59Z",
+        "deleting": null,
+        "ready": true
+      }
+    ],
+    "prometheus_targets": [
+      {
+        "pod": "fraudops-api-757c4c856b-qrc2r",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-pfq2s",
+        "health": "up"
+      }
+    ],
+    "ready_endpoint_pods": [
+      "fraudops-api-757c4c856b-qrc2r",
+      "fraudops-api-757c4c856b-pfq2s",
+      "fraudops-api-757c4c856b-w6qmc"
+    ]
+  },
+  {
+    "at": "2026-10-23T20:05:06.225949+00:00",
+    "elapsed_seconds": 14.617813749995548,
+    "pods": [
+      {
+        "name": "fraudops-api-757c4c856b-pfq2s",
+        "uid": "3bd9555d-97b5-4001-b270-d4cc5d3379fa",
+        "created": "2026-10-23T19:16:17Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-qrc2r",
+        "uid": "f461f454-8a35-48a4-828e-069246abf5d0",
+        "created": "2026-10-23T19:16:07Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-w6qmc",
+        "uid": "6b6ae4fc-fe22-4732-81a0-2ce7e8cab33f",
+        "created": "2026-10-23T20:04:59Z",
+        "deleting": null,
+        "ready": true
+      }
+    ],
+    "prometheus_targets": [
+      {
+        "pod": "fraudops-api-757c4c856b-pfq2s",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-qrc2r",
+        "health": "up"
+      }
+    ],
+    "ready_endpoint_pods": [
+      "fraudops-api-757c4c856b-qrc2r",
+      "fraudops-api-757c4c856b-pfq2s",
+      "fraudops-api-757c4c856b-w6qmc"
+    ]
+  },
+  {
+    "at": "2026-10-23T20:05:07.346088+00:00",
+    "elapsed_seconds": 15.7373750419938,
+    "pods": [
+      {
+        "name": "fraudops-api-757c4c856b-pfq2s",
+        "uid": "3bd9555d-97b5-4001-b270-d4cc5d3379fa",
+        "created": "2026-10-23T19:16:17Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-qrc2r",
+        "uid": "f461f454-8a35-48a4-828e-069246abf5d0",
+        "created": "2026-10-23T19:16:07Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-w6qmc",
+        "uid": "6b6ae4fc-fe22-4732-81a0-2ce7e8cab33f",
+        "created": "2026-10-23T20:04:59Z",
+        "deleting": null,
+        "ready": true
+      }
+    ],
+    "prometheus_targets": [
+      {
+        "pod": "fraudops-api-757c4c856b-pfq2s",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-qrc2r",
+        "health": "up"
+      }
+    ],
+    "ready_endpoint_pods": [
+      "fraudops-api-757c4c856b-qrc2r",
+      "fraudops-api-757c4c856b-pfq2s",
+      "fraudops-api-757c4c856b-w6qmc"
+    ]
+  },
+  {
+    "at": "2026-10-23T20:05:08.462313+00:00",
+    "elapsed_seconds": 16.853692749980837,
+    "pods": [
+      {
+        "name": "fraudops-api-757c4c856b-pfq2s",
+        "uid": "3bd9555d-97b5-4001-b270-d4cc5d3379fa",
+        "created": "2026-10-23T19:16:17Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-qrc2r",
+        "uid": "f461f454-8a35-48a4-828e-069246abf5d0",
+        "created": "2026-10-23T19:16:07Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-w6qmc",
+        "uid": "6b6ae4fc-fe22-4732-81a0-2ce7e8cab33f",
+        "created": "2026-10-23T20:04:59Z",
+        "deleting": null,
+        "ready": true
+      }
+    ],
+    "prometheus_targets": [
+      {
+        "pod": "fraudops-api-757c4c856b-pfq2s",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-qrc2r",
+        "health": "up"
+      }
+    ],
+    "ready_endpoint_pods": [
+      "fraudops-api-757c4c856b-qrc2r",
+      "fraudops-api-757c4c856b-pfq2s",
+      "fraudops-api-757c4c856b-w6qmc"
+    ]
+  },
+  {
+    "at": "2026-10-23T20:05:09.584784+00:00",
+    "elapsed_seconds": 17.976258707989473,
+    "pods": [
+      {
+        "name": "fraudops-api-757c4c856b-pfq2s",
+        "uid": "3bd9555d-97b5-4001-b270-d4cc5d3379fa",
+        "created": "2026-10-23T19:16:17Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-qrc2r",
+        "uid": "f461f454-8a35-48a4-828e-069246abf5d0",
+        "created": "2026-10-23T19:16:07Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-w6qmc",
+        "uid": "6b6ae4fc-fe22-4732-81a0-2ce7e8cab33f",
+        "created": "2026-10-23T20:04:59Z",
+        "deleting": null,
+        "ready": true
+      }
+    ],
+    "prometheus_targets": [
+      {
+        "pod": "fraudops-api-757c4c856b-pfq2s",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-w6qmc",
+        "health": "unknown"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-qrc2r",
+        "health": "up"
+      }
+    ],
+    "ready_endpoint_pods": [
+      "fraudops-api-757c4c856b-qrc2r",
+      "fraudops-api-757c4c856b-pfq2s",
+      "fraudops-api-757c4c856b-w6qmc"
+    ]
+  },
+  {
+    "at": "2026-10-23T20:05:10.701386+00:00",
+    "elapsed_seconds": 19.092625957971904,
+    "pods": [
+      {
+        "name": "fraudops-api-757c4c856b-pfq2s",
+        "uid": "3bd9555d-97b5-4001-b270-d4cc5d3379fa",
+        "created": "2026-10-23T19:16:17Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-qrc2r",
+        "uid": "f461f454-8a35-48a4-828e-069246abf5d0",
+        "created": "2026-10-23T19:16:07Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-w6qmc",
+        "uid": "6b6ae4fc-fe22-4732-81a0-2ce7e8cab33f",
+        "created": "2026-10-23T20:04:59Z",
+        "deleting": null,
+        "ready": true
+      }
+    ],
+    "prometheus_targets": [
+      {
+        "pod": "fraudops-api-757c4c856b-pfq2s",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-w6qmc",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-qrc2r",
+        "health": "up"
+      }
+    ],
+    "ready_endpoint_pods": [
+      "fraudops-api-757c4c856b-qrc2r",
+      "fraudops-api-757c4c856b-pfq2s",
+      "fraudops-api-757c4c856b-w6qmc"
+    ]
+  },
+  {
+    "at": "2026-10-23T20:05:11.836397+00:00",
+    "elapsed_seconds": 20.227484125003684,
+    "pods": [
+      {
+        "name": "fraudops-api-757c4c856b-pfq2s",
+        "uid": "3bd9555d-97b5-4001-b270-d4cc5d3379fa",
+        "created": "2026-10-23T19:16:17Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-qrc2r",
+        "uid": "f461f454-8a35-48a4-828e-069246abf5d0",
+        "created": "2026-10-23T19:16:07Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-w6qmc",
+        "uid": "6b6ae4fc-fe22-4732-81a0-2ce7e8cab33f",
+        "created": "2026-10-23T20:04:59Z",
+        "deleting": null,
+        "ready": true
+      }
+    ],
+    "prometheus_targets": [
+      {
+        "pod": "fraudops-api-757c4c856b-qrc2r",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-pfq2s",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-w6qmc",
+        "health": "up"
+      }
+    ],
+    "ready_endpoint_pods": [
+      "fraudops-api-757c4c856b-qrc2r",
+      "fraudops-api-757c4c856b-pfq2s",
+      "fraudops-api-757c4c856b-w6qmc"
+    ]
+  },
+  {
+    "at": "2026-10-23T20:05:12.954295+00:00",
+    "elapsed_seconds": 21.34666191699216,
+    "pods": [
+      {
+        "name": "fraudops-api-757c4c856b-pfq2s",
+        "uid": "3bd9555d-97b5-4001-b270-d4cc5d3379fa",
+        "created": "2026-10-23T19:16:17Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-qrc2r",
+        "uid": "f461f454-8a35-48a4-828e-069246abf5d0",
+        "created": "2026-10-23T19:16:07Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-w6qmc",
+        "uid": "6b6ae4fc-fe22-4732-81a0-2ce7e8cab33f",
+        "created": "2026-10-23T20:04:59Z",
+        "deleting": null,
+        "ready": true
+      }
+    ],
+    "prometheus_targets": [
+      {
+        "pod": "fraudops-api-757c4c856b-pfq2s",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-w6qmc",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-qrc2r",
+        "health": "up"
+      }
+    ],
+    "ready_endpoint_pods": [
+      "fraudops-api-757c4c856b-qrc2r",
+      "fraudops-api-757c4c856b-pfq2s",
+      "fraudops-api-757c4c856b-w6qmc"
+    ]
+  },
+  {
+    "at": "2026-10-23T20:05:14.069830+00:00",
+    "elapsed_seconds": 22.461613666964695,
+    "pods": [
+      {
+        "name": "fraudops-api-757c4c856b-pfq2s",
+        "uid": "3bd9555d-97b5-4001-b270-d4cc5d3379fa",
+        "created": "2026-10-23T19:16:17Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-qrc2r",
+        "uid": "f461f454-8a35-48a4-828e-069246abf5d0",
+        "created": "2026-10-23T19:16:07Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-w6qmc",
+        "uid": "6b6ae4fc-fe22-4732-81a0-2ce7e8cab33f",
+        "created": "2026-10-23T20:04:59Z",
+        "deleting": null,
+        "ready": true
+      }
+    ],
+    "prometheus_targets": [
+      {
+        "pod": "fraudops-api-757c4c856b-pfq2s",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-w6qmc",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-qrc2r",
+        "health": "up"
+      }
+    ],
+    "ready_endpoint_pods": [
+      "fraudops-api-757c4c856b-qrc2r",
+      "fraudops-api-757c4c856b-pfq2s",
+      "fraudops-api-757c4c856b-w6qmc"
+    ]
+  },
+  {
+    "at": "2026-10-23T20:05:15.183555+00:00",
+    "elapsed_seconds": 23.574992791982368,
+    "pods": [
+      {
+        "name": "fraudops-api-757c4c856b-pfq2s",
+        "uid": "3bd9555d-97b5-4001-b270-d4cc5d3379fa",
+        "created": "2026-10-23T19:16:17Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-qrc2r",
+        "uid": "f461f454-8a35-48a4-828e-069246abf5d0",
+        "created": "2026-10-23T19:16:07Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-w6qmc",
+        "uid": "6b6ae4fc-fe22-4732-81a0-2ce7e8cab33f",
+        "created": "2026-10-23T20:04:59Z",
+        "deleting": null,
+        "ready": true
+      }
+    ],
+    "prometheus_targets": [
+      {
+        "pod": "fraudops-api-757c4c856b-pfq2s",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-w6qmc",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-qrc2r",
+        "health": "up"
+      }
+    ],
+    "ready_endpoint_pods": [
+      "fraudops-api-757c4c856b-qrc2r",
+      "fraudops-api-757c4c856b-pfq2s",
+      "fraudops-api-757c4c856b-w6qmc"
+    ]
+  },
+  {
+    "at": "2026-10-23T20:05:16.311583+00:00",
+    "elapsed_seconds": 24.703656291996595,
+    "pods": [
+      {
+        "name": "fraudops-api-757c4c856b-pfq2s",
+        "uid": "3bd9555d-97b5-4001-b270-d4cc5d3379fa",
+        "created": "2026-10-23T19:16:17Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-qrc2r",
+        "uid": "f461f454-8a35-48a4-828e-069246abf5d0",
+        "created": "2026-10-23T19:16:07Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-w6qmc",
+        "uid": "6b6ae4fc-fe22-4732-81a0-2ce7e8cab33f",
+        "created": "2026-10-23T20:04:59Z",
+        "deleting": null,
+        "ready": true
+      }
+    ],
+    "prometheus_targets": [
+      {
+        "pod": "fraudops-api-757c4c856b-pfq2s",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-w6qmc",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-qrc2r",
+        "health": "up"
+      }
+    ],
+    "ready_endpoint_pods": [
+      "fraudops-api-757c4c856b-qrc2r",
+      "fraudops-api-757c4c856b-pfq2s",
+      "fraudops-api-757c4c856b-w6qmc"
+    ]
+  },
+  {
+    "at": "2026-10-23T20:05:17.446345+00:00",
+    "elapsed_seconds": 25.837616958015133,
+    "pods": [
+      {
+        "name": "fraudops-api-757c4c856b-pfq2s",
+        "uid": "3bd9555d-97b5-4001-b270-d4cc5d3379fa",
+        "created": "2026-10-23T19:16:17Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-qrc2r",
+        "uid": "f461f454-8a35-48a4-828e-069246abf5d0",
+        "created": "2026-10-23T19:16:07Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-w6qmc",
+        "uid": "6b6ae4fc-fe22-4732-81a0-2ce7e8cab33f",
+        "created": "2026-10-23T20:04:59Z",
+        "deleting": null,
+        "ready": true
+      }
+    ],
+    "prometheus_targets": [
+      {
+        "pod": "fraudops-api-757c4c856b-pfq2s",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-w6qmc",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-qrc2r",
+        "health": "up"
+      }
+    ],
+    "ready_endpoint_pods": [
+      "fraudops-api-757c4c856b-qrc2r",
+      "fraudops-api-757c4c856b-pfq2s",
+      "fraudops-api-757c4c856b-w6qmc"
+    ]
+  },
+  {
+    "at": "2026-10-23T20:05:18.562085+00:00",
+    "elapsed_seconds": 26.953651416988578,
+    "pods": [
+      {
+        "name": "fraudops-api-757c4c856b-pfq2s",
+        "uid": "3bd9555d-97b5-4001-b270-d4cc5d3379fa",
+        "created": "2026-10-23T19:16:17Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-qrc2r",
+        "uid": "f461f454-8a35-48a4-828e-069246abf5d0",
+        "created": "2026-10-23T19:16:07Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-w6qmc",
+        "uid": "6b6ae4fc-fe22-4732-81a0-2ce7e8cab33f",
+        "created": "2026-10-23T20:04:59Z",
+        "deleting": null,
+        "ready": true
+      }
+    ],
+    "prometheus_targets": [
+      {
+        "pod": "fraudops-api-757c4c856b-pfq2s",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-w6qmc",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-qrc2r",
+        "health": "up"
+      }
+    ],
+    "ready_endpoint_pods": [
+      "fraudops-api-757c4c856b-qrc2r",
+      "fraudops-api-757c4c856b-pfq2s",
+      "fraudops-api-757c4c856b-w6qmc"
+    ]
+  },
+  {
+    "at": "2026-10-23T20:05:19.680386+00:00",
+    "elapsed_seconds": 28.071927957993466,
+    "pods": [
+      {
+        "name": "fraudops-api-757c4c856b-pfq2s",
+        "uid": "3bd9555d-97b5-4001-b270-d4cc5d3379fa",
+        "created": "2026-10-23T19:16:17Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-qrc2r",
+        "uid": "f461f454-8a35-48a4-828e-069246abf5d0",
+        "created": "2026-10-23T19:16:07Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-w6qmc",
+        "uid": "6b6ae4fc-fe22-4732-81a0-2ce7e8cab33f",
+        "created": "2026-10-23T20:04:59Z",
+        "deleting": null,
+        "ready": true
+      }
+    ],
+    "prometheus_targets": [
+      {
+        "pod": "fraudops-api-757c4c856b-w6qmc",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-qrc2r",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-pfq2s",
+        "health": "up"
+      }
+    ],
+    "ready_endpoint_pods": [
+      "fraudops-api-757c4c856b-qrc2r",
+      "fraudops-api-757c4c856b-pfq2s",
+      "fraudops-api-757c4c856b-w6qmc"
+    ]
+  },
+  {
+    "at": "2026-10-23T20:05:20.795710+00:00",
+    "elapsed_seconds": 29.18762295797933,
+    "pods": [
+      {
+        "name": "fraudops-api-757c4c856b-pfq2s",
+        "uid": "3bd9555d-97b5-4001-b270-d4cc5d3379fa",
+        "created": "2026-10-23T19:16:17Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-qrc2r",
+        "uid": "f461f454-8a35-48a4-828e-069246abf5d0",
+        "created": "2026-10-23T19:16:07Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-w6qmc",
+        "uid": "6b6ae4fc-fe22-4732-81a0-2ce7e8cab33f",
+        "created": "2026-10-23T20:04:59Z",
+        "deleting": null,
+        "ready": true
+      }
+    ],
+    "prometheus_targets": [
+      {
+        "pod": "fraudops-api-757c4c856b-pfq2s",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-w6qmc",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-qrc2r",
+        "health": "up"
+      }
+    ],
+    "ready_endpoint_pods": [
+      "fraudops-api-757c4c856b-qrc2r",
+      "fraudops-api-757c4c856b-pfq2s",
+      "fraudops-api-757c4c856b-w6qmc"
+    ]
+  },
+  {
+    "at": "2026-10-23T20:05:21.918623+00:00",
+    "elapsed_seconds": 30.309934874996543,
+    "pods": [
+      {
+        "name": "fraudops-api-757c4c856b-pfq2s",
+        "uid": "3bd9555d-97b5-4001-b270-d4cc5d3379fa",
+        "created": "2026-10-23T19:16:17Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-qrc2r",
+        "uid": "f461f454-8a35-48a4-828e-069246abf5d0",
+        "created": "2026-10-23T19:16:07Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-w6qmc",
+        "uid": "6b6ae4fc-fe22-4732-81a0-2ce7e8cab33f",
+        "created": "2026-10-23T20:04:59Z",
+        "deleting": null,
+        "ready": true
+      }
+    ],
+    "prometheus_targets": [
+      {
+        "pod": "fraudops-api-757c4c856b-pfq2s",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-w6qmc",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-qrc2r",
+        "health": "up"
+      }
+    ],
+    "ready_endpoint_pods": [
+      "fraudops-api-757c4c856b-qrc2r",
+      "fraudops-api-757c4c856b-pfq2s",
+      "fraudops-api-757c4c856b-w6qmc"
+    ]
+  },
+  {
+    "at": "2026-10-23T20:05:23.056493+00:00",
+    "elapsed_seconds": 31.448132166988216,
+    "pods": [
+      {
+        "name": "fraudops-api-757c4c856b-pfq2s",
+        "uid": "3bd9555d-97b5-4001-b270-d4cc5d3379fa",
+        "created": "2026-10-23T19:16:17Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-qrc2r",
+        "uid": "f461f454-8a35-48a4-828e-069246abf5d0",
+        "created": "2026-10-23T19:16:07Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-w6qmc",
+        "uid": "6b6ae4fc-fe22-4732-81a0-2ce7e8cab33f",
+        "created": "2026-10-23T20:04:59Z",
+        "deleting": null,
+        "ready": true
+      }
+    ],
+    "prometheus_targets": [
+      {
+        "pod": "fraudops-api-757c4c856b-pfq2s",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-w6qmc",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-qrc2r",
+        "health": "up"
+      }
+    ],
+    "ready_endpoint_pods": [
+      "fraudops-api-757c4c856b-qrc2r",
+      "fraudops-api-757c4c856b-pfq2s",
+      "fraudops-api-757c4c856b-w6qmc"
+    ]
+  },
+  {
+    "at": "2026-10-23T20:05:24.168722+00:00",
+    "elapsed_seconds": 32.56018337496789,
+    "pods": [
+      {
+        "name": "fraudops-api-757c4c856b-pfq2s",
+        "uid": "3bd9555d-97b5-4001-b270-d4cc5d3379fa",
+        "created": "2026-10-23T19:16:17Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-qrc2r",
+        "uid": "f461f454-8a35-48a4-828e-069246abf5d0",
+        "created": "2026-10-23T19:16:07Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-w6qmc",
+        "uid": "6b6ae4fc-fe22-4732-81a0-2ce7e8cab33f",
+        "created": "2026-10-23T20:04:59Z",
+        "deleting": null,
+        "ready": true
+      }
+    ],
+    "prometheus_targets": [
+      {
+        "pod": "fraudops-api-757c4c856b-pfq2s",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-w6qmc",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-qrc2r",
+        "health": "up"
+      }
+    ],
+    "ready_endpoint_pods": [
+      "fraudops-api-757c4c856b-qrc2r",
+      "fraudops-api-757c4c856b-pfq2s",
+      "fraudops-api-757c4c856b-w6qmc"
+    ]
+  },
+  {
+    "at": "2026-10-23T20:05:25.285477+00:00",
+    "elapsed_seconds": 33.67693541699555,
+    "pods": [
+      {
+        "name": "fraudops-api-757c4c856b-pfq2s",
+        "uid": "3bd9555d-97b5-4001-b270-d4cc5d3379fa",
+        "created": "2026-10-23T19:16:17Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-qrc2r",
+        "uid": "f461f454-8a35-48a4-828e-069246abf5d0",
+        "created": "2026-10-23T19:16:07Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-w6qmc",
+        "uid": "6b6ae4fc-fe22-4732-81a0-2ce7e8cab33f",
+        "created": "2026-10-23T20:04:59Z",
+        "deleting": null,
+        "ready": true
+      }
+    ],
+    "prometheus_targets": [
+      {
+        "pod": "fraudops-api-757c4c856b-pfq2s",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-w6qmc",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-qrc2r",
+        "health": "up"
+      }
+    ],
+    "ready_endpoint_pods": [
+      "fraudops-api-757c4c856b-qrc2r",
+      "fraudops-api-757c4c856b-pfq2s",
+      "fraudops-api-757c4c856b-w6qmc"
+    ]
+  },
+  {
+    "at": "2026-10-23T20:05:26.402323+00:00",
+    "elapsed_seconds": 34.793519750004634,
+    "pods": [
+      {
+        "name": "fraudops-api-757c4c856b-pfq2s",
+        "uid": "3bd9555d-97b5-4001-b270-d4cc5d3379fa",
+        "created": "2026-10-23T19:16:17Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-qrc2r",
+        "uid": "f461f454-8a35-48a4-828e-069246abf5d0",
+        "created": "2026-10-23T19:16:07Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-w6qmc",
+        "uid": "6b6ae4fc-fe22-4732-81a0-2ce7e8cab33f",
+        "created": "2026-10-23T20:04:59Z",
+        "deleting": null,
+        "ready": true
+      }
+    ],
+    "prometheus_targets": [
+      {
+        "pod": "fraudops-api-757c4c856b-pfq2s",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-w6qmc",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-qrc2r",
+        "health": "up"
+      }
+    ],
+    "ready_endpoint_pods": [
+      "fraudops-api-757c4c856b-qrc2r",
+      "fraudops-api-757c4c856b-pfq2s",
+      "fraudops-api-757c4c856b-w6qmc"
+    ]
+  },
+  {
+    "at": "2026-10-23T20:05:27.514687+00:00",
+    "elapsed_seconds": 35.906175083015114,
+    "pods": [
+      {
+        "name": "fraudops-api-757c4c856b-pfq2s",
+        "uid": "3bd9555d-97b5-4001-b270-d4cc5d3379fa",
+        "created": "2026-10-23T19:16:17Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-qrc2r",
+        "uid": "f461f454-8a35-48a4-828e-069246abf5d0",
+        "created": "2026-10-23T19:16:07Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-w6qmc",
+        "uid": "6b6ae4fc-fe22-4732-81a0-2ce7e8cab33f",
+        "created": "2026-10-23T20:04:59Z",
+        "deleting": null,
+        "ready": true
+      }
+    ],
+    "prometheus_targets": [
+      {
+        "pod": "fraudops-api-757c4c856b-pfq2s",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-w6qmc",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-qrc2r",
+        "health": "up"
+      }
+    ],
+    "ready_endpoint_pods": [
+      "fraudops-api-757c4c856b-qrc2r",
+      "fraudops-api-757c4c856b-pfq2s",
+      "fraudops-api-757c4c856b-w6qmc"
+    ]
+  },
+  {
+    "at": "2026-10-23T20:05:28.653212+00:00",
+    "elapsed_seconds": 37.044967207999434,
+    "pods": [
+      {
+        "name": "fraudops-api-757c4c856b-pfq2s",
+        "uid": "3bd9555d-97b5-4001-b270-d4cc5d3379fa",
+        "created": "2026-10-23T19:16:17Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-qrc2r",
+        "uid": "f461f454-8a35-48a4-828e-069246abf5d0",
+        "created": "2026-10-23T19:16:07Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-w6qmc",
+        "uid": "6b6ae4fc-fe22-4732-81a0-2ce7e8cab33f",
+        "created": "2026-10-23T20:04:59Z",
+        "deleting": null,
+        "ready": true
+      }
+    ],
+    "prometheus_targets": [
+      {
+        "pod": "fraudops-api-757c4c856b-pfq2s",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-w6qmc",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-qrc2r",
+        "health": "up"
+      }
+    ],
+    "ready_endpoint_pods": [
+      "fraudops-api-757c4c856b-qrc2r",
+      "fraudops-api-757c4c856b-pfq2s",
+      "fraudops-api-757c4c856b-w6qmc"
+    ]
+  },
+  {
+    "at": "2026-10-23T20:05:29.755532+00:00",
+    "elapsed_seconds": 38.14674337499309,
+    "pods": [
+      {
+        "name": "fraudops-api-757c4c856b-pfq2s",
+        "uid": "3bd9555d-97b5-4001-b270-d4cc5d3379fa",
+        "created": "2026-10-23T19:16:17Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-qrc2r",
+        "uid": "f461f454-8a35-48a4-828e-069246abf5d0",
+        "created": "2026-10-23T19:16:07Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-w6qmc",
+        "uid": "6b6ae4fc-fe22-4732-81a0-2ce7e8cab33f",
+        "created": "2026-10-23T20:04:59Z",
+        "deleting": null,
+        "ready": true
+      }
+    ],
+    "prometheus_targets": [
+      {
+        "pod": "fraudops-api-757c4c856b-pfq2s",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-w6qmc",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-qrc2r",
+        "health": "up"
+      }
+    ],
+    "ready_endpoint_pods": [
+      "fraudops-api-757c4c856b-qrc2r",
+      "fraudops-api-757c4c856b-pfq2s",
+      "fraudops-api-757c4c856b-w6qmc"
+    ]
+  },
+  {
+    "at": "2026-10-23T20:05:30.871086+00:00",
+    "elapsed_seconds": 39.26291183300782,
+    "pods": [
+      {
+        "name": "fraudops-api-757c4c856b-pfq2s",
+        "uid": "3bd9555d-97b5-4001-b270-d4cc5d3379fa",
+        "created": "2026-10-23T19:16:17Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-qrc2r",
+        "uid": "f461f454-8a35-48a4-828e-069246abf5d0",
+        "created": "2026-10-23T19:16:07Z",
+        "deleting": null,
+        "ready": true
+      },
+      {
+        "name": "fraudops-api-757c4c856b-w6qmc",
+        "uid": "6b6ae4fc-fe22-4732-81a0-2ce7e8cab33f",
+        "created": "2026-10-23T20:04:59Z",
+        "deleting": null,
+        "ready": true
+      }
+    ],
+    "prometheus_targets": [
+      {
+        "pod": "fraudops-api-757c4c856b-pfq2s",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-w6qmc",
+        "health": "up"
+      },
+      {
+        "pod": "fraudops-api-757c4c856b-qrc2r",
+        "health": "up"
+      }
+    ],
+    "ready_endpoint_pods": [
+      "fraudops-api-757c4c856b-qrc2r",
+      "fraudops-api-757c4c856b-pfq2s",
+      "fraudops-api-757c4c856b-w6qmc"
+    ]
+  }
+]

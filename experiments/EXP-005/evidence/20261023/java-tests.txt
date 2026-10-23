@@ -1,0 +1,13 @@
+Command: docker build --target build --no-cache-filter build -t fraudops-exp005-tests:local .
+#10 50.24 [INFO] BUILD SUCCESS
+#10 50.24 [INFO] Finished at: 2026-10-23T19:59:10Z
+#14 3.729 [INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s -- in com.fraudops.service.PredictionServiceTest
+#14 5.131 [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.401 s -- in com.fraudops.ObservabilityIntegrationTest
+#14 5.247 [INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.117 s -- in com.fraudops.FraudOpsStartupIntegrationTest
+#14 5.491 [INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.241 s -- in com.fraudops.FraudApiIntegrationTest
+#14 5.496 [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s -- in com.fraudops.inference.OnnxFraudModelParityTest
+#14 5.503 [INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s -- in com.fraudops.inference.OnnxFraudModelStartupTest
+#14 5.504 [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in com.fraudops.api.ApiExceptionHandlerTest
+#14 5.896 [INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0
+#14 6.498 [INFO] BUILD SUCCESS
+#14 6.499 [INFO] Finished at: 2026-10-23T19:59:16Z
