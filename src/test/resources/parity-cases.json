@@ -1,8 +1,27 @@
 {
-  "source": "Python ONNX Runtime against the unchanged EXP-000 fraud_model.onnx",
+  "source": "Python ONNX Runtime and scikit-learn against the unchanged EXP-000 fraud_model.onnx",
   "model_version": "1.0.0-exp000",
+  "model_sha256": "60af5e22073af550a5bfb249d4590afba12d3529221deb3d8e83b46eaa71a757",
+  "metadata_sha256": "747298910af4e0c230821a0406381b48c95b4d8edb1aca41b87a834359fe0068",
+  "review_threshold": 0.06729906797409058,
+  "review_threshold_source": "model_metadata.json evaluation_metrics.operating_point.probability_threshold",
   "absolute_tolerance": 1e-05,
   "relative_tolerance": 0.0001,
+  "generator": {
+    "onnxruntime_version": "1.31.0",
+    "scikit_learn_version": "1.9.1",
+    "numpy_version": "2.5.2",
+    "python_version": "3.12.15",
+    "platform": "macOS-27.2-arm64-arm-64bit",
+    "machine": "arm64"
+  },
+  "sklearn_reference": {
+    "method": "in-memory refit of train.build_pipeline() on the first 70% of data/synthetic_transactions.csv; the committed model is not modified",
+    "data_sha256": "92738d22c2926fbd113912d0cef672f99c552de201ca0ee3204323011eeca041",
+    "check_rows": 512,
+    "check_rows_description": "first test-split rows, as in train.py's sklearn/ONNX parity check",
+    "max_abs_diff_vs_committed_onnx": 8.461006130444648e-08
+  },
   "cases": [
     {
       "name": "typical",
@@ -17,7 +36,9 @@
         "channel_code": 0,
         "merchant_category_code": 2
       },
-      "fraud_probability": 0.23597344756126404
+      "fraud_probability": 0.23597344756126404,
+      "sklearn_fraud_probability": 0.2359734454947798,
+      "expected_decision": "review"
     },
     {
       "name": "high_risk",
@@ -32,7 +53,9 @@
         "channel_code": 2,
         "merchant_category_code": 4
       },
-      "fraud_probability": 0.9930034279823303
+      "fraud_probability": 0.9930033683776855,
+      "sklearn_fraud_probability": 0.9930034014142448,
+      "expected_decision": "review"
     },
     {
       "name": "missing_numerical",
@@ -47,7 +70,9 @@
         "channel_code": 1,
         "merchant_category_code": 0
       },
-      "fraud_probability": 0.009561717510223389
+      "fraud_probability": 0.009561717510223389,
+      "sklearn_fraud_probability": 0.009561677727586418,
+      "expected_decision": "approve"
     },
     {
       "name": "unknown_categories",
@@ -62,22 +87,43 @@
         "channel_code": 99,
         "merchant_category_code": 88
       },
-      "fraud_probability": 0.03944578766822815
+      "fraud_probability": 0.03944578766822815,
+      "sklearn_fraud_probability": 0.03944577357197276,
+      "expected_decision": "approve"
     },
     {
-      "name": "extreme_valid",
+      "name": "just_below_threshold",
       "features": {
-        "amount": 1000000.0,
-        "account_age_days": 4000,
-        "transactions_last_24h": 100,
-        "distance_from_home_km": 100000.0,
-        "device_age_days": 10000,
-        "country_mismatch": 1,
+        "amount": 474.74,
+        "account_age_days": 400,
+        "transactions_last_24h": 2,
+        "distance_from_home_km": 20.0,
+        "device_age_days": 200,
+        "country_mismatch": 0,
         "card_present": 0,
         "channel_code": 0,
-        "merchant_category_code": 4
+        "merchant_category_code": 2
       },
-      "fraud_probability": 1.0
+      "fraud_probability": 0.06710419058799744,
+      "sklearn_fraud_probability": 0.06710421946589656,
+      "expected_decision": "approve"
+    },
+    {
+      "name": "just_above_threshold",
+      "features": {
+        "amount": 476.74,
+        "account_age_days": 400,
+        "transactions_last_24h": 2,
+        "distance_from_home_km": 20.0,
+        "device_age_days": 200,
+        "country_mismatch": 0,
+        "card_present": 0,
+        "channel_code": 0,
+        "merchant_category_code": 2
+      },
+      "fraud_probability": 0.0674934983253479,
+      "sklearn_fraud_probability": 0.06749354959328148,
+      "expected_decision": "review"
     }
   ]
 }
