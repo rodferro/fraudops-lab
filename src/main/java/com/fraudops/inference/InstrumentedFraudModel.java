@@ -5,8 +5,6 @@ import io.micrometer.core.instrument.MeterRegistry;
 import io.micrometer.core.instrument.Timer;
 import io.micrometer.tracing.Span;
 import io.micrometer.tracing.Tracer;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
@@ -19,7 +17,6 @@ import java.util.OptionalDouble;
 @Component
 @Primary
 public class InstrumentedFraudModel implements FraudModel {
-    private static final Logger log = LoggerFactory.getLogger(InstrumentedFraudModel.class);
     private final OnnxFraudModel delegate;
     private final MeterRegistry registry;
     private final Tracer tracer;
@@ -55,9 +52,10 @@ public class InstrumentedFraudModel implements FraudModel {
         } catch (RuntimeException failure) {
             error.increment();
             span.tag("outcome", "error");
-            // Deliberately exclude native exception messages and all input values.
+            // The span gets a generic InferenceException: no native message and no input values.
+            // The failure itself, including its cause, is logged once by ApiExceptionHandler
+            // (event=inference_failed); this wrapper only records metrics and the span.
             span.error(new InferenceException("ONNX inference failed."));
-            log.warn("event=inference_failed");
             throw failure;
         } finally {
             sample.stop(duration);

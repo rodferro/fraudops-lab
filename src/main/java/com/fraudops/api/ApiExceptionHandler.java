@@ -24,6 +24,8 @@ import java.util.regex.Pattern;
 @RestControllerAdvice
 public class ApiExceptionHandler {
     private static final Logger log = LoggerFactory.getLogger(ApiExceptionHandler.class);
+    // RequestResponseBodyMethodProcessor's message when a required body has no content.
+    private static final String SPRING_MISSING_BODY_MESSAGE = "Required request body is missing";
     // Jackson reports absent required creator properties without a field path.
     private static final Pattern MISSING_CREATOR_PROPERTY =
             Pattern.compile("Missing required creator property '([A-Za-z0-9_]+)'");
@@ -37,13 +39,29 @@ public class ApiExceptionHandler {
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public ResponseEntity<ApiError> handleUnreadable(
             HttpMessageNotReadableException exception, HttpServletRequest request) {
-        if (request.getContentLengthLong() == 0) {
+        if (isMissingBody(exception, request)) {
             return error(HttpStatus.BAD_REQUEST, "MISSING_REQUEST_BODY", "A JSON request body is required.",
                     List.of());
         }
         return error(HttpStatus.BAD_REQUEST, "INVALID_JSON",
                 "Request body must be a JSON object with all nine features as numbers or null.",
                 unreadableDetails(exception));
+    }
+
+    /**
+     * Content-Length: 0, or a body of unknown length (chunked) that Spring found empty. For a
+     * required {@code @RequestBody}, Spring peeks the stream before deserializing and reports an
+     * empty body as a cause-less exception with this message; parse failures always carry a cause.
+     * This handler never reads the request stream itself.
+     */
+    private static boolean isMissingBody(HttpMessageNotReadableException exception, HttpServletRequest request) {
+        long contentLength = request.getContentLengthLong();
+        if (contentLength == 0) {
+            return true;
+        }
+        return contentLength < 0
+                && exception.getCause() == null
+                && String.valueOf(exception.getMessage()).startsWith(SPRING_MISSING_BODY_MESSAGE);
     }
 
     /** Field-level reasons for strict-contract failures; never echoes request values. */
@@ -73,6 +91,9 @@ public class ApiExceptionHandler {
 
     @ExceptionHandler(InferenceException.class)
     public ResponseEntity<ApiError> handleInferenceFailure(InferenceException exception) {
+        // InferenceException messages are constants and its only cause is OrtException, so this
+        // records the cause and stack trace without request feature values.
+        log.error("event=inference_failed", exception);
         return error(HttpStatus.INTERNAL_SERVER_ERROR, "INFERENCE_FAILED",
                 "The prediction could not be computed.", List.of());
     }

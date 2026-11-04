@@ -41,7 +41,6 @@ RUN chmod 755 /app /app/model /opt /opt/healthcheck
 ENV SERVER_PORT=8080 \
     FRAUD_MODEL_PATH=/app/model/fraud_model.onnx \
     FRAUD_MODEL_METADATA_PATH=/app/model/model_metadata.json \
-    FRAUD_REVIEW_THRESHOLD=0.06729906797409058 \
     JAVA_TOOL_OPTIONS="-XX:+UseContainerSupport -XX:InitialRAMPercentage=20.0 -XX:MaxRAMPercentage=60.0"
 
 USER 10001:10001

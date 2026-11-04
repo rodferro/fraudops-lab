@@ -8,12 +8,19 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 
+import java.io.ByteArrayInputStream;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +40,9 @@ class FraudApiIntegrationTest {
 
     @Autowired
     private PredictionService predictionService;
+
+    @LocalServerPort
+    private int port;
 
     @Test
     void startsWithModelAndReturnsPredictionAndProbeHealth() throws Exception {
@@ -135,6 +145,36 @@ class FraudApiIntegrationTest {
         body.path("details").forEach(detail -> details.add(detail.asText()));
         assertEquals(List.of("account_age_days must be at most 16777216", "channel_code must be nonnegative"),
                 details);
+    }
+
+    @Test
+    void emptyChunkedBodyIsMissingRequestBody() throws Exception {
+        HttpResponse<String> response = postChunked("");
+
+        assertEquals(400, response.statusCode());
+        assertEquals("MISSING_REQUEST_BODY", objectMapper.readTree(response.body()).path("code").asText());
+    }
+
+    @Test
+    void chunkedBodiesWithContentAreStillParsed() throws Exception {
+        HttpResponse<String> malformed = postChunked("{oops");
+        assertEquals(400, malformed.statusCode());
+        assertEquals("INVALID_JSON", objectMapper.readTree(malformed.body()).path("code").asText());
+
+        HttpResponse<String> valid = postChunked(validJson());
+        assertEquals(200, valid.statusCode());
+    }
+
+    /** Body of unknown length, so java.net.http sends Transfer-Encoding: chunked with no Content-Length. */
+    private HttpResponse<String> postChunked(String body) throws Exception {
+        HttpRequest request = HttpRequest.newBuilder(URI.create("http://localhost:" + port + "/api/v1/predict"))
+                .header("Content-Type", "application/json")
+                .POST(HttpRequest.BodyPublishers.ofInputStream(
+                        () -> new ByteArrayInputStream(body.getBytes(StandardCharsets.UTF_8))))
+                .build();
+        try (HttpClient client = HttpClient.newBuilder().version(HttpClient.Version.HTTP_1_1).build()) {
+            return client.send(request, HttpResponse.BodyHandlers.ofString());
+        }
     }
 
     @Test
