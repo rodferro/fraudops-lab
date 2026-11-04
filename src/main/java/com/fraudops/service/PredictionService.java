@@ -56,6 +56,18 @@ public class PredictionService {
         }
         log.info("event=review_threshold_configured threshold={} source=\"{}\" model_version={}",
                 reviewThreshold, reviewThresholdSource, fraudModel.modelVersion());
+        if (OVERRIDE_SOURCE.equals(reviewThresholdSource)) {
+            // A pinned override silently outlives a retrain; make a disagreement visible.
+            fraudModel.metadataReviewThreshold()
+                    .ifPresent(metadataThreshold -> warnIfOverrideDiffers(metadataThreshold, fraudModel.modelVersion()));
+        }
+    }
+
+    private void warnIfOverrideDiffers(double metadataThreshold, String modelVersion) {
+        if (Double.compare(reviewThreshold, metadataThreshold) != 0) {
+            log.warn("event=review_threshold_override_differs override={} metadata={} model_version={}",
+                    reviewThreshold, metadataThreshold, modelVersion);
+        }
     }
 
     public double reviewThreshold() {

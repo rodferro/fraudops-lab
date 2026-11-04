@@ -1,10 +1,15 @@
 package com.fraudops.service;
 
+import ch.qos.logback.classic.Level;
+import ch.qos.logback.classic.Logger;
+import ch.qos.logback.classic.spi.ILoggingEvent;
+import ch.qos.logback.core.read.ListAppender;
 import com.fraudops.api.PredictionRequest;
 import com.fraudops.api.PredictionResponse;
 import com.fraudops.inference.FraudModel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 import java.util.Map;
@@ -53,6 +58,51 @@ class PredictionServiceTest {
             }
         };
         service = new PredictionService(model, "");
+    }
+
+    @Test
+    void warnsWhenOverrideDiffersFromMetadataThreshold() {
+        List<ILoggingEvent> events = captureServiceLogs(() -> new PredictionService(model, "0.5"));
+
+        List<ILoggingEvent> warnings = events.stream()
+                .filter(event -> event.getLevel() == Level.WARN)
+                .toList();
+        assertEquals(1, warnings.size());
+        assertEquals("event=review_threshold_override_differs override=0.5 metadata=" + METADATA_THRESHOLD
+                + " model_version=1.0.0-exp000", warnings.get(0).getFormattedMessage());
+    }
+
+    @Test
+    void doesNotWarnWhenOverrideEqualsMetadataThreshold() {
+        List<ILoggingEvent> events = captureServiceLogs(
+                () -> new PredictionService(model, Double.toString(METADATA_THRESHOLD)));
+
+        assertTrue(events.stream().noneMatch(event -> event.getLevel() == Level.WARN));
+        assertTrue(events.stream().anyMatch(event ->
+                event.getFormattedMessage().startsWith("event=review_threshold_configured")));
+    }
+
+    @Test
+    void doesNotWarnWithoutOverrideOrWithoutMetadataThreshold() {
+        List<ILoggingEvent> metadataOnly = captureServiceLogs(() -> new PredictionService(model, ""));
+        metadataThreshold = OptionalDouble.empty();
+        List<ILoggingEvent> overrideOnly = captureServiceLogs(() -> new PredictionService(model, "0.5"));
+
+        assertTrue(metadataOnly.stream().noneMatch(event -> event.getLevel() == Level.WARN));
+        assertTrue(overrideOnly.stream().noneMatch(event -> event.getLevel() == Level.WARN));
+    }
+
+    private static List<ILoggingEvent> captureServiceLogs(Runnable action) {
+        Logger logger = (Logger) LoggerFactory.getLogger(PredictionService.class);
+        ListAppender<ILoggingEvent> appender = new ListAppender<>();
+        appender.start();
+        logger.addAppender(appender);
+        try {
+            action.run();
+        } finally {
+            logger.detachAppender(appender);
+        }
+        return List.copyOf(appender.list);
     }
 
     @Test
