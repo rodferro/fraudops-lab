@@ -73,6 +73,9 @@ public class ApiExceptionHandler {
 
     @ExceptionHandler(InferenceException.class)
     public ResponseEntity<ApiError> handleInferenceFailure(InferenceException exception) {
+        // InferenceException messages are constants and its only cause is OrtException, so this
+        // records the cause and stack trace without request feature values.
+        log.error("event=inference_failed", exception);
         return error(HttpStatus.INTERNAL_SERVER_ERROR, "INFERENCE_FAILED",
                 "The prediction could not be computed.", List.of());
     }
