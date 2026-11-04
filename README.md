@@ -52,15 +52,62 @@ For development, `mvn spring-boot:run` starts the application on port 8080. A su
 | `SERVER_PORT` | `8080` | HTTP port |
 | `FRAUD_MODEL_PATH` | `./fraud_model.onnx` | ONNX model path |
 | `FRAUD_MODEL_METADATA_PATH` | `./model_metadata.json` | Model metadata path |
-| `FRAUD_REVIEW_THRESHOLD` | `0.06729906797409058` | Review when probability is greater than or equal to this value; must be finite and between 0 and 1 |
+| `FRAUD_REVIEW_THRESHOLD` | Unset → threshold from `model_metadata.json` | Optional override. Review when probability is greater than or equal to the effective threshold; must be a finite number between 0 and 1 |
 | `FRAUD_TRACE_EXPORT_ENABLED` | `false` | Enable OTLP trace export; enabled by the EXP-004 Kubernetes overlay |
 | `FRAUD_OTLP_ENDPOINT` | `http://localhost:4318/v1/traces` | OTLP HTTP endpoint; EXP-004 uses the local Collector Service |
 | `FRAUD_TRACE_SAMPLE_PROBABILITY` | `0.1` | Trace sampling probability; EXP-004 sets 1.0 for its short local demonstration |
 | `FRAUD_IMAGE_REVISION` | `exp004` | Runtime log revision marker; separate from the unchanged model version |
 
+### Review threshold
+
+The decision threshold travels with the model. At startup the service resolves it in this order:
+
+1. `FRAUD_REVIEW_THRESHOLD` (Spring property `fraud.decision.review-threshold`), if set to a non-blank value.
+2. Otherwise `evaluation_metrics.operating_point.probability_threshold` from `model_metadata.json` (currently `0.06729906797409058`, selected on validation data for a 1% review rate).
+
+Startup fails if neither source provides a value, if the override is not a number, or if the effective value is not finite and between 0 and 1. A metadata threshold that is present but invalid also fails model initialization. The Dockerfile and the Kubernetes ConfigMap do not set the override, so containers use the metadata value.
+
+The resolved value and its source are logged once at startup:
+
+```text
+event=review_threshold_configured threshold=0.06729906797409058 source="model_metadata.json evaluation_metrics.operating_point.probability_threshold" model_version=1.0.0-exp000
+```
+
+With an override, `source` is `"fraud.decision.review-threshold (FRAUD_REVIEW_THRESHOLD)"`. If the override differs from the metadata threshold, a warning is also logged, because a pinned override silently outlives a retrain:
+
+```text
+event=review_threshold_override_differs override=0.5 metadata=0.06729906797409058 model_version=1.0.0-exp000
+```
+
 ## Prediction API
 
-`POST /api/v1/predict` accepts the nine EXP-000 named features. All fields are JSON numbers or `null`. A missing or `null` feature becomes IEEE `NaN` in its tensor, allowing the ONNX pipeline to apply its embedded imputation. Invalid types, infinities, negative nonnegative-domain values, fractional integer features, and invalid binary values return structured HTTP 400 errors. Unknown integer category codes are accepted and handled by the exported one-hot encoder as all-zero for that category.
+`POST /api/v1/predict` takes a JSON object (`Content-Type: application/json`) with exactly the nine EXP-000 named features. **All nine keys are required.** Each value is a JSON number or an explicit `null`; `null` is the only way to mark a value as missing. A `null` feature becomes IEEE `NaN` in its tensor, so the ONNX pipeline applies its embedded imputation. JSON integers are accepted for every feature.
+
+### Request contract
+
+These return `400` with code `INVALID_JSON` and a field-level entry in `details`:
+
+| Request | Example detail |
+| --- | --- |
+| A key is absent (including `{}`) | `device_age_days is required; use null to mark a missing value` |
+| An unknown key alongside the nine | `amout is not a recognized feature` |
+| A non-numeric value, including a numeric string such as `"250"` or a boolean | `amount must be a JSON number or null` |
+
+A misspelled key such as `"amout"` instead of `"amount"` is reported as the missing correct key (`amount is required; …`), because required keys are checked before unknown keys are reported. Syntactically malformed JSON also returns `INVALID_JSON`, with empty `details`. An empty body returns `MISSING_REQUEST_BODY`.
+
+### Value limits
+
+Values that parse but break a domain rule return `400` with code `INVALID_FEATURES` and one `details` entry per failing field:
+
+| Rule | Applies to | Detail |
+| --- | --- | --- |
+| Finite and representable as float32 | all features | `<feature> must be a finite float32 value or null` |
+| At most 16,777,216 (2^24, the range where every integer is exact in float32) | all features | `<feature> must be at most 16777216` |
+| Nonnegative | `amount`, `account_age_days`, `transactions_last_24h`, `distance_from_home_km`, `device_age_days`, `channel_code`, `merchant_category_code` | `<feature> must be nonnegative` |
+| Integer-valued | `account_age_days`, `transactions_last_24h`, `country_mismatch`, `card_present`, `channel_code`, `merchant_category_code` | `<feature> must be an integer-valued number` |
+| `0` or `1` | `country_mismatch`, `card_present` | `<feature> must be 0 or 1` |
+
+Category codes must be `≥ 0`: send `null`, not `-1`, for an unknown channel or merchant category (`-1` is the model's internal missing-category code). Unknown non-negative category codes, such as `channel_code: 99`, are accepted and encoded as all-zero for that category by the exported one-hot encoder.
 
 ```json
 {
@@ -96,6 +143,25 @@ Invoke-RestMethod -Method Post -Uri http://localhost:8080/api/v1/predict `
 
 The response contains `fraud_probability`, `model_version`, and a separate policy decision (`review` or `approve`). There is no automatic decline decision. Numeric features are amount in USD, ages in days, transaction count, and distance in kilometers. Binary features are `0` or `1`. `channel_code` values are 0 ecommerce, 1 in-store, and 2 mobile. `merchant_category_code` values are 0 grocery, 1 fuel, 2 electronics, 3 travel, and 4 digital goods. See [model_metadata.json](model_metadata.json) for the complete schema.
 
+### Error responses
+
+Every error uses the same `ApiError` body:
+
+```json
+{"timestamp":"2026-11-04T03:05:35.794Z","status":400,"code":"INVALID_FEATURES","message":"Request features are invalid.","details":["channel_code must be nonnegative"]}
+```
+
+| Status | `code` | When |
+| --- | --- | --- |
+| 400 | `MISSING_REQUEST_BODY`, `INVALID_JSON`, `INVALID_FEATURES` | See the request contract and value limits above |
+| 404 | `NOT_FOUND` | Unknown route |
+| 405 | `METHOD_NOT_ALLOWED` | Wrong HTTP method, e.g. `GET /api/v1/predict`; the `Allow` header lists `POST` |
+| 415 | `UNSUPPORTED_MEDIA_TYPE` | Body sent with a content type other than JSON, e.g. `text/plain` |
+| 500 | `INFERENCE_FAILED` | The model could not score a validated request; logged as `event=inference_failed` with the cause |
+| 500 | `INTERNAL_ERROR` | Any other unexpected failure; logged as `event=unexpected_error` |
+
+Client errors (404/405/415) are recorded under their own status in `http_server_requests`, so they do not count toward the 5xx alert. Error bodies never echo request values.
+
 ## Health
 
 - `/actuator/health` reports application and model health.
@@ -112,7 +178,7 @@ python generate_parity_fixtures.py
 mvn test
 ```
 
-The parity fixture generator uses Python ONNX Runtime and the unchanged EXP-000 `fraud_model.onnx`; it does not retrain the model. Java tests compare five representative inputs against these references with absolute tolerance `1e-5` and relative tolerance `1e-4`. The test suite also covers mapping, missing values, threshold behavior, malformed input, artifact startup failures, health endpoints, and concurrent requests.
+The parity fixture generator uses Python ONNX Runtime and the unchanged EXP-000 `fraud_model.onnx`, plus a scikit-learn reference from an in-memory refit that must reproduce the committed model; it does not modify the model. Java tests compare six inputs (including one just above and one just below the review threshold) against these references, both directly against the ONNX session and end to end through `POST /api/v1/predict`, with absolute tolerance `1e-5` and relative tolerance `1e-4`. The test suite also covers mapping, missing values, threshold behavior, malformed input, artifact startup failures, health endpoints, and concurrent requests.
 
 ## Local Load Baseline
 
