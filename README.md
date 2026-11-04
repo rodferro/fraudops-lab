@@ -1,5 +1,7 @@
 # FraudOps Fraud Scoring API
 
+FraudOps Lab is an end-to-end ML engineering project. A fraud-scoring model is trained in Python on a reproducible synthetic dataset, exported to ONNX, and served by a Java 21 / Spring Boot REST API that runs the model's own preprocessing, so none of it is rewritten in Java. Parity tests send fixed cases through the live API and check the Java scores against Python reference outputs. The service then runs on a local Kubernetes (kind) cluster with Prometheus, Grafana, tracing and alerts, through experiments on scaling, rolling updates, pod failures, CPU limits, data drift and delayed fraud labels.
+
 EXP-001 exposes the existing EXP-000 ONNX fraud model as a Java REST service. The model and preprocessing are not modified or duplicated in Java.
 
 ## Experiment Index and Repository Layout
