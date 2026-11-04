@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 
 import java.time.Duration;
 import java.util.Map;
+import java.util.OptionalDouble;
 
 /** Observes the unchanged ONNX implementation without modifying its inputs/results. */
 @Component
@@ -72,5 +73,10 @@ public class InstrumentedFraudModel implements FraudModel {
     @Override
     public boolean isReady() {
         return delegate.isReady();
+    }
+
+    @Override
+    public OptionalDouble metadataReviewThreshold() {
+        return delegate.metadataReviewThreshold();
     }
 }

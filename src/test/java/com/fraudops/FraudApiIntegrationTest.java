@@ -2,6 +2,8 @@ package com.fraudops;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fraudops.inference.OnnxFraudModel;
+import com.fraudops.service.PredictionService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,6 +14,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Executors;
@@ -28,6 +31,9 @@ class FraudApiIntegrationTest {
     @Autowired
     private ObjectMapper objectMapper;
 
+    @Autowired
+    private PredictionService predictionService;
+
     @Test
     void startsWithModelAndReturnsPredictionAndProbeHealth() throws Exception {
         ResponseEntity<String> prediction = postPrediction(validJson());
@@ -41,6 +47,15 @@ class FraudApiIntegrationTest {
         assertEquals(200, restTemplate.getForEntity("/actuator/health", String.class).getStatusCode().value());
         assertEquals(200, restTemplate.getForEntity("/actuator/health/liveness", String.class).getStatusCode().value());
         assertEquals(200, restTemplate.getForEntity("/actuator/health/readiness", String.class).getStatusCode().value());
+    }
+
+    @Test
+    void reviewThresholdDefaultsToModelMetadata() throws Exception {
+        double metadataThreshold = objectMapper.readTree(Path.of("model_metadata.json").toFile())
+                .at(OnnxFraudModel.REVIEW_THRESHOLD_POINTER).asDouble();
+
+        assertEquals(metadataThreshold, predictionService.reviewThreshold());
+        assertTrue(predictionService.reviewThresholdSource().startsWith("model_metadata.json"));
     }
 
     @Test

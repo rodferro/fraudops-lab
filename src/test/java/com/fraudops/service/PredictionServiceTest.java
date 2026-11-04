@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 import java.util.Map;
+import java.util.OptionalDouble;
 import java.util.concurrent.atomic.AtomicReference;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -20,11 +21,16 @@ class PredictionServiceTest {
     private double modelProbability;
     private PredictionService service;
 
+    private static final double METADATA_THRESHOLD = 0.06729906797409058;
+    private OptionalDouble metadataThreshold;
+    private FraudModel model;
+
     @BeforeEach
     void setUp() {
         capturedFeatures = new AtomicReference<>();
-        modelProbability = 0.06729906797409058;
-        FraudModel model = new FraudModel() {
+        modelProbability = METADATA_THRESHOLD;
+        metadataThreshold = OptionalDouble.of(METADATA_THRESHOLD);
+        model = new FraudModel() {
             @Override
             public double predictProbability(Map<String, Float> features) {
                 capturedFeatures.set(features);
@@ -40,8 +46,44 @@ class PredictionServiceTest {
             public boolean isReady() {
                 return true;
             }
+
+            @Override
+            public OptionalDouble metadataReviewThreshold() {
+                return metadataThreshold;
+            }
         };
-        service = new PredictionService(model, 0.06729906797409058);
+        service = new PredictionService(model, "");
+    }
+
+    @Test
+    void metadataThresholdIsTheDefault() {
+        assertEquals(METADATA_THRESHOLD, service.reviewThreshold());
+        assertEquals(PredictionService.METADATA_SOURCE, service.reviewThresholdSource());
+    }
+
+    @Test
+    void configuredThresholdOverridesMetadata() {
+        PredictionService overridden = new PredictionService(model, " 0.5 ");
+
+        assertEquals(0.5, overridden.reviewThreshold());
+        assertEquals(PredictionService.OVERRIDE_SOURCE, overridden.reviewThresholdSource());
+        modelProbability = 0.4;
+        assertEquals("approve", overridden.predict(validRequest()).decision());
+    }
+
+    @Test
+    void invalidOverrideFailsStartup() {
+        assertThrows(IllegalArgumentException.class, () -> new PredictionService(model, "not-a-number"));
+        assertThrows(IllegalArgumentException.class, () -> new PredictionService(model, "1.5"));
+        assertThrows(IllegalArgumentException.class, () -> new PredictionService(model, "NaN"));
+    }
+
+    @Test
+    void missingMetadataThresholdWithoutOverrideFailsStartup() {
+        metadataThreshold = OptionalDouble.empty();
+
+        assertThrows(IllegalStateException.class, () -> new PredictionService(model, ""));
+        assertEquals(0.2, new PredictionService(model, "0.2").reviewThreshold());
     }
 
     @Test
