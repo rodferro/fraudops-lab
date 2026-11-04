@@ -1,5 +1,8 @@
 package com.fraudops.api;
 
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.exc.MismatchedInputException;
+import com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException;
 import com.fraudops.service.FeatureValidationException;
 import com.fraudops.inference.InferenceException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -15,10 +18,15 @@ import org.springframework.http.converter.HttpMessageNotReadableException;
 
 import java.time.Instant;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @RestControllerAdvice
 public class ApiExceptionHandler {
     private static final Logger log = LoggerFactory.getLogger(ApiExceptionHandler.class);
+    // Jackson reports absent required creator properties without a field path.
+    private static final Pattern MISSING_CREATOR_PROPERTY =
+            Pattern.compile("Missing required creator property '([A-Za-z0-9_]+)'");
 
     @ExceptionHandler(FeatureValidationException.class)
     public ResponseEntity<ApiError> handleFeatureValidation(FeatureValidationException exception) {
@@ -29,11 +37,38 @@ public class ApiExceptionHandler {
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public ResponseEntity<ApiError> handleUnreadable(
             HttpMessageNotReadableException exception, HttpServletRequest request) {
-        String code = request.getContentLengthLong() == 0 ? "MISSING_REQUEST_BODY" : "INVALID_JSON";
-        String message = code.equals("MISSING_REQUEST_BODY")
-                ? "A JSON request body is required."
-                : "Request body must be valid JSON with numeric or null feature values.";
-        return error(HttpStatus.BAD_REQUEST, code, message, List.of());
+        if (request.getContentLengthLong() == 0) {
+            return error(HttpStatus.BAD_REQUEST, "MISSING_REQUEST_BODY", "A JSON request body is required.",
+                    List.of());
+        }
+        return error(HttpStatus.BAD_REQUEST, "INVALID_JSON",
+                "Request body must be a JSON object with all nine features as numbers or null.",
+                unreadableDetails(exception));
+    }
+
+    /** Field-level reasons for strict-contract failures; never echoes request values. */
+    private static List<String> unreadableDetails(HttpMessageNotReadableException exception) {
+        if (exception.getCause() instanceof UnrecognizedPropertyException unknown) {
+            return List.of(unknown.getPropertyName() + " is not a recognized feature");
+        }
+        if (exception.getCause() instanceof MismatchedInputException mismatch) {
+            // A misspelled key surfaces here as the missing correct key: required-property
+            // checks run before buffered unknown properties are reported.
+            Matcher missing = MISSING_CREATOR_PROPERTY.matcher(String.valueOf(mismatch.getOriginalMessage()));
+            if (missing.find()) {
+                return List.of(missing.group(1) + " is required; use null to mark a missing value");
+            }
+            String field = mismatch.getPath().stream()
+                    .map(JsonMappingException.Reference::getFieldName)
+                    .filter(name -> name != null)
+                    .reduce((first, second) -> second)
+                    .orElse(null);
+            if (field != null) {
+                return List.of(field + " must be a JSON number or null");
+            }
+            return List.of("request body must be a JSON object containing all nine features");
+        }
+        return List.of();
     }
 
     @ExceptionHandler(InferenceException.class)

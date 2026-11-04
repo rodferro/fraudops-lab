@@ -59,6 +59,55 @@ class FraudApiIntegrationTest {
     }
 
     @Test
+    void rejectsMisspelledFieldInsteadOfImputingIt() throws Exception {
+        // Previously "amout" was ignored and amount silently imputed, returning 200.
+        assertStrictParsingError(postPrediction(validJson().replace("\"amount\"", "\"amout\"")),
+                "amount is required; use null to mark a missing value");
+    }
+
+    @Test
+    void rejectsUnknownExtraField() throws Exception {
+        assertStrictParsingError(postPrediction(validJson().replace("{", "{\"amout\":250.0,")),
+                "amout is not a recognized feature");
+    }
+
+    @Test
+    void rejectsEmptyObject() throws Exception {
+        assertStrictParsingError(postPrediction("{}"), "amount is required; use null to mark a missing value");
+    }
+
+    @Test
+    void rejectsNumericStringInsteadOfCoercingIt() throws Exception {
+        assertStrictParsingError(postPrediction(validJson().replace("\"amount\":250.0", "\"amount\":\"250\"")),
+                "amount must be a JSON number or null");
+    }
+
+    @Test
+    void rejectsMissingFeatureKey() throws Exception {
+        assertStrictParsingError(postPrediction(validJson().replace("\"device_age_days\":30,", "")),
+                "device_age_days is required; use null to mark a missing value");
+    }
+
+    @Test
+    void acceptsExplicitNullAsMissingValue() throws Exception {
+        ResponseEntity<String> response = postPrediction(validJson().replace("\"amount\":250.0", "\"amount\":null"));
+
+        assertEquals(200, response.getStatusCode().value());
+        double probability = objectMapper.readTree(response.getBody()).path("fraud_probability").asDouble();
+        assertTrue(probability >= 0.0 && probability <= 1.0);
+    }
+
+    private void assertStrictParsingError(ResponseEntity<String> response, String expectedDetail) throws Exception {
+        assertEquals(400, response.getStatusCode().value());
+        JsonNode body = objectMapper.readTree(response.getBody());
+        assertEquals("INVALID_JSON", body.path("code").asText());
+        List<String> details = new ArrayList<>();
+        body.path("details").forEach(detail -> details.add(detail.asText()));
+        assertTrue(details.stream().anyMatch(detail -> detail.contains(expectedDetail)),
+                () -> "Expected a detail containing '" + expectedDetail + "' but got " + details);
+    }
+
+    @Test
     void rejectsMissingRequestBodyWithStructuredError() {
         ResponseEntity<String> response = restTemplate.postForEntity("/api/v1/predict", HttpEntity.EMPTY, String.class);
 

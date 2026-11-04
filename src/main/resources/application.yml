@@ -7,6 +7,12 @@ spring:
     name: fraudops-api
   lifecycle:
     timeout-per-shutdown-phase: 25s
+  jackson:
+    # Strict request contract: no silently ignored typos and no "250" -> 250.0 coercion.
+    deserialization:
+      fail-on-unknown-properties: true
+    mapper:
+      allow-coercion-of-scalars: false
 
 fraud:
   model:
