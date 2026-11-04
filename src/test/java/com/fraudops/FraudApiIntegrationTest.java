@@ -2,6 +2,8 @@ package com.fraudops;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fraudops.inference.OnnxFraudModel;
+import com.fraudops.service.PredictionService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,6 +14,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Executors;
@@ -27,6 +30,9 @@ class FraudApiIntegrationTest {
 
     @Autowired
     private ObjectMapper objectMapper;
+
+    @Autowired
+    private PredictionService predictionService;
 
     @Test
     void startsWithModelAndReturnsPredictionAndProbeHealth() throws Exception {
@@ -44,6 +50,15 @@ class FraudApiIntegrationTest {
     }
 
     @Test
+    void reviewThresholdDefaultsToModelMetadata() throws Exception {
+        double metadataThreshold = objectMapper.readTree(Path.of("model_metadata.json").toFile())
+                .at(OnnxFraudModel.REVIEW_THRESHOLD_POINTER).asDouble();
+
+        assertEquals(metadataThreshold, predictionService.reviewThreshold());
+        assertTrue(predictionService.reviewThresholdSource().startsWith("model_metadata.json"));
+    }
+
+    @Test
     void returnsStructuredErrorsForInvalidJsonAndFeatures() {
         ResponseEntity<String> malformed = postPrediction("{oops");
         assertEquals(400, malformed.getStatusCode().value());
@@ -56,6 +71,70 @@ class FraudApiIntegrationTest {
         ResponseEntity<String> invalid = postPrediction(validJson().replace("\"amount\":250.0", "\"amount\":-1.0"));
         assertEquals(400, invalid.getStatusCode().value());
         assertTrue(invalid.getBody().contains("INVALID_FEATURES"));
+    }
+
+    @Test
+    void rejectsMisspelledFieldInsteadOfImputingIt() throws Exception {
+        // Previously "amout" was ignored and amount silently imputed, returning 200.
+        assertStrictParsingError(postPrediction(validJson().replace("\"amount\"", "\"amout\"")),
+                "amount is required; use null to mark a missing value");
+    }
+
+    @Test
+    void rejectsUnknownExtraField() throws Exception {
+        assertStrictParsingError(postPrediction(validJson().replace("{", "{\"amout\":250.0,")),
+                "amout is not a recognized feature");
+    }
+
+    @Test
+    void rejectsEmptyObject() throws Exception {
+        assertStrictParsingError(postPrediction("{}"), "amount is required; use null to mark a missing value");
+    }
+
+    @Test
+    void rejectsNumericStringInsteadOfCoercingIt() throws Exception {
+        assertStrictParsingError(postPrediction(validJson().replace("\"amount\":250.0", "\"amount\":\"250\"")),
+                "amount must be a JSON number or null");
+    }
+
+    @Test
+    void rejectsMissingFeatureKey() throws Exception {
+        assertStrictParsingError(postPrediction(validJson().replace("\"device_age_days\":30,", "")),
+                "device_age_days is required; use null to mark a missing value");
+    }
+
+    @Test
+    void acceptsExplicitNullAsMissingValue() throws Exception {
+        ResponseEntity<String> response = postPrediction(validJson().replace("\"amount\":250.0", "\"amount\":null"));
+
+        assertEquals(200, response.getStatusCode().value());
+        double probability = objectMapper.readTree(response.getBody()).path("fraud_probability").asDouble();
+        assertTrue(probability >= 0.0 && probability <= 1.0);
+    }
+
+    private void assertStrictParsingError(ResponseEntity<String> response, String expectedDetail) throws Exception {
+        assertEquals(400, response.getStatusCode().value());
+        JsonNode body = objectMapper.readTree(response.getBody());
+        assertEquals("INVALID_JSON", body.path("code").asText());
+        List<String> details = new ArrayList<>();
+        body.path("details").forEach(detail -> details.add(detail.asText()));
+        assertTrue(details.stream().anyMatch(detail -> detail.contains(expectedDetail)),
+                () -> "Expected a detail containing '" + expectedDetail + "' but got " + details);
+    }
+
+    @Test
+    void outOfBoundsFeaturesReturnFieldLevelDetails() throws Exception {
+        ResponseEntity<String> response = postPrediction(validJson()
+                .replace("\"account_age_days\":120", "\"account_age_days\":16777217")
+                .replace("\"channel_code\":0", "\"channel_code\":-1"));
+
+        assertEquals(400, response.getStatusCode().value());
+        JsonNode body = objectMapper.readTree(response.getBody());
+        assertEquals("INVALID_FEATURES", body.path("code").asText());
+        List<String> details = new ArrayList<>();
+        body.path("details").forEach(detail -> details.add(detail.asText()));
+        assertEquals(List.of("account_age_days must be at most 16777216", "channel_code must be nonnegative"),
+                details);
     }
 
     @Test

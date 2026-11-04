@@ -3,6 +3,8 @@ package com.fraudops.service;
 import com.fraudops.api.PredictionRequest;
 import com.fraudops.api.PredictionResponse;
 import com.fraudops.inference.FraudModel;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -13,17 +15,55 @@ import java.util.Map;
 
 @Service
 public class PredictionService {
+    /**
+     * 2^24: every integer up to this magnitude is exactly representable as float32, so integer
+     * features cannot be silently rounded on their way into the tensor. It is far above any
+     * plausible amount, day count, transaction count, distance or category code.
+     */
+    static final double MAX_EXACT_FLOAT32_INTEGER = 16_777_216.0;
+
+    static final String METADATA_SOURCE = "model_metadata.json evaluation_metrics.operating_point.probability_threshold";
+    static final String OVERRIDE_SOURCE = "fraud.decision.review-threshold (FRAUD_REVIEW_THRESHOLD)";
+    private static final Logger log = LoggerFactory.getLogger(PredictionService.class);
+
     private final FraudModel fraudModel;
     private final double reviewThreshold;
+    private final String reviewThresholdSource;
 
+    /**
+     * The model metadata's validation-selected threshold is the default; a non-blank
+     * {@code fraud.decision.review-threshold} (env {@code FRAUD_REVIEW_THRESHOLD}) overrides it.
+     * Startup fails if neither provides a probability.
+     */
     public PredictionService(
             FraudModel fraudModel,
-            @Value("${fraud.decision.review-threshold:0.06729906797409058}") double reviewThreshold) {
+            @Value("${fraud.decision.review-threshold:}") String configuredThreshold) {
+        this.fraudModel = fraudModel;
+        if (configuredThreshold != null && !configuredThreshold.isBlank()) {
+            try {
+                this.reviewThreshold = Double.parseDouble(configuredThreshold.strip());
+            } catch (NumberFormatException exception) {
+                throw new IllegalArgumentException("Fraud review threshold override must be a number.", exception);
+            }
+            this.reviewThresholdSource = OVERRIDE_SOURCE;
+        } else {
+            this.reviewThreshold = fraudModel.metadataReviewThreshold().orElseThrow(() -> new IllegalStateException(
+                    "No fraud review threshold: model metadata has none and no override is configured."));
+            this.reviewThresholdSource = METADATA_SOURCE;
+        }
         if (!Double.isFinite(reviewThreshold) || reviewThreshold < 0.0 || reviewThreshold > 1.0) {
             throw new IllegalArgumentException("Fraud review threshold must be finite and between 0 and 1.");
         }
-        this.fraudModel = fraudModel;
-        this.reviewThreshold = reviewThreshold;
+        log.info("event=review_threshold_configured threshold={} source=\"{}\" model_version={}",
+                reviewThreshold, reviewThresholdSource, fraudModel.modelVersion());
+    }
+
+    public double reviewThreshold() {
+        return reviewThreshold;
+    }
+
+    public String reviewThresholdSource() {
+        return reviewThresholdSource;
     }
 
     public PredictionResponse predict(PredictionRequest request) {
@@ -62,6 +102,9 @@ public class PredictionService {
             if (isNonNegativeFeature(name) && value < 0.0) {
                 errors.add(name + " must be nonnegative");
             }
+            if (value > MAX_EXACT_FLOAT32_INTEGER) {
+                errors.add(name + " must be at most " + (long) MAX_EXACT_FLOAT32_INTEGER);
+            }
             if (isIntegerFeature(name) && value != Math.rint(value)) {
                 errors.add(name + " must be an integer-valued number");
             }
@@ -78,7 +121,10 @@ public class PredictionService {
 
     private boolean isNonNegativeFeature(String name) {
         return switch (name) {
-            case "amount", "account_age_days", "transactions_last_24h", "distance_from_home_km", "device_age_days" -> true;
+            // Category codes too: -1 is the model's internal missing-category sentinel, so a client
+            // must send null rather than -1 (or any other negative code).
+            case "amount", "account_age_days", "transactions_last_24h", "distance_from_home_km", "device_age_days",
+                    "channel_code", "merchant_category_code" -> true;
             default -> false;
         };
     }

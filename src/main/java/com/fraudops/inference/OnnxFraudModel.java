@@ -24,11 +24,13 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.OptionalDouble;
 import java.util.Set;
 
 @Component
 public class OnnxFraudModel implements FraudModel {
     private static final String PROBABILITY_OUTPUT = "probabilities";
+    public static final String REVIEW_THRESHOLD_POINTER = "/evaluation_metrics/operating_point/probability_threshold";
     private static final List<String> REQUIRED_FEATURES = List.of(
             "amount", "account_age_days", "transactions_last_24h", "distance_from_home_km",
             "device_age_days", "country_mismatch", "card_present", "channel_code",
@@ -41,6 +43,7 @@ public class OnnxFraudModel implements FraudModel {
     private OrtSession session;
     private String version;
     private List<String> featureOrder;
+    private OptionalDouble reviewThreshold = OptionalDouble.empty();
 
     public OnnxFraudModel(
             ObjectMapper objectMapper,
@@ -64,6 +67,7 @@ public class OnnxFraudModel implements FraudModel {
             version = requiredText(metadata, "model_version");
             featureOrder = readFeatureOrder(metadata);
             validateMetadataSchema(metadata);
+            reviewThreshold = readReviewThreshold(metadata);
 
             environment = OrtEnvironment.getEnvironment();
             try (OrtSession.SessionOptions options = new OrtSession.SessionOptions()) {
@@ -125,6 +129,11 @@ public class OnnxFraudModel implements FraudModel {
         return session != null;
     }
 
+    @Override
+    public OptionalDouble metadataReviewThreshold() {
+        return reviewThreshold;
+    }
+
     @PreDestroy
     public void close() {
         OrtSession current = session;
@@ -165,6 +174,19 @@ public class OnnxFraudModel implements FraudModel {
             throw new ModelInitializationException("Model metadata feature order is incompatible.");
         }
         return List.copyOf(names);
+    }
+
+    /** Optional; when present it must be a probability so a corrupt artifact fails startup. */
+    private OptionalDouble readReviewThreshold(JsonNode metadata) {
+        JsonNode threshold = metadata.at(REVIEW_THRESHOLD_POINTER);
+        if (threshold.isMissingNode() || threshold.isNull()) {
+            return OptionalDouble.empty();
+        }
+        double value = threshold.asDouble(Double.NaN);
+        if (!threshold.isNumber() || !Double.isFinite(value) || value < 0.0 || value > 1.0) {
+            throw new ModelInitializationException("Metadata review threshold must be a number between 0 and 1.");
+        }
+        return OptionalDouble.of(value);
     }
 
     private String requiredText(JsonNode node, String field) {

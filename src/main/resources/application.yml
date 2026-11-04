@@ -7,13 +7,20 @@ spring:
     name: fraudops-api
   lifecycle:
     timeout-per-shutdown-phase: 25s
+  jackson:
+    # Strict request contract: no silently ignored typos and no "250" -> 250.0 coercion.
+    deserialization:
+      fail-on-unknown-properties: true
+    mapper:
+      allow-coercion-of-scalars: false
 
 fraud:
   model:
     path: ${FRAUD_MODEL_PATH:./fraud_model.onnx}
     metadata-path: ${FRAUD_MODEL_METADATA_PATH:./model_metadata.json}
   decision:
-    review-threshold: ${FRAUD_REVIEW_THRESHOLD:0.06729906797409058}
+    # Empty = use the threshold recorded in model_metadata.json; set to override it.
+    review-threshold: ${FRAUD_REVIEW_THRESHOLD:}
 
 management:
   endpoint:
