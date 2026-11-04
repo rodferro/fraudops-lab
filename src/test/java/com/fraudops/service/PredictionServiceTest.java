@@ -6,6 +6,7 @@ import com.fraudops.inference.FraudModel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -89,6 +90,41 @@ class PredictionServiceTest {
                 0.0, 0.0, 0.0, 1.0, 0.0, 0.0);
 
         assertThrows(FeatureValidationException.class, () -> service.predict(invalid));
+    }
+
+    @Test
+    void rejectsNegativeCategoryCodesWithFieldDetails() {
+        PredictionRequest invalid = new PredictionRequest(250.0, 120.0, 5.0, 150.0, 30.0,
+                1.0, 0.0, -1.0, -3.0);
+
+        FeatureValidationException exception = assertThrows(
+                FeatureValidationException.class, () -> service.predict(invalid));
+
+        assertEquals(List.of("channel_code must be nonnegative", "merchant_category_code must be nonnegative"),
+                exception.getDetails());
+    }
+
+    @Test
+    void rejectsValuesAboveExactFloat32IntegerRange() {
+        PredictionRequest invalid = new PredictionRequest(16_777_217.0, 16_777_217.0, 5.0, 150.0, 30.0,
+                1.0, 0.0, 0.0, 2.0);
+
+        FeatureValidationException exception = assertThrows(
+                FeatureValidationException.class, () -> service.predict(invalid));
+
+        assertEquals(List.of("amount must be at most 16777216", "account_age_days must be at most 16777216"),
+                exception.getDetails());
+    }
+
+    @Test
+    void acceptsBoundaryValues() {
+        PredictionRequest boundary = new PredictionRequest(16_777_216.0, 16_777_216.0, 0.0, 0.0, 0.0,
+                0.0, 1.0, 16_777_216.0, 0.0);
+
+        service.predict(boundary);
+
+        assertEquals(16_777_216.0f, capturedFeatures.get().get("account_age_days"));
+        assertEquals(16_777_216.0f, capturedFeatures.get().get("channel_code"));
     }
 
     private PredictionRequest validRequest() {

@@ -108,6 +108,21 @@ class FraudApiIntegrationTest {
     }
 
     @Test
+    void outOfBoundsFeaturesReturnFieldLevelDetails() throws Exception {
+        ResponseEntity<String> response = postPrediction(validJson()
+                .replace("\"account_age_days\":120", "\"account_age_days\":16777217")
+                .replace("\"channel_code\":0", "\"channel_code\":-1"));
+
+        assertEquals(400, response.getStatusCode().value());
+        JsonNode body = objectMapper.readTree(response.getBody());
+        assertEquals("INVALID_FEATURES", body.path("code").asText());
+        List<String> details = new ArrayList<>();
+        body.path("details").forEach(detail -> details.add(detail.asText()));
+        assertEquals(List.of("account_age_days must be at most 16777216", "channel_code must be nonnegative"),
+                details);
+    }
+
+    @Test
     void rejectsMissingRequestBodyWithStructuredError() {
         ResponseEntity<String> response = restTemplate.postForEntity("/api/v1/predict", HttpEntity.EMPTY, String.class);
 

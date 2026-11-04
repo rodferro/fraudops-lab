@@ -13,6 +13,13 @@ import java.util.Map;
 
 @Service
 public class PredictionService {
+    /**
+     * 2^24: every integer up to this magnitude is exactly representable as float32, so integer
+     * features cannot be silently rounded on their way into the tensor. It is far above any
+     * plausible amount, day count, transaction count, distance or category code.
+     */
+    static final double MAX_EXACT_FLOAT32_INTEGER = 16_777_216.0;
+
     private final FraudModel fraudModel;
     private final double reviewThreshold;
 
@@ -62,6 +69,9 @@ public class PredictionService {
             if (isNonNegativeFeature(name) && value < 0.0) {
                 errors.add(name + " must be nonnegative");
             }
+            if (value > MAX_EXACT_FLOAT32_INTEGER) {
+                errors.add(name + " must be at most " + (long) MAX_EXACT_FLOAT32_INTEGER);
+            }
             if (isIntegerFeature(name) && value != Math.rint(value)) {
                 errors.add(name + " must be an integer-valued number");
             }
@@ -78,7 +88,10 @@ public class PredictionService {
 
     private boolean isNonNegativeFeature(String name) {
         return switch (name) {
-            case "amount", "account_age_days", "transactions_last_24h", "distance_from_home_km", "device_age_days" -> true;
+            // Category codes too: -1 is the model's internal missing-category sentinel, so a client
+            // must send null rather than -1 (or any other negative code).
+            case "amount", "account_age_days", "transactions_last_24h", "distance_from_home_km", "device_age_days",
+                    "channel_code", "merchant_category_code" -> true;
             default -> false;
         };
     }
