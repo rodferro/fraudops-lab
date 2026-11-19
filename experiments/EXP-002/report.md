@@ -2,6 +2,8 @@
 
 ## Status: Runtime Acceptance Not Verified
 
+> **Update 2026-11-19:** runtime acceptance was later verified on a Docker Engine host; see the [addendum](#addendum-2026-11-19-runtime-verification-on-a-docker-engine-host). The original text below is unchanged.
+
 The container implementation is present, but EXP-002 cannot be declared complete on this workstation because Docker Engine and Docker-compatible builders are unavailable. `docker` is not on PATH; checks also found no Podman, nerdctl, or Buildah executable/service. As directed, the image build and all Docker-runtime acceptance criteria remain unverified. The Dockerfile and context were implemented and statically reviewed, and the application test/build plus the health-check helper were validated outside a container.
 
 ## Implementation
@@ -50,3 +52,79 @@ To complete runtime acceptance, run the build, all three resource scenarios, con
 ## Readiness
 
 The configuration is a reasonable candidate for a local Kubernetes image build: Java 21, JRE runtime stage, non-root user, read-only application files, named model artifacts, a readiness-based Docker health check, and container-aware heap headroom are specified. It is **not yet verified as a deployable image**; the critical image-build, resource-limit, container parity, and graceful-shutdown criteria still require a machine with Docker Engine. No Kubernetes manifests or EXP-003 work were added.
+
+## Addendum (2026-11-19): Runtime Verification on a Docker Engine Host
+
+The sections above are the original EXP-002 record, written on a Windows workstation without Docker Engine, and are left unchanged. Docker became available later. The image was built and run during EXP-003, the repository migration and EXP-005, but none of those runs closed the EXP-002 acceptance criteria. This addendum closes them against the current Dockerfile.
+
+### Changes since the original report
+
+- **Dockerfile directory permissions.** The current Dockerfile adds `RUN chmod 755 /app /app/model /opt /opt/healthcheck` after the `COPY --chmod=0444` steps. The original report does not describe this line. EXP-003 records that it was already present and shows the failure it prevents: UID 10001 cannot traverse a directory created with mode 0444 (`ClassNotFoundException` in the EXP-003 test-client image). The static review above did not catch this. It is the only defect found so far that needed a real image to surface.
+- **Test count.** The build-stage `mvn clean verify` now runs 35 tests, up from 15 in the original report, because tests were added in later experiments.
+- **Parity fixture.** `src/test/resources/parity-cases.json` now holds six cases (five originally).
+- **EXP-002B.** EXP-003 refers to earlier "EXP-002B performance and incomplete stress/shutdown work." No EXP-002B report or evidence is in the repository. This run covers the criteria that work was meant to close.
+
+### Method
+
+`scripts/exp002_verify.py` (Python standard library and the Docker CLI) ran once, from commit `265ef91`.
+
+1. **Build.** `docker build` with `--no-cache-filter build`, so the Maven test stage ran again.
+2. **Image checks.** `docker inspect`, then inside the image: `id`, file ownership and modes, a write attempt on `/app/model`, model and metadata SHA-256 compared against the parity fixture, and `java -version`.
+3. **Resource scenarios.** Each scenario used a fresh container with `--restart=no` and `--memory-swap` equal to `--memory`, so exceeding the limit would end in an OOM kill instead of swapping. Scenarios: baseline 2 CPU / 1 GiB, constrained 1 CPU / 512 MiB, stress 0.5 CPU / 256 MiB. Each scenario recorded:
+   - time to readiness `UP` and to Docker `healthy`, measured from the return of `docker run`
+   - all six parity cases through the container API, using the fixture tolerances, expected decision and model version
+   - three `scripts/load_test.py` trials of 2,000 requests at concurrency 16, each after 200 warmup requests
+   - `docker stats` every 2 s
+   - cgroup v2 `memory.peak`
+   - the durations of the last five health-check probes
+   - the final OOM, restart, exit and health state
+4. **SIGTERM under load.** In the baseline scenario, 16 client threads sent requests continuously, and `docker stop --time 35` ran after 5 s. Each request was classified against the time the `docker stop` command started.
+
+Host: Apple Silicon MacBook Air, Docker Desktop 29.9.3 (Linux VM with 10 CPUs, 7.75 GiB, aarch64, cgroup v2). The image is therefore the arm64 variant of the pinned multi-arch base images. The load client and the container shared the host.
+
+Evidence: [`evidence/run-20261119T110142Z/`](evidence/run-20261119T110142Z/). The full raw run, including `docker inspect` output, the build log and `docker stats` samples, is in ignored `artifacts/EXP-002/run-20261119T110142Z/`.
+
+### Results
+
+| Check | Result |
+| --- | --- |
+| Image build | Passed in 72.3 s; image `sha256:8f24cc390afa…`, 607.4 MiB |
+| Maven tests in build stage | 35 run, 0 failures, 0 errors, 0 skipped |
+| Runtime user / app files | UID 10001; `/app/model` not writable |
+| Model / metadata SHA-256 | Both match the parity fixture |
+| Runtime JRE | Temurin 21.0.8+9 |
+| Vulnerability scan | Not run (no scanner installed) |
+
+| Scenario | Ready | Healthy | Parity | Throughput, trials 1/2/3 (req/s) | p95, trials 1/2/3 (ms) | Errors | cgroup peak | Max health probe | OOM / restarts | Final health |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- | --- |
+| Baseline 2 CPU / 1 GiB | 1.69 s | 5.49 s | 6/6 | 1,102 / 1,995 / 2,111 | 75.5 / 57.5 / 51.6 | 0 | 303.3 MiB | 85 ms | No / 0 | healthy |
+| Constrained 1 CPU / 512 MiB | 3.27 s | 5.46 s | 6/6 | 313 / 795 / 1,057 | 99.5 / 87.4 / 80.7 | 0 | 244.3 MiB | 457 ms | No / 0 | healthy |
+| Stress 0.5 CPU / 256 MiB | 14.02 s | 16.72 s | 6/6 | 129 / 213 / 259 | 202.0 / 106.0 / 102.6 | 0 | 238.1 MiB | 2,601 ms | No / 0 | healthy |
+
+| SIGTERM check | Result |
+| --- | --- |
+| `docker stop` duration | 0.23 s, so no SIGKILL was needed |
+| Exit code / OOM | 143 (SIGTERM) / no |
+| Spring log | "Commencing graceful shutdown" then "Graceful shutdown complete" 7 ms later |
+| Requests in flight when `docker stop` started | 16; all 16 returned 200 |
+| Requests started after `docker stop` started | 317 total: 109 returned 200, 47 were reset or disconnected, 161 were refused |
+
+### Findings
+
+- **All three scenarios ran to completion.** There were no OOM kills, no restarts, no request errors, and parity was 6/6 through the runtime JRE in every case. In the stress case, cgroup peak memory reached 238.1 MiB of the 256 MiB limit (93%), so the margin is small and the result does not establish headroom.
+- **Throughput was still rising at the third trial.** In every scenario, each trial was faster than the one before, by up to 3.4× between trials 1 and 3 under the 1 CPU limit. The 200-request warmup is not enough for the JIT to settle, especially under CPU limits, so these figures are not steady-state throughput. Use the third trial as the closest estimate, and treat the medians in `summary.md` as warmup-affected.
+- **The p50/p95 gap suggests CPU-quota throttling.** At baseline, p50 was about 3–5 ms while p95 was 52–76 ms, and the container was hitting its 200% CPU ceiling. That pattern is consistent with CFS throttling, but `cpu.stat` throttling counters were not captured, so this is not confirmed.
+- **The health check nearly timed out under stress.** At 0.5 CPU under load, health-check probes took 1.8–2.6 s against a 3 s timeout. After the load stopped they took about 0.1 s. No probe failed, but each probe starts a second JVM, which is close to failing on a CPU-starved container and adds load at the worst moment. Consider a longer timeout, or a probe that does not start a JVM.
+- **Graceful shutdown worked.** Every request in flight when `docker stop` started completed with 200, Spring logged a clean shutdown, and the process exited with code 143 well inside the 35 s budget. This shows little, though, because each request takes milliseconds. The test does not exercise a request that runs longer than the shutdown phase.
+- **The after-stop classification overstates post-signal successes.** Requests were classified against when the `docker stop` command started, not when the JVM received the signal. The 109 successful "after SIGTERM" requests most likely started during that gap. The 47 resets show that clients hitting a stopping container see dropped connections. Kubernetes avoids this with endpoint removal and the existing `preStop` hook in `k8s/base/deployment.yaml`. Plain Docker does not.
+- **Not comparable to the native baseline.** The original native figures came from an x86 Windows laptop. This run used an arm64 Mac, warmup was not settled, and the native trials themselves varied by about 35%. No container-versus-native overhead is claimed.
+
+### Updated status
+
+**Runtime acceptance verified on one Docker Desktop (arm64) host.** Three criteria passed in all scenarios:
+
+- image build with tests, and the image contents checks
+- container parity
+- no OOM, restart or health failure in any resource scenario
+
+Graceful shutdown under light, short-request load passed. Still open: a vulnerability scan, steady-state (post-JIT) throughput, CPU throttling counters, a shutdown test with long-running requests, an x86 host run, and a lighter or more tolerant health check for CPU-constrained containers.

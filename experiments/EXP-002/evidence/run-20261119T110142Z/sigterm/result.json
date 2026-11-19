@@ -1,0 +1,46 @@
+{
+  "startup": {
+    "ready_s": 1.7,
+    "healthy_s": 5.51,
+    "outcome": "ready"
+  },
+  "docker_stop_returncode": 0,
+  "stop_duration_s": 0.23,
+  "killed_after_timeout": false,
+  "completed_before_sigterm": {
+    "total": 9300,
+    "200": 9300
+  },
+  "in_flight_at_sigterm": {
+    "total": 16,
+    "200": 16
+  },
+  "started_after_sigterm": {
+    "total": 317,
+    "200": 109,
+    "RemoteDisconnected": 16,
+    "ConnectionResetError": 31,
+    "URLError": 161
+  },
+  "log_commencing_graceful_shutdown": true,
+  "log_graceful_shutdown_complete": true,
+  "log_onnx_session_closed": false,
+  "final_state": {
+    "present": true,
+    "status": "exited",
+    "running": false,
+    "oom_killed": false,
+    "exit_code": 143,
+    "error": "",
+    "restart_count": 0,
+    "health_status": "unhealthy",
+    "health_failing_streak": 0,
+    "health_probes_last5": [
+      {
+        "exit_code": 0,
+        "duration_ms": 70.1
+      }
+    ],
+    "health_probe_max_ms": 70.1
+  }
+}
