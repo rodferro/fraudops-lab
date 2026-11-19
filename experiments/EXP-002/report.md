@@ -111,13 +111,35 @@ Evidence: [`evidence/run-20261119T110142Z/`](evidence/run-20261119T110142Z/). Th
 
 ### Findings
 
-- **All three scenarios ran to completion.** There were no OOM kills, no restarts, no request errors, and parity was 6/6 through the runtime JRE in every case. In the stress case, cgroup peak memory reached 238.1 MiB of the 256 MiB limit (93%), so the margin is small and the result does not establish headroom.
+- **All three scenarios ran to completion.** There were no OOM kills, no restarts, no request errors, and parity was 6/6 through the runtime JRE in every case. In the stress case, cgroup peak memory reached 238.1 MiB of the 256 MiB limit in this run. A second stress run (see the follow-up below) reached the limit itself, so 256 MiB has no reliable headroom.
 - **Throughput was still rising at the third trial.** In every scenario, each trial was faster than the one before, by up to 3.4× between trials 1 and 3 under the 1 CPU limit. The 200-request warmup is not enough for the JIT to settle, especially under CPU limits, so these figures are not steady-state throughput. Use the third trial as the closest estimate, and treat the medians in `summary.md` as warmup-affected.
 - **The p50/p95 gap suggests CPU-quota throttling.** At baseline, p50 was about 3–5 ms while p95 was 52–76 ms, and the container was hitting its 200% CPU ceiling. That pattern is consistent with CFS throttling, but `cpu.stat` throttling counters were not captured, so this is not confirmed.
 - **The health check nearly timed out under stress.** At 0.5 CPU under load, health-check probes took 1.8–2.6 s against a 3 s timeout. After the load stopped they took about 0.1 s. No probe failed, but each probe starts a second JVM, which is close to failing on a CPU-starved container and adds load at the worst moment. Consider a longer timeout, or a probe that does not start a JVM.
 - **Graceful shutdown worked.** Every request in flight when `docker stop` started completed with 200, Spring logged a clean shutdown, and the process exited with code 143 well inside the 35 s budget. This shows little, though, because each request takes milliseconds. The test does not exercise a request that runs longer than the shutdown phase.
 - **The after-stop classification overstates post-signal successes.** Requests were classified against when the `docker stop` command started, not when the JVM received the signal. The 109 successful "after SIGTERM" requests most likely started during that gap. The 47 resets show that clients hitting a stopping container see dropped connections. Kubernetes avoids this with endpoint removal and the existing `preStop` hook in `k8s/base/deployment.yaml`. Plain Docker does not.
 - **Not comparable to the native baseline.** The original native figures came from an x86 Windows laptop. This run used an arm64 Mac, warmup was not settled, and the native trials themselves varied by about 35%. No container-versus-native overhead is claimed.
+
+### Follow-up (2026-11-19): health check replaced
+
+Because health-check probes came close to the timeout at 0.5 CPU, the Java probe (`docker/HealthCheck.java`, which started a second JVM for every probe) was replaced with `docker/healthcheck.sh`. The script sends the same `GET /actuator/health/readiness` over bash's `/dev/tcp` and passes only on HTTP 200 with `"status":"UP"`. The image has no curl or wget, so the check now depends on bash being in the Ubuntu-based JRE image. Before the image was rebuilt, the script was tested against a mock server: it passed for a healthy response and failed for a 503, a non-`UP` body, a closed port, and a server that hangs. The hang fails after 2 s, inside the 3 s timeout. A new `.gitattributes` keeps `*.sh` at LF line endings so a Windows checkout cannot break the script.
+
+The rebuilt image was rerun in the stress scenario only (same host). Evidence: [`evidence/run-20261119T112147Z/`](evidence/run-20261119T112147Z/).
+
+| Stress, 0.5 CPU / 256 MiB | Java probe (first run) | Bash probe (rerun) |
+| --- | ---: | ---: |
+| Maven tests / parity | 35 passed / 6/6 | 35 passed / 6/6 |
+| Ready / healthy | 14.02 s / 16.72 s | 12.64 s / 15.35 s |
+| Health probe under load | 1,796–2,601 ms | 397–667 ms |
+| Health probe after load | 89–103 ms | 30–32 ms |
+| Throughput, trials 1/2/3 (req/s) | 129 / 213 / 259 | 136 / 227 / 257 |
+| p95, trials 1/2/3 (ms) | 202.0 / 106.0 / 102.6 | 201.7 / 104.3 / 101.8 |
+| Max `docker stats` memory | 199.1 MiB | 236.7 MiB |
+| cgroup `memory.peak` | 238.1 MiB | 256.0 MiB (at limit) |
+| OOM / restarts / errors | No / 0 / 0 | No / 0 / 0 |
+
+- **The worst probe under load dropped from 87% to 22% of the 3 s timeout.** The remaining delay under load is most likely CFS quota throttling: the probe shares the container's 0.5 CPU quota with a saturated JVM. It is not the cost of the probe itself, which took 30 ms after the load stopped.
+- **Load results were unchanged within run-to-run noise.** With one run per variant, the change in p99 median (197 → 109 ms in `summary.md`) is not attributed to the probe.
+- **Memory reached the 256 MiB limit without an OOM kill.** `memory.peak` includes reclaimable page cache, and the kernel reclaimed it instead of killing the process. The probe change is not the cause: the old Java probe ran in the same cgroup, so removing it can only lower memory use. Java heap stayed at 25–35 MB in both runs, so the variation is outside the heap. 256 MiB is at the edge of what this service needs and should be treated as a failure boundary, not a usable limit.
 
 ### Updated status
 
@@ -127,4 +149,4 @@ Evidence: [`evidence/run-20261119T110142Z/`](evidence/run-20261119T110142Z/). Th
 - container parity
 - no OOM, restart or health failure in any resource scenario
 
-Graceful shutdown under light, short-request load passed. Still open: a vulnerability scan, steady-state (post-JIT) throughput, CPU throttling counters, a shutdown test with long-running requests, an x86 host run, and a lighter or more tolerant health check for CPU-constrained containers.
+Graceful shutdown under light, short-request load passed. The health check was replaced and rerun in the stress scenario (follow-up above). Still open: a vulnerability scan, steady-state (post-JIT) throughput, CPU throttling counters and memory breakdown (`cpu.stat`, `memory.stat`), memory headroom at 256 MiB, a shutdown test with long-running requests, and an x86 host run.
