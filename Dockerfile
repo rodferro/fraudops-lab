@@ -8,13 +8,10 @@ RUN --mount=type=cache,target=/root/.m2 \
     mvn -B -ntp dependency:go-offline
 
 COPY src ./src
-COPY docker/HealthCheck.java ./docker/HealthCheck.java
 COPY fraud_model.onnx model_metadata.json ./
 
 RUN --mount=type=cache,target=/root/.m2 \
     mvn -B -ntp clean verify
-RUN mkdir -p /healthcheck \
-    && javac --release 21 -d /healthcheck docker/HealthCheck.java
 
 FROM eclipse-temurin:21.0.8_9-jre-noble@sha256:20e7f7288e1c18eebe8f06a442c9f7183342d9b022d3b9a9677cae2b558ddddd AS runtime
 
@@ -33,8 +30,9 @@ COPY --from=build --chown=0:0 --chmod=0444 \
     /workspace/fraud_model.onnx /app/model/fraud_model.onnx
 COPY --from=build --chown=0:0 --chmod=0444 \
     /workspace/model_metadata.json /app/model/model_metadata.json
-COPY --from=build --chown=0:0 --chmod=0444 \
-    /healthcheck/HealthCheck.class /opt/healthcheck/HealthCheck.class
+# Bash /dev/tcp probe: no curl/wget in the image and no second JVM per probe.
+# /opt/healthcheck must stay a traversable directory; k8s/client adds its class there.
+COPY --chown=0:0 --chmod=0555 docker/healthcheck.sh /opt/healthcheck/healthcheck.sh
 
 RUN chmod 755 /app /app/model /opt /opt/healthcheck
 
@@ -48,6 +46,6 @@ EXPOSE 8080
 STOPSIGNAL SIGTERM
 
 HEALTHCHECK --interval=10s --timeout=3s --start-period=35s --retries=3 \
-    CMD ["java", "-Xms4m", "-Xmx16m", "-XX:ActiveProcessorCount=1", "-cp", "/opt/healthcheck", "HealthCheck"]
+    CMD ["/bin/bash", "/opt/healthcheck/healthcheck.sh"]
 
 ENTRYPOINT ["java", "-jar", "/app/app.jar"]

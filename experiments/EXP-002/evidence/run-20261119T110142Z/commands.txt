@@ -1,0 +1,115 @@
+2026-11-19T11:01:42.472+00:00 $ docker version
+2026-11-19T11:01:42.502+00:00 $ docker info
+2026-11-19T11:01:43.007+00:00 $ docker build --progress=plain -t fraudops-api:exp002 --build-arg APP_VERSION=1.0.0-exp001 --build-arg MODEL_VERSION=1.0.0-exp000 --no-cache-filter build .
+2026-11-19T11:02:55.313+00:00 $ docker inspect fraudops-api:exp002
+2026-11-19T11:02:55.342+00:00 $ docker run --rm --entrypoint sh fraudops-api:exp002 -c id; ls -ln /app /app/model /opt/healthcheck; sha256sum /app/model/*; (touch /app/model/probe 2>/dev/null && echo APP_WRITABLE) || echo APP_READ_ONLY; java -version 2>&1
+2026-11-19T11:02:55.597+00:00 $ docker rm -f fraudops-exp002-verify
+2026-11-19T11:02:55.620+00:00 $ docker run -d --name fraudops-exp002-verify --restart=no --cpus=2 --memory=1g --memory-swap=1g -p 8080:8080 fraudops-api:exp002
+2026-11-19T11:02:55.706+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:02:56.245+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:02:56.776+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:02:57.300+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:02:57.902+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:02:58.447+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:02:58.995+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:02:59.541+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:03:00.087+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:03:00.626+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:03:01.167+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:03:01.253+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:03:01.270+00:00 $ python ./scripts/load_test.py --base-url http://localhost:8080 --requests 2000 --concurrency 16 --warmup-requests 200
+2026-11-19T11:03:03.428+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:03:03.446+00:00 $ python ./scripts/load_test.py --base-url http://localhost:8080 --requests 2000 --concurrency 16 --warmup-requests 200
+2026-11-19T11:03:04.600+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:03:04.617+00:00 $ python ./scripts/load_test.py --base-url http://localhost:8080 --requests 2000 --concurrency 16 --warmup-requests 200
+2026-11-19T11:03:05.692+00:00 $ docker exec fraudops-exp002-verify cat /sys/fs/cgroup/memory.peak
+2026-11-19T11:03:30.735+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:03:30.773+00:00 $ docker logs --timestamps fraudops-exp002-verify
+2026-11-19T11:03:30.832+00:00 $ docker stop --time 35 fraudops-exp002-verify
+2026-11-19T11:03:31.055+00:00 $ docker rm -f fraudops-exp002-verify
+2026-11-19T11:03:31.083+00:00 $ docker rm -f fraudops-exp002-verify
+2026-11-19T11:03:31.103+00:00 $ docker run -d --name fraudops-exp002-verify --restart=no --cpus=1 --memory=512m --memory-swap=512m -p 8080:8080 fraudops-api:exp002
+2026-11-19T11:03:31.208+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:03:31.729+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:03:32.256+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:03:32.783+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:03:33.315+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:03:33.851+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:03:34.381+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:03:34.984+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:03:35.528+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:03:36.071+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:03:36.616+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:03:36.720+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:03:36.747+00:00 $ python ./scripts/load_test.py --base-url http://localhost:8080 --requests 2000 --concurrency 16 --warmup-requests 200
+2026-11-19T11:03:44.206+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:03:44.234+00:00 $ python ./scripts/load_test.py --base-url http://localhost:8080 --requests 2000 --concurrency 16 --warmup-requests 200
+2026-11-19T11:03:47.089+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:03:47.105+00:00 $ python ./scripts/load_test.py --base-url http://localhost:8080 --requests 2000 --concurrency 16 --warmup-requests 200
+2026-11-19T11:03:49.182+00:00 $ docker exec fraudops-exp002-verify cat /sys/fs/cgroup/memory.peak
+2026-11-19T11:04:14.991+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:04:15.026+00:00 $ docker logs --timestamps fraudops-exp002-verify
+2026-11-19T11:04:15.077+00:00 $ docker stop --time 35 fraudops-exp002-verify
+2026-11-19T11:04:15.311+00:00 $ docker rm -f fraudops-exp002-verify
+2026-11-19T11:04:15.337+00:00 $ docker rm -f fraudops-exp002-verify
+2026-11-19T11:04:15.364+00:00 $ docker run -d --name fraudops-exp002-verify --restart=no --cpus=0.5 --memory=256m --memory-swap=256m -p 8080:8080 fraudops-api:exp002
+2026-11-19T11:04:15.461+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:04:15.985+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:04:16.526+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:04:17.051+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:04:17.582+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:04:18.126+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:04:18.667+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:04:19.208+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:04:19.749+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:04:20.294+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:04:20.831+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:04:21.376+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:04:21.923+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:04:22.469+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:04:23.013+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:04:23.547+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:04:24.091+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:04:24.631+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:04:25.177+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:04:25.713+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:04:26.254+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:04:26.792+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:04:27.327+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:04:27.863+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:04:28.399+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:04:29.990+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:04:30.537+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:04:31.079+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:04:31.626+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:04:32.157+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:04:32.401+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:04:32.428+00:00 $ python ./scripts/load_test.py --base-url http://localhost:8080 --requests 2000 --concurrency 16 --warmup-requests 200
+2026-11-19T11:04:50.611+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:04:50.644+00:00 $ python ./scripts/load_test.py --base-url http://localhost:8080 --requests 2000 --concurrency 16 --warmup-requests 200
+2026-11-19T11:05:01.207+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:05:01.232+00:00 $ python ./scripts/load_test.py --base-url http://localhost:8080 --requests 2000 --concurrency 16 --warmup-requests 200
+2026-11-19T11:05:09.610+00:00 $ docker exec fraudops-exp002-verify cat /sys/fs/cgroup/memory.peak
+2026-11-19T11:05:34.706+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:05:34.744+00:00 $ docker logs --timestamps fraudops-exp002-verify
+2026-11-19T11:05:34.808+00:00 $ docker stop --time 35 fraudops-exp002-verify
+2026-11-19T11:05:35.056+00:00 $ docker rm -f fraudops-exp002-verify
+2026-11-19T11:05:35.079+00:00 $ docker rm -f fraudops-exp002-verify
+2026-11-19T11:05:35.096+00:00 $ docker run -d --name fraudops-exp002-verify --restart=no --cpus=2 --memory=1g --memory-swap=1g -p 8080:8080 fraudops-api:exp002
+2026-11-19T11:05:35.196+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:05:35.719+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:05:36.251+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:05:36.776+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:05:37.402+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:05:37.945+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:05:38.493+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:05:39.036+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:05:39.580+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:05:40.122+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:05:40.664+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:05:40.702+00:00 $ python ./scripts/load_test.py --base-url http://localhost:8080 --requests 200 --concurrency 16 --warmup-requests 0
+2026-11-19T11:05:46.176+00:00 $ docker stop --time 35 fraudops-exp002-verify
+2026-11-19T11:05:55.811+00:00 $ docker inspect fraudops-exp002-verify
+2026-11-19T11:05:55.852+00:00 $ docker logs --timestamps fraudops-exp002-verify
+2026-11-19T11:05:55.914+00:00 $ docker rm -f fraudops-exp002-verify
+2026-11-19T11:05:55.949+00:00 $ docker rm -f fraudops-exp002-verify

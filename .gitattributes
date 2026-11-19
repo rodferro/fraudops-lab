@@ -1,3 +1,6 @@
 # Experiment harness scripts are documentation of the experiments, not part of
 # the service; leave them out of GitHub's language statistics.
 scripts/** linguist-documentation
+
+# Shell scripts run inside Linux containers and must keep LF endings on Windows checkouts.
+*.sh text eol=lf

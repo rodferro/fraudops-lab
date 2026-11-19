@@ -1,0 +1,49 @@
+{
+  "image": "fraudops-api:exp002",
+  "build_seconds": 72.3,
+  "build_returncode": 0,
+  "maven_tests": {
+    "run": 35,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "id": "sha256:8f24cc390afa482182bafbed76c17885ca8a74795550631171bdd612b7bc3250",
+  "size_mib": 607.4,
+  "user": "10001:10001",
+  "labels": {
+    "com.fraudops.model.version": "1.0.0-exp000",
+    "org.opencontainers.image.ref.name": "ubuntu",
+    "org.opencontainers.image.title": "FraudOps Fraud Scoring API",
+    "org.opencontainers.image.version": "1.0.0-exp001"
+  },
+  "entrypoint": [
+    "java",
+    "-jar",
+    "/app/app.jar"
+  ],
+  "stop_signal": "SIGTERM",
+  "healthcheck": {
+    "Test": [
+      "CMD",
+      "java",
+      "-Xms4m",
+      "-Xmx16m",
+      "-XX:ActiveProcessorCount=1",
+      "-cp",
+      "/opt/healthcheck",
+      "HealthCheck"
+    ],
+    "Interval": 10000000000,
+    "Timeout": 3000000000,
+    "StartPeriod": 35000000000,
+    "Retries": 3
+  },
+  "contents": {
+    "uid_10001": true,
+    "app_read_only": true,
+    "model_sha256_matches": true,
+    "metadata_sha256_matches": true,
+    "runtime_java": "OpenJDK Runtime Environment Temurin-21.0.8+9 (build 21.0.8+9-LTS)"
+  }
+}

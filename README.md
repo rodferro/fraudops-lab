@@ -12,7 +12,7 @@ Run documented commands from the repository root. Reports retain the results and
 | --- | --- | --- |
 | EXP-000 — Python model and ONNX export | [Report](experiments/EXP-000/report.md) | [Original metrics](experiments/EXP-000/evidence/metrics.json) |
 | EXP-001 — Java inference API | [Report](experiments/EXP-001/report.md) | Results recorded in report; parity fixtures stay under `src/test/resources/` |
-| EXP-002 — Docker image | [Report](experiments/EXP-002/report.md) | Results and original runtime limitations recorded in report |
+| EXP-002 — Docker image | [Report](experiments/EXP-002/report.md) | [Runtime verification evidence](experiments/EXP-002/evidence/run-20261119T110142Z/) |
 | EXP-003 — Kubernetes deployment/scaling | [Report](experiments/EXP-003/report.md) | [Evidence](experiments/EXP-003/evidence/) |
 | EXP-004 — Observability | [Report](experiments/EXP-004/report.md) | [Evidence](experiments/EXP-004/evidence/) |
 | EXP-005 — Traffic, failures, drift and delayed feedback | [Report](experiments/EXP-005/report.md) | [Aggregate evidence and static dashboard](experiments/EXP-005/evidence/20261023/) |
@@ -201,9 +201,9 @@ docker build -t fraudops-api:exp002 --build-arg APP_VERSION=1.0.0-exp001 --build
 docker run --rm --name fraudops-api -p 8080:8080 --cpus=2 --memory=1g fraudops-api:exp002
 ```
 
-The two image bases are pinned by version and immutable Docker Hub manifest digest: `maven:3.9.11-eclipse-temurin-21-noble` and `eclipse-temurin:21.0.8_9-jre-noble`. The build stage runs `mvn clean verify`, including tests and parity, with a BuildKit Maven cache. The runtime stage contains only the executable jar, the unchanged model and metadata, and a tiny Java readiness probe. It runs as UID/GID 10001; the application artifacts are root-owned and read-only. The app image version and model version are separate image labels.
+The two image bases are pinned by version and immutable Docker Hub manifest digest: `maven:3.9.11-eclipse-temurin-21-noble` and `eclipse-temurin:21.0.8_9-jre-noble`. The build stage runs `mvn clean verify`, including tests and parity, with a BuildKit Maven cache. The runtime stage contains only the executable jar, the unchanged model and metadata, and a small bash readiness probe. It runs as UID/GID 10001; the application artifacts are root-owned and read-only. The app image version and model version are separate image labels.
 
-The readiness probe is compiled during the build and executed by Java in the JRE image, so container health does not assume that a shell, curl, or wget exists. Check with `docker inspect --format '{{.State.Health.Status}}' fraudops-api` or query `http://localhost:8080/actuator/health/readiness`. Docker's health status is a container-level health signal; it does not itself restart an unhealthy container. Kubernetes liveness/readiness probes should target the separate Actuator liveness and readiness endpoints.
+The Docker health check is a small bash script (`docker/healthcheck.sh`) that requests `/actuator/health/readiness` over bash's `/dev/tcp`, so it needs no curl or wget. It relies on bash being present in the Ubuntu-based JRE image; a distroless or shell-less base would need a different probe. It replaced a Java probe that started a second JVM every 10 s, which took up to 2.6 s of the 3 s timeout at 0.5 CPU (see the EXP-002 addendum). Check with `docker inspect --format '{{.State.Health.Status}}' fraudops-api` or query `http://localhost:8080/actuator/health/readiness`. Docker's health status is a container-level health signal; it does not itself restart an unhealthy container. Kubernetes liveness/readiness probes should target the separate Actuator liveness and readiness endpoints.
 
 Configuration continues to use `SERVER_PORT`, `FRAUD_MODEL_PATH`, `FRAUD_MODEL_METADATA_PATH`, and `FRAUD_REVIEW_THRESHOLD`. `JAVA_TOOL_OPTIONS` defaults to container-aware sizing with `-XX:InitialRAMPercentage=20.0 -XX:MaxRAMPercentage=60.0`, leaving memory outside the Java heap for ONNX Runtime native allocations and the rest of the process. Override it when testing a specific limit, while reserving native headroom.
 
@@ -217,7 +217,13 @@ docker run --rm --name fraudops-api --cpus=0.5 --memory=256m -p 8080:8080 fraudo
 
 For each running case, run `python scripts/load_test.py --requests 2000 --concurrency 16 --warmup-requests 200`; capture `docker stats --no-stream`, `docker inspect` restart/OOM/health state, and `/actuator/metrics/jvm.memory.used?tag=area:heap`. The 256 MiB case is deliberately a stress trial; heap percentage limits are not a guarantee that native allocations will fit. Do not raise limits silently if startup or inference fails.
 
-Spring uses graceful server shutdown with a 25-second shutdown phase. The Docker image is exec-form with Java as PID 1 and `STOPSIGNAL SIGTERM`; use `docker stop --time 35 fraudops-api` to allow the Spring phase plus a 10-second margin. To verify in-flight completion, generate concurrent traffic while stopping the container and check completed responses, logs, exit status, and resource cleanup. The Docker health state and shutdown behavior have not been runtime-verified on this workstation because Docker Engine is unavailable.
+Spring uses graceful server shutdown with a 25-second shutdown phase. The Docker image is exec-form with Java as PID 1 and `STOPSIGNAL SIGTERM`; use `docker stop --time 35 fraudops-api` to allow the Spring phase plus a 10-second margin. To verify in-flight completion, generate concurrent traffic while stopping the container and check completed responses, logs, exit status, and resource cleanup. The original EXP-002 report could not verify health state or shutdown behavior because Docker Engine was unavailable on that workstation. To run the full runtime acceptance set (build with tests, image contents, the three resource scenarios, container parity, repeated load trials, and SIGTERM under load), use:
+
+```powershell
+python scripts/exp002_verify.py
+```
+
+Evidence goes to ignored `artifacts/EXP-002/run-<UTC>/`, including a `summary.md`. Results from the 2026-11-19 run are in the [EXP-002 report addendum](experiments/EXP-002/report.md#addendum-2026-11-19-runtime-verification-on-a-docker-engine-host).
 
 Image tagging convention: `fraudops-api:<experiment-or-release-tag>`, with app/model versions retained separately as OCI labels. No credentials are embedded in the image.
 
