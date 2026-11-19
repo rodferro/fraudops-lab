@@ -141,12 +141,42 @@ The rebuilt image was rerun in the stress scenario only (same host). Evidence: [
 - **Load results were unchanged within run-to-run noise.** With one run per variant, the change in p99 median (197 → 109 ms in `summary.md`) is not attributed to the probe.
 - **Memory reached the 256 MiB limit without an OOM kill.** `memory.peak` includes reclaimable page cache, and the kernel reclaimed it instead of killing the process. The probe change is not the cause: the old Java probe ran in the same cgroup, so removing it can only lower memory use. Java heap stayed at 25–35 MB in both runs, so the variation is outside the heap. 256 MiB is at the edge of what this service needs and should be treated as a failure boundary, not a usable limit.
 
+### Rerun on current `main` (2026-11-19)
+
+The runs above were made from commit `265ef91`. After this work was rebased onto `main`, which added the metadata review threshold in containers and inference-failure logging, the full script was rerun from commit `731be91` on the same host. These results describe the current image. Evidence: [`evidence/run-20261119T113555Z/`](evidence/run-20261119T113555Z/).
+
+| Check | Result |
+| --- | --- |
+| Image build | Passed in 65.8 s; image `sha256:4e942ef27494…`, 607.4 MiB |
+| Maven tests in build stage | 42 run, 0 failures, 0 errors, 0 skipped |
+| Image contents | UID 10001; `/app/model` not writable; model and metadata SHA-256 match the fixture; Temurin 21.0.8+9 |
+
+| Scenario | Ready | Healthy | Parity | Throughput, trials 1/2/3 (req/s) | p95, trials 1/2/3 (ms) | Errors | cgroup peak | Max health probe | OOM / restarts | Final health |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- | --- |
+| Baseline 2 CPU / 1 GiB | 1.72 s | 5.52 s | 6/6 | 1,239 / 2,121 / 2,355 | 70.8 / 55.4 / 52.1 | 0 | 307.2 MiB | 39 ms | No / 0 | healthy |
+| Constrained 1 CPU / 512 MiB | 3.29 s | 5.45 s | 6/6 | 370 / 835 / 1,106 | 98.2 / 85.4 / 78.9 | 0 | 236.0 MiB | 57 ms | No / 0 | healthy |
+| Stress 0.5 CPU / 256 MiB | 13.50 s | 15.67 s | 6/6 | 132 / 222 / 270 | 202.3 / 103.6 / 100.9 | 0 | 218.4 MiB | 504 ms | No / 0 | healthy |
+
+| SIGTERM check | Result |
+| --- | --- |
+| `docker stop` duration / exit code | 0.23 s (no SIGKILL) / 143 |
+| Spring log | "Commencing graceful shutdown" and "Graceful shutdown complete" both present |
+| Requests in flight when `docker stop` started | 16; all 16 returned 200 |
+| Requests started after `docker stop` started | 106 total: 42 returned 200, 63 were reset or disconnected, 1 was refused |
+
+- **Results are consistent with the earlier runs.** All scenarios passed with 6/6 parity and no errors, OOM kills or restarts. Throughput again rose across all three trials, and graceful shutdown again completed every in-flight request.
+- **The bash probe holds up across all scenarios.** The longest probe was 39 ms at baseline, 57 ms constrained, and 504 ms in stress under load (29–32 ms after the load stopped). With the Java probe, the corresponding maxima were 85 ms, 457 ms and 2,601 ms.
+- **Stress memory varies by run.** Across the three stress runs, cgroup `memory.peak` was 238.1, 256.0 and 218.4 MiB. The 256 MiB limit falls inside that spread, which supports treating it as a failure boundary.
+
 ### Updated status
 
-**Runtime acceptance verified on one Docker Desktop (arm64) host.** Three criteria passed in all scenarios:
+**Runtime acceptance verified for the current image** (commit `731be91`, one Docker Desktop arm64 host). In every scenario, the image built with its tests passing, the image contents checks passed, parity held, and there was no OOM kill, restart or health failure. Graceful shutdown completed every in-flight request under light, short-request load. The health check was replaced with a bash probe that stays well inside its timeout at 0.5 CPU.
 
-- image build with tests, and the image contents checks
-- container parity
-- no OOM, restart or health failure in any resource scenario
+Still open:
 
-Graceful shutdown under light, short-request load passed. The health check was replaced and rerun in the stress scenario (follow-up above). Still open: a vulnerability scan, steady-state (post-JIT) throughput, CPU throttling counters and memory breakdown (`cpu.stat`, `memory.stat`), memory headroom at 256 MiB, a shutdown test with long-running requests, and an x86 host run.
+- a vulnerability scan
+- steady-state (post-JIT) throughput, using a longer warmup
+- CPU throttling counters and memory breakdown (`cpu.stat`, `memory.stat`)
+- memory headroom at 256 MiB
+- a shutdown test with long-running requests
+- an x86 host run

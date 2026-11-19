@@ -1,0 +1,21 @@
+uid=10001 gid=10001 groups=10001
+/app:
+total 105064
+-r--r--r-- 1 0 0 107579807 Nov 19 11:36 app.jar
+drwxr-xr-x 1 0 0      4096 Nov 19 11:36 model
+
+/app/model:
+total 16
+-r--r--r-- 1 0 0  2339 Nov  4 02:19 fraud_model.onnx
+-r--r--r-- 1 0 0 10896 Nov  4 02:19 model_metadata.json
+
+/opt/healthcheck:
+total 4
+-r-xr-xr-x 1 0 0 813 Nov 19 11:35 healthcheck.sh
+60af5e22073af550a5bfb249d4590afba12d3529221deb3d8e83b46eaa71a757  /app/model/fraud_model.onnx
+747298910af4e0c230821a0406381b48c95b4d8edb1aca41b87a834359fe0068  /app/model/model_metadata.json
+APP_READ_ONLY
+Picked up JAVA_TOOL_OPTIONS: -XX:+UseContainerSupport -XX:InitialRAMPercentage=20.0 -XX:MaxRAMPercentage=60.0
+openjdk version "21.0.8" 2025-07-15 LTS
+OpenJDK Runtime Environment Temurin-21.0.8+9 (build 21.0.8+9-LTS)
+OpenJDK 64-Bit Server VM Temurin-21.0.8+9 (build 21.0.8+9-LTS, mixed mode, sharing)

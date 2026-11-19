@@ -1,0 +1,26 @@
+# Filtered from the raw run log (artifacts/EXP-002/run-20261119T113555Z/sigterm/container.log): 9880 per-request prediction_completed lines and blank lines removed.
+2026-11-19T11:39:37.001924046Z   .   ____          _            __ _ _
+2026-11-19T11:39:37.001926130Z  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+2026-11-19T11:39:37.001927130Z ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+2026-11-19T11:39:37.001930546Z  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+2026-11-19T11:39:37.001931671Z   '  |____| .__|_| |_|_| |_\__, | / / / /
+2026-11-19T11:39:37.001932421Z  =========|_|==============|___/=/_/_/_/
+2026-11-19T11:39:37.001934046Z  :: Spring Boot ::                (v3.5.8)
+2026-11-19T11:39:37.070398671Z image=exp004 2026-11-19T11:39:37.069Z  INFO trace_id= span_id= com.fraudops.FraudOpsApplication - Starting FraudOpsApplication v1.0.0-exp001 using Java 21.0.8 with PID 1 (/app/app.jar started by ? in /app)
+2026-11-19T11:39:37.070627255Z image=exp004 2026-11-19T11:39:37.070Z  INFO trace_id= span_id= com.fraudops.FraudOpsApplication - No active profile set, falling back to 1 default profile: "default"
+2026-11-19T11:39:37.678319755Z image=exp004 2026-11-19T11:39:37.677Z  INFO trace_id= span_id= o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-11-19T11:39:37.681841047Z image=exp004 2026-11-19T11:39:37.681Z  INFO trace_id= span_id= o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-11-19T11:39:37.681850797Z image=exp004 2026-11-19T11:39:37.681Z  INFO trace_id= span_id= o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.49]
+2026-11-19T11:39:37.689583338Z image=exp004 2026-11-19T11:39:37.689Z  INFO trace_id= span_id= o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-11-19T11:39:37.689797880Z image=exp004 2026-11-19T11:39:37.689Z  INFO trace_id= span_id= o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 600 ms
+2026-11-19T11:39:37.889524630Z image=exp004 2026-11-19T11:39:37.888Z  INFO trace_id= span_id= c.fraudops.service.PredictionService - event=review_threshold_configured threshold=0.06729906797409058 source="model_metadata.json evaluation_metrics.operating_point.probability_threshold" model_version=1.0.0-exp000
+2026-11-19T11:39:38.013180130Z image=exp004 2026-11-19T11:39:38.013Z  INFO trace_id= span_id= o.s.b.a.e.web.EndpointLinksResolver - Exposing 3 endpoints beneath base path '/actuator'
+2026-11-19T11:39:38.033772505Z image=exp004 2026-11-19T11:39:38.033Z  INFO trace_id= span_id= o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-11-19T11:39:38.052291172Z image=exp004 2026-11-19T11:39:38.052Z  INFO trace_id= span_id= com.fraudops.FraudOpsApplication - Started FraudOpsApplication in 1.179 seconds (process running for 1.348)
+2026-11-19T11:39:38.361124214Z image=exp004 2026-11-19T11:39:38.360Z  INFO trace_id= span_id= o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-11-19T11:39:38.361141964Z image=exp004 2026-11-19T11:39:38.361Z  INFO trace_id= span_id= o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-11-19T11:39:38.361847464Z image=exp004 2026-11-19T11:39:38.361Z  INFO trace_id= span_id= o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2026-11-19T11:39:47.651565135Z image=exp004 2026-11-19T11:39:47.651Z  INFO trace_id= span_id= o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-11-19T11:39:47.654317260Z image=exp004 2026-11-19T11:39:47.654Z  INFO trace_id= span_id= o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-11-19T11:39:36.704256088Z Picked up JAVA_TOOL_OPTIONS: -XX:+UseContainerSupport -XX:InitialRAMPercentage=20.0 -XX:MaxRAMPercentage=60.0
+2026-11-19T11:39:37.869916755Z onnxruntime cpuid_info warning: Unknown CPU vendor. cpuinfo_vendor value: 0

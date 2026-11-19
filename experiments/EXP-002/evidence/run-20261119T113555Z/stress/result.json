@@ -1,0 +1,161 @@
+{
+  "scenario": "stress",
+  "cpus": "0.5",
+  "memory": "256m",
+  "startup": {
+    "ready_s": 13.5,
+    "healthy_s": 15.67,
+    "outcome": "ready"
+  },
+  "parity": {
+    "passed": 6,
+    "total": 6,
+    "cases": [
+      {
+        "name": "typical",
+        "http_status": 200,
+        "expected": 0.23597344756126404,
+        "actual": 0.23597344756126404,
+        "abs_diff": 0.0,
+        "decision": "review",
+        "expected_decision": "review",
+        "passed": true
+      },
+      {
+        "name": "high_risk",
+        "http_status": 200,
+        "expected": 0.9930033683776855,
+        "actual": 0.9930033683776855,
+        "abs_diff": 0.0,
+        "decision": "review",
+        "expected_decision": "review",
+        "passed": true
+      },
+      {
+        "name": "missing_numerical",
+        "http_status": 200,
+        "expected": 0.009561717510223389,
+        "actual": 0.009561717510223389,
+        "abs_diff": 0.0,
+        "decision": "approve",
+        "expected_decision": "approve",
+        "passed": true
+      },
+      {
+        "name": "unknown_categories",
+        "http_status": 200,
+        "expected": 0.03944578766822815,
+        "actual": 0.03944578766822815,
+        "abs_diff": 0.0,
+        "decision": "approve",
+        "expected_decision": "approve",
+        "passed": true
+      },
+      {
+        "name": "just_below_threshold",
+        "http_status": 200,
+        "expected": 0.06710419058799744,
+        "actual": 0.06710419058799744,
+        "abs_diff": 0.0,
+        "decision": "approve",
+        "expected_decision": "approve",
+        "passed": true
+      },
+      {
+        "name": "just_above_threshold",
+        "http_status": 200,
+        "expected": 0.0674934983253479,
+        "actual": 0.0674934983253479,
+        "abs_diff": 0.0,
+        "decision": "review",
+        "expected_decision": "review",
+        "passed": true
+      }
+    ]
+  },
+  "load_trials": [
+    {
+      "requests": 2000,
+      "concurrency": 16,
+      "warmup_requests": 200,
+      "duration_seconds": 15.198,
+      "throughput_requests_per_second": 131.6,
+      "p50_latency_ms": 101.571,
+      "p95_latency_ms": 202.347,
+      "p99_latency_ms": 212.381,
+      "error_count": 0,
+      "error_rate": 0.0,
+      "jvm_heap_used_bytes": 36254848,
+      "error_samples": []
+    },
+    {
+      "requests": 2000,
+      "concurrency": 16,
+      "warmup_requests": 200,
+      "duration_seconds": 9.002,
+      "throughput_requests_per_second": 222.18,
+      "p50_latency_ms": 94.736,
+      "p95_latency_ms": 103.564,
+      "p99_latency_ms": 106.68,
+      "error_count": 0,
+      "error_rate": 0.0,
+      "jvm_heap_used_bytes": 33782656,
+      "error_samples": []
+    },
+    {
+      "requests": 2000,
+      "concurrency": 16,
+      "warmup_requests": 200,
+      "duration_seconds": 7.4,
+      "throughput_requests_per_second": 270.25,
+      "p50_latency_ms": 89.617,
+      "p95_latency_ms": 100.853,
+      "p99_latency_ms": 104.574,
+      "error_count": 0,
+      "error_rate": 0.0,
+      "jvm_heap_used_bytes": 28049216,
+      "error_samples": []
+    }
+  ],
+  "cgroup_memory_peak_bytes": 228966400,
+  "stats": {
+    "samples": 26,
+    "mem_max_mib": 194.6,
+    "cpu_max_percent": 51.42,
+    "cpu_median_percent": 48.785
+  },
+  "final_state": {
+    "present": true,
+    "status": "running",
+    "running": true,
+    "oom_killed": false,
+    "exit_code": 0,
+    "error": "",
+    "restart_count": 0,
+    "health_status": "healthy",
+    "health_failing_streak": 0,
+    "health_probes_last5": [
+      {
+        "exit_code": 0,
+        "duration_ms": 503.9
+      },
+      {
+        "exit_code": 0,
+        "duration_ms": 396.6
+      },
+      {
+        "exit_code": 0,
+        "duration_ms": 29.0
+      },
+      {
+        "exit_code": 0,
+        "duration_ms": 30.9
+      },
+      {
+        "exit_code": 0,
+        "duration_ms": 31.5
+      }
+    ],
+    "health_probe_max_ms": 503.9
+  }
+}

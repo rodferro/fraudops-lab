@@ -1,0 +1,566 @@
+{
+  "started": "run-20261119T113555Z",
+  "build": {
+    "image": "fraudops-api:exp002",
+    "build_seconds": 65.8,
+    "build_returncode": 0,
+    "maven_tests": {
+      "run": 42,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "id": "sha256:4e942ef274947f3ebb8e7f0e2a0f626875c4844b2b2c82a3bbac54cf81f55a5d",
+    "size_mib": 607.4,
+    "user": "10001:10001",
+    "labels": {
+      "com.fraudops.model.version": "1.0.0-exp000",
+      "org.opencontainers.image.ref.name": "ubuntu",
+      "org.opencontainers.image.title": "FraudOps Fraud Scoring API",
+      "org.opencontainers.image.version": "1.0.0-exp001"
+    },
+    "entrypoint": [
+      "java",
+      "-jar",
+      "/app/app.jar"
+    ],
+    "stop_signal": "SIGTERM",
+    "healthcheck": {
+      "Test": [
+        "CMD",
+        "/bin/bash",
+        "/opt/healthcheck/healthcheck.sh"
+      ],
+      "Interval": 10000000000,
+      "Timeout": 3000000000,
+      "StartPeriod": 35000000000,
+      "Retries": 3
+    },
+    "contents": {
+      "uid_10001": true,
+      "app_read_only": true,
+      "model_sha256_matches": true,
+      "metadata_sha256_matches": true,
+      "runtime_java": "OpenJDK Runtime Environment Temurin-21.0.8+9 (build 21.0.8+9-LTS)"
+    }
+  },
+  "scenarios": [
+    {
+      "scenario": "baseline",
+      "cpus": "2",
+      "memory": "1g",
+      "startup": {
+        "ready_s": 1.72,
+        "healthy_s": 5.52,
+        "outcome": "ready"
+      },
+      "parity": {
+        "passed": 6,
+        "total": 6,
+        "cases": [
+          {
+            "name": "typical",
+            "http_status": 200,
+            "expected": 0.23597344756126404,
+            "actual": 0.23597344756126404,
+            "abs_diff": 0.0,
+            "decision": "review",
+            "expected_decision": "review",
+            "passed": true
+          },
+          {
+            "name": "high_risk",
+            "http_status": 200,
+            "expected": 0.9930033683776855,
+            "actual": 0.9930033683776855,
+            "abs_diff": 0.0,
+            "decision": "review",
+            "expected_decision": "review",
+            "passed": true
+          },
+          {
+            "name": "missing_numerical",
+            "http_status": 200,
+            "expected": 0.009561717510223389,
+            "actual": 0.009561717510223389,
+            "abs_diff": 0.0,
+            "decision": "approve",
+            "expected_decision": "approve",
+            "passed": true
+          },
+          {
+            "name": "unknown_categories",
+            "http_status": 200,
+            "expected": 0.03944578766822815,
+            "actual": 0.03944578766822815,
+            "abs_diff": 0.0,
+            "decision": "approve",
+            "expected_decision": "approve",
+            "passed": true
+          },
+          {
+            "name": "just_below_threshold",
+            "http_status": 200,
+            "expected": 0.06710419058799744,
+            "actual": 0.06710419058799744,
+            "abs_diff": 0.0,
+            "decision": "approve",
+            "expected_decision": "approve",
+            "passed": true
+          },
+          {
+            "name": "just_above_threshold",
+            "http_status": 200,
+            "expected": 0.0674934983253479,
+            "actual": 0.0674934983253479,
+            "abs_diff": 0.0,
+            "decision": "review",
+            "expected_decision": "review",
+            "passed": true
+          }
+        ]
+      },
+      "load_trials": [
+        {
+          "requests": 2000,
+          "concurrency": 16,
+          "warmup_requests": 200,
+          "duration_seconds": 1.614,
+          "throughput_requests_per_second": 1239.21,
+          "p50_latency_ms": 4.389,
+          "p95_latency_ms": 70.82,
+          "p99_latency_ms": 77.294,
+          "error_count": 0,
+          "error_rate": 0.0,
+          "jvm_heap_used_bytes": 55980520,
+          "error_samples": []
+        },
+        {
+          "requests": 2000,
+          "concurrency": 16,
+          "warmup_requests": 200,
+          "duration_seconds": 0.943,
+          "throughput_requests_per_second": 2120.6,
+          "p50_latency_ms": 3.317,
+          "p95_latency_ms": 55.364,
+          "p99_latency_ms": 62.201,
+          "error_count": 0,
+          "error_rate": 0.0,
+          "jvm_heap_used_bytes": 80458208,
+          "error_samples": []
+        },
+        {
+          "requests": 2000,
+          "concurrency": 16,
+          "warmup_requests": 200,
+          "duration_seconds": 0.849,
+          "throughput_requests_per_second": 2354.56,
+          "p50_latency_ms": 3.112,
+          "p95_latency_ms": 52.076,
+          "p99_latency_ms": 57.911,
+          "error_count": 0,
+          "error_rate": 0.0,
+          "jvm_heap_used_bytes": 45092792,
+          "error_samples": []
+        }
+      ],
+      "cgroup_memory_peak_bytes": 322170880,
+      "stats": {
+        "samples": 12,
+        "mem_max_mib": 271.6,
+        "cpu_max_percent": 200.11,
+        "cpu_median_percent": 0.37
+      },
+      "final_state": {
+        "present": true,
+        "status": "running",
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0,
+        "error": "",
+        "restart_count": 0,
+        "health_status": "healthy",
+        "health_failing_streak": 0,
+        "health_probes_last5": [
+          {
+            "exit_code": 0,
+            "duration_ms": 38.7
+          },
+          {
+            "exit_code": 0,
+            "duration_ms": 37.4
+          },
+          {
+            "exit_code": 0,
+            "duration_ms": 33.3
+          }
+        ],
+        "health_probe_max_ms": 38.7
+      }
+    },
+    {
+      "scenario": "constrained",
+      "cpus": "1",
+      "memory": "512m",
+      "startup": {
+        "ready_s": 3.29,
+        "healthy_s": 5.45,
+        "outcome": "ready"
+      },
+      "parity": {
+        "passed": 6,
+        "total": 6,
+        "cases": [
+          {
+            "name": "typical",
+            "http_status": 200,
+            "expected": 0.23597344756126404,
+            "actual": 0.23597344756126404,
+            "abs_diff": 0.0,
+            "decision": "review",
+            "expected_decision": "review",
+            "passed": true
+          },
+          {
+            "name": "high_risk",
+            "http_status": 200,
+            "expected": 0.9930033683776855,
+            "actual": 0.9930033683776855,
+            "abs_diff": 0.0,
+            "decision": "review",
+            "expected_decision": "review",
+            "passed": true
+          },
+          {
+            "name": "missing_numerical",
+            "http_status": 200,
+            "expected": 0.009561717510223389,
+            "actual": 0.009561717510223389,
+            "abs_diff": 0.0,
+            "decision": "approve",
+            "expected_decision": "approve",
+            "passed": true
+          },
+          {
+            "name": "unknown_categories",
+            "http_status": 200,
+            "expected": 0.03944578766822815,
+            "actual": 0.03944578766822815,
+            "abs_diff": 0.0,
+            "decision": "approve",
+            "expected_decision": "approve",
+            "passed": true
+          },
+          {
+            "name": "just_below_threshold",
+            "http_status": 200,
+            "expected": 0.06710419058799744,
+            "actual": 0.06710419058799744,
+            "abs_diff": 0.0,
+            "decision": "approve",
+            "expected_decision": "approve",
+            "passed": true
+          },
+          {
+            "name": "just_above_threshold",
+            "http_status": 200,
+            "expected": 0.0674934983253479,
+            "actual": 0.0674934983253479,
+            "abs_diff": 0.0,
+            "decision": "review",
+            "expected_decision": "review",
+            "passed": true
+          }
+        ]
+      },
+      "load_trials": [
+        {
+          "requests": 2000,
+          "concurrency": 16,
+          "warmup_requests": 200,
+          "duration_seconds": 5.409,
+          "throughput_requests_per_second": 369.74,
+          "p50_latency_ms": 11.813,
+          "p95_latency_ms": 98.181,
+          "p99_latency_ms": 103.935,
+          "error_count": 0,
+          "error_rate": 0.0,
+          "jvm_heap_used_bytes": 46662056,
+          "error_samples": []
+        },
+        {
+          "requests": 2000,
+          "concurrency": 16,
+          "warmup_requests": 200,
+          "duration_seconds": 2.395,
+          "throughput_requests_per_second": 834.97,
+          "p50_latency_ms": 3.962,
+          "p95_latency_ms": 85.413,
+          "p99_latency_ms": 92.637,
+          "error_count": 0,
+          "error_rate": 0.0,
+          "jvm_heap_used_bytes": 39723256,
+          "error_samples": []
+        },
+        {
+          "requests": 2000,
+          "concurrency": 16,
+          "warmup_requests": 200,
+          "duration_seconds": 1.808,
+          "throughput_requests_per_second": 1106.14,
+          "p50_latency_ms": 3.653,
+          "p95_latency_ms": 78.867,
+          "p99_latency_ms": 83.317,
+          "error_count": 0,
+          "error_rate": 0.0,
+          "jvm_heap_used_bytes": 29681592,
+          "error_samples": []
+        }
+      ],
+      "cgroup_memory_peak_bytes": 247468032,
+      "stats": {
+        "samples": 14,
+        "mem_max_mib": 211.4,
+        "cpu_max_percent": 99.71,
+        "cpu_median_percent": 0.245
+      },
+      "final_state": {
+        "present": true,
+        "status": "running",
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0,
+        "error": "",
+        "restart_count": 0,
+        "health_status": "healthy",
+        "health_failing_streak": 0,
+        "health_probes_last5": [
+          {
+            "exit_code": 0,
+            "duration_ms": 34.1
+          },
+          {
+            "exit_code": 0,
+            "duration_ms": 56.7
+          },
+          {
+            "exit_code": 0,
+            "duration_ms": 25.9
+          },
+          {
+            "exit_code": 0,
+            "duration_ms": 30.4
+          }
+        ],
+        "health_probe_max_ms": 56.7
+      }
+    },
+    {
+      "scenario": "stress",
+      "cpus": "0.5",
+      "memory": "256m",
+      "startup": {
+        "ready_s": 13.5,
+        "healthy_s": 15.67,
+        "outcome": "ready"
+      },
+      "parity": {
+        "passed": 6,
+        "total": 6,
+        "cases": [
+          {
+            "name": "typical",
+            "http_status": 200,
+            "expected": 0.23597344756126404,
+            "actual": 0.23597344756126404,
+            "abs_diff": 0.0,
+            "decision": "review",
+            "expected_decision": "review",
+            "passed": true
+          },
+          {
+            "name": "high_risk",
+            "http_status": 200,
+            "expected": 0.9930033683776855,
+            "actual": 0.9930033683776855,
+            "abs_diff": 0.0,
+            "decision": "review",
+            "expected_decision": "review",
+            "passed": true
+          },
+          {
+            "name": "missing_numerical",
+            "http_status": 200,
+            "expected": 0.009561717510223389,
+            "actual": 0.009561717510223389,
+            "abs_diff": 0.0,
+            "decision": "approve",
+            "expected_decision": "approve",
+            "passed": true
+          },
+          {
+            "name": "unknown_categories",
+            "http_status": 200,
+            "expected": 0.03944578766822815,
+            "actual": 0.03944578766822815,
+            "abs_diff": 0.0,
+            "decision": "approve",
+            "expected_decision": "approve",
+            "passed": true
+          },
+          {
+            "name": "just_below_threshold",
+            "http_status": 200,
+            "expected": 0.06710419058799744,
+            "actual": 0.06710419058799744,
+            "abs_diff": 0.0,
+            "decision": "approve",
+            "expected_decision": "approve",
+            "passed": true
+          },
+          {
+            "name": "just_above_threshold",
+            "http_status": 200,
+            "expected": 0.0674934983253479,
+            "actual": 0.0674934983253479,
+            "abs_diff": 0.0,
+            "decision": "review",
+            "expected_decision": "review",
+            "passed": true
+          }
+        ]
+      },
+      "load_trials": [
+        {
+          "requests": 2000,
+          "concurrency": 16,
+          "warmup_requests": 200,
+          "duration_seconds": 15.198,
+          "throughput_requests_per_second": 131.6,
+          "p50_latency_ms": 101.571,
+          "p95_latency_ms": 202.347,
+          "p99_latency_ms": 212.381,
+          "error_count": 0,
+          "error_rate": 0.0,
+          "jvm_heap_used_bytes": 36254848,
+          "error_samples": []
+        },
+        {
+          "requests": 2000,
+          "concurrency": 16,
+          "warmup_requests": 200,
+          "duration_seconds": 9.002,
+          "throughput_requests_per_second": 222.18,
+          "p50_latency_ms": 94.736,
+          "p95_latency_ms": 103.564,
+          "p99_latency_ms": 106.68,
+          "error_count": 0,
+          "error_rate": 0.0,
+          "jvm_heap_used_bytes": 33782656,
+          "error_samples": []
+        },
+        {
+          "requests": 2000,
+          "concurrency": 16,
+          "warmup_requests": 200,
+          "duration_seconds": 7.4,
+          "throughput_requests_per_second": 270.25,
+          "p50_latency_ms": 89.617,
+          "p95_latency_ms": 100.853,
+          "p99_latency_ms": 104.574,
+          "error_count": 0,
+          "error_rate": 0.0,
+          "jvm_heap_used_bytes": 28049216,
+          "error_samples": []
+        }
+      ],
+      "cgroup_memory_peak_bytes": 228966400,
+      "stats": {
+        "samples": 26,
+        "mem_max_mib": 194.6,
+        "cpu_max_percent": 51.42,
+        "cpu_median_percent": 48.785
+      },
+      "final_state": {
+        "present": true,
+        "status": "running",
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0,
+        "error": "",
+        "restart_count": 0,
+        "health_status": "healthy",
+        "health_failing_streak": 0,
+        "health_probes_last5": [
+          {
+            "exit_code": 0,
+            "duration_ms": 503.9
+          },
+          {
+            "exit_code": 0,
+            "duration_ms": 396.6
+          },
+          {
+            "exit_code": 0,
+            "duration_ms": 29.0
+          },
+          {
+            "exit_code": 0,
+            "duration_ms": 30.9
+          },
+          {
+            "exit_code": 0,
+            "duration_ms": 31.5
+          }
+        ],
+        "health_probe_max_ms": 503.9
+      }
+    }
+  ],
+  "sigterm": {
+    "startup": {
+      "ready_s": 1.69,
+      "healthy_s": 5.46,
+      "outcome": "ready"
+    },
+    "docker_stop_returncode": 0,
+    "stop_duration_s": 0.23,
+    "killed_after_timeout": false,
+    "completed_before_sigterm": {
+      "total": 9622,
+      "200": 9622
+    },
+    "in_flight_at_sigterm": {
+      "total": 16,
+      "200": 16
+    },
+    "started_after_sigterm": {
+      "total": 106,
+      "200": 42,
+      "RemoteDisconnected": 16,
+      "ConnectionResetError": 47,
+      "URLError": 1
+    },
+    "log_commencing_graceful_shutdown": true,
+    "log_graceful_shutdown_complete": true,
+    "log_onnx_session_closed": false,
+    "final_state": {
+      "present": true,
+      "status": "exited",
+      "running": false,
+      "oom_killed": false,
+      "exit_code": 143,
+      "error": "",
+      "restart_count": 0,
+      "health_status": "unhealthy",
+      "health_failing_streak": 0,
+      "health_probes_last5": [
+        {
+          "exit_code": 0,
+          "duration_ms": 33.3
+        }
+      ],
+      "health_probe_max_ms": 33.3
+    }
+  }
+}

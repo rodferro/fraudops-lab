@@ -12,7 +12,7 @@ Run documented commands from the repository root. Reports retain the results and
 | --- | --- | --- |
 | EXP-000 — Python model and ONNX export | [Report](experiments/EXP-000/report.md) | [Original metrics](experiments/EXP-000/evidence/metrics.json) |
 | EXP-001 — Java inference API | [Report](experiments/EXP-001/report.md) | Results recorded in report; parity fixtures stay under `src/test/resources/` |
-| EXP-002 — Docker image | [Report](experiments/EXP-002/report.md) | [Runtime verification evidence](experiments/EXP-002/evidence/run-20261119T110142Z/) |
+| EXP-002 — Docker image | [Report](experiments/EXP-002/report.md) | [Runtime verification evidence](experiments/EXP-002/evidence/) |
 | EXP-003 — Kubernetes deployment/scaling | [Report](experiments/EXP-003/report.md) | [Evidence](experiments/EXP-003/evidence/) |
 | EXP-004 — Observability | [Report](experiments/EXP-004/report.md) | [Evidence](experiments/EXP-004/evidence/) |
 | EXP-005 — Traffic, failures, drift and delayed feedback | [Report](experiments/EXP-005/report.md) | [Aggregate evidence and static dashboard](experiments/EXP-005/evidence/20261023/) |
@@ -223,7 +223,7 @@ Spring uses graceful server shutdown with a 25-second shutdown phase. The Docker
 python scripts/exp002_verify.py
 ```
 
-Evidence goes to ignored `artifacts/EXP-002/run-<UTC>/`, including a `summary.md`. Results from the 2026-11-19 run are in the [EXP-002 report addendum](experiments/EXP-002/report.md#addendum-2026-11-19-runtime-verification-on-a-docker-engine-host).
+Evidence goes to ignored `artifacts/EXP-002/run-<UTC>/`, including a `summary.md`. Results from the 2026-11-19 runs are in the [EXP-002 report addendum](experiments/EXP-002/report.md#addendum-2026-11-19-runtime-verification-on-a-docker-engine-host).
 
 Image tagging convention: `fraudops-api:<experiment-or-release-tag>`, with app/model versions retained separately as OCI labels. No credentials are embedded in the image.
 
